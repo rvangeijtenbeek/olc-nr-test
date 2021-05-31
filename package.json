@@ -1,0 +1,12 @@
+{
+    "name": "OLC-NR-TEST",
+    "description": "Testing OL Connect nodes for Node-RED",
+    "version": "0.0.1",
+    "dependencies": {},
+    "node-red": {
+        "settings": {
+            "flowFile": "olc-nr-test-flow.json",
+            "credentialsFile": "olc-nr-test-flow_cred.json"
+        }
+    }
+}
