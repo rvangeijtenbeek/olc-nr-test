@@ -1,1 +1,3478 @@
-[]
+[
+    {
+        "id": "6db61924.bfbfa8",
+        "type": "tab",
+        "label": "data get happy flow",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "8742607d.9ee268",
+        "type": "tab",
+        "label": "data get unhappy flow",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "aa6fd619.ba432",
+        "type": "tab",
+        "label": "file upload happy flow",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "37cb15d3.0f6432",
+        "type": "tab",
+        "label": "file upload basename",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "3c2c110.e9ac1f",
+        "type": "OL Connect Server",
+        "url": "http://localhost:9340",
+        "name": "My OLC"
+    },
+    {
+        "id": "60bba764.aa824",
+        "type": "olcnr-file-upload",
+        "z": "6db61924.bfbfa8",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "C:\\Files\\Drupa Sample files\\Transact-EN.OL-datamapper",
+        "fileDuration": "temporary",
+        "name": "upload dmconfig",
+        "x": 410,
+        "y": 80,
+        "wires": [
+            [
+                "c0ae6762.0b2c7"
+            ]
+        ]
+    },
+    {
+        "id": "1dcd722.f262a0e",
+        "type": "inject",
+        "z": "6db61924.bfbfa8",
+        "name": "inject template + dm + data",
+        "props": [
+            {
+                "p": "topic",
+                "v": "",
+                "vt": "date"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 170,
+        "y": 80,
+        "wires": [
+            [
+                "881c2793.29be58",
+                "60bba764.aa824",
+                "a4d4bd37.daab9"
+            ]
+        ]
+    },
+    {
+        "id": "aaf9b659.494598",
+        "type": "debug",
+        "z": "6db61924.bfbfa8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 830,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "b9154855.37d6f",
+        "type": "debug",
+        "z": "6db61924.bfbfa8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 830,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "881c2793.29be58",
+        "type": "olcnr-file-upload",
+        "z": "6db61924.bfbfa8",
+        "d": true,
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "C:\\Files\\Designer playground\\base\\base.OL-template",
+        "fileDuration": "temporary",
+        "name": "upload template",
+        "x": 400,
+        "y": 40,
+        "wires": [
+            [
+                "c84bfe27.d85e68"
+            ]
+        ]
+    },
+    {
+        "id": "c84bfe27.d85e68",
+        "type": "change",
+        "z": "6db61924.bfbfa8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 630,
+        "y": 40,
+        "wires": [
+            [
+                "aaf9b659.494598"
+            ]
+        ]
+    },
+    {
+        "id": "c0ae6762.0b2c7",
+        "type": "change",
+        "z": "6db61924.bfbfa8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "dmConfiguration",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 80,
+        "wires": [
+            [
+                "b9154855.37d6f"
+            ]
+        ]
+    },
+    {
+        "id": "bbf8345f.d4969",
+        "type": "olcnr-data-mapping",
+        "z": "6db61924.bfbfa8",
+        "connect_server": "3c2c110.e9ac1f",
+        "dmConfiguration": "",
+        "active": false,
+        "name": "",
+        "x": 200,
+        "y": 260,
+        "wires": [
+            [
+                "79fe3c3b.7bd03c",
+                "6aa80eef.6a3858",
+                "5684be29.9ec02",
+                "61fcb40e.c174f4",
+                "bb9855f2.dd2f18",
+                "21da418b.4f3f9e",
+                "a2d610ff.448928"
+            ]
+        ]
+    },
+    {
+        "id": "e76ac42.79b85b8",
+        "type": "inject",
+        "z": "6db61924.bfbfa8",
+        "name": "Inject flow.datafileId + flow.dmConfiguration",
+        "props": [
+            {
+                "p": "dmConfiguration",
+                "v": "dmConfiguration",
+                "vt": "flow"
+            },
+            {
+                "p": "managedFileId",
+                "v": "datafileId",
+                "vt": "flow"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 220,
+        "y": 180,
+        "wires": [
+            [
+                "bbf8345f.d4969"
+            ]
+        ]
+    },
+    {
+        "id": "79fe3c3b.7bd03c",
+        "type": "olcnr-data-get",
+        "z": "6db61924.bfbfa8",
+        "connect_server": "3c2c110.e9ac1f",
+        "inputType": "set",
+        "outputType": "ids",
+        "details": "false",
+        "outputJSON": "full",
+        "name": "",
+        "x": 480,
+        "y": 460,
+        "wires": [
+            [
+                "704b467e.173568"
+            ]
+        ]
+    },
+    {
+        "id": "6aa80eef.6a3858",
+        "type": "debug",
+        "z": "6db61924.bfbfa8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "704b467e.173568",
+        "type": "debug",
+        "z": "6db61924.bfbfa8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "ded33f0c.4da3",
+        "type": "function",
+        "z": "6db61924.bfbfa8",
+        "name": "get first item of the array",
+        "func": "msg.payload = msg.payload[0]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 230,
+        "y": 680,
+        "wires": [
+            [
+                "e25d9f72.355638",
+                "76506bf0.43fc2c",
+                "5ffbe3db.e6c564",
+                "c038a09e.f934e",
+                "2115fd7d.6168ba"
+            ]
+        ]
+    },
+    {
+        "id": "e25d9f72.355638",
+        "type": "olcnr-data-get",
+        "z": "6db61924.bfbfa8",
+        "connect_server": "3c2c110.e9ac1f",
+        "inputType": "record",
+        "outputType": "values",
+        "details": "true",
+        "outputJSON": "full",
+        "name": "",
+        "x": 480,
+        "y": 680,
+        "wires": [
+            [
+                "480a46fb.7fc7d"
+            ]
+        ]
+    },
+    {
+        "id": "a4d4bd37.daab9",
+        "type": "olcnr-file-upload",
+        "z": "6db61924.bfbfa8",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "C:\\Files\\Test data\\Transact-EN-2rec.csv",
+        "fileDuration": "temporary",
+        "name": "upload data file",
+        "x": 400,
+        "y": 120,
+        "wires": [
+            [
+                "7046c2b3.ec8cac"
+            ]
+        ]
+    },
+    {
+        "id": "480a46fb.7fc7d",
+        "type": "debug",
+        "z": "6db61924.bfbfa8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "76506bf0.43fc2c",
+        "type": "olcnr-data-get",
+        "z": "6db61924.bfbfa8",
+        "connect_server": "3c2c110.e9ac1f",
+        "inputType": "record",
+        "outputType": "values",
+        "details": "false",
+        "outputJSON": "full",
+        "name": "",
+        "x": 480,
+        "y": 720,
+        "wires": [
+            [
+                "187d1649.9b00aa"
+            ]
+        ]
+    },
+    {
+        "id": "187d1649.9b00aa",
+        "type": "debug",
+        "z": "6db61924.bfbfa8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "5684be29.9ec02",
+        "type": "olcnr-data-get",
+        "z": "6db61924.bfbfa8",
+        "connect_server": "3c2c110.e9ac1f",
+        "inputType": "set",
+        "outputType": "values",
+        "details": "true",
+        "outputJSON": "full",
+        "name": "",
+        "x": 480,
+        "y": 300,
+        "wires": [
+            [
+                "fe7c38f5.7422d"
+            ]
+        ]
+    },
+    {
+        "id": "fe7c38f5.7422d",
+        "type": "debug",
+        "z": "6db61924.bfbfa8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "f9bf41d0.2fe848",
+        "type": "comment",
+        "z": "6db61924.bfbfa8",
+        "name": "payload: array of Objects with values",
+        "info": "",
+        "x": 930,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "13740484.0187fb",
+        "type": "comment",
+        "z": "6db61924.bfbfa8",
+        "name": "payload: array of Record IDs",
+        "info": "",
+        "x": 900,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "e5833382.e4269",
+        "type": "comment",
+        "z": "6db61924.bfbfa8",
+        "name": "payload: values of first item",
+        "info": "",
+        "x": 900,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "9070e9a1.07aff",
+        "type": "comment",
+        "z": "6db61924.bfbfa8",
+        "name": "payload: values of first item without details",
+        "info": "",
+        "x": 940,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "e60726a9.d97a2",
+        "type": "comment",
+        "z": "6db61924.bfbfa8",
+        "name": "payload: undefined",
+        "info": "",
+        "x": 870,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "5ffbe3db.e6c564",
+        "type": "olcnr-data-get",
+        "z": "6db61924.bfbfa8",
+        "connect_server": "3c2c110.e9ac1f",
+        "inputType": "record",
+        "outputType": "values",
+        "details": "true",
+        "outputJSON": "simple",
+        "name": "",
+        "x": 480,
+        "y": 760,
+        "wires": [
+            [
+                "f4b65891.97184"
+            ]
+        ]
+    },
+    {
+        "id": "f4b65891.97184",
+        "type": "debug",
+        "z": "6db61924.bfbfa8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "c038a09e.f934e",
+        "type": "olcnr-data-get",
+        "z": "6db61924.bfbfa8",
+        "connect_server": "3c2c110.e9ac1f",
+        "inputType": "record",
+        "outputType": "values",
+        "details": "false",
+        "outputJSON": "simple",
+        "name": "",
+        "x": 480,
+        "y": 800,
+        "wires": [
+            [
+                "62d3338.5debb4c"
+            ]
+        ]
+    },
+    {
+        "id": "62d3338.5debb4c",
+        "type": "debug",
+        "z": "6db61924.bfbfa8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "f46d1619.d83ff",
+        "type": "comment",
+        "z": "6db61924.bfbfa8",
+        "name": "payload: simplied values of first item",
+        "info": "",
+        "x": 920,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "9c1f5bf1.4f7a4",
+        "type": "comment",
+        "z": "6db61924.bfbfa8",
+        "name": "payload: simplified values of first item without details",
+        "info": "",
+        "x": 970,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "7046c2b3.ec8cac",
+        "type": "change",
+        "z": "6db61924.bfbfa8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "datafileId",
+                "pt": "flow",
+                "to": "managedFileId",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 630,
+        "y": 120,
+        "wires": [
+            [
+                "1e046f42.3cf3f9"
+            ]
+        ]
+    },
+    {
+        "id": "1e046f42.3cf3f9",
+        "type": "debug",
+        "z": "6db61924.bfbfa8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 830,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "3da2ce72.4d25ca",
+        "type": "olcnr-file-upload",
+        "z": "8742607d.9ee268",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "C:\\Files\\Drupa Sample files\\Transact-EN.OL-datamapper",
+        "fileDuration": "temporary",
+        "name": "upload dmconfig",
+        "x": 410,
+        "y": 80,
+        "wires": [
+            [
+                "af99db19.38eb18"
+            ]
+        ]
+    },
+    {
+        "id": "2effedb3.c21922",
+        "type": "inject",
+        "z": "8742607d.9ee268",
+        "name": "inject template + dm + data",
+        "props": [
+            {
+                "p": "topic",
+                "v": "",
+                "vt": "date"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 170,
+        "y": 80,
+        "wires": [
+            [
+                "2456e340.850ca4",
+                "3da2ce72.4d25ca",
+                "510b637c.c05e9c"
+            ]
+        ]
+    },
+    {
+        "id": "3517478e.2bc318",
+        "type": "debug",
+        "z": "8742607d.9ee268",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 830,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "1f4db859.b9622",
+        "type": "debug",
+        "z": "8742607d.9ee268",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 830,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "2456e340.850ca4",
+        "type": "olcnr-file-upload",
+        "z": "8742607d.9ee268",
+        "d": true,
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "C:\\Files\\Designer playground\\base\\base.OL-template",
+        "fileDuration": "temporary",
+        "name": "upload template",
+        "x": 400,
+        "y": 40,
+        "wires": [
+            [
+                "339eeaaa.3889b6"
+            ]
+        ]
+    },
+    {
+        "id": "339eeaaa.3889b6",
+        "type": "change",
+        "z": "8742607d.9ee268",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 630,
+        "y": 40,
+        "wires": [
+            [
+                "3517478e.2bc318"
+            ]
+        ]
+    },
+    {
+        "id": "af99db19.38eb18",
+        "type": "change",
+        "z": "8742607d.9ee268",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "dmConfiguration",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 80,
+        "wires": [
+            [
+                "1f4db859.b9622"
+            ]
+        ]
+    },
+    {
+        "id": "510b637c.c05e9c",
+        "type": "olcnr-file-upload",
+        "z": "8742607d.9ee268",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "C:\\Files\\Test data\\Transact-EN-2rec.csv",
+        "fileDuration": "temporary",
+        "name": "upload data file",
+        "x": 400,
+        "y": 120,
+        "wires": [
+            [
+                "37768927.5855e6"
+            ]
+        ]
+    },
+    {
+        "id": "37768927.5855e6",
+        "type": "change",
+        "z": "8742607d.9ee268",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "datafileId",
+                "pt": "flow",
+                "to": "managedFileId",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 630,
+        "y": 120,
+        "wires": [
+            [
+                "a63363da.e2103"
+            ]
+        ]
+    },
+    {
+        "id": "a63363da.e2103",
+        "type": "debug",
+        "z": "8742607d.9ee268",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 830,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "2ee71e29.a30aea",
+        "type": "olcnr-data-mapping",
+        "z": "8742607d.9ee268",
+        "connect_server": "3c2c110.e9ac1f",
+        "dmConfiguration": "",
+        "active": false,
+        "name": "",
+        "x": 500,
+        "y": 220,
+        "wires": [
+            [
+                "77436520.53691c"
+            ]
+        ]
+    },
+    {
+        "id": "e9c58548.197d58",
+        "type": "inject",
+        "z": "8742607d.9ee268",
+        "name": "Inject flow.datafileId + flow.dmConfiguration",
+        "props": [
+            {
+                "p": "dmConfiguration",
+                "v": "dmConfiguration",
+                "vt": "flow"
+            },
+            {
+                "p": "managedFileId",
+                "v": "datafileId",
+                "vt": "flow"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 220,
+        "y": 220,
+        "wires": [
+            [
+                "2ee71e29.a30aea"
+            ]
+        ]
+    },
+    {
+        "id": "c778f8f9.e6c72",
+        "type": "olcnr-data-get",
+        "z": "8742607d.9ee268",
+        "connect_server": "3c2c110.e9ac1f",
+        "inputType": "set",
+        "outputType": "values",
+        "details": "true",
+        "outputJSON": "full",
+        "name": "",
+        "x": 360,
+        "y": 280,
+        "wires": [
+            [
+                "4267fdcb.5b64dc"
+            ]
+        ]
+    },
+    {
+        "id": "4267fdcb.5b64dc",
+        "type": "debug",
+        "z": "8742607d.9ee268",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 510,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "fea48355.aa52f8",
+        "type": "comment",
+        "z": "8742607d.9ee268",
+        "name": "payload is not a Dataset ID but a Record ID",
+        "info": "",
+        "x": 790,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "d87522e2.73e5e8",
+        "type": "function",
+        "z": "8742607d.9ee268",
+        "name": "get first item of the payload array",
+        "func": "msg.payload = msg.payload[0]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 920,
+        "y": 220,
+        "wires": [
+            [
+                "c778f8f9.e6c72"
+            ]
+        ]
+    },
+    {
+        "id": "77436520.53691c",
+        "type": "olcnr-data-get",
+        "z": "8742607d.9ee268",
+        "connect_server": "3c2c110.e9ac1f",
+        "inputType": "set",
+        "outputType": "ids",
+        "details": "true",
+        "outputJSON": "full",
+        "name": "",
+        "x": 680,
+        "y": 220,
+        "wires": [
+            [
+                "d87522e2.73e5e8"
+            ]
+        ]
+    },
+    {
+        "id": "4773b55b.578884",
+        "type": "inject",
+        "z": "8742607d.9ee268",
+        "name": "inject a string",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "123456",
+        "payloadType": "str",
+        "x": 130,
+        "y": 340,
+        "wires": [
+            [
+                "3df2beea.16bc7a",
+                "c338cfd5.a29a8"
+            ]
+        ]
+    },
+    {
+        "id": "3df2beea.16bc7a",
+        "type": "olcnr-data-get",
+        "z": "8742607d.9ee268",
+        "connect_server": "3c2c110.e9ac1f",
+        "inputType": "set",
+        "outputType": "values",
+        "details": "true",
+        "outputJSON": "full",
+        "name": "",
+        "x": 360,
+        "y": 340,
+        "wires": [
+            [
+                "4b3881e1.0e8688"
+            ]
+        ]
+    },
+    {
+        "id": "4b3881e1.0e8688",
+        "type": "debug",
+        "z": "8742607d.9ee268",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 510,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "feae2c3d.01b66",
+        "type": "comment",
+        "z": "8742607d.9ee268",
+        "name": "no payload, no dataSetId",
+        "info": "",
+        "x": 730,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "c338cfd5.a29a8",
+        "type": "olcnr-data-get",
+        "z": "8742607d.9ee268",
+        "connect_server": "3c2c110.e9ac1f",
+        "inputType": "record",
+        "outputType": "values",
+        "details": "true",
+        "outputJSON": "full",
+        "name": "",
+        "x": 360,
+        "y": 400,
+        "wires": [
+            [
+                "a3a280aa.427ec8"
+            ]
+        ]
+    },
+    {
+        "id": "a3a280aa.427ec8",
+        "type": "debug",
+        "z": "8742607d.9ee268",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 510,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "ebc5ab8d.4cced8",
+        "type": "comment",
+        "z": "8742607d.9ee268",
+        "name": "no payload, no dataRecordId",
+        "info": "",
+        "x": 740,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "ab661562.68b87",
+        "type": "inject",
+        "z": "8742607d.9ee268",
+        "name": "inject a float",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "123.23",
+        "payloadType": "num",
+        "x": 130,
+        "y": 460,
+        "wires": [
+            [
+                "943c2528.df16d8",
+                "e01353a7.aa258"
+            ]
+        ]
+    },
+    {
+        "id": "943c2528.df16d8",
+        "type": "olcnr-data-get",
+        "z": "8742607d.9ee268",
+        "connect_server": "3c2c110.e9ac1f",
+        "inputType": "set",
+        "outputType": "values",
+        "details": "true",
+        "outputJSON": "full",
+        "name": "",
+        "x": 360,
+        "y": 460,
+        "wires": [
+            [
+                "59d4f931.fd6b"
+            ]
+        ]
+    },
+    {
+        "id": "59d4f931.fd6b",
+        "type": "debug",
+        "z": "8742607d.9ee268",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 510,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "4fc4c84e.af17a8",
+        "type": "comment",
+        "z": "8742607d.9ee268",
+        "name": "no payload, no dataSetId",
+        "info": "",
+        "x": 730,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "e01353a7.aa258",
+        "type": "olcnr-data-get",
+        "z": "8742607d.9ee268",
+        "connect_server": "3c2c110.e9ac1f",
+        "inputType": "record",
+        "outputType": "values",
+        "details": "true",
+        "outputJSON": "full",
+        "name": "",
+        "x": 360,
+        "y": 520,
+        "wires": [
+            [
+                "ea243794.710d6"
+            ]
+        ]
+    },
+    {
+        "id": "ea243794.710d6",
+        "type": "debug",
+        "z": "8742607d.9ee268",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 510,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "f59709bb.c809b",
+        "type": "comment",
+        "z": "8742607d.9ee268",
+        "name": "no payload, no dataRecordId",
+        "info": "",
+        "x": 740,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "6373a6b3.d5b808",
+        "type": "comment",
+        "z": "8742607d.9ee268",
+        "name": "unhappy flows",
+        "info": "",
+        "x": 130,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "3534df1.ee1e12",
+        "type": "olcnr-data-get",
+        "z": "8742607d.9ee268",
+        "connect_server": "3c2c110.e9ac1f",
+        "inputType": "set",
+        "outputType": "values",
+        "details": "true",
+        "outputJSON": "full",
+        "name": "",
+        "x": 360,
+        "y": 640,
+        "wires": [
+            [
+                "fc372f66.1fd1d8"
+            ]
+        ]
+    },
+    {
+        "id": "fc372f66.1fd1d8",
+        "type": "debug",
+        "z": "8742607d.9ee268",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 510,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "1dad49b.93872b6",
+        "type": "comment",
+        "z": "8742607d.9ee268",
+        "name": "payload is not an existing Dataset ID",
+        "info": "",
+        "x": 760,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "5609627c.fdbaec",
+        "type": "inject",
+        "z": "8742607d.9ee268",
+        "name": "inject random number",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 640,
+        "wires": [
+            [
+                "1ed4849e.66c113",
+                "3534df1.ee1e12"
+            ]
+        ]
+    },
+    {
+        "id": "1ed4849e.66c113",
+        "type": "olcnr-data-get",
+        "z": "8742607d.9ee268",
+        "connect_server": "3c2c110.e9ac1f",
+        "inputType": "record",
+        "outputType": "values",
+        "details": "true",
+        "outputJSON": "full",
+        "name": "",
+        "x": 360,
+        "y": 700,
+        "wires": [
+            [
+                "b939e5d.d0ffb98"
+            ]
+        ]
+    },
+    {
+        "id": "b939e5d.d0ffb98",
+        "type": "debug",
+        "z": "8742607d.9ee268",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 510,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "7b1556d2.fc081",
+        "type": "comment",
+        "z": "8742607d.9ee268",
+        "name": "payload is not an existing Record ID",
+        "info": "",
+        "x": 760,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "3817e033.6d5a68",
+        "type": "inject",
+        "z": "8742607d.9ee268",
+        "name": "inject without payload",
+        "props": [
+            {
+                "p": "foo",
+                "v": "foo",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 160,
+        "y": 760,
+        "wires": [
+            [
+                "547d4970.cd0be8",
+                "4761ce9e.1562f"
+            ]
+        ]
+    },
+    {
+        "id": "547d4970.cd0be8",
+        "type": "olcnr-data-get",
+        "z": "8742607d.9ee268",
+        "connect_server": "3c2c110.e9ac1f",
+        "inputType": "set",
+        "outputType": "values",
+        "details": "true",
+        "outputJSON": "full",
+        "name": "",
+        "x": 360,
+        "y": 760,
+        "wires": [
+            [
+                "ecac8b52.841f4"
+            ]
+        ]
+    },
+    {
+        "id": "ecac8b52.841f4",
+        "type": "debug",
+        "z": "8742607d.9ee268",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 510,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "d9fcf047.bf64c",
+        "type": "comment",
+        "z": "8742607d.9ee268",
+        "name": "no payload, no dataSetId",
+        "info": "",
+        "x": 730,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "4761ce9e.1562f",
+        "type": "olcnr-data-get",
+        "z": "8742607d.9ee268",
+        "connect_server": "3c2c110.e9ac1f",
+        "inputType": "record",
+        "outputType": "values",
+        "details": "true",
+        "outputJSON": "full",
+        "name": "",
+        "x": 360,
+        "y": 820,
+        "wires": [
+            [
+                "46f05e89.a421b"
+            ]
+        ]
+    },
+    {
+        "id": "46f05e89.a421b",
+        "type": "debug",
+        "z": "8742607d.9ee268",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 510,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "2f7b926f.e2f7d6",
+        "type": "comment",
+        "z": "8742607d.9ee268",
+        "name": "no payload, no dataRecordId",
+        "info": "",
+        "x": 740,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "61fcb40e.c174f4",
+        "type": "olcnr-data-get",
+        "z": "6db61924.bfbfa8",
+        "connect_server": "3c2c110.e9ac1f",
+        "inputType": "set",
+        "outputType": "values",
+        "details": "true",
+        "outputJSON": "simple",
+        "name": "",
+        "x": 480,
+        "y": 340,
+        "wires": [
+            [
+                "f20b8643.57a8e8"
+            ]
+        ]
+    },
+    {
+        "id": "f20b8643.57a8e8",
+        "type": "debug",
+        "z": "6db61924.bfbfa8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "8789afee.cd8618",
+        "type": "comment",
+        "z": "6db61924.bfbfa8",
+        "name": "payload: array of Objects with simplified values",
+        "info": "",
+        "x": 960,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "bb9855f2.dd2f18",
+        "type": "olcnr-data-get",
+        "z": "6db61924.bfbfa8",
+        "connect_server": "3c2c110.e9ac1f",
+        "inputType": "set",
+        "outputType": "values",
+        "details": "false",
+        "outputJSON": "full",
+        "name": "",
+        "x": 480,
+        "y": 380,
+        "wires": [
+            [
+                "a04044ac.591fa8"
+            ]
+        ]
+    },
+    {
+        "id": "a04044ac.591fa8",
+        "type": "debug",
+        "z": "6db61924.bfbfa8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "e7d678a6.d5f228",
+        "type": "comment",
+        "z": "6db61924.bfbfa8",
+        "name": "payload: array of Objects with values (no details)",
+        "info": "",
+        "x": 960,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "21da418b.4f3f9e",
+        "type": "olcnr-data-get",
+        "z": "6db61924.bfbfa8",
+        "connect_server": "3c2c110.e9ac1f",
+        "inputType": "set",
+        "outputType": "values",
+        "details": "false",
+        "outputJSON": "simple",
+        "name": "",
+        "x": 480,
+        "y": 420,
+        "wires": [
+            [
+                "64530517.fe5ec4"
+            ]
+        ]
+    },
+    {
+        "id": "64530517.fe5ec4",
+        "type": "debug",
+        "z": "6db61924.bfbfa8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "893d9cda.9ac7b",
+        "type": "comment",
+        "z": "6db61924.bfbfa8",
+        "name": "payload: array of Objects with simplified values (no details)",
+        "info": "",
+        "x": 990,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "b9e728fb.a04c48",
+        "type": "comment",
+        "z": "6db61924.bfbfa8",
+        "name": "using payload with Dataset ID",
+        "info": "",
+        "x": 240,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "43ea7d2f.9ffd54",
+        "type": "olcnr-data-get",
+        "z": "6db61924.bfbfa8",
+        "connect_server": "3c2c110.e9ac1f",
+        "inputType": "set",
+        "outputType": "ids",
+        "details": "true",
+        "outputJSON": "full",
+        "name": "",
+        "x": 480,
+        "y": 560,
+        "wires": [
+            [
+                "40c9e50a.1fd00c",
+                "ded33f0c.4da3"
+            ]
+        ]
+    },
+    {
+        "id": "40c9e50a.1fd00c",
+        "type": "debug",
+        "z": "6db61924.bfbfa8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "a2d610ff.448928",
+        "type": "change",
+        "z": "6db61924.bfbfa8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "dataSetId",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "dataSetId",
+                "pt": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "managedFileId",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 200,
+        "y": 560,
+        "wires": [
+            [
+                "43ea7d2f.9ffd54",
+                "9c97e29e.4216b"
+            ]
+        ]
+    },
+    {
+        "id": "30d3828e.697a4e",
+        "type": "comment",
+        "z": "6db61924.bfbfa8",
+        "name": "payload: array of Record IDs",
+        "info": "",
+        "x": 900,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "2fad76b0.2e886a",
+        "type": "comment",
+        "z": "6db61924.bfbfa8",
+        "name": "using payload with Record ID",
+        "info": "",
+        "x": 240,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "cdf2c153.7e4f1",
+        "type": "comment",
+        "z": "6db61924.bfbfa8",
+        "name": "using msg.dataSetId",
+        "info": "",
+        "x": 210,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "1c423752.422209",
+        "type": "comment",
+        "z": "6db61924.bfbfa8",
+        "name": "using msg.dataRecordId",
+        "info": "",
+        "x": 230,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "2115fd7d.6168ba",
+        "type": "change",
+        "z": "6db61924.bfbfa8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "dataRecordId",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 200,
+        "y": 880,
+        "wires": [
+            [
+                "8e6b3239.0a8ff",
+                "ede5a8bd.c346b"
+            ]
+        ]
+    },
+    {
+        "id": "8e6b3239.0a8ff",
+        "type": "olcnr-data-get",
+        "z": "6db61924.bfbfa8",
+        "connect_server": "3c2c110.e9ac1f",
+        "inputType": "record",
+        "outputType": "values",
+        "details": "true",
+        "outputJSON": "full",
+        "name": "",
+        "x": 480,
+        "y": 880,
+        "wires": [
+            [
+                "e6711ba6.2b64b8"
+            ]
+        ]
+    },
+    {
+        "id": "e6711ba6.2b64b8",
+        "type": "debug",
+        "z": "6db61924.bfbfa8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "78eeba83.89cafc",
+        "type": "comment",
+        "z": "6db61924.bfbfa8",
+        "name": "payload: values of first item",
+        "info": "",
+        "x": 900,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "9c97e29e.4216b",
+        "type": "debug",
+        "z": "6db61924.bfbfa8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 470,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "ede5a8bd.c346b",
+        "type": "debug",
+        "z": "6db61924.bfbfa8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 470,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "c891b875.caa45",
+        "type": "olcnr-file-upload",
+        "z": "aa6fd619.ba432",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "",
+        "fileDuration": "temporary",
+        "name": "upload dmconfig",
+        "x": 570,
+        "y": 160,
+        "wires": [
+            [
+                "9c3e20a3.c1bb4"
+            ]
+        ]
+    },
+    {
+        "id": "d5c868a4.963f3",
+        "type": "debug",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "9c3e20a3.c1bb4",
+        "type": "debug",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "3a850f13.7da8c8",
+        "type": "olcnr-file-upload",
+        "z": "aa6fd619.ba432",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "",
+        "fileDuration": "temporary",
+        "name": "upload template",
+        "x": 560,
+        "y": 80,
+        "wires": [
+            [
+                "d5c868a4.963f3"
+            ]
+        ]
+    },
+    {
+        "id": "38b58af9.cd53fe",
+        "type": "olcnr-file-upload",
+        "z": "aa6fd619.ba432",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "",
+        "fileDuration": "temporary",
+        "name": "upload data file",
+        "x": 560,
+        "y": 240,
+        "wires": [
+            [
+                "f56ae740.9ad1b"
+            ]
+        ]
+    },
+    {
+        "id": "f56ae740.9ad1b",
+        "type": "debug",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "635125c.0e0f15c",
+        "type": "inject",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 200,
+        "wires": [
+            [
+                "75e8b6ed.bbaf3",
+                "a3051fc3.7a041",
+                "16a0d5ee.760892",
+                "ab666996.72d178"
+            ]
+        ]
+    },
+    {
+        "id": "75e8b6ed.bbaf3",
+        "type": "change",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "C:\\Files\\Designer playground\\base\\base.OL-template",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 80,
+        "wires": [
+            [
+                "3a850f13.7da8c8"
+            ]
+        ]
+    },
+    {
+        "id": "a3051fc3.7a041",
+        "type": "change",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "C:\\Files\\Designer playground\\base\\base.OL-datamapper",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 160,
+        "wires": [
+            [
+                "c891b875.caa45"
+            ]
+        ]
+    },
+    {
+        "id": "16a0d5ee.760892",
+        "type": "change",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "C:\\Files\\Designer playground\\base\\base.xml",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 240,
+        "wires": [
+            [
+                "38b58af9.cd53fe"
+            ]
+        ]
+    },
+    {
+        "id": "5de8313f.69d038",
+        "type": "comment",
+        "z": "aa6fd619.ba432",
+        "name": ".OL-template file",
+        "info": "",
+        "x": 300,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "222a0f2c.c5a908",
+        "type": "comment",
+        "z": "aa6fd619.ba432",
+        "name": ".OL-datamapper file",
+        "info": "",
+        "x": 310,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "de9fd456.5f84b8",
+        "type": "comment",
+        "z": "aa6fd619.ba432",
+        "name": ".xml file",
+        "info": "",
+        "x": 270,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "4c0b5df9.ea4cdc",
+        "type": "olcnr-file-upload",
+        "z": "aa6fd619.ba432",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "",
+        "fileDuration": "temporary",
+        "name": "upload zip file",
+        "x": 560,
+        "y": 320,
+        "wires": [
+            [
+                "fa6a2598.99bfb"
+            ]
+        ]
+    },
+    {
+        "id": "fa6a2598.99bfb",
+        "type": "debug",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "ab666996.72d178",
+        "type": "change",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "C:\\Files\\Test data\\foo.zip",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 320,
+        "wires": [
+            [
+                "4c0b5df9.ea4cdc"
+            ]
+        ]
+    },
+    {
+        "id": "7aef037a.787064",
+        "type": "comment",
+        "z": "aa6fd619.ba432",
+        "name": ".zip file",
+        "info": "",
+        "x": 270,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "e4168f90.f91b4",
+        "type": "comment",
+        "z": "aa6fd619.ba432",
+        "name": "full path, temp",
+        "info": "",
+        "x": 130,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "432088ab.5bb048",
+        "type": "olcnr-file-upload",
+        "z": "aa6fd619.ba432",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "",
+        "fileDuration": "temporary",
+        "name": "upload dmconfig",
+        "x": 570,
+        "y": 520,
+        "wires": [
+            [
+                "bbec9d87.8dd32"
+            ]
+        ]
+    },
+    {
+        "id": "4b3f5140.54fde",
+        "type": "debug",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "bbec9d87.8dd32",
+        "type": "debug",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "908889ce.b1a2e",
+        "type": "olcnr-file-upload",
+        "z": "aa6fd619.ba432",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "",
+        "fileDuration": "temporary",
+        "name": "upload template",
+        "x": 560,
+        "y": 440,
+        "wires": [
+            [
+                "4b3f5140.54fde"
+            ]
+        ]
+    },
+    {
+        "id": "311f2ab4.0633d6",
+        "type": "olcnr-file-upload",
+        "z": "aa6fd619.ba432",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "",
+        "fileDuration": "temporary",
+        "name": "upload data file",
+        "x": 560,
+        "y": 600,
+        "wires": [
+            [
+                "98ed22b9.5c65c8"
+            ]
+        ]
+    },
+    {
+        "id": "98ed22b9.5c65c8",
+        "type": "debug",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "ff232c59.44ed98",
+        "type": "inject",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 560,
+        "wires": [
+            [
+                "953709e.c0fc878",
+                "3b941022.f4e59",
+                "5fb119b5.19bbf",
+                "651c6ece.c6a89"
+            ]
+        ]
+    },
+    {
+        "id": "953709e.c0fc878",
+        "type": "change",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "projects\\OLC-NR-TEST\\base\\base.OL-template",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 440,
+        "wires": [
+            [
+                "908889ce.b1a2e"
+            ]
+        ]
+    },
+    {
+        "id": "3b941022.f4e59",
+        "type": "change",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "base\\base.OL-datamapper",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 520,
+        "wires": [
+            [
+                "432088ab.5bb048"
+            ]
+        ]
+    },
+    {
+        "id": "5fb119b5.19bbf",
+        "type": "change",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "base\\base.xml",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 600,
+        "wires": [
+            [
+                "311f2ab4.0633d6"
+            ]
+        ]
+    },
+    {
+        "id": "13bdfaa1.cfe785",
+        "type": "comment",
+        "z": "aa6fd619.ba432",
+        "name": ".OL-template file",
+        "info": "",
+        "x": 300,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "f0c6d3b.7a853b",
+        "type": "comment",
+        "z": "aa6fd619.ba432",
+        "name": ".OL-datamapper file",
+        "info": "",
+        "x": 310,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "c5d1108d.8f6ac8",
+        "type": "comment",
+        "z": "aa6fd619.ba432",
+        "name": ".xml file",
+        "info": "",
+        "x": 270,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "56ec57d0.9c0348",
+        "type": "olcnr-file-upload",
+        "z": "aa6fd619.ba432",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "",
+        "fileDuration": "temporary",
+        "name": "upload data file",
+        "x": 560,
+        "y": 680,
+        "wires": [
+            [
+                "b6c5bbb9.186b"
+            ]
+        ]
+    },
+    {
+        "id": "b6c5bbb9.186b",
+        "type": "debug",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "651c6ece.c6a89",
+        "type": "change",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "base\\foo.zip",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 680,
+        "wires": [
+            [
+                "56ec57d0.9c0348"
+            ]
+        ]
+    },
+    {
+        "id": "d1a1ed33.edb69",
+        "type": "comment",
+        "z": "aa6fd619.ba432",
+        "name": ".zip file",
+        "info": "",
+        "x": 270,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "c557e339.c910f8",
+        "type": "comment",
+        "z": "aa6fd619.ba432",
+        "name": "workdir path, temp",
+        "info": "",
+        "x": 150,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "6850505b.7c758",
+        "type": "olcnr-file-upload",
+        "z": "aa6fd619.ba432",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "",
+        "fileDuration": "temporary",
+        "name": "upload dmconfig",
+        "x": 570,
+        "y": 880,
+        "wires": [
+            [
+                "3078ac27.7d05cc"
+            ]
+        ]
+    },
+    {
+        "id": "cc8ac25d.ef01b8",
+        "type": "debug",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "3078ac27.7d05cc",
+        "type": "debug",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "575d8015.f40e68",
+        "type": "olcnr-file-upload",
+        "z": "aa6fd619.ba432",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "",
+        "fileDuration": "temporary",
+        "name": "upload template",
+        "x": 560,
+        "y": 800,
+        "wires": [
+            [
+                "cc8ac25d.ef01b8"
+            ]
+        ]
+    },
+    {
+        "id": "1a605cdd.f11e93",
+        "type": "olcnr-file-upload",
+        "z": "aa6fd619.ba432",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "",
+        "fileDuration": "temporary",
+        "name": "upload data file",
+        "x": 560,
+        "y": 960,
+        "wires": [
+            [
+                "a9704db8.43b5a8"
+            ]
+        ]
+    },
+    {
+        "id": "a9704db8.43b5a8",
+        "type": "debug",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "c584e7fa.20c228",
+        "type": "inject",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 920,
+        "wires": [
+            [
+                "b80469d1.c2bb98",
+                "f3369211.06a85",
+                "2a74a1e5.e42276",
+                "24d9d8ef.0e83e"
+            ]
+        ]
+    },
+    {
+        "id": "b80469d1.c2bb98",
+        "type": "change",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "base\\base.OL-template",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 800,
+        "wires": [
+            [
+                "575d8015.f40e68"
+            ]
+        ]
+    },
+    {
+        "id": "f3369211.06a85",
+        "type": "change",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "base\\base.OL-datamapper",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 880,
+        "wires": [
+            [
+                "6850505b.7c758"
+            ]
+        ]
+    },
+    {
+        "id": "2a74a1e5.e42276",
+        "type": "change",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "base\\base.xml",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 960,
+        "wires": [
+            [
+                "1a605cdd.f11e93"
+            ]
+        ]
+    },
+    {
+        "id": "3c44666f.2f5f02",
+        "type": "comment",
+        "z": "aa6fd619.ba432",
+        "name": ".OL-template file",
+        "info": "",
+        "x": 300,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "c1a65bde.7eb6e",
+        "type": "comment",
+        "z": "aa6fd619.ba432",
+        "name": ".OL-datamapper file",
+        "info": "",
+        "x": 310,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "ce8f6166.e08d8",
+        "type": "comment",
+        "z": "aa6fd619.ba432",
+        "name": ".xml file",
+        "info": "",
+        "x": 270,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "fafed0be.d0198",
+        "type": "olcnr-file-upload",
+        "z": "aa6fd619.ba432",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "",
+        "fileDuration": "temporary",
+        "name": "upload data file",
+        "x": 560,
+        "y": 1040,
+        "wires": [
+            [
+                "80944e56.c17958"
+            ]
+        ]
+    },
+    {
+        "id": "80944e56.c17958",
+        "type": "debug",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "24d9d8ef.0e83e",
+        "type": "change",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "base\\foo.zip",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 1040,
+        "wires": [
+            [
+                "fafed0be.d0198"
+            ]
+        ]
+    },
+    {
+        "id": "3061ae2a.e198a2",
+        "type": "comment",
+        "z": "aa6fd619.ba432",
+        "name": ".zip file",
+        "info": "",
+        "x": 270,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "935332c9.c7d558",
+        "type": "comment",
+        "z": "aa6fd619.ba432",
+        "name": "project path, temp",
+        "info": "",
+        "x": 150,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "e48da2fe.7cbfb8",
+        "type": "olcnr-file-upload",
+        "z": "37cb15d3.0f6432",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "",
+        "fileDuration": "temporary",
+        "name": "upload dmconfig",
+        "x": 510,
+        "y": 240,
+        "wires": [
+            [
+                "455c73e.899a08c"
+            ]
+        ]
+    },
+    {
+        "id": "692aa0f8.d6e298",
+        "type": "debug",
+        "z": "37cb15d3.0f6432",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "455c73e.899a08c",
+        "type": "debug",
+        "z": "37cb15d3.0f6432",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "1a499ee0.e50179",
+        "type": "olcnr-file-upload",
+        "z": "37cb15d3.0f6432",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "",
+        "fileDuration": "temporary",
+        "name": "upload template",
+        "x": 500,
+        "y": 80,
+        "wires": [
+            [
+                "692aa0f8.d6e298"
+            ]
+        ]
+    },
+    {
+        "id": "b6e1aff2.f0ca58",
+        "type": "olcnr-file-upload",
+        "z": "37cb15d3.0f6432",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "",
+        "fileDuration": "temporary",
+        "name": "upload data file",
+        "x": 500,
+        "y": 320,
+        "wires": [
+            [
+                "cf00757.463cc88"
+            ]
+        ]
+    },
+    {
+        "id": "cf00757.463cc88",
+        "type": "debug",
+        "z": "37cb15d3.0f6432",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "51933a64.92f14c",
+        "type": "inject",
+        "z": "37cb15d3.0f6432",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 320,
+        "wires": [
+            [
+                "f9481a2e.334ec",
+                "833fe306.74d068",
+                "73e43af6.223e0c",
+                "3deb153a.91c9fa",
+                "8881f627.c73ea",
+                "bd9e0368.08ff48"
+            ]
+        ]
+    },
+    {
+        "id": "f9481a2e.334ec",
+        "type": "change",
+        "z": "37cb15d3.0f6432",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "C:\\Files\\Designer playground\\base\\base.OL-template",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "basename",
+                "pt": "msg",
+                "to": "MyTemplate1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 80,
+        "wires": [
+            [
+                "1a499ee0.e50179"
+            ]
+        ]
+    },
+    {
+        "id": "833fe306.74d068",
+        "type": "change",
+        "z": "37cb15d3.0f6432",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "C:\\Files\\Designer playground\\base\\base.OL-datamapper",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "basename",
+                "pt": "msg",
+                "to": "MyTemplate3.OL-template",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 240,
+        "wires": [
+            [
+                "e48da2fe.7cbfb8"
+            ]
+        ]
+    },
+    {
+        "id": "73e43af6.223e0c",
+        "type": "change",
+        "z": "37cb15d3.0f6432",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "C:\\Files\\Designer playground\\base\\base.xml",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "basename",
+                "pt": "msg",
+                "to": "MyXML1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 320,
+        "wires": [
+            [
+                "b6e1aff2.f0ca58"
+            ]
+        ]
+    },
+    {
+        "id": "72ab4d91.9e2174",
+        "type": "comment",
+        "z": "37cb15d3.0f6432",
+        "name": "template, no file extension",
+        "info": "",
+        "x": 310,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "8c77f2e5.0f1ca",
+        "type": "comment",
+        "z": "37cb15d3.0f6432",
+        "name": "dmconfig, wrong file extension",
+        "info": "",
+        "x": 320,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "41d149c2.e25c38",
+        "type": "comment",
+        "z": "37cb15d3.0f6432",
+        "name": "XML, no file extension",
+        "info": "",
+        "x": 300,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "c536d5b9.25b8b8",
+        "type": "olcnr-file-upload",
+        "z": "37cb15d3.0f6432",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "",
+        "fileDuration": "temporary",
+        "name": "upload zip file",
+        "x": 500,
+        "y": 560,
+        "wires": [
+            [
+                "e5aed2b6.f66618"
+            ]
+        ]
+    },
+    {
+        "id": "e5aed2b6.f66618",
+        "type": "debug",
+        "z": "37cb15d3.0f6432",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "3deb153a.91c9fa",
+        "type": "change",
+        "z": "37cb15d3.0f6432",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "C:\\Files\\Test data\\foo.zip",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "basename",
+                "pt": "msg",
+                "to": "ZipFile2.zip",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 560,
+        "wires": [
+            [
+                "c536d5b9.25b8b8"
+            ]
+        ]
+    },
+    {
+        "id": "761094f4.ca7374",
+        "type": "comment",
+        "z": "37cb15d3.0f6432",
+        "name": ".zip file, with file extension",
+        "info": "",
+        "x": 310,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "d37e230e.94bc38",
+        "type": "comment",
+        "z": "37cb15d3.0f6432",
+        "name": "base name",
+        "info": "",
+        "x": 100,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "97f37e55.e76a",
+        "type": "inject",
+        "z": "37cb15d3.0f6432",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 860,
+        "y": 260,
+        "wires": [
+            [
+                "4bc762f0.ce9aa4",
+                "ff07cfb7.e41e68",
+                "ea31d015.7a7e6",
+                "8ef3cbfa.d69a88"
+            ]
+        ]
+    },
+    {
+        "id": "4bc762f0.ce9aa4",
+        "type": "olcnr-file-download",
+        "z": "37cb15d3.0f6432",
+        "connect_server": "3c2c110.e9ac1f",
+        "managedFileId": "MyTemplate1",
+        "name": "",
+        "outputType": "buffer",
+        "x": 1050,
+        "y": 80,
+        "wires": [
+            [
+                "3d397e87.c79c8a"
+            ]
+        ]
+    },
+    {
+        "id": "ff07cfb7.e41e68",
+        "type": "olcnr-file-download",
+        "z": "37cb15d3.0f6432",
+        "connect_server": "3c2c110.e9ac1f",
+        "managedFileId": "MyTemplate1.OL-template",
+        "name": "",
+        "outputType": "buffer",
+        "x": 1100,
+        "y": 140,
+        "wires": [
+            [
+                "696a204f.a3d36"
+            ]
+        ]
+    },
+    {
+        "id": "3d397e87.c79c8a",
+        "type": "debug",
+        "z": "37cb15d3.0f6432",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1290,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "696a204f.a3d36",
+        "type": "debug",
+        "z": "37cb15d3.0f6432",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1290,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "68da264c.cfb2f",
+        "type": "debug",
+        "z": "37cb15d3.0f6432",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "296d31ef.abb536",
+        "type": "olcnr-file-upload",
+        "z": "37cb15d3.0f6432",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "",
+        "fileDuration": "temporary",
+        "name": "upload template",
+        "x": 500,
+        "y": 160,
+        "wires": [
+            [
+                "68da264c.cfb2f"
+            ]
+        ]
+    },
+    {
+        "id": "ea0546c6.1d1598",
+        "type": "change",
+        "z": "37cb15d3.0f6432",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "C:\\Files\\Designer playground\\base\\base.OL-template",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "basename",
+                "pt": "msg",
+                "to": "MyTemplate2.OL-template",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 160,
+        "wires": [
+            [
+                "296d31ef.abb536"
+            ]
+        ]
+    },
+    {
+        "id": "96f1fbcf.eb8588",
+        "type": "comment",
+        "z": "37cb15d3.0f6432",
+        "name": "template, with file extension",
+        "info": "",
+        "x": 320,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "8d308790.788f08",
+        "type": "olcnr-file-upload",
+        "z": "37cb15d3.0f6432",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "",
+        "fileDuration": "temporary",
+        "name": "upload data file",
+        "x": 500,
+        "y": 400,
+        "wires": [
+            [
+                "517abf73.31267"
+            ]
+        ]
+    },
+    {
+        "id": "517abf73.31267",
+        "type": "debug",
+        "z": "37cb15d3.0f6432",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "8881f627.c73ea",
+        "type": "change",
+        "z": "37cb15d3.0f6432",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "C:\\Files\\Designer playground\\base\\base.xml",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "basename",
+                "pt": "msg",
+                "to": "MyXML2.xml",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 400,
+        "wires": [
+            [
+                "8d308790.788f08"
+            ]
+        ]
+    },
+    {
+        "id": "73e43e7d.ff4f9",
+        "type": "comment",
+        "z": "37cb15d3.0f6432",
+        "name": "XML, with file extension",
+        "info": "",
+        "x": 300,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "fd8820dc.0a577",
+        "type": "olcnr-file-upload",
+        "z": "37cb15d3.0f6432",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "",
+        "fileDuration": "temporary",
+        "name": "upload zip file",
+        "x": 500,
+        "y": 480,
+        "wires": [
+            [
+                "47d15001.f3d4d"
+            ]
+        ]
+    },
+    {
+        "id": "47d15001.f3d4d",
+        "type": "debug",
+        "z": "37cb15d3.0f6432",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "bd9e0368.08ff48",
+        "type": "change",
+        "z": "37cb15d3.0f6432",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "C:\\Files\\Test data\\foo.zip",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "basename",
+                "pt": "msg",
+                "to": "ZipFile1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 480,
+        "wires": [
+            [
+                "fd8820dc.0a577"
+            ]
+        ]
+    },
+    {
+        "id": "7574a3d9.de7a6c",
+        "type": "comment",
+        "z": "37cb15d3.0f6432",
+        "name": ".zip file, no file extension",
+        "info": "",
+        "x": 310,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "ea31d015.7a7e6",
+        "type": "olcnr-file-download",
+        "z": "37cb15d3.0f6432",
+        "connect_server": "3c2c110.e9ac1f",
+        "managedFileId": "MyTemplate2.OL-template",
+        "name": "",
+        "outputType": "buffer",
+        "x": 1100,
+        "y": 260,
+        "wires": [
+            [
+                "81728138.51342"
+            ]
+        ]
+    },
+    {
+        "id": "81728138.51342",
+        "type": "debug",
+        "z": "37cb15d3.0f6432",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1290,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "8ef3cbfa.d69a88",
+        "type": "olcnr-file-download",
+        "z": "37cb15d3.0f6432",
+        "connect_server": "3c2c110.e9ac1f",
+        "managedFileId": "MyTemplate2",
+        "name": "",
+        "outputType": "buffer",
+        "x": 1050,
+        "y": 200,
+        "wires": [
+            [
+                "71582bbb.7b29ec"
+            ]
+        ]
+    },
+    {
+        "id": "71582bbb.7b29ec",
+        "type": "debug",
+        "z": "37cb15d3.0f6432",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1290,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "fa1ceb09.a95288",
+        "type": "comment",
+        "z": "37cb15d3.0f6432",
+        "name": "download check",
+        "info": "",
+        "x": 860,
+        "y": 200,
+        "wires": []
+    }
+]
