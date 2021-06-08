@@ -3394,6 +3394,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
+        "payloadType": "str",
         "x": 90,
         "y": 60,
         "wires": [
@@ -3510,8 +3511,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 290,
-        "y": 140,
+        "x": 570,
+        "y": 200,
         "wires": []
     },
     {
@@ -4509,9 +4510,9 @@
         "y": 420,
         "wires": [
             [
-                "cbb62dde.711c38",
                 "804e8c83.203c18",
-                "eebe7d49.959648"
+                "eebe7d49.959648",
+                "8f7f8734.f3786"
             ]
         ]
     },
@@ -4579,7 +4580,7 @@
         "template": "",
         "jobPreset": "",
         "outputPreset": "",
-        "dataStorage": "database",
+        "dataStorage": "none",
         "name": "all in one - invoices",
         "x": 850,
         "y": 540,
@@ -5155,57 +5156,10 @@
         ]
     },
     {
-        "id": "cbb62dde.711c38",
-        "type": "change",
-        "z": "be4af37d.14dec",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "template",
-                "pt": "msg",
-                "to": "template",
-                "tot": "flow"
-            },
-            {
-                "t": "set",
-                "p": "dmConfiguration",
-                "pt": "msg",
-                "to": "dmConfiguration",
-                "tot": "flow"
-            },
-            {
-                "t": "set",
-                "p": "jobPreset",
-                "pt": "msg",
-                "to": "jobPreset",
-                "tot": "flow"
-            },
-            {
-                "t": "set",
-                "p": "outputPreset",
-                "pt": "msg",
-                "to": "outputPresetInv",
-                "tot": "flow"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 380,
-        "y": 420,
-        "wires": [
-            [
-                "e6e541ba.73a96"
-            ]
-        ]
-    },
-    {
         "id": "804e8c83.203c18",
         "type": "change",
         "z": "be4af37d.14dec",
+        "d": true,
         "name": "",
         "rules": [
             {
@@ -5528,6 +5482,7 @@
         "id": "eebe7d49.959648",
         "type": "change",
         "z": "be4af37d.14dec",
+        "d": true,
         "name": "",
         "rules": [
             {
@@ -8140,5 +8095,53 @@
         "x": 570,
         "y": 320,
         "wires": []
+    },
+    {
+        "id": "8f7f8734.f3786",
+        "type": "change",
+        "z": "be4af37d.14dec",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "template",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "dmConfiguration",
+                "pt": "msg",
+                "to": "dmConfiguration",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "jobPreset",
+                "pt": "msg",
+                "to": "jobPreset",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "outputPreset",
+                "pt": "msg",
+                "to": "outputPresetInv",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 420,
+        "wires": [
+            [
+                "e6e541ba.73a96"
+            ]
+        ]
     }
 ]
