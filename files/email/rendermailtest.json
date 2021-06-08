@@ -1,0 +1,19 @@
+[
+	{
+		"FirstName": "Rijk",
+		"Email": "test@example.nl",
+		"Country": "CA"
+	},	{
+		"FirstName": "神",
+		"Email": "testchina@exampe.com",
+		"Country": "CA"
+	},	{
+		"FirstName": "André",
+		"Email": "test@example.fr",
+		"Country": "FR"
+	},	{
+		"FirstName": "Jim",
+		"Email": "test@example.com",
+		"Country": "US"
+	}
+]

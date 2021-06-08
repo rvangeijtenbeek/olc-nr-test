@@ -1,0 +1,41 @@
+{
+    "eml":true,
+    "parameters": {"paramDate":"2020-10-10","imageBaseUrl":"http://213.218.155.103/ol-image-test/"},
+    "data":[ {
+        "schema": {
+            "columns": {
+                "ID": "STRING",
+                "Email": "STRING"
+            }
+        },
+        "fields": {
+            "ID": "123ABC",
+            "Email": "test1@example.com"
+        }
+    },
+    {
+        "schema": {
+            "columns": {
+                "ID": "STRING",
+                "Email": "STRING"
+            }
+        },
+        "fields": {
+            "ID": "234BCD",
+            "Email": "test2@example.com"
+        }
+    },
+    {
+        "schema": {
+            "columns": {
+                "ID": "STRING",
+                "Email": "STRING"
+            }
+        },
+        "fields": {
+            "ID": "345CDE",
+            "Email": "test3@example.com"
+        }
+    }
+    ]
+}
