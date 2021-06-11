@@ -1712,10 +1712,11 @@
         "fileDuration": "temporary",
         "name": "upload dmconfig",
         "x": 570,
-        "y": 160,
+        "y": 220,
         "wires": [
             [
-                "9c3e20a3.c1bb4"
+                "9c3e20a3.c1bb4",
+                "bef26ee5.88f3d8"
             ]
         ]
     },
@@ -1733,7 +1734,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 730,
-        "y": 80,
+        "y": 120,
         "wires": []
     },
     {
@@ -1750,7 +1751,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 730,
-        "y": 160,
+        "y": 200,
         "wires": []
     },
     {
@@ -1762,10 +1763,11 @@
         "fileDuration": "temporary",
         "name": "upload template",
         "x": 560,
-        "y": 80,
+        "y": 140,
         "wires": [
             [
-                "d5c868a4.963f3"
+                "d5c868a4.963f3",
+                "a5fd2b9b.c64f5"
             ]
         ]
     },
@@ -1778,10 +1780,11 @@
         "fileDuration": "temporary",
         "name": "upload data file",
         "x": 560,
-        "y": 240,
+        "y": 300,
         "wires": [
             [
-                "f56ae740.9ad1b"
+                "f56ae740.9ad1b",
+                "fc91dcf0.9875a"
             ]
         ]
     },
@@ -1799,7 +1802,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 730,
-        "y": 240,
+        "y": 280,
         "wires": []
     },
     {
@@ -1813,8 +1816,9 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 110,
-        "y": 200,
+        "payloadType": "str",
+        "x": 90,
+        "y": 260,
         "wires": [
             [
                 "75e8b6ed.bbaf3",
@@ -1844,7 +1848,7 @@
         "to": "",
         "reg": false,
         "x": 350,
-        "y": 80,
+        "y": 140,
         "wires": [
             [
                 "3a850f13.7da8c8"
@@ -1871,7 +1875,7 @@
         "to": "",
         "reg": false,
         "x": 350,
-        "y": 160,
+        "y": 220,
         "wires": [
             [
                 "c891b875.caa45"
@@ -1898,7 +1902,7 @@
         "to": "",
         "reg": false,
         "x": 350,
-        "y": 240,
+        "y": 300,
         "wires": [
             [
                 "38b58af9.cd53fe"
@@ -1912,7 +1916,7 @@
         "name": ".OL-template file",
         "info": "",
         "x": 300,
-        "y": 40,
+        "y": 100,
         "wires": []
     },
     {
@@ -1922,7 +1926,7 @@
         "name": ".OL-datamapper file",
         "info": "",
         "x": 310,
-        "y": 120,
+        "y": 180,
         "wires": []
     },
     {
@@ -1932,7 +1936,7 @@
         "name": ".xml file",
         "info": "",
         "x": 270,
-        "y": 200,
+        "y": 260,
         "wires": []
     },
     {
@@ -1944,10 +1948,11 @@
         "fileDuration": "temporary",
         "name": "upload zip file",
         "x": 560,
-        "y": 320,
+        "y": 380,
         "wires": [
             [
-                "fa6a2598.99bfb"
+                "fa6a2598.99bfb",
+                "5faff1c6.5d802"
             ]
         ]
     },
@@ -1965,7 +1970,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 730,
-        "y": 320,
+        "y": 360,
         "wires": []
     },
     {
@@ -1988,7 +1993,7 @@
         "to": "",
         "reg": false,
         "x": 350,
-        "y": 320,
+        "y": 380,
         "wires": [
             [
                 "4c0b5df9.ea4cdc"
@@ -2002,7 +2007,7 @@
         "name": ".zip file",
         "info": "",
         "x": 270,
-        "y": 280,
+        "y": 340,
         "wires": []
     },
     {
@@ -2012,7 +2017,7 @@
         "name": "full path, temp",
         "info": "",
         "x": 130,
-        "y": 140,
+        "y": 100,
         "wires": []
     },
     {
@@ -2024,10 +2029,11 @@
         "fileDuration": "temporary",
         "name": "upload dmconfig",
         "x": 570,
-        "y": 520,
+        "y": 580,
         "wires": [
             [
-                "bbec9d87.8dd32"
+                "bbec9d87.8dd32",
+                "17e9bc07.4f03e4"
             ]
         ]
     },
@@ -2045,7 +2051,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 730,
-        "y": 440,
+        "y": 480,
         "wires": []
     },
     {
@@ -2062,7 +2068,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 730,
-        "y": 520,
+        "y": 560,
         "wires": []
     },
     {
@@ -2074,10 +2080,11 @@
         "fileDuration": "temporary",
         "name": "upload template",
         "x": 560,
-        "y": 440,
+        "y": 500,
         "wires": [
             [
-                "4b3f5140.54fde"
+                "4b3f5140.54fde",
+                "8ef71095.676658"
             ]
         ]
     },
@@ -2090,10 +2097,11 @@
         "fileDuration": "temporary",
         "name": "upload data file",
         "x": 560,
-        "y": 600,
+        "y": 660,
         "wires": [
             [
-                "98ed22b9.5c65c8"
+                "98ed22b9.5c65c8",
+                "31ef1871.95ebc8"
             ]
         ]
     },
@@ -2111,7 +2119,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 730,
-        "y": 600,
+        "y": 640,
         "wires": []
     },
     {
@@ -2127,7 +2135,7 @@
         "topic": "",
         "payloadType": "str",
         "x": 110,
-        "y": 560,
+        "y": 620,
         "wires": [
             [
                 "953709e.c0fc878",
@@ -2157,7 +2165,7 @@
         "to": "",
         "reg": false,
         "x": 350,
-        "y": 440,
+        "y": 500,
         "wires": [
             [
                 "908889ce.b1a2e"
@@ -2184,7 +2192,7 @@
         "to": "",
         "reg": false,
         "x": 350,
-        "y": 520,
+        "y": 580,
         "wires": [
             [
                 "432088ab.5bb048"
@@ -2211,7 +2219,7 @@
         "to": "",
         "reg": false,
         "x": 350,
-        "y": 600,
+        "y": 660,
         "wires": [
             [
                 "311f2ab4.0633d6"
@@ -2225,7 +2233,7 @@
         "name": ".OL-template file",
         "info": "",
         "x": 300,
-        "y": 400,
+        "y": 460,
         "wires": []
     },
     {
@@ -2235,7 +2243,7 @@
         "name": ".OL-datamapper file",
         "info": "",
         "x": 310,
-        "y": 480,
+        "y": 540,
         "wires": []
     },
     {
@@ -2245,7 +2253,7 @@
         "name": ".xml file",
         "info": "",
         "x": 270,
-        "y": 560,
+        "y": 620,
         "wires": []
     },
     {
@@ -2257,10 +2265,11 @@
         "fileDuration": "temporary",
         "name": "upload data file",
         "x": 560,
-        "y": 680,
+        "y": 740,
         "wires": [
             [
-                "b6c5bbb9.186b"
+                "b6c5bbb9.186b",
+                "1c83aa71.35588e"
             ]
         ]
     },
@@ -2278,7 +2287,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 730,
-        "y": 680,
+        "y": 720,
         "wires": []
     },
     {
@@ -2301,7 +2310,7 @@
         "to": "",
         "reg": false,
         "x": 350,
-        "y": 680,
+        "y": 740,
         "wires": [
             [
                 "56ec57d0.9c0348"
@@ -2315,7 +2324,7 @@
         "name": ".zip file",
         "info": "",
         "x": 270,
-        "y": 640,
+        "y": 700,
         "wires": []
     },
     {
@@ -2324,8 +2333,8 @@
         "z": "aa6fd619.ba432",
         "name": "workdir path, temp",
         "info": "",
-        "x": 150,
-        "y": 500,
+        "x": 110,
+        "y": 460,
         "wires": []
     },
     {
@@ -2337,10 +2346,11 @@
         "fileDuration": "temporary",
         "name": "upload dmconfig",
         "x": 570,
-        "y": 880,
+        "y": 940,
         "wires": [
             [
-                "3078ac27.7d05cc"
+                "3078ac27.7d05cc",
+                "ce7f5144.02b3e8"
             ]
         ]
     },
@@ -2358,7 +2368,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 730,
-        "y": 800,
+        "y": 840,
         "wires": []
     },
     {
@@ -2375,7 +2385,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 730,
-        "y": 880,
+        "y": 920,
         "wires": []
     },
     {
@@ -2387,10 +2397,11 @@
         "fileDuration": "temporary",
         "name": "upload template",
         "x": 560,
-        "y": 800,
+        "y": 860,
         "wires": [
             [
-                "cc8ac25d.ef01b8"
+                "cc8ac25d.ef01b8",
+                "c44e0e2e.b6772"
             ]
         ]
     },
@@ -2403,10 +2414,11 @@
         "fileDuration": "temporary",
         "name": "upload data file",
         "x": 560,
-        "y": 960,
+        "y": 1020,
         "wires": [
             [
-                "a9704db8.43b5a8"
+                "a9704db8.43b5a8",
+                "fd5ce965.4dcb58"
             ]
         ]
     },
@@ -2424,7 +2436,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 730,
-        "y": 960,
+        "y": 1000,
         "wires": []
     },
     {
@@ -2439,7 +2451,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 110,
-        "y": 920,
+        "y": 980,
         "wires": [
             [
                 "b80469d1.c2bb98",
@@ -2469,7 +2481,7 @@
         "to": "",
         "reg": false,
         "x": 350,
-        "y": 800,
+        "y": 860,
         "wires": [
             [
                 "575d8015.f40e68"
@@ -2496,7 +2508,7 @@
         "to": "",
         "reg": false,
         "x": 350,
-        "y": 880,
+        "y": 940,
         "wires": [
             [
                 "6850505b.7c758"
@@ -2523,7 +2535,7 @@
         "to": "",
         "reg": false,
         "x": 350,
-        "y": 960,
+        "y": 1020,
         "wires": [
             [
                 "1a605cdd.f11e93"
@@ -2537,7 +2549,7 @@
         "name": ".OL-template file",
         "info": "",
         "x": 300,
-        "y": 760,
+        "y": 820,
         "wires": []
     },
     {
@@ -2547,7 +2559,7 @@
         "name": ".OL-datamapper file",
         "info": "",
         "x": 310,
-        "y": 840,
+        "y": 900,
         "wires": []
     },
     {
@@ -2557,7 +2569,7 @@
         "name": ".xml file",
         "info": "",
         "x": 270,
-        "y": 920,
+        "y": 980,
         "wires": []
     },
     {
@@ -2569,10 +2581,11 @@
         "fileDuration": "temporary",
         "name": "upload data file",
         "x": 560,
-        "y": 1040,
+        "y": 1100,
         "wires": [
             [
-                "80944e56.c17958"
+                "80944e56.c17958",
+                "139facff.6e477b"
             ]
         ]
     },
@@ -2590,7 +2603,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 730,
-        "y": 1040,
+        "y": 1080,
         "wires": []
     },
     {
@@ -2613,7 +2626,7 @@
         "to": "",
         "reg": false,
         "x": 350,
-        "y": 1040,
+        "y": 1100,
         "wires": [
             [
                 "fafed0be.d0198"
@@ -2627,7 +2640,7 @@
         "name": ".zip file",
         "info": "",
         "x": 270,
-        "y": 1000,
+        "y": 1060,
         "wires": []
     },
     {
@@ -2636,8 +2649,8 @@
         "z": "aa6fd619.ba432",
         "name": "project path, temp",
         "info": "",
-        "x": 150,
-        "y": 860,
+        "x": 110,
+        "y": 820,
         "wires": []
     },
     {
@@ -2649,7 +2662,7 @@
         "fileDuration": "temporary",
         "name": "",
         "x": 450,
-        "y": 320,
+        "y": 380,
         "wires": [
             [
                 "455c73e.899a08c"
@@ -2670,7 +2683,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 610,
-        "y": 80,
+        "y": 140,
         "wires": []
     },
     {
@@ -2687,7 +2700,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 610,
-        "y": 320,
+        "y": 380,
         "wires": []
     },
     {
@@ -2699,12 +2712,12 @@
         "fileDuration": "temporary",
         "name": "",
         "x": 450,
-        "y": 120,
+        "y": 180,
         "wires": [
             [
                 "692aa0f8.d6e298",
-                "4bc762f0.ce9aa4",
-                "ff07cfb7.e41e68"
+                "ff07cfb7.e41e68",
+                "4bc762f0.ce9aa4"
             ]
         ]
     },
@@ -2717,11 +2730,12 @@
         "fileDuration": "temporary",
         "name": "",
         "x": 450,
-        "y": 440,
+        "y": 500,
         "wires": [
             [
                 "cf00757.463cc88",
-                "d82e0f59.718748"
+                "d82e0f59.718748",
+                "2189c11c.aee91e"
             ]
         ]
     },
@@ -2739,7 +2753,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 610,
-        "y": 440,
+        "y": 540,
         "wires": []
     },
     {
@@ -2755,7 +2769,7 @@
         "topic": "",
         "payloadType": "str",
         "x": 90,
-        "y": 440,
+        "y": 500,
         "wires": [
             [
                 "73e43af6.223e0c",
@@ -2790,7 +2804,7 @@
         "to": "",
         "reg": false,
         "x": 260,
-        "y": 120,
+        "y": 180,
         "wires": [
             [
                 "1a499ee0.e50179"
@@ -2824,7 +2838,7 @@
         "to": "",
         "reg": false,
         "x": 260,
-        "y": 320,
+        "y": 380,
         "wires": [
             [
                 "e48da2fe.7cbfb8"
@@ -2858,7 +2872,7 @@
         "to": "",
         "reg": false,
         "x": 260,
-        "y": 440,
+        "y": 500,
         "wires": [
             [
                 "b6e1aff2.f0ca58"
@@ -2872,7 +2886,7 @@
         "name": "template, no file extension",
         "info": "",
         "x": 290,
-        "y": 80,
+        "y": 140,
         "wires": []
     },
     {
@@ -2882,7 +2896,7 @@
         "name": "dmconfig, wrong file extension",
         "info": "",
         "x": 300,
-        "y": 280,
+        "y": 340,
         "wires": []
     },
     {
@@ -2892,7 +2906,7 @@
         "name": "XML, no file extension",
         "info": "",
         "x": 280,
-        "y": 400,
+        "y": 460,
         "wires": []
     },
     {
@@ -2904,7 +2918,7 @@
         "fileDuration": "temporary",
         "name": "",
         "x": 450,
-        "y": 780,
+        "y": 860,
         "wires": [
             [
                 "e5aed2b6.f66618",
@@ -2927,7 +2941,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 610,
-        "y": 780,
+        "y": 860,
         "wires": []
     },
     {
@@ -2957,7 +2971,7 @@
         "to": "",
         "reg": false,
         "x": 260,
-        "y": 780,
+        "y": 860,
         "wires": [
             [
                 "c536d5b9.25b8b8"
@@ -2971,7 +2985,7 @@
         "name": ".zip, with file extension",
         "info": "",
         "x": 280,
-        "y": 740,
+        "y": 820,
         "wires": []
     },
     {
@@ -2983,7 +2997,7 @@
         "name": "",
         "outputType": "buffer",
         "x": 790,
-        "y": 80,
+        "y": 140,
         "wires": [
             [
                 "3d397e87.c79c8a"
@@ -2999,7 +3013,7 @@
         "name": "",
         "outputType": "buffer",
         "x": 840,
-        "y": 200,
+        "y": 260,
         "wires": [
             [
                 "696a204f.a3d36"
@@ -3020,7 +3034,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1050,
-        "y": 80,
+        "y": 140,
         "wires": []
     },
     {
@@ -3037,7 +3051,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1050,
-        "y": 200,
+        "y": 260,
         "wires": []
     },
     {
@@ -3054,7 +3068,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 610,
-        "y": 240,
+        "y": 300,
         "wires": []
     },
     {
@@ -3066,12 +3080,12 @@
         "fileDuration": "temporary",
         "name": "",
         "x": 450,
-        "y": 200,
+        "y": 260,
         "wires": [
             [
                 "68da264c.cfb2f",
-                "8ef3cbfa.d69a88",
-                "ea31d015.7a7e6"
+                "ea31d015.7a7e6",
+                "8ef3cbfa.d69a88"
             ]
         ]
     },
@@ -3102,7 +3116,7 @@
         "to": "",
         "reg": false,
         "x": 260,
-        "y": 200,
+        "y": 260,
         "wires": [
             [
                 "296d31ef.abb536"
@@ -3116,7 +3130,7 @@
         "name": "template, with file extension",
         "info": "",
         "x": 300,
-        "y": 160,
+        "y": 220,
         "wires": []
     },
     {
@@ -3128,11 +3142,12 @@
         "fileDuration": "temporary",
         "name": "",
         "x": 450,
-        "y": 520,
+        "y": 580,
         "wires": [
             [
                 "517abf73.31267",
-                "948dbeba.ba1988"
+                "948dbeba.ba1988",
+                "8b365e45.2e62f"
             ]
         ]
     },
@@ -3150,7 +3165,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 610,
-        "y": 520,
+        "y": 620,
         "wires": []
     },
     {
@@ -3180,7 +3195,7 @@
         "to": "",
         "reg": false,
         "x": 260,
-        "y": 520,
+        "y": 580,
         "wires": [
             [
                 "8d308790.788f08"
@@ -3194,7 +3209,7 @@
         "name": "XML, with file extension",
         "info": "",
         "x": 280,
-        "y": 480,
+        "y": 540,
         "wires": []
     },
     {
@@ -3206,7 +3221,7 @@
         "fileDuration": "temporary",
         "name": "",
         "x": 450,
-        "y": 640,
+        "y": 720,
         "wires": [
             [
                 "47d15001.f3d4d",
@@ -3229,7 +3244,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 610,
-        "y": 640,
+        "y": 720,
         "wires": []
     },
     {
@@ -3259,7 +3274,7 @@
         "to": "",
         "reg": false,
         "x": 260,
-        "y": 640,
+        "y": 720,
         "wires": [
             [
                 "fd8820dc.0a577"
@@ -3273,7 +3288,7 @@
         "name": ".zip, no file extension",
         "info": "",
         "x": 280,
-        "y": 600,
+        "y": 680,
         "wires": []
     },
     {
@@ -3285,7 +3300,7 @@
         "name": "",
         "outputType": "buffer",
         "x": 840,
-        "y": 240,
+        "y": 300,
         "wires": [
             [
                 "81728138.51342"
@@ -3306,7 +3321,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1050,
-        "y": 240,
+        "y": 300,
         "wires": []
     },
     {
@@ -3318,7 +3333,7 @@
         "name": "",
         "outputType": "buffer",
         "x": 790,
-        "y": 120,
+        "y": 180,
         "wires": [
             [
                 "71582bbb.7b29ec"
@@ -3339,7 +3354,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1050,
-        "y": 120,
+        "y": 180,
         "wires": []
     },
     {
@@ -3349,7 +3364,7 @@
         "name": "MyTemplate1",
         "info": "",
         "x": 470,
-        "y": 80,
+        "y": 140,
         "wires": []
     },
     {
@@ -3359,7 +3374,7 @@
         "name": "MyTemplate2.OL-template",
         "info": "",
         "x": 530,
-        "y": 160,
+        "y": 220,
         "wires": []
     },
     {
@@ -3369,176 +3384,7 @@
         "name": "payload should always get extension",
         "info": "",
         "x": 700,
-        "y": 40,
-        "wires": []
-    },
-    {
-        "id": "cbd3f2f4.9b319",
-        "type": "inject",
-        "z": "9e927247.b15628",
-        "name": "Trigger",
-        "props": [
-            {
-                "p": "basename",
-                "v": "MyTemplate.OL-template",
-                "vt": "str"
-            },
-            {
-                "p": "filename",
-                "v": "C:\\Files\\Designer playground\\base\\base.OL-template",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payloadType": "str",
-        "x": 90,
-        "y": 60,
-        "wires": [
-            [
-                "fcbf089f.b2e99"
-            ]
-        ]
-    },
-    {
-        "id": "600c951e.48e7a4",
-        "type": "olcnr-file-upload",
-        "z": "9e927247.b15628",
-        "connect_server": "3c2c110.e9ac1f",
-        "filename": "",
-        "fileDuration": "temporary",
-        "name": "",
-        "x": 750,
-        "y": 60,
-        "wires": [
-            [
-                "69334209.69586c",
-                "495423ce.4a7814"
-            ]
-        ]
-    },
-    {
-        "id": "69334209.69586c",
-        "type": "debug",
-        "z": "9e927247.b15628",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 570,
-        "y": 240,
-        "wires": []
-    },
-    {
-        "id": "fcbf089f.b2e99",
-        "type": "file in",
-        "z": "9e927247.b15628",
-        "name": "Read template to buffer",
-        "filename": "",
-        "format": "",
-        "chunk": false,
-        "sendError": false,
-        "encoding": "none",
-        "x": 290,
-        "y": 60,
-        "wires": [
-            [
-                "92ca6fc3.6a59a",
-                "17a34c4b.fa6674"
-            ]
-        ]
-    },
-    {
-        "id": "92ca6fc3.6a59a",
-        "type": "change",
-        "z": "9e927247.b15628",
-        "name": "",
-        "rules": [
-            {
-                "t": "delete",
-                "p": "filename",
-                "pt": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 540,
-        "y": 60,
-        "wires": [
-            [
-                "600c951e.48e7a4"
-            ]
-        ]
-    },
-    {
-        "id": "1722b251.ba3cee",
-        "type": "debug",
-        "z": "9e927247.b15628",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 570,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "17a34c4b.fa6674",
-        "type": "debug",
-        "z": "9e927247.b15628",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 570,
-        "y": 200,
-        "wires": []
-    },
-    {
-        "id": "495423ce.4a7814",
-        "type": "olcnr-file-download",
-        "z": "9e927247.b15628",
-        "connect_server": "3c2c110.e9ac1f",
-        "managedFileId": "MyTemplate.OL-template",
-        "name": "",
-        "outputType": "buffer",
-        "x": 370,
-        "y": 280,
-        "wires": [
-            [
-                "1722b251.ba3cee"
-            ]
-        ]
-    },
-    {
-        "id": "79e4317e.57bff",
-        "type": "comment",
-        "z": "9e927247.b15628",
-        "name": "buffers must have the same size",
-        "info": "",
-        "x": 790,
-        "y": 240,
+        "y": 100,
         "wires": []
     },
     {
@@ -6064,7 +5910,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 90,
+        "payloadType": "str",
+        "x": 110,
         "y": 380,
         "wires": [
             [
@@ -6078,9 +5925,9 @@
         "z": "9e927247.b15628",
         "connect_server": "3c2c110.e9ac1f",
         "filename": "",
-        "fileDuration": "temporary",
+        "fileDuration": "permanent",
         "name": "",
-        "x": 250,
+        "x": 270,
         "y": 380,
         "wires": [
             [
@@ -6102,7 +5949,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 490,
+        "x": 450,
         "y": 440,
         "wires": []
     },
@@ -6119,7 +5966,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 770,
+        "x": 610,
         "y": 380,
         "wires": []
     },
@@ -6131,7 +5978,7 @@
         "managedFileId": "",
         "name": "",
         "outputType": "buffer",
-        "x": 610,
+        "x": 450,
         "y": 380,
         "wires": [
             [
@@ -6532,13 +6379,14 @@
         "z": "9e927247.b15628",
         "connect_server": "3c2c110.e9ac1f",
         "filename": "",
-        "fileDuration": "temporary",
+        "fileDuration": "permanent",
         "name": "",
         "x": 610,
-        "y": 560,
+        "y": 700,
         "wires": [
             [
-                "728d04ca.69fc64"
+                "728d04ca.69fc64",
+                "777d060.6d71cfc"
             ]
         ]
     },
@@ -6550,7 +6398,7 @@
         "props": [
             {
                 "p": "filename",
-                "v": "files\\printcontent\\runtime parameters print.OL-template",
+                "v": "C:\\Files\\Designer playground\\printcontent\\runtime parameters print.OL-template",
                 "vt": "str"
             }
         ],
@@ -6559,9 +6407,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payloadType": "str",
         "x": 110,
-        "y": 560,
+        "y": 700,
         "wires": [
             [
                 "b5d062e.54893a"
@@ -6579,10 +6426,11 @@
         "sendError": false,
         "encoding": "none",
         "x": 260,
-        "y": 560,
+        "y": 700,
         "wires": [
             [
-                "8b3c9590.86e9d8"
+                "8b3c9590.86e9d8",
+                "2b4357ec.dff11"
             ]
         ]
     },
@@ -6601,7 +6449,7 @@
                 "t": "set",
                 "p": "basename",
                 "pt": "msg",
-                "to": "BufferFoo3.OL-template",
+                "to": "BufferFoo1.OL-template",
                 "tot": "str"
             }
         ],
@@ -6611,7 +6459,7 @@
         "to": "",
         "reg": false,
         "x": 440,
-        "y": 560,
+        "y": 700,
         "wires": [
             [
                 "d5975115.657158"
@@ -6631,8 +6479,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 780,
-        "y": 560,
+        "x": 770,
+        "y": 760,
         "wires": []
     },
     {
@@ -6640,24 +6488,14 @@
         "type": "inject",
         "z": "aa6fd619.ba432",
         "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
+        "props": [],
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 130,
-        "y": 340,
+        "x": 110,
+        "y": 380,
         "wires": [
             [
                 "ab666996.72d178"
@@ -6671,7 +6509,7 @@
         "name": "should fail",
         "info": "",
         "x": 1040,
-        "y": 40,
+        "y": 100,
         "wires": []
     },
     {
@@ -6681,7 +6519,7 @@
         "name": "should succeed",
         "info": "",
         "x": 1020,
-        "y": 280,
+        "y": 340,
         "wires": []
     },
     {
@@ -6690,7 +6528,7 @@
         "z": "aa6fd619.ba432",
         "name": "msg.filename tests",
         "info": "",
-        "x": 110,
+        "x": 550,
         "y": 40,
         "wires": []
     },
@@ -6730,8 +6568,8 @@
         "z": "37cb15d3.0f6432",
         "name": "msg.basename tests",
         "info": "",
-        "x": 110,
-        "y": 40,
+        "x": 570,
+        "y": 20,
         "wires": []
     },
     {
@@ -6763,7 +6601,7 @@
         "fileDuration": "temporary",
         "name": "",
         "x": 450,
-        "y": 940,
+        "y": 1020,
         "wires": [
             [
                 "11cbf504.b14ff3",
@@ -6786,7 +6624,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 610,
-        "y": 940,
+        "y": 1020,
         "wires": []
     },
     {
@@ -6816,7 +6654,7 @@
         "to": "",
         "reg": false,
         "x": 260,
-        "y": 940,
+        "y": 1020,
         "wires": [
             [
                 "bb4c1141.2793a8"
@@ -6830,7 +6668,7 @@
         "name": ".XML, no file extension, base no extension",
         "info": "",
         "x": 340,
-        "y": 900,
+        "y": 980,
         "wires": []
     },
     {
@@ -6842,7 +6680,7 @@
         "name": "",
         "outputType": "buffer",
         "x": 890,
-        "y": 1000,
+        "y": 1080,
         "wires": [
             [
                 "c92043bc.f85fb"
@@ -6863,7 +6701,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1050,
-        "y": 1000,
+        "y": 1080,
         "wires": []
     },
     {
@@ -6886,7 +6724,7 @@
         "to": "",
         "reg": false,
         "x": 670,
-        "y": 1000,
+        "y": 1080,
         "wires": [
             [
                 "735ba6a.e23d458"
@@ -6906,7 +6744,7 @@
         "topic": "",
         "payloadType": "str",
         "x": 90,
-        "y": 940,
+        "y": 1020,
         "wires": [
             [
                 "f86b7f5f.cc9ca8"
@@ -6926,7 +6764,7 @@
         "topic": "",
         "payloadType": "str",
         "x": 90,
-        "y": 640,
+        "y": 720,
         "wires": [
             [
                 "3deb153a.91c9fa",
@@ -6943,7 +6781,7 @@
         "name": "",
         "outputType": "buffer",
         "x": 890,
-        "y": 820,
+        "y": 900,
         "wires": [
             [
                 "2caaf6c2.cac18a"
@@ -6964,7 +6802,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1050,
-        "y": 820,
+        "y": 900,
         "wires": []
     },
     {
@@ -6987,7 +6825,7 @@
         "to": "",
         "reg": false,
         "x": 670,
-        "y": 820,
+        "y": 900,
         "wires": [
             [
                 "b0c60e4.7153d7"
@@ -7003,7 +6841,7 @@
         "name": "",
         "outputType": "buffer",
         "x": 890,
-        "y": 860,
+        "y": 940,
         "wires": [
             [
                 "be3c80a9.7c8d08"
@@ -7024,7 +6862,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1050,
-        "y": 860,
+        "y": 940,
         "wires": []
     },
     {
@@ -7040,7 +6878,7 @@
         "topic": "",
         "payloadType": "str",
         "x": 90,
-        "y": 120,
+        "y": 180,
         "wires": [
             [
                 "ea0546c6.1d1598",
@@ -7057,7 +6895,7 @@
         "name": "",
         "outputType": "buffer",
         "x": 890,
-        "y": 680,
+        "y": 760,
         "wires": [
             [
                 "ab13a0d1.7b9f1"
@@ -7078,7 +6916,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1050,
-        "y": 680,
+        "y": 760,
         "wires": []
     },
     {
@@ -7101,7 +6939,7 @@
         "to": "",
         "reg": false,
         "x": 670,
-        "y": 680,
+        "y": 760,
         "wires": [
             [
                 "a766bd19.058f1"
@@ -7117,7 +6955,7 @@
         "name": "",
         "outputType": "buffer",
         "x": 890,
-        "y": 720,
+        "y": 800,
         "wires": [
             [
                 "8aa272ee.965b5"
@@ -7138,7 +6976,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1050,
-        "y": 720,
+        "y": 800,
         "wires": []
     },
     {
@@ -7150,7 +6988,7 @@
         "name": "",
         "outputType": "buffer",
         "x": 890,
-        "y": 1040,
+        "y": 1120,
         "wires": [
             [
                 "85e2d70.51a0b28"
@@ -7171,7 +7009,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1050,
-        "y": 1040,
+        "y": 1120,
         "wires": []
     },
     {
@@ -7187,7 +7025,7 @@
         "topic": "",
         "payloadType": "str",
         "x": 90,
-        "y": 320,
+        "y": 380,
         "wires": [
             [
                 "833fe306.74d068"
@@ -7201,7 +7039,7 @@
         "name": "works, but is useless",
         "info": "",
         "x": 790,
-        "y": 320,
+        "y": 380,
         "wires": []
     },
     {
@@ -7211,9 +7049,9 @@
         "connect_server": "3c2c110.e9ac1f",
         "managedFileId": "",
         "name": "",
-        "outputType": "buffer",
+        "outputType": "UTF-8",
         "x": 890,
-        "y": 480,
+        "y": 500,
         "wires": [
             [
                 "1069a21b.bfcf7e"
@@ -7234,7 +7072,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1050,
-        "y": 480,
+        "y": 500,
         "wires": []
     },
     {
@@ -7257,7 +7095,7 @@
         "to": "",
         "reg": false,
         "x": 670,
-        "y": 480,
+        "y": 500,
         "wires": [
             [
                 "81b96caa.0d5138"
@@ -7271,9 +7109,9 @@
         "connect_server": "3c2c110.e9ac1f",
         "managedFileId": "",
         "name": "",
-        "outputType": "buffer",
+        "outputType": "UTF-8",
         "x": 890,
-        "y": 560,
+        "y": 580,
         "wires": [
             [
                 "61ea1a8f.d282bc"
@@ -7294,7 +7132,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1050,
-        "y": 560,
+        "y": 580,
         "wires": []
     },
     {
@@ -7317,7 +7155,7 @@
         "to": "",
         "reg": false,
         "x": 670,
-        "y": 560,
+        "y": 580,
         "wires": [
             [
                 "ae7dfe3a.ec581"
@@ -7331,7 +7169,7 @@
         "name": "download checks",
         "info": "",
         "x": 900,
-        "y": 440,
+        "y": 460,
         "wires": []
     },
     {
@@ -8143,5 +7981,1099 @@
                 "e6e541ba.73a96"
             ]
         ]
+    },
+    {
+        "id": "777d060.6d71cfc",
+        "type": "olcnr-file-download",
+        "z": "9e927247.b15628",
+        "connect_server": "3c2c110.e9ac1f",
+        "managedFileId": "",
+        "name": "",
+        "outputType": "buffer",
+        "x": 790,
+        "y": 700,
+        "wires": [
+            [
+                "48292418.2b6f34"
+            ]
+        ]
+    },
+    {
+        "id": "48292418.2b6f34",
+        "type": "debug",
+        "z": "9e927247.b15628",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 950,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "3aed81a3.5cf6c6",
+        "type": "olcnr-file-upload",
+        "z": "9e927247.b15628",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "",
+        "fileDuration": "temporary",
+        "name": "",
+        "x": 610,
+        "y": 880,
+        "wires": [
+            [
+                "608d2eda.438988",
+                "f489b5a8.0c245"
+            ]
+        ]
+    },
+    {
+        "id": "4cb0c4de.783fa4",
+        "type": "inject",
+        "z": "9e927247.b15628",
+        "name": "",
+        "props": [
+            {
+                "p": "filename",
+                "v": "C:\\Files\\Designer playground\\printcontent\\runtime parameters print.OL-template",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "str",
+        "x": 110,
+        "y": 880,
+        "wires": [
+            [
+                "a40e38ab.792bd8"
+            ]
+        ]
+    },
+    {
+        "id": "a40e38ab.792bd8",
+        "type": "file in",
+        "z": "9e927247.b15628",
+        "name": "buffer from file",
+        "filename": "",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "x": 260,
+        "y": 880,
+        "wires": [
+            [
+                "b3499e6f.71ef28",
+                "acdef3e.f08181"
+            ]
+        ]
+    },
+    {
+        "id": "b3499e6f.71ef28",
+        "type": "change",
+        "z": "9e927247.b15628",
+        "name": "",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "filename",
+                "pt": "msg"
+            },
+            {
+                "t": "set",
+                "p": "basename",
+                "pt": "msg",
+                "to": "BufferFoo2.OL-template",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 440,
+        "y": 880,
+        "wires": [
+            [
+                "3aed81a3.5cf6c6"
+            ]
+        ]
+    },
+    {
+        "id": "608d2eda.438988",
+        "type": "debug",
+        "z": "9e927247.b15628",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "f489b5a8.0c245",
+        "type": "olcnr-file-download",
+        "z": "9e927247.b15628",
+        "connect_server": "3c2c110.e9ac1f",
+        "managedFileId": "",
+        "name": "",
+        "outputType": "buffer",
+        "x": 790,
+        "y": 880,
+        "wires": [
+            [
+                "6867aa2.c2d93d4"
+            ]
+        ]
+    },
+    {
+        "id": "6867aa2.c2d93d4",
+        "type": "debug",
+        "z": "9e927247.b15628",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 950,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "10601686.20eb09",
+        "type": "inject",
+        "z": "9e927247.b15628",
+        "name": "Trigger",
+        "props": [
+            {
+                "p": "filename",
+                "v": "C:\\Files\\Designer playground\\base\\base.OL-template",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "str",
+        "x": 110,
+        "y": 540,
+        "wires": [
+            [
+                "91d7b631.3bde7"
+            ]
+        ]
+    },
+    {
+        "id": "91d7b631.3bde7",
+        "type": "olcnr-file-upload",
+        "z": "9e927247.b15628",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "",
+        "fileDuration": "temporary",
+        "name": "",
+        "x": 270,
+        "y": 540,
+        "wires": [
+            [
+                "42dadfa4.8814e8",
+                "9a99f490.291338"
+            ]
+        ]
+    },
+    {
+        "id": "42dadfa4.8814e8",
+        "type": "debug",
+        "z": "9e927247.b15628",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 450,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "9a99f490.291338",
+        "type": "olcnr-file-download",
+        "z": "9e927247.b15628",
+        "connect_server": "3c2c110.e9ac1f",
+        "managedFileId": "",
+        "name": "",
+        "outputType": "buffer",
+        "x": 450,
+        "y": 540,
+        "wires": [
+            [
+                "502aa7c8.f14dc8"
+            ]
+        ]
+    },
+    {
+        "id": "502aa7c8.f14dc8",
+        "type": "debug",
+        "z": "9e927247.b15628",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "ed9417e4.f2532",
+        "type": "comment",
+        "z": "9e927247.b15628",
+        "name": "permanent",
+        "info": "",
+        "x": 260,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "7ae5117c.14858",
+        "type": "comment",
+        "z": "9e927247.b15628",
+        "name": "temporary",
+        "info": "",
+        "x": 260,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "5cd0a5d1.701a1c",
+        "type": "comment",
+        "z": "9e927247.b15628",
+        "name": "upload template from file path",
+        "info": "",
+        "x": 180,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "d5ef4932.1cf5d8",
+        "type": "comment",
+        "z": "9e927247.b15628",
+        "name": "permanent",
+        "info": "",
+        "x": 600,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "afb7a1a1.7048f8",
+        "type": "comment",
+        "z": "9e927247.b15628",
+        "name": "temporary",
+        "info": "",
+        "x": 600,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "bedbe0e8.8a3b8",
+        "type": "comment",
+        "z": "9e927247.b15628",
+        "name": "upload template from buffer",
+        "info": "",
+        "x": 160,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "e224126f.71da4",
+        "type": "comment",
+        "z": "9e927247.b15628",
+        "name": "buffers must have the same size",
+        "info": "",
+        "x": 1090,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "485bf0a5.79da7",
+        "type": "olcnr-file-upload",
+        "z": "9e927247.b15628",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "",
+        "fileDuration": "temporary",
+        "name": "",
+        "x": 610,
+        "y": 1040,
+        "wires": [
+            [
+                "c15f2b37.dc6908",
+                "289c21ff.ade316"
+            ]
+        ]
+    },
+    {
+        "id": "55957340.99f26c",
+        "type": "inject",
+        "z": "9e927247.b15628",
+        "name": "",
+        "props": [
+            {
+                "p": "filename",
+                "v": "C:\\Files\\Designer playground\\printcontent\\runtime parameters print.OL-template",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "str",
+        "x": 110,
+        "y": 1040,
+        "wires": [
+            [
+                "7915da8a.6f0d4c"
+            ]
+        ]
+    },
+    {
+        "id": "7915da8a.6f0d4c",
+        "type": "file in",
+        "z": "9e927247.b15628",
+        "name": "buffer from file",
+        "filename": "",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "x": 260,
+        "y": 1040,
+        "wires": [
+            [
+                "80ba6c2d.bce6c",
+                "eec6745f.ab982"
+            ]
+        ]
+    },
+    {
+        "id": "80ba6c2d.bce6c",
+        "type": "change",
+        "z": "9e927247.b15628",
+        "name": "",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "filename",
+                "pt": "msg"
+            },
+            {
+                "t": "set",
+                "p": "basename",
+                "pt": "msg",
+                "to": "BufferFoo3.OL-template",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 440,
+        "y": 1040,
+        "wires": [
+            [
+                "485bf0a5.79da7"
+            ]
+        ]
+    },
+    {
+        "id": "c15f2b37.dc6908",
+        "type": "debug",
+        "z": "9e927247.b15628",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "289c21ff.ade316",
+        "type": "olcnr-file-download",
+        "z": "9e927247.b15628",
+        "connect_server": "3c2c110.e9ac1f",
+        "managedFileId": "BufferFoo3.OL-template",
+        "name": "",
+        "outputType": "buffer",
+        "x": 830,
+        "y": 1040,
+        "wires": [
+            [
+                "19fede1.cad6d22"
+            ]
+        ]
+    },
+    {
+        "id": "19fede1.cad6d22",
+        "type": "debug",
+        "z": "9e927247.b15628",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1010,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "e1ebcc77.2718e8",
+        "type": "comment",
+        "z": "9e927247.b15628",
+        "name": "temporary",
+        "info": "",
+        "x": 600,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "eec6745f.ab982",
+        "type": "debug",
+        "z": "9e927247.b15628",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1010,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "acdef3e.f08181",
+        "type": "debug",
+        "z": "9e927247.b15628",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 950,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "2b4357ec.dff11",
+        "type": "debug",
+        "z": "9e927247.b15628",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 950,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "431f947e.6e9794",
+        "type": "comment",
+        "z": "9e927247.b15628",
+        "name": "buffers must have the same size",
+        "info": "",
+        "x": 1030,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "22913fda.2bb698",
+        "type": "comment",
+        "z": "9e927247.b15628",
+        "name": "buffers must have the same size",
+        "info": "",
+        "x": 1030,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "a5236aab.46495",
+        "type": "comment",
+        "z": "9e927247.b15628",
+        "name": "download on name",
+        "info": "",
+        "x": 810,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "a5fd2b9b.c64f5",
+        "type": "olcnr-file-download",
+        "z": "aa6fd619.ba432",
+        "connect_server": "3c2c110.e9ac1f",
+        "managedFileId": "",
+        "name": "",
+        "outputType": "buffer",
+        "x": 750,
+        "y": 160,
+        "wires": [
+            [
+                "83e1ab6a.b99268"
+            ]
+        ]
+    },
+    {
+        "id": "83e1ab6a.b99268",
+        "type": "debug",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 910,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "bef26ee5.88f3d8",
+        "type": "olcnr-file-download",
+        "z": "aa6fd619.ba432",
+        "connect_server": "3c2c110.e9ac1f",
+        "managedFileId": "",
+        "name": "",
+        "outputType": "buffer",
+        "x": 750,
+        "y": 240,
+        "wires": [
+            [
+                "4e840410.d94394"
+            ]
+        ]
+    },
+    {
+        "id": "4e840410.d94394",
+        "type": "debug",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 910,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "fc91dcf0.9875a",
+        "type": "olcnr-file-download",
+        "z": "aa6fd619.ba432",
+        "connect_server": "3c2c110.e9ac1f",
+        "managedFileId": "",
+        "name": "",
+        "outputType": "UTF-8",
+        "x": 750,
+        "y": 320,
+        "wires": [
+            [
+                "a337d421.d9aa58"
+            ]
+        ]
+    },
+    {
+        "id": "a337d421.d9aa58",
+        "type": "debug",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 910,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "5faff1c6.5d802",
+        "type": "olcnr-file-download",
+        "z": "aa6fd619.ba432",
+        "connect_server": "3c2c110.e9ac1f",
+        "managedFileId": "",
+        "name": "",
+        "outputType": "buffer",
+        "x": 750,
+        "y": 400,
+        "wires": [
+            [
+                "accf6dab.9b23e8"
+            ]
+        ]
+    },
+    {
+        "id": "accf6dab.9b23e8",
+        "type": "debug",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 910,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "8ef71095.676658",
+        "type": "olcnr-file-download",
+        "z": "aa6fd619.ba432",
+        "connect_server": "3c2c110.e9ac1f",
+        "managedFileId": "",
+        "name": "",
+        "outputType": "buffer",
+        "x": 750,
+        "y": 520,
+        "wires": [
+            [
+                "4be36f15.1afeb8"
+            ]
+        ]
+    },
+    {
+        "id": "4be36f15.1afeb8",
+        "type": "debug",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 910,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "17e9bc07.4f03e4",
+        "type": "olcnr-file-download",
+        "z": "aa6fd619.ba432",
+        "connect_server": "3c2c110.e9ac1f",
+        "managedFileId": "",
+        "name": "",
+        "outputType": "buffer",
+        "x": 750,
+        "y": 600,
+        "wires": [
+            [
+                "4f617c9c.aa1d54"
+            ]
+        ]
+    },
+    {
+        "id": "4f617c9c.aa1d54",
+        "type": "debug",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 910,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "31ef1871.95ebc8",
+        "type": "olcnr-file-download",
+        "z": "aa6fd619.ba432",
+        "connect_server": "3c2c110.e9ac1f",
+        "managedFileId": "",
+        "name": "",
+        "outputType": "buffer",
+        "x": 750,
+        "y": 680,
+        "wires": [
+            [
+                "116f073f.d68689"
+            ]
+        ]
+    },
+    {
+        "id": "116f073f.d68689",
+        "type": "debug",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 910,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "1c83aa71.35588e",
+        "type": "olcnr-file-download",
+        "z": "aa6fd619.ba432",
+        "connect_server": "3c2c110.e9ac1f",
+        "managedFileId": "",
+        "name": "",
+        "outputType": "buffer",
+        "x": 750,
+        "y": 760,
+        "wires": [
+            [
+                "a8f8d2f6.230dc"
+            ]
+        ]
+    },
+    {
+        "id": "a8f8d2f6.230dc",
+        "type": "debug",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 910,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "c44e0e2e.b6772",
+        "type": "olcnr-file-download",
+        "z": "aa6fd619.ba432",
+        "connect_server": "3c2c110.e9ac1f",
+        "managedFileId": "",
+        "name": "",
+        "outputType": "buffer",
+        "x": 750,
+        "y": 880,
+        "wires": [
+            [
+                "9956e09e.80b668"
+            ]
+        ]
+    },
+    {
+        "id": "9956e09e.80b668",
+        "type": "debug",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 910,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "ce7f5144.02b3e8",
+        "type": "olcnr-file-download",
+        "z": "aa6fd619.ba432",
+        "connect_server": "3c2c110.e9ac1f",
+        "managedFileId": "",
+        "name": "",
+        "outputType": "buffer",
+        "x": 750,
+        "y": 960,
+        "wires": [
+            [
+                "86eedc6f.04edd"
+            ]
+        ]
+    },
+    {
+        "id": "86eedc6f.04edd",
+        "type": "debug",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 910,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "fd5ce965.4dcb58",
+        "type": "olcnr-file-download",
+        "z": "aa6fd619.ba432",
+        "connect_server": "3c2c110.e9ac1f",
+        "managedFileId": "",
+        "name": "",
+        "outputType": "buffer",
+        "x": 750,
+        "y": 1040,
+        "wires": [
+            [
+                "3e24b0f8.a0d67"
+            ]
+        ]
+    },
+    {
+        "id": "3e24b0f8.a0d67",
+        "type": "debug",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 910,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "139facff.6e477b",
+        "type": "olcnr-file-download",
+        "z": "aa6fd619.ba432",
+        "connect_server": "3c2c110.e9ac1f",
+        "managedFileId": "",
+        "name": "",
+        "outputType": "buffer",
+        "x": 750,
+        "y": 1120,
+        "wires": [
+            [
+                "528c5509.7eba34"
+            ]
+        ]
+    },
+    {
+        "id": "528c5509.7eba34",
+        "type": "debug",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 910,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "62fa4e27.8f6578",
+        "type": "inject",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 140,
+        "wires": [
+            [
+                "75e8b6ed.bbaf3"
+            ]
+        ]
+    },
+    {
+        "id": "c4baebf7.ba18e",
+        "type": "inject",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 300,
+        "wires": [
+            [
+                "16a0d5ee.760892"
+            ]
+        ]
+    },
+    {
+        "id": "98840d05.8e7ed",
+        "type": "inject",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 220,
+        "wires": [
+            [
+                "a3051fc3.7a041"
+            ]
+        ]
+    },
+    {
+        "id": "2189c11c.aee91e",
+        "type": "olcnr-file-download",
+        "z": "37cb15d3.0f6432",
+        "connect_server": "3c2c110.e9ac1f",
+        "managedFileId": "",
+        "name": "",
+        "outputType": "UTF-8",
+        "x": 890,
+        "y": 540,
+        "wires": [
+            [
+                "3db9644b.7196fc"
+            ]
+        ]
+    },
+    {
+        "id": "3db9644b.7196fc",
+        "type": "debug",
+        "z": "37cb15d3.0f6432",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1050,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "8b365e45.2e62f",
+        "type": "olcnr-file-download",
+        "z": "37cb15d3.0f6432",
+        "connect_server": "3c2c110.e9ac1f",
+        "managedFileId": "",
+        "name": "",
+        "outputType": "UTF-8",
+        "x": 890,
+        "y": 620,
+        "wires": [
+            [
+                "f8735b87.7e5b78"
+            ]
+        ]
+    },
+    {
+        "id": "f8735b87.7e5b78",
+        "type": "debug",
+        "z": "37cb15d3.0f6432",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1050,
+        "y": 620,
+        "wires": []
     }
 ]
