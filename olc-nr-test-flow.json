@@ -49,16 +49,16 @@
         "info": ""
     },
     {
-        "id": "62064950.8a3c68",
+        "id": "ed01ae8b.f2b208",
         "type": "tab",
-        "label": "runtime params",
+        "label": "all in one server error",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "ed01ae8b.f2b208",
+        "id": "62064950.8a3c68",
         "type": "tab",
-        "label": "all in one error",
+        "label": "runtime params",
         "disabled": false,
         "info": ""
     },
@@ -4421,12 +4421,13 @@
         "id": "e6e541ba.73a96",
         "type": "olcnr-all-in-one",
         "z": "be4af37d.14dec",
+        "d": true,
         "connect_server": "3c2c110.e9ac1f",
         "dmConfiguration": "",
         "template": "",
         "jobPreset": "",
         "outputPreset": "",
-        "dataStorage": "none",
+        "dataStorage": "database",
         "name": "all in one - invoices",
         "x": 850,
         "y": 540,
@@ -4442,6 +4443,7 @@
         "id": "25c319ad.c79ab6",
         "type": "olcnr-all-in-one",
         "z": "be4af37d.14dec",
+        "d": true,
         "connect_server": "3c2c110.e9ac1f",
         "dmConfiguration": "",
         "template": "",
@@ -5005,7 +5007,6 @@
         "id": "804e8c83.203c18",
         "type": "change",
         "z": "be4af37d.14dec",
-        "d": true,
         "name": "",
         "rules": [
             {
@@ -5087,7 +5088,8 @@
         "y": 500,
         "wires": [
             [
-                "fe6cb27f.79d5d"
+                "fe6cb27f.79d5d",
+                "113fbefb.abcf31"
             ]
         ]
     },
@@ -5320,7 +5322,8 @@
         "y": 620,
         "wires": [
             [
-                "fe6cb27f.79d5d"
+                "fe6cb27f.79d5d",
+                "113fbefb.abcf31"
             ]
         ]
     },
@@ -5328,7 +5331,6 @@
         "id": "eebe7d49.959648",
         "type": "change",
         "z": "be4af37d.14dec",
-        "d": true,
         "name": "",
         "rules": [
             {
@@ -5362,7 +5364,8 @@
         "y": 380,
         "wires": [
             [
-                "fe6cb27f.79d5d"
+                "fe6cb27f.79d5d",
+                "113fbefb.abcf31"
             ]
         ]
     },
@@ -5894,99 +5897,6 @@
         ]
     },
     {
-        "id": "b940e34b.8cd92",
-        "type": "inject",
-        "z": "9e927247.b15628",
-        "name": "Trigger",
-        "props": [
-            {
-                "p": "filename",
-                "v": "C:\\Files\\Designer playground\\base\\base.OL-template",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payloadType": "str",
-        "x": 110,
-        "y": 380,
-        "wires": [
-            [
-                "5d26b0b4.1d872"
-            ]
-        ]
-    },
-    {
-        "id": "5d26b0b4.1d872",
-        "type": "olcnr-file-upload",
-        "z": "9e927247.b15628",
-        "connect_server": "3c2c110.e9ac1f",
-        "filename": "",
-        "fileDuration": "permanent",
-        "name": "",
-        "x": 270,
-        "y": 380,
-        "wires": [
-            [
-                "3cf3a0d2.8126c",
-                "ee3ea928.28c4d8"
-            ]
-        ]
-    },
-    {
-        "id": "3cf3a0d2.8126c",
-        "type": "debug",
-        "z": "9e927247.b15628",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 450,
-        "y": 440,
-        "wires": []
-    },
-    {
-        "id": "575f648c.325184",
-        "type": "debug",
-        "z": "9e927247.b15628",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 610,
-        "y": 380,
-        "wires": []
-    },
-    {
-        "id": "ee3ea928.28c4d8",
-        "type": "olcnr-file-download",
-        "z": "9e927247.b15628",
-        "connect_server": "3c2c110.e9ac1f",
-        "managedFileId": "",
-        "name": "",
-        "outputType": "buffer",
-        "x": 450,
-        "y": 380,
-        "wires": [
-            [
-                "575f648c.325184"
-            ]
-        ]
-    },
-    {
         "id": "196b680.e6f0218",
         "type": "inject",
         "z": "be4af37d.14dec",
@@ -6143,7 +6053,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 990,
+        "x": 1250,
         "y": 340,
         "wires": []
     },
@@ -6233,7 +6143,7 @@
         "to": "",
         "reg": false,
         "x": 380,
-        "y": 380,
+        "y": 400,
         "wires": [
             [
                 "b6af2e78.f38cd8",
@@ -6247,7 +6157,7 @@
         "z": "62064950.8a3c68",
         "name": "Runtime params for DM and CC",
         "info": "",
-        "x": 250,
+        "x": 230,
         "y": 300,
         "wires": []
     },
@@ -6260,7 +6170,7 @@
         "active": false,
         "name": "",
         "x": 580,
-        "y": 380,
+        "y": 400,
         "wires": [
             [
                 "af858a13.e959"
@@ -6341,7 +6251,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 170,
-        "y": 380,
+        "y": 400,
         "wires": [
             [
                 "7df39710.a3306"
@@ -6354,8 +6264,8 @@
         "z": "62064950.8a3c68",
         "name": "Runtime params missing for DM and CC: fails DM, not AiO",
         "info": "",
-        "x": 330,
-        "y": 420,
+        "x": 310,
+        "y": 460,
         "wires": []
     },
     {
@@ -6366,10 +6276,10 @@
         "template": "",
         "name": "",
         "x": 790,
-        "y": 380,
+        "y": 400,
         "wires": [
             [
-                "7c228871.a277e"
+                "61c201a1.865508"
             ]
         ]
     },
@@ -6381,8 +6291,8 @@
         "filename": "",
         "fileDuration": "permanent",
         "name": "",
-        "x": 610,
-        "y": 700,
+        "x": 650,
+        "y": 100,
         "wires": [
             [
                 "728d04ca.69fc64",
@@ -6407,8 +6317,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 110,
-        "y": 700,
+        "x": 150,
+        "y": 100,
         "wires": [
             [
                 "b5d062e.54893a"
@@ -6425,8 +6335,8 @@
         "chunk": false,
         "sendError": false,
         "encoding": "none",
-        "x": 260,
-        "y": 700,
+        "x": 300,
+        "y": 100,
         "wires": [
             [
                 "8b3c9590.86e9d8",
@@ -6458,8 +6368,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 440,
-        "y": 700,
+        "x": 480,
+        "y": 100,
         "wires": [
             [
                 "d5975115.657158"
@@ -6479,8 +6389,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 770,
-        "y": 760,
+        "x": 810,
+        "y": 160,
         "wires": []
     },
     {
@@ -7299,8 +7209,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 930,
-        "y": 40,
+        "x": 910,
+        "y": 160,
         "wires": []
     },
     {
@@ -7529,15 +7439,13 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 120,
+        "x": 140,
         "y": 40,
         "wires": [
             [
                 "da93b369.776488",
                 "b3852c2b.8f2ad8",
-                "56c1cf35.38395",
                 "711eaca5.854194",
-                "6560aa8e.e3cabc",
                 "19a8bfef.50b0e8"
             ]
         ]
@@ -7641,66 +7549,24 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 950,
-        "y": 240,
+        "x": 910,
+        "y": 160,
         "wires": []
-    },
-    {
-        "id": "56c1cf35.38395",
-        "type": "olcnr-file-upload",
-        "z": "ed01ae8b.f2b208",
-        "connect_server": "3c2c110.e9ac1f",
-        "filename": "files\\printcontent\\printbsc-default.OL-jobpreset",
-        "fileDuration": "temporary",
-        "name": "upload job preset",
-        "x": 390,
-        "y": 120,
-        "wires": [
-            [
-                "c488fdcc.e4edc"
-            ]
-        ]
     },
     {
         "id": "711eaca5.854194",
         "type": "olcnr-file-upload",
         "z": "ed01ae8b.f2b208",
+        "d": true,
         "connect_server": "3c2c110.e9ac1f",
         "filename": "files\\printcontent\\printbsc-group customers.OL-jobpreset",
         "fileDuration": "temporary",
         "name": "upload job preset cust",
         "x": 400,
-        "y": 160,
-        "wires": [
-            [
-                "3f6816b.9f3496a"
-            ]
-        ]
-    },
-    {
-        "id": "c488fdcc.e4edc",
-        "type": "change",
-        "z": "ed01ae8b.f2b208",
-        "name": "jobPreset",
-        "rules": [
-            {
-                "t": "move",
-                "p": "managedFileId",
-                "pt": "msg",
-                "to": "jobPreset",
-                "tot": "flow"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 660,
         "y": 120,
         "wires": [
             [
-                "afaecd95.0ff7e"
+                "3f6816b.9f3496a"
             ]
         ]
     },
@@ -7724,50 +7590,7 @@
         "to": "",
         "reg": false,
         "x": 680,
-        "y": 160,
-        "wires": [
-            [
-                "afaecd95.0ff7e"
-            ]
-        ]
-    },
-    {
-        "id": "6560aa8e.e3cabc",
-        "type": "olcnr-file-upload",
-        "z": "ed01ae8b.f2b208",
-        "connect_server": "3c2c110.e9ac1f",
-        "filename": "files\\printcontent\\printbsc-full job.OL-outputpreset",
-        "fileDuration": "temporary",
-        "name": "upload out preset full",
-        "x": 400,
-        "y": 200,
-        "wires": [
-            [
-                "f411fb41.3dae2"
-            ]
-        ]
-    },
-    {
-        "id": "f411fb41.3dae2",
-        "type": "change",
-        "z": "ed01ae8b.f2b208",
-        "name": "outputPreset",
-        "rules": [
-            {
-                "t": "move",
-                "p": "managedFileId",
-                "pt": "msg",
-                "to": "outputPreset",
-                "tot": "flow"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 670,
-        "y": 200,
+        "y": 120,
         "wires": [
             [
                 "afaecd95.0ff7e"
@@ -7783,7 +7606,7 @@
         "fileDuration": "temporary",
         "name": "upload out preset cust",
         "x": 400,
-        "y": 240,
+        "y": 160,
         "wires": [
             [
                 "4c685a50.ce5ab4"
@@ -7810,7 +7633,7 @@
         "to": "",
         "reg": false,
         "x": 690,
-        "y": 240,
+        "y": 160,
         "wires": [
             [
                 "afaecd95.0ff7e"
@@ -7841,7 +7664,7 @@
         "topic": "",
         "payloadType": "str",
         "x": 170,
-        "y": 360,
+        "y": 300,
         "wires": [
             [
                 "3bf2e6f5.c8379a"
@@ -7860,7 +7683,7 @@
         "dataStorage": "none",
         "name": "all in one - cust",
         "x": 580,
-        "y": 360,
+        "y": 300,
         "wires": [
             [
                 "79db9a90.384fec"
@@ -7901,7 +7724,7 @@
         "to": "",
         "reg": false,
         "x": 380,
-        "y": 360,
+        "y": 300,
         "wires": [
             [
                 "110f689d.129d0f"
@@ -7921,17 +7744,17 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 770,
-        "y": 360,
+        "y": 300,
         "wires": []
     },
     {
         "id": "84ae6eac.ddf98",
         "type": "comment",
         "z": "ed01ae8b.f2b208",
-        "name": "setting output preset which needs specific job preset, without the job preset",
+        "name": "using a output preset which needs specific job preset, without the job preset",
         "info": "",
         "x": 570,
-        "y": 320,
+        "y": 260,
         "wires": []
     },
     {
@@ -7990,8 +7813,8 @@
         "managedFileId": "",
         "name": "",
         "outputType": "buffer",
-        "x": 790,
-        "y": 700,
+        "x": 830,
+        "y": 100,
         "wires": [
             [
                 "48292418.2b6f34"
@@ -8011,8 +7834,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 950,
-        "y": 700,
+        "x": 990,
+        "y": 100,
         "wires": []
     },
     {
@@ -8023,8 +7846,8 @@
         "filename": "",
         "fileDuration": "temporary",
         "name": "",
-        "x": 610,
-        "y": 880,
+        "x": 650,
+        "y": 280,
         "wires": [
             [
                 "608d2eda.438988",
@@ -8050,8 +7873,8 @@
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "str",
-        "x": 110,
-        "y": 880,
+        "x": 150,
+        "y": 280,
         "wires": [
             [
                 "a40e38ab.792bd8"
@@ -8068,8 +7891,8 @@
         "chunk": false,
         "sendError": false,
         "encoding": "none",
-        "x": 260,
-        "y": 880,
+        "x": 300,
+        "y": 280,
         "wires": [
             [
                 "b3499e6f.71ef28",
@@ -8101,8 +7924,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 440,
-        "y": 880,
+        "x": 480,
+        "y": 280,
         "wires": [
             [
                 "3aed81a3.5cf6c6"
@@ -8122,8 +7945,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 770,
-        "y": 940,
+        "x": 810,
+        "y": 340,
         "wires": []
     },
     {
@@ -8134,8 +7957,8 @@
         "managedFileId": "",
         "name": "",
         "outputType": "buffer",
-        "x": 790,
-        "y": 880,
+        "x": 830,
+        "y": 280,
         "wires": [
             [
                 "6867aa2.c2d93d4"
@@ -8155,131 +7978,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 950,
-        "y": 880,
-        "wires": []
-    },
-    {
-        "id": "10601686.20eb09",
-        "type": "inject",
-        "z": "9e927247.b15628",
-        "name": "Trigger",
-        "props": [
-            {
-                "p": "filename",
-                "v": "C:\\Files\\Designer playground\\base\\base.OL-template",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payloadType": "str",
-        "x": 110,
-        "y": 540,
-        "wires": [
-            [
-                "91d7b631.3bde7"
-            ]
-        ]
-    },
-    {
-        "id": "91d7b631.3bde7",
-        "type": "olcnr-file-upload",
-        "z": "9e927247.b15628",
-        "connect_server": "3c2c110.e9ac1f",
-        "filename": "",
-        "fileDuration": "temporary",
-        "name": "",
-        "x": 270,
-        "y": 540,
-        "wires": [
-            [
-                "42dadfa4.8814e8",
-                "9a99f490.291338"
-            ]
-        ]
-    },
-    {
-        "id": "42dadfa4.8814e8",
-        "type": "debug",
-        "z": "9e927247.b15628",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 450,
-        "y": 600,
-        "wires": []
-    },
-    {
-        "id": "9a99f490.291338",
-        "type": "olcnr-file-download",
-        "z": "9e927247.b15628",
-        "connect_server": "3c2c110.e9ac1f",
-        "managedFileId": "",
-        "name": "",
-        "outputType": "buffer",
-        "x": 450,
-        "y": 540,
-        "wires": [
-            [
-                "502aa7c8.f14dc8"
-            ]
-        ]
-    },
-    {
-        "id": "502aa7c8.f14dc8",
-        "type": "debug",
-        "z": "9e927247.b15628",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 610,
-        "y": 540,
-        "wires": []
-    },
-    {
-        "id": "ed9417e4.f2532",
-        "type": "comment",
-        "z": "9e927247.b15628",
-        "name": "permanent",
-        "info": "",
-        "x": 260,
-        "y": 340,
-        "wires": []
-    },
-    {
-        "id": "7ae5117c.14858",
-        "type": "comment",
-        "z": "9e927247.b15628",
-        "name": "temporary",
-        "info": "",
-        "x": 260,
-        "y": 500,
-        "wires": []
-    },
-    {
-        "id": "5cd0a5d1.701a1c",
-        "type": "comment",
-        "z": "9e927247.b15628",
-        "name": "upload template from file path",
-        "info": "",
-        "x": 180,
-        "y": 300,
+        "x": 990,
+        "y": 280,
         "wires": []
     },
     {
@@ -8288,8 +7988,8 @@
         "z": "9e927247.b15628",
         "name": "permanent",
         "info": "",
-        "x": 600,
-        "y": 660,
+        "x": 640,
+        "y": 60,
         "wires": []
     },
     {
@@ -8298,8 +7998,8 @@
         "z": "9e927247.b15628",
         "name": "temporary",
         "info": "",
-        "x": 600,
-        "y": 840,
+        "x": 640,
+        "y": 240,
         "wires": []
     },
     {
@@ -8308,8 +8008,8 @@
         "z": "9e927247.b15628",
         "name": "upload template from buffer",
         "info": "",
-        "x": 160,
-        "y": 640,
+        "x": 200,
+        "y": 40,
         "wires": []
     },
     {
@@ -8318,8 +8018,8 @@
         "z": "9e927247.b15628",
         "name": "buffers must have the same size",
         "info": "",
-        "x": 1090,
-        "y": 1000,
+        "x": 1130,
+        "y": 400,
         "wires": []
     },
     {
@@ -8330,8 +8030,8 @@
         "filename": "",
         "fileDuration": "temporary",
         "name": "",
-        "x": 610,
-        "y": 1040,
+        "x": 650,
+        "y": 440,
         "wires": [
             [
                 "c15f2b37.dc6908",
@@ -8357,8 +8057,8 @@
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "str",
-        "x": 110,
-        "y": 1040,
+        "x": 150,
+        "y": 440,
         "wires": [
             [
                 "7915da8a.6f0d4c"
@@ -8375,8 +8075,8 @@
         "chunk": false,
         "sendError": false,
         "encoding": "none",
-        "x": 260,
-        "y": 1040,
+        "x": 300,
+        "y": 440,
         "wires": [
             [
                 "80ba6c2d.bce6c",
@@ -8408,8 +8108,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 440,
-        "y": 1040,
+        "x": 480,
+        "y": 440,
         "wires": [
             [
                 "485bf0a5.79da7"
@@ -8429,8 +8129,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 770,
-        "y": 1100,
+        "x": 810,
+        "y": 500,
         "wires": []
     },
     {
@@ -8441,8 +8141,8 @@
         "managedFileId": "BufferFoo3.OL-template",
         "name": "",
         "outputType": "buffer",
-        "x": 830,
-        "y": 1040,
+        "x": 870,
+        "y": 440,
         "wires": [
             [
                 "19fede1.cad6d22"
@@ -8462,8 +8162,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1010,
-        "y": 1040,
+        "x": 1050,
+        "y": 440,
         "wires": []
     },
     {
@@ -8472,8 +8172,8 @@
         "z": "9e927247.b15628",
         "name": "temporary",
         "info": "",
-        "x": 600,
-        "y": 1000,
+        "x": 640,
+        "y": 400,
         "wires": []
     },
     {
@@ -8489,8 +8189,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1010,
-        "y": 1080,
+        "x": 1050,
+        "y": 480,
         "wires": []
     },
     {
@@ -8506,8 +8206,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 950,
-        "y": 920,
+        "x": 990,
+        "y": 320,
         "wires": []
     },
     {
@@ -8523,8 +8223,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 950,
-        "y": 740,
+        "x": 990,
+        "y": 140,
         "wires": []
     },
     {
@@ -8533,8 +8233,8 @@
         "z": "9e927247.b15628",
         "name": "buffers must have the same size",
         "info": "",
-        "x": 1030,
-        "y": 840,
+        "x": 1070,
+        "y": 240,
         "wires": []
     },
     {
@@ -8543,8 +8243,8 @@
         "z": "9e927247.b15628",
         "name": "buffers must have the same size",
         "info": "",
-        "x": 1030,
-        "y": 660,
+        "x": 1070,
+        "y": 60,
         "wires": []
     },
     {
@@ -8553,8 +8253,8 @@
         "z": "9e927247.b15628",
         "name": "download on name",
         "info": "",
-        "x": 810,
-        "y": 1000,
+        "x": 850,
+        "y": 400,
         "wires": []
     },
     {
@@ -9074,6 +8774,110 @@
         "statusType": "auto",
         "x": 1050,
         "y": 620,
+        "wires": []
+    },
+    {
+        "id": "61c201a1.865508",
+        "type": "olcnr-paginated-job",
+        "z": "62064950.8a3c68",
+        "connect_server": "3c2c110.e9ac1f",
+        "contentSetId": "",
+        "jobPreset": "",
+        "name": "",
+        "x": 1000,
+        "y": 400,
+        "wires": [
+            [
+                "6300f773.9767b8"
+            ]
+        ]
+    },
+    {
+        "id": "6300f773.9767b8",
+        "type": "olcnr-paginated-output",
+        "z": "62064950.8a3c68",
+        "connect_server": "3c2c110.e9ac1f",
+        "outputPreset": "",
+        "name": "",
+        "x": 1210,
+        "y": 400,
+        "wires": [
+            [
+                "7c228871.a277e"
+            ]
+        ]
+    },
+    {
+        "id": "113fbefb.abcf31",
+        "type": "olcnr-all-in-one",
+        "z": "be4af37d.14dec",
+        "d": true,
+        "connect_server": "3c2c110.e9ac1f",
+        "dmConfiguration": "",
+        "template": "",
+        "jobPreset": "",
+        "outputPreset": "",
+        "dataStorage": "database",
+        "name": "all in one - full + dbstor",
+        "x": 870,
+        "y": 400,
+        "wires": [
+            [
+                "a43fae7d.5ba748",
+                "aae9f256.ae2bf",
+                "83dd4ef6.408498"
+            ]
+        ]
+    },
+    {
+        "id": "aae9f256.ae2bf",
+        "type": "debug",
+        "z": "be4af37d.14dec",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1110,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "83dd4ef6.408498",
+        "type": "debug",
+        "z": "be4af37d.14dec",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "managedFileId",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1130,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "a43fae7d.5ba748",
+        "type": "debug",
+        "z": "be4af37d.14dec",
+        "name": "Debug: used time",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "'Time used: ' & ($millis() - timeStart ) /1000 & ' seconds'",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1130,
+        "y": 260,
         "wires": []
     }
 ]
