@@ -14046,5 +14046,373 @@
         "x": 220,
         "y": 980,
         "wires": []
+    },
+    {
+        "id": "2bab5171.b94b16",
+        "type": "change",
+        "z": "8bdf1dd0.ebdbb",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "template",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "dmConfiguration",
+                "pt": "msg",
+                "to": "dmConfiguration",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "jobPreset",
+                "pt": "msg",
+                "to": "jobPresetCust",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "outputPreset",
+                "pt": "msg",
+                "to": "outputPresetCust",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 1140,
+        "wires": [
+            [
+                "1c78ab1a.2e95fd"
+            ]
+        ]
+    },
+    {
+        "id": "62fc3f1d.b2e35",
+        "type": "inject",
+        "z": "8bdf1dd0.ebdbb",
+        "name": "Sample data 50 recs",
+        "props": [
+            {
+                "p": "filename",
+                "v": "files\\printcontent\\Sample Data-50recs.xml",
+                "vt": "str"
+            },
+            {
+                "p": "timeStart",
+                "v": "",
+                "vt": "date"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 170,
+        "y": 1140,
+        "wires": [
+            [
+                "2bab5171.b94b16"
+            ]
+        ]
+    },
+    {
+        "id": "f0a90146.07da38",
+        "type": "olcnr-paginated-content",
+        "z": "8bdf1dd0.ebdbb",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "name": "",
+        "x": 590,
+        "y": 1180,
+        "wires": [
+            [
+                "1ba0b362.792f95"
+            ]
+        ]
+    },
+    {
+        "id": "1ba0b362.792f95",
+        "type": "olcnr-paginated-job",
+        "z": "8bdf1dd0.ebdbb",
+        "connect_server": "3c2c110.e9ac1f",
+        "jobPreset": "",
+        "name": "",
+        "x": 800,
+        "y": 1180,
+        "wires": [
+            [
+                "ce1d4d54.0a9458"
+            ]
+        ]
+    },
+    {
+        "id": "ce1d4d54.0a9458",
+        "type": "olcnr-paginated-output",
+        "z": "8bdf1dd0.ebdbb",
+        "connect_server": "3c2c110.e9ac1f",
+        "outputPreset": "",
+        "name": "",
+        "x": 1020,
+        "y": 1180,
+        "wires": [
+            [
+                "63400fde.c5987",
+                "718cef59.27a948"
+            ]
+        ]
+    },
+    {
+        "id": "63400fde.c5987",
+        "type": "debug",
+        "z": "8bdf1dd0.ebdbb",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1210,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "1c78ab1a.2e95fd",
+        "type": "olcnr-data-mapping",
+        "z": "8bdf1dd0.ebdbb",
+        "connect_server": "3c2c110.e9ac1f",
+        "dmConfiguration": "",
+        "active": false,
+        "name": "",
+        "x": 380,
+        "y": 1180,
+        "wires": [
+            [
+                "f0a90146.07da38"
+            ]
+        ]
+    },
+    {
+        "id": "1a045b7.1cd65a5",
+        "type": "comment",
+        "z": "8bdf1dd0.ebdbb",
+        "name": "output 38 PDFs (per customer)",
+        "info": "",
+        "x": 210,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "718cef59.27a948",
+        "type": "debug",
+        "z": "8bdf1dd0.ebdbb",
+        "name": "time used",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "'Time used: ' & ($millis() - timeStart ) /1000 & ' seconds'",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1220,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "dd160695.894c3",
+        "type": "change",
+        "z": "8bdf1dd0.ebdbb",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "template",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "dmConfiguration",
+                "pt": "msg",
+                "to": "dmConfiguration",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "jobPreset",
+                "pt": "msg",
+                "to": "jobPresetCust",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "outputPreset",
+                "pt": "msg",
+                "to": "outputPresetInv",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 1280,
+        "wires": [
+            [
+                "651ddee3.ec024"
+            ]
+        ]
+    },
+    {
+        "id": "3d57ffbf.b154f8",
+        "type": "inject",
+        "z": "8bdf1dd0.ebdbb",
+        "name": "Sample data 1000 recs",
+        "props": [
+            {
+                "p": "filename",
+                "v": "files\\printcontent\\Sample Data-1k.xml",
+                "vt": "str"
+            },
+            {
+                "p": "timeStart",
+                "v": "",
+                "vt": "date"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 180,
+        "y": 1280,
+        "wires": [
+            [
+                "dd160695.894c3"
+            ]
+        ]
+    },
+    {
+        "id": "2b8cf9f6.6b8226",
+        "type": "olcnr-paginated-content",
+        "z": "8bdf1dd0.ebdbb",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "name": "",
+        "x": 590,
+        "y": 1320,
+        "wires": [
+            [
+                "4f9eb811.df2158"
+            ]
+        ]
+    },
+    {
+        "id": "4f9eb811.df2158",
+        "type": "olcnr-paginated-job",
+        "z": "8bdf1dd0.ebdbb",
+        "connect_server": "3c2c110.e9ac1f",
+        "jobPreset": "",
+        "name": "",
+        "x": 800,
+        "y": 1320,
+        "wires": [
+            [
+                "2b14da38.8324fe"
+            ]
+        ]
+    },
+    {
+        "id": "2b14da38.8324fe",
+        "type": "olcnr-paginated-output",
+        "z": "8bdf1dd0.ebdbb",
+        "connect_server": "3c2c110.e9ac1f",
+        "outputPreset": "",
+        "name": "",
+        "x": 1020,
+        "y": 1320,
+        "wires": [
+            [
+                "33ddb247.32963e",
+                "62772b7f.03220c"
+            ]
+        ]
+    },
+    {
+        "id": "33ddb247.32963e",
+        "type": "debug",
+        "z": "8bdf1dd0.ebdbb",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1210,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "651ddee3.ec024",
+        "type": "olcnr-data-mapping",
+        "z": "8bdf1dd0.ebdbb",
+        "connect_server": "3c2c110.e9ac1f",
+        "dmConfiguration": "",
+        "active": false,
+        "name": "",
+        "x": 380,
+        "y": 1320,
+        "wires": [
+            [
+                "2b8cf9f6.6b8226"
+            ]
+        ]
+    },
+    {
+        "id": "532e53f6.d19a9c",
+        "type": "comment",
+        "z": "8bdf1dd0.ebdbb",
+        "name": "output 1000 PDFs (per invoice)",
+        "info": "",
+        "x": 210,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "62772b7f.03220c",
+        "type": "debug",
+        "z": "8bdf1dd0.ebdbb",
+        "name": "time used",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "'Time used: ' & ($millis() - timeStart ) /1000 & ' seconds'",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1220,
+        "y": 1280,
+        "wires": []
     }
 ]
