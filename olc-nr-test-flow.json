@@ -14117,6 +14117,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
+        "payloadType": "str",
         "x": 170,
         "y": 1140,
         "wires": [
@@ -14301,6 +14302,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
+        "payloadType": "str",
         "x": 180,
         "y": 1280,
         "wires": [
@@ -14414,5 +14416,325 @@
         "x": 1220,
         "y": 1280,
         "wires": []
+    },
+    {
+        "id": "b6fc0c99.5679f8",
+        "type": "inject",
+        "z": "8bdf1dd0.ebdbb",
+        "name": "Sample data 50 recs",
+        "props": [
+            {
+                "p": "filename",
+                "v": "files\\printcontent\\Sample Data-50recs.xml",
+                "vt": "str"
+            },
+            {
+                "p": "timeStart",
+                "v": "",
+                "vt": "date"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 170,
+        "y": 1420,
+        "wires": [
+            [
+                "ea7fced0.0d9ec"
+            ]
+        ]
+    },
+    {
+        "id": "418b1578.a63fac",
+        "type": "olcnr-paginated-content",
+        "z": "8bdf1dd0.ebdbb",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "printbsc-invoice.OL-template",
+        "name": "",
+        "x": 820,
+        "y": 1420,
+        "wires": [
+            [
+                "bee6d318.1f7718"
+            ]
+        ]
+    },
+    {
+        "id": "bee6d318.1f7718",
+        "type": "olcnr-paginated-job",
+        "z": "8bdf1dd0.ebdbb",
+        "connect_server": "3c2c110.e9ac1f",
+        "jobPreset": "printbsc-group customers.OL-jobpreset",
+        "name": "",
+        "x": 620,
+        "y": 1460,
+        "wires": [
+            [
+                "38658797.f29188"
+            ]
+        ]
+    },
+    {
+        "id": "38658797.f29188",
+        "type": "olcnr-paginated-output",
+        "z": "8bdf1dd0.ebdbb",
+        "connect_server": "3c2c110.e9ac1f",
+        "outputPreset": "printbsc-full job.OL-outputpreset",
+        "name": "",
+        "x": 960,
+        "y": 1460,
+        "wires": [
+            [
+                "ce422395.42c61",
+                "a4534b43.0c77a8"
+            ]
+        ]
+    },
+    {
+        "id": "ce422395.42c61",
+        "type": "debug",
+        "z": "8bdf1dd0.ebdbb",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1210,
+        "y": 1460,
+        "wires": []
+    },
+    {
+        "id": "ea7fced0.0d9ec",
+        "type": "olcnr-data-mapping",
+        "z": "8bdf1dd0.ebdbb",
+        "connect_server": "3c2c110.e9ac1f",
+        "dmConfiguration": "printbsc-transactional xml.OL-datamapper",
+        "active": false,
+        "name": "",
+        "x": 490,
+        "y": 1420,
+        "wires": [
+            [
+                "418b1578.a63fac"
+            ]
+        ]
+    },
+    {
+        "id": "289191ab.8bc01e",
+        "type": "comment",
+        "z": "8bdf1dd0.ebdbb",
+        "name": "using UI fields",
+        "info": "",
+        "x": 150,
+        "y": 1380,
+        "wires": []
+    },
+    {
+        "id": "a4534b43.0c77a8",
+        "type": "debug",
+        "z": "8bdf1dd0.ebdbb",
+        "name": "time used",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "'Time used: ' & ($millis() - timeStart ) /1000 & ' seconds'",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1220,
+        "y": 1420,
+        "wires": []
+    },
+    {
+        "id": "ea3176a8.87638",
+        "type": "inject",
+        "z": "8bdf1dd0.ebdbb",
+        "name": "Sample data 50 recs",
+        "props": [
+            {
+                "p": "filename",
+                "v": "files\\printcontent\\Sample Data-50recs.xml",
+                "vt": "str"
+            },
+            {
+                "p": "timeStart",
+                "v": "",
+                "vt": "date"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 170,
+        "y": 1540,
+        "wires": [
+            [
+                "35d19d5a.d24aea"
+            ]
+        ]
+    },
+    {
+        "id": "f193c5f6.c99c5",
+        "type": "olcnr-paginated-content",
+        "z": "8bdf1dd0.ebdbb",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "printbsc-invoice.OL-template",
+        "name": "",
+        "x": 980,
+        "y": 1540,
+        "wires": [
+            [
+                "5605f559.b30e44"
+            ]
+        ]
+    },
+    {
+        "id": "5605f559.b30e44",
+        "type": "olcnr-paginated-job",
+        "z": "8bdf1dd0.ebdbb",
+        "connect_server": "3c2c110.e9ac1f",
+        "jobPreset": "printbsc-group customers.OL-jobpreset",
+        "name": "",
+        "x": 620,
+        "y": 1580,
+        "wires": [
+            [
+                "6148fd5c.02b0ec"
+            ]
+        ]
+    },
+    {
+        "id": "6148fd5c.02b0ec",
+        "type": "olcnr-paginated-output",
+        "z": "8bdf1dd0.ebdbb",
+        "connect_server": "3c2c110.e9ac1f",
+        "outputPreset": "printbsc-full job.OL-outputpreset",
+        "name": "",
+        "x": 960,
+        "y": 1580,
+        "wires": [
+            [
+                "5e9bf3d0.c49bfc",
+                "ec2b0dbb.7955d8"
+            ]
+        ]
+    },
+    {
+        "id": "5e9bf3d0.c49bfc",
+        "type": "debug",
+        "z": "8bdf1dd0.ebdbb",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1210,
+        "y": 1580,
+        "wires": []
+    },
+    {
+        "id": "513e12aa.964374",
+        "type": "olcnr-data-mapping",
+        "z": "8bdf1dd0.ebdbb",
+        "connect_server": "3c2c110.e9ac1f",
+        "dmConfiguration": "printbsc-transactional xml.OL-datamapper",
+        "active": false,
+        "name": "",
+        "x": 670,
+        "y": 1540,
+        "wires": [
+            [
+                "f193c5f6.c99c5"
+            ]
+        ]
+    },
+    {
+        "id": "dbc6f3db.3c032",
+        "type": "comment",
+        "z": "8bdf1dd0.ebdbb",
+        "name": "UI fields trump input msg",
+        "info": "",
+        "x": 190,
+        "y": 1500,
+        "wires": []
+    },
+    {
+        "id": "ec2b0dbb.7955d8",
+        "type": "debug",
+        "z": "8bdf1dd0.ebdbb",
+        "name": "time used",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "'Time used: ' & ($millis() - timeStart ) /1000 & ' seconds'",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1220,
+        "y": 1540,
+        "wires": []
+    },
+    {
+        "id": "35d19d5a.d24aea",
+        "type": "change",
+        "z": "8bdf1dd0.ebdbb",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            },
+            {
+                "t": "set",
+                "p": "dmConfiguration",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            },
+            {
+                "t": "set",
+                "p": "jobPreset",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            },
+            {
+                "t": "set",
+                "p": "outputPreset",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 1540,
+        "wires": [
+            [
+                "513e12aa.964374"
+            ]
+        ]
     }
 ]
