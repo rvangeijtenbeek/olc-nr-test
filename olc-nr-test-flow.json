@@ -84,6 +84,13 @@
         "info": ""
     },
     {
+        "id": "df200617.1e584",
+        "type": "tab",
+        "label": "pdf preview",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "3c2c110.e9ac1f",
         "type": "OL Connect Server",
         "url": "http://localhost:9340",
@@ -14736,5 +14743,347 @@
                 "513e12aa.964374"
             ]
         ]
+    },
+    {
+        "id": "9c85d77f.862548",
+        "type": "http in",
+        "z": "df200617.1e584",
+        "name": "",
+        "url": "happybirthday",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 170,
+        "y": 260,
+        "wires": [
+            [
+                "5224df60.187e48"
+            ]
+        ]
+    },
+    {
+        "id": "a6d12d72.bdf41",
+        "type": "olcnr-preview-pdf",
+        "z": "df200617.1e584",
+        "connect_server": "3c2c110.e9ac1f",
+        "payload": "",
+        "dataRecordId": "",
+        "template": "Superhero-card.OL-template",
+        "x": 620,
+        "y": 260,
+        "wires": [
+            [
+                "4ac71a11.e270ac",
+                "7a30c86c.7e952",
+                "765ddd2a.aee55c"
+            ]
+        ]
+    },
+    {
+        "id": "4ac71a11.e270ac",
+        "type": "http response",
+        "z": "df200617.1e584",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "content-type": "application/pdf"
+        },
+        "x": 850,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "7a30c86c.7e952",
+        "type": "file",
+        "z": "df200617.1e584",
+        "name": "Save the PDF",
+        "filename": "",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 880,
+        "y": 300,
+        "wires": [
+            [
+                "f5a787b9.4a3c9"
+            ]
+        ]
+    },
+    {
+        "id": "37af67fe.e67d5",
+        "type": "olcnr-file-upload",
+        "z": "df200617.1e584",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "",
+        "fileDuration": "temporary",
+        "name": "store template on server",
+        "x": 330,
+        "y": 160,
+        "wires": [
+            [
+                "bd676225.cdce9"
+            ]
+        ]
+    },
+    {
+        "id": "f4779bec.de02d",
+        "type": "inject",
+        "z": "df200617.1e584",
+        "name": "Trigger",
+        "props": [
+            {
+                "p": "filename",
+                "v": "files\\Superhero-card.OL-template",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 130,
+        "y": 160,
+        "wires": [
+            [
+                "37af67fe.e67d5"
+            ]
+        ]
+    },
+    {
+        "id": "bd676225.cdce9",
+        "type": "debug",
+        "z": "df200617.1e584",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "d32a63b3.938448",
+        "type": "comment",
+        "z": "df200617.1e584",
+        "name": "Pull the trigger to upload the template",
+        "info": "",
+        "x": 230,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "604f66b3.15bc28",
+        "type": "comment",
+        "z": "df200617.1e584",
+        "name": "Process that produces Preview PDF to return & save",
+        "info": "",
+        "x": 280,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "5224df60.187e48",
+        "type": "change",
+        "z": "df200617.1e584",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "timeStart",
+                "pt": "msg",
+                "to": "$millis()",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "'c:\\\\users\\\\Administrator\\\\.node-red\\\\projects\\\\olc-nr-test\\\\output\\\\' & timeStart & '.pdf'",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 260,
+        "wires": [
+            [
+                "a6d12d72.bdf41"
+            ]
+        ]
+    },
+    {
+        "id": "f5a787b9.4a3c9",
+        "type": "debug",
+        "z": "df200617.1e584",
+        "name": "Debug: used time",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "'Time used: ' & ($millis() - timeStart ) /1000 & ' seconds'",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1090,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "ab8d3cc1.0acd38",
+        "type": "olcnr-preview-pdf",
+        "z": "df200617.1e584",
+        "connect_server": "3c2c110.e9ac1f",
+        "payload": "",
+        "dataRecordId": "",
+        "template": "Superhero-card.OL-template",
+        "x": 540,
+        "y": 420,
+        "wires": [
+            [
+                "a7e4113f.10dfd"
+            ]
+        ]
+    },
+    {
+        "id": "a7e4113f.10dfd",
+        "type": "file",
+        "z": "df200617.1e584",
+        "name": "Save the PDF",
+        "filename": "",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 780,
+        "y": 420,
+        "wires": [
+            [
+                "146c1517.13d473"
+            ]
+        ]
+    },
+    {
+        "id": "99955d6e.21cf2",
+        "type": "change",
+        "z": "df200617.1e584",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "timeStart",
+                "pt": "msg",
+                "to": "$millis()",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "'c:\\\\users\\\\Administrator\\\\.node-red\\\\projects\\\\olc-nr-test\\\\output\\\\' & timeStart & '.pdf'",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 300,
+        "y": 420,
+        "wires": [
+            [
+                "ab8d3cc1.0acd38"
+            ]
+        ]
+    },
+    {
+        "id": "146c1517.13d473",
+        "type": "debug",
+        "z": "df200617.1e584",
+        "name": "Debug: used time",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "'Time used: ' & ($millis() - timeStart ) /1000 & ' seconds'",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 990,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "b17b428f.bb871",
+        "type": "inject",
+        "z": "df200617.1e584",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"first\":\"Rijk was here\"}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 420,
+        "wires": [
+            [
+                "99955d6e.21cf2"
+            ]
+        ]
+    },
+    {
+        "id": "3120c6aa.5bb6f2",
+        "type": "comment",
+        "z": "df200617.1e584",
+        "name": "trigger by loading http://127.0.0.1:1880/happybirthday",
+        "info": "",
+        "x": 280,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "3e565a67.6c6946",
+        "type": "comment",
+        "z": "df200617.1e584",
+        "name": "trigger by injecting JSON object",
+        "info": "",
+        "x": 210,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "765ddd2a.aee55c",
+        "type": "debug",
+        "z": "df200617.1e584",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 850,
+        "y": 260,
+        "wires": []
     }
 ]
