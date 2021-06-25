@@ -14768,8 +14768,8 @@
         "connect_server": "3c2c110.e9ac1f",
         "payload": "",
         "dataRecordId": "",
-        "template": "Superhero-card.OL-template",
-        "x": 620,
+        "template": "",
+        "x": 570,
         "y": 260,
         "wires": [
             [
@@ -14788,7 +14788,7 @@
         "headers": {
             "content-type": "application/pdf"
         },
-        "x": 850,
+        "x": 730,
         "y": 220,
         "wires": []
     },
@@ -14802,7 +14802,7 @@
         "createDir": false,
         "overwriteFile": "true",
         "encoding": "none",
-        "x": 880,
+        "x": 760,
         "y": 300,
         "wires": [
             [
@@ -14830,7 +14830,7 @@
         "id": "f4779bec.de02d",
         "type": "inject",
         "z": "df200617.1e584",
-        "name": "Trigger",
+        "name": "",
         "props": [
             {
                 "p": "filename",
@@ -14872,9 +14872,9 @@
         "id": "d32a63b3.938448",
         "type": "comment",
         "z": "df200617.1e584",
-        "name": "Pull the trigger to upload the template",
+        "name": "upload the template",
         "info": "",
-        "x": 230,
+        "x": 170,
         "y": 120,
         "wires": []
     },
@@ -14882,9 +14882,9 @@
         "id": "604f66b3.15bc28",
         "type": "comment",
         "z": "df200617.1e584",
-        "name": "Process that produces Preview PDF to return & save",
+        "name": "produce Preview PDF to return & save",
         "info": "",
-        "x": 280,
+        "x": 230,
         "y": 220,
         "wires": []
     },
@@ -14907,6 +14907,13 @@
                 "pt": "msg",
                 "to": "'C:\\\\nr-output\\\\' & timeStart & '.pdf'",
                 "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "managedFileId",
+                "pt": "msg",
+                "to": "Superhero-card.OL-template",
+                "tot": "str"
             }
         ],
         "action": "",
@@ -14935,7 +14942,7 @@
         "targetType": "jsonata",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1090,
+        "x": 970,
         "y": 300,
         "wires": []
     },
@@ -14946,8 +14953,8 @@
         "connect_server": "3c2c110.e9ac1f",
         "payload": "",
         "dataRecordId": "",
-        "template": "Superhero-card.OL-template",
-        "x": 540,
+        "template": "",
+        "x": 570,
         "y": 420,
         "wires": [
             [
@@ -14965,45 +14972,11 @@
         "createDir": false,
         "overwriteFile": "true",
         "encoding": "none",
-        "x": 780,
+        "x": 760,
         "y": 420,
         "wires": [
             [
                 "146c1517.13d473"
-            ]
-        ]
-    },
-    {
-        "id": "99955d6e.21cf2",
-        "type": "change",
-        "z": "df200617.1e584",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "timeStart",
-                "pt": "msg",
-                "to": "$millis()",
-                "tot": "jsonata"
-            },
-            {
-                "t": "set",
-                "p": "filename",
-                "pt": "msg",
-                "to": "'C:\\\\nr-output\\\\' & timeStart & '.pdf'",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 300,
-        "y": 420,
-        "wires": [
-            [
-                "ab8d3cc1.0acd38"
             ]
         ]
     },
@@ -15020,7 +14993,7 @@
         "targetType": "jsonata",
         "statusVal": "",
         "statusType": "auto",
-        "x": 990,
+        "x": 970,
         "y": 420,
         "wires": []
     },
@@ -15045,7 +15018,7 @@
         "y": 420,
         "wires": [
             [
-                "99955d6e.21cf2"
+                "e709f6e4.e3e128"
             ]
         ]
     },
@@ -15053,9 +15026,9 @@
         "id": "3120c6aa.5bb6f2",
         "type": "comment",
         "z": "df200617.1e584",
-        "name": "trigger by loading http://127.0.0.1:1881/happybirthday",
+        "name": "trigger by loading http://127.0.0.1:1881/happybirthday?first=MyName",
         "info": "",
-        "x": 280,
+        "x": 330,
         "y": 300,
         "wires": []
     },
@@ -15082,7 +15055,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 850,
+        "x": 730,
         "y": 260,
         "wires": []
     },
@@ -15105,8 +15078,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 810,
-        "y": 140,
+        "x": 770,
+        "y": 160,
         "wires": [
             [
                 "4ac71a11.e270ac"
@@ -15119,8 +15092,59 @@
         "z": "df200617.1e584",
         "name": "temporary workaround",
         "info": "",
-        "x": 820,
-        "y": 100,
+        "x": 780,
+        "y": 120,
         "wires": []
+    },
+    {
+        "id": "ced77a5.5060988",
+        "type": "comment",
+        "z": "df200617.1e584",
+        "name": "make sure C:\\nr-output\\ exists",
+        "info": "",
+        "x": 800,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "e709f6e4.e3e128",
+        "type": "change",
+        "z": "df200617.1e584",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "timeStart",
+                "pt": "msg",
+                "to": "$millis()",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "'C:\\\\nr-output\\\\' & timeStart & '.pdf'",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "managedFileId",
+                "pt": "msg",
+                "to": "Superhero-card.OL-template",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 420,
+        "wires": [
+            [
+                "ab8d3cc1.0acd38"
+            ]
+        ]
     }
 ]
