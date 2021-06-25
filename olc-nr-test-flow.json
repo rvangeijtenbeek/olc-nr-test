@@ -91,6 +91,20 @@
         "info": ""
     },
     {
+        "id": "f189a573.54921",
+        "type": "tab",
+        "label": "email",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "2ab9b87c.975ed8",
+        "type": "tab",
+        "label": "email content",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "3c2c110.e9ac1f",
         "type": "OL Connect Server",
         "url": "http://localhost:9340",
@@ -15175,6 +15189,1573 @@
         "info": "",
         "x": 160,
         "y": 100,
+        "wires": []
+    },
+    {
+        "id": "e36b158a.b208e",
+        "type": "olcnr-email-content",
+        "z": "f189a573.54921",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "section": "",
+        "outputFormat": "by-msg",
+        "name": "",
+        "x": 820,
+        "y": 380,
+        "wires": [
+            [
+                "eda09671.2d8538"
+            ]
+        ]
+    },
+    {
+        "id": "1e4ea442.88e9ec",
+        "type": "olcnr-data-mapping",
+        "z": "f189a573.54921",
+        "connect_server": "3c2c110.e9ac1f",
+        "dmConfiguration": "",
+        "active": false,
+        "name": "",
+        "x": 620,
+        "y": 380,
+        "wires": [
+            [
+                "e36b158a.b208e"
+            ]
+        ]
+    },
+    {
+        "id": "4b8758d3.ad6de8",
+        "type": "inject",
+        "z": "f189a573.54921",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 60,
+        "wires": [
+            [
+                "ffaec8db.832428",
+                "d8b25fa2.d69cb8"
+            ]
+        ]
+    },
+    {
+        "id": "d8b25fa2.d69cb8",
+        "type": "olcnr-file-upload",
+        "z": "f189a573.54921",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "files\\email\\EmailBasic+multi-attachment-202010.OL-template",
+        "fileDuration": "temporary",
+        "name": "upload template",
+        "x": 420,
+        "y": 60,
+        "wires": [
+            [
+                "52acf97a.a93ea"
+            ]
+        ]
+    },
+    {
+        "id": "ffaec8db.832428",
+        "type": "olcnr-file-upload",
+        "z": "f189a573.54921",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "files\\email\\EmailBasic.OL-datamapper",
+        "fileDuration": "temporary",
+        "name": "upload dm",
+        "x": 410,
+        "y": 100,
+        "wires": [
+            [
+                "c236c123.b16f58"
+            ]
+        ]
+    },
+    {
+        "id": "52acf97a.a93ea",
+        "type": "change",
+        "z": "f189a573.54921",
+        "name": "template",
+        "rules": [
+            {
+                "t": "move",
+                "p": "managedFileId",
+                "pt": "msg",
+                "to": "template",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 680,
+        "y": 60,
+        "wires": [
+            [
+                "30243e81.bbaf4a"
+            ]
+        ]
+    },
+    {
+        "id": "c236c123.b16f58",
+        "type": "change",
+        "z": "f189a573.54921",
+        "name": "dmConfiguration",
+        "rules": [
+            {
+                "t": "move",
+                "p": "managedFileId",
+                "pt": "msg",
+                "to": "dmConfiguration",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 710,
+        "y": 100,
+        "wires": [
+            [
+                "30243e81.bbaf4a"
+            ]
+        ]
+    },
+    {
+        "id": "30243e81.bbaf4a",
+        "type": "debug",
+        "z": "f189a573.54921",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 930,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "570359f8.af97c8",
+        "type": "comment",
+        "z": "f189a573.54921",
+        "name": "upload test data",
+        "info": "",
+        "x": 160,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "cc052ece.b2b4c8",
+        "type": "inject",
+        "z": "f189a573.54921",
+        "name": "Sample data 1 mail",
+        "props": [
+            {
+                "p": "filename",
+                "v": "files\\email\\rendermailtest-1.csv",
+                "vt": "str"
+            },
+            {
+                "p": "timeStart",
+                "v": "",
+                "vt": "date"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 170,
+        "y": 260,
+        "wires": [
+            [
+                "2b4061ae.2a5116"
+            ]
+        ]
+    },
+    {
+        "id": "2b4061ae.2a5116",
+        "type": "change",
+        "z": "f189a573.54921",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "template",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "dmConfiguration",
+                "pt": "msg",
+                "to": "dmConfiguration",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "outputFormat",
+                "pt": "msg",
+                "to": "EML",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 380,
+        "wires": [
+            [
+                "1e4ea442.88e9ec"
+            ]
+        ]
+    },
+    {
+        "id": "eda09671.2d8538",
+        "type": "debug",
+        "z": "f189a573.54921",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 990,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "f8d3817e.ab6508",
+        "type": "inject",
+        "z": "f189a573.54921",
+        "name": "Sample data 4 mails",
+        "props": [
+            {
+                "p": "filename",
+                "v": "files\\email\\rendermailtest-4.csv",
+                "vt": "str"
+            },
+            {
+                "p": "timeStart",
+                "v": "",
+                "vt": "date"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "str",
+        "x": 170,
+        "y": 300,
+        "wires": [
+            [
+                "2b4061ae.2a5116"
+            ]
+        ]
+    },
+    {
+        "id": "9f4783ea.5fc9b8",
+        "type": "inject",
+        "z": "f189a573.54921",
+        "name": "Sample data 50 mails",
+        "props": [
+            {
+                "p": "filename",
+                "v": "files\\email\\rendermailtest-50.csv",
+                "vt": "str"
+            },
+            {
+                "p": "timeStart",
+                "v": "",
+                "vt": "date"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 180,
+        "y": 340,
+        "wires": [
+            [
+                "2b4061ae.2a5116"
+            ]
+        ]
+    },
+    {
+        "id": "e6450d86.54183",
+        "type": "inject",
+        "z": "f189a573.54921",
+        "name": "Sample data 1000 mails",
+        "props": [
+            {
+                "p": "filename",
+                "v": "files\\email\\rendermailtest-1000.csv",
+                "vt": "str"
+            },
+            {
+                "p": "timeStart",
+                "v": "",
+                "vt": "date"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 190,
+        "y": 380,
+        "wires": [
+            [
+                "2b4061ae.2a5116"
+            ]
+        ]
+    },
+    {
+        "id": "64ecba83.850c94",
+        "type": "olcnr-email-content",
+        "z": "2ab9b87c.975ed8",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "section": "",
+        "outputFormat": "eml",
+        "name": "",
+        "x": 880,
+        "y": 940,
+        "wires": [
+            [
+                "87b95281.b8baa",
+                "8089f684.9eece8",
+                "6b47ce0a.154b08",
+                "1784503d.d0f15"
+            ]
+        ]
+    },
+    {
+        "id": "8f0e5a59.4403c8",
+        "type": "olcnr-data-mapping",
+        "z": "2ab9b87c.975ed8",
+        "connect_server": "3c2c110.e9ac1f",
+        "dmConfiguration": "",
+        "active": false,
+        "name": "",
+        "x": 500,
+        "y": 200,
+        "wires": [
+            [
+                "f53ee803.8de9c8"
+            ]
+        ]
+    },
+    {
+        "id": "87b95281.b8baa",
+        "type": "debug",
+        "z": "2ab9b87c.975ed8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1050,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "cd5e7be.07f1088",
+        "type": "olcnr-data-mapping",
+        "z": "2ab9b87c.975ed8",
+        "connect_server": "3c2c110.e9ac1f",
+        "dmConfiguration": "",
+        "active": false,
+        "name": "",
+        "x": 500,
+        "y": 440,
+        "wires": [
+            [
+                "803944f3.e55118"
+            ]
+        ]
+    },
+    {
+        "id": "803944f3.e55118",
+        "type": "olcnr-data-get",
+        "z": "2ab9b87c.975ed8",
+        "connect_server": "3c2c110.e9ac1f",
+        "inputType": "set",
+        "outputType": "values",
+        "details": "false",
+        "outputJSON": "simple",
+        "name": "",
+        "x": 680,
+        "y": 440,
+        "wires": [
+            [
+                "64ecba83.850c94"
+            ]
+        ]
+    },
+    {
+        "id": "377e009a.fd006",
+        "type": "comment",
+        "z": "2ab9b87c.975ed8",
+        "name": "Use record id's",
+        "info": "",
+        "x": 700,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "eb423c61.1be1b",
+        "type": "comment",
+        "z": "2ab9b87c.975ed8",
+        "name": "Use record values JSON",
+        "info": "",
+        "x": 730,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "646a9e04.cd008",
+        "type": "olcnr-data-mapping",
+        "z": "2ab9b87c.975ed8",
+        "connect_server": "3c2c110.e9ac1f",
+        "dmConfiguration": "",
+        "active": false,
+        "name": "",
+        "x": 500,
+        "y": 340,
+        "wires": [
+            [
+                "1fe4b776.ffe031"
+            ]
+        ]
+    },
+    {
+        "id": "cdaaa6c8.bf3a18",
+        "type": "function",
+        "z": "2ab9b87c.975ed8",
+        "name": "Single DataRecord ID",
+        "func": "msg.payload = msg.payload[1]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 880,
+        "y": 340,
+        "wires": [
+            [
+                "64ecba83.850c94"
+            ]
+        ]
+    },
+    {
+        "id": "bf1a1028.ef0f1",
+        "type": "olcnr-data-mapping",
+        "z": "2ab9b87c.975ed8",
+        "connect_server": "3c2c110.e9ac1f",
+        "dmConfiguration": "",
+        "active": false,
+        "name": "",
+        "x": 500,
+        "y": 580,
+        "wires": [
+            [
+                "ff5b2b84.f3ff48"
+            ]
+        ]
+    },
+    {
+        "id": "ff5b2b84.f3ff48",
+        "type": "olcnr-data-get",
+        "z": "2ab9b87c.975ed8",
+        "connect_server": "3c2c110.e9ac1f",
+        "inputType": "set",
+        "outputType": "values",
+        "details": "false",
+        "outputJSON": "full",
+        "name": "",
+        "x": 680,
+        "y": 580,
+        "wires": [
+            [
+                "cd53414c.7b96b"
+            ]
+        ]
+    },
+    {
+        "id": "cd53414c.7b96b",
+        "type": "function",
+        "z": "2ab9b87c.975ed8",
+        "name": "Single DataRecord Value",
+        "func": "msg.payload = msg.payload[1]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 890,
+        "y": 580,
+        "wires": [
+            [
+                "64ecba83.850c94"
+            ]
+        ]
+    },
+    {
+        "id": "63a180db.d263d",
+        "type": "inject",
+        "z": "2ab9b87c.975ed8",
+        "name": "inject 1",
+        "props": [
+            {
+                "p": "filename",
+                "v": "files\\email\\rendermailtest-1.csv",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 780,
+        "wires": [
+            [
+                "151ad57f.4861f3"
+            ]
+        ]
+    },
+    {
+        "id": "b25d6ee9.b7b67",
+        "type": "olcnr-data-mapping",
+        "z": "2ab9b87c.975ed8",
+        "connect_server": "3c2c110.e9ac1f",
+        "dmConfiguration": "",
+        "active": false,
+        "name": "",
+        "x": 500,
+        "y": 780,
+        "wires": [
+            [
+                "64ecba83.850c94"
+            ]
+        ]
+    },
+    {
+        "id": "bc0989f9.ae34d8",
+        "type": "comment",
+        "z": "2ab9b87c.975ed8",
+        "name": "Use msg.dataSetId",
+        "info": "",
+        "x": 510,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "93e53ee9.eeb9c8",
+        "type": "inject",
+        "z": "2ab9b87c.975ed8",
+        "name": "inject 1",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "filename",
+                "v": "files\\email\\rendermailtest-1.csv",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 200,
+        "wires": [
+            [
+                "811384f5.149b38"
+            ]
+        ]
+    },
+    {
+        "id": "614a084b.1afe6",
+        "type": "inject",
+        "z": "2ab9b87c.975ed8",
+        "name": "inject 1",
+        "props": [
+            {
+                "p": "filename",
+                "v": "files\\email\\rendermailtest-1.csv",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 340,
+        "wires": [
+            [
+                "b5f8d658.298ba"
+            ]
+        ]
+    },
+    {
+        "id": "5acac983.8c19b8",
+        "type": "inject",
+        "z": "2ab9b87c.975ed8",
+        "name": "inject 1",
+        "props": [
+            {
+                "p": "filename",
+                "v": "files\\email\\rendermailtest-1.csv",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 440,
+        "wires": [
+            [
+                "e82e01f9.4f0f1"
+            ]
+        ]
+    },
+    {
+        "id": "2009409a.67c2b8",
+        "type": "inject",
+        "z": "2ab9b87c.975ed8",
+        "name": "inject 1",
+        "props": [
+            {
+                "p": "filename",
+                "v": "files\\email\\rendermailtest-1.csv",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 580,
+        "wires": [
+            [
+                "8dc692b6.e28858"
+            ]
+        ]
+    },
+    {
+        "id": "57661f4d.b34aa8",
+        "type": "inject",
+        "z": "2ab9b87c.975ed8",
+        "name": "inject 10",
+        "props": [
+            {
+                "p": "filename",
+                "v": "files\\email\\rendermailtest-10.csv",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 120,
+        "y": 280,
+        "wires": [
+            [
+                "811384f5.149b38"
+            ]
+        ]
+    },
+    {
+        "id": "47d25f7c.dda2f8",
+        "type": "inject",
+        "z": "2ab9b87c.975ed8",
+        "name": "inject 4",
+        "props": [
+            {
+                "p": "filename",
+                "v": "files\\email\\rendermailtest-4.csv",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 240,
+        "wires": [
+            [
+                "811384f5.149b38"
+            ]
+        ]
+    },
+    {
+        "id": "1b3d1e41.a4dcaa",
+        "type": "inject",
+        "z": "2ab9b87c.975ed8",
+        "name": "inject 4",
+        "props": [
+            {
+                "p": "filename",
+                "v": "files\\email\\rendermailtest-4.csv",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 480,
+        "wires": [
+            [
+                "e82e01f9.4f0f1"
+            ]
+        ]
+    },
+    {
+        "id": "be9254c8.086f08",
+        "type": "inject",
+        "z": "2ab9b87c.975ed8",
+        "name": "inject 10",
+        "props": [
+            {
+                "p": "filename",
+                "v": "files\\email\\rendermailtest-10.csv",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 120,
+        "y": 520,
+        "wires": [
+            [
+                "e82e01f9.4f0f1"
+            ]
+        ]
+    },
+    {
+        "id": "82a492fa.d04ae8",
+        "type": "inject",
+        "z": "2ab9b87c.975ed8",
+        "name": "inject 4",
+        "props": [
+            {
+                "p": "filename",
+                "v": "files\\email\\rendermailtest-4.csv",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 380,
+        "wires": [
+            [
+                "b5f8d658.298ba"
+            ]
+        ]
+    },
+    {
+        "id": "590c408f.98393",
+        "type": "inject",
+        "z": "2ab9b87c.975ed8",
+        "name": "inject 4",
+        "props": [
+            {
+                "p": "filename",
+                "v": "files\\email\\rendermailtest-4.csv",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 620,
+        "wires": [
+            [
+                "8dc692b6.e28858"
+            ]
+        ]
+    },
+    {
+        "id": "a11d9692.2f1b08",
+        "type": "inject",
+        "z": "2ab9b87c.975ed8",
+        "name": "inject 4",
+        "props": [
+            {
+                "p": "filename",
+                "v": "files\\email\\rendermailtest-4.csv",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 820,
+        "wires": [
+            [
+                "151ad57f.4861f3"
+            ]
+        ]
+    },
+    {
+        "id": "3aac05d8.6f4332",
+        "type": "inject",
+        "z": "2ab9b87c.975ed8",
+        "name": "inject 10",
+        "props": [
+            {
+                "p": "filename",
+                "v": "files\\email\\rendermailtest-10.csv",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "str",
+        "x": 120,
+        "y": 860,
+        "wires": [
+            [
+                "151ad57f.4861f3"
+            ]
+        ]
+    },
+    {
+        "id": "8089f684.9eece8",
+        "type": "link out",
+        "z": "2ab9b87c.975ed8",
+        "d": true,
+        "name": "to SG",
+        "links": [
+            "413c20f6.220638"
+        ],
+        "x": 1015,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "811384f5.149b38",
+        "type": "change",
+        "z": "2ab9b87c.975ed8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "template",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "dmConfiguration",
+                "pt": "msg",
+                "to": "dmConfiguration",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "timeStart",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 300,
+        "y": 200,
+        "wires": [
+            [
+                "8f0e5a59.4403c8"
+            ]
+        ]
+    },
+    {
+        "id": "b5f8d658.298ba",
+        "type": "change",
+        "z": "2ab9b87c.975ed8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "template",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "dmConfiguration",
+                "pt": "msg",
+                "to": "dmConfiguration",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "timeStart",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 300,
+        "y": 340,
+        "wires": [
+            [
+                "646a9e04.cd008"
+            ]
+        ]
+    },
+    {
+        "id": "e82e01f9.4f0f1",
+        "type": "change",
+        "z": "2ab9b87c.975ed8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "template",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "dmConfiguration",
+                "pt": "msg",
+                "to": "dmConfiguration",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "timeStart",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 300,
+        "y": 440,
+        "wires": [
+            [
+                "cd5e7be.07f1088"
+            ]
+        ]
+    },
+    {
+        "id": "8dc692b6.e28858",
+        "type": "change",
+        "z": "2ab9b87c.975ed8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "template",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "dmConfiguration",
+                "pt": "msg",
+                "to": "dmConfiguration",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "timeStart",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 300,
+        "y": 580,
+        "wires": [
+            [
+                "bf1a1028.ef0f1"
+            ]
+        ]
+    },
+    {
+        "id": "151ad57f.4861f3",
+        "type": "change",
+        "z": "2ab9b87c.975ed8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "template",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "dmConfiguration",
+                "pt": "msg",
+                "to": "dmConfiguration",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "timeStart",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 300,
+        "y": 780,
+        "wires": [
+            [
+                "b25d6ee9.b7b67"
+            ]
+        ]
+    },
+    {
+        "id": "ba2a1ffd.c9c4f",
+        "type": "comment",
+        "z": "2ab9b87c.975ed8",
+        "name": "SendGrid",
+        "info": "",
+        "x": 1100,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "528a9a9e.4b9a2c",
+        "type": "comment",
+        "z": "2ab9b87c.975ed8",
+        "name": "Use single record id",
+        "info": "",
+        "x": 870,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "28ca27f5.5ff9d",
+        "type": "comment",
+        "z": "2ab9b87c.975ed8",
+        "name": "Use single record values JSON",
+        "info": "",
+        "x": 910,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "6b47ce0a.154b08",
+        "type": "link out",
+        "z": "2ab9b87c.975ed8",
+        "d": true,
+        "name": "to SG with attachment",
+        "links": [
+            "6698cd02.978bcc"
+        ],
+        "x": 1015,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "88437613.887978",
+        "type": "comment",
+        "z": "2ab9b87c.975ed8",
+        "name": "SendGrid with attachment",
+        "info": "",
+        "x": 1150,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "1784503d.d0f15",
+        "type": "debug",
+        "z": "2ab9b87c.975ed8",
+        "name": "Debug: used time",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "'Time used: ' & ($millis() - timeStart ) /1000 & ' seconds'",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1090,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "f53ee803.8de9c8",
+        "type": "olcnr-data-get",
+        "z": "2ab9b87c.975ed8",
+        "connect_server": "3c2c110.e9ac1f",
+        "inputType": "set",
+        "outputType": "ids",
+        "details": "false",
+        "outputJSON": "full",
+        "name": "",
+        "x": 680,
+        "y": 200,
+        "wires": [
+            [
+                "64ecba83.850c94"
+            ]
+        ]
+    },
+    {
+        "id": "1fe4b776.ffe031",
+        "type": "olcnr-data-get",
+        "z": "2ab9b87c.975ed8",
+        "connect_server": "3c2c110.e9ac1f",
+        "inputType": "set",
+        "outputType": "ids",
+        "details": "false",
+        "outputJSON": "full",
+        "name": "",
+        "x": 680,
+        "y": 340,
+        "wires": [
+            [
+                "cdaaa6c8.bf3a18"
+            ]
+        ]
+    },
+    {
+        "id": "5aea4032.32249",
+        "type": "inject",
+        "z": "2ab9b87c.975ed8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 40,
+        "wires": [
+            [
+                "b6a95f7b.4e6ab8",
+                "fa93cf0c.5de628"
+            ]
+        ]
+    },
+    {
+        "id": "fa93cf0c.5de628",
+        "type": "olcnr-file-upload",
+        "z": "2ab9b87c.975ed8",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "files\\email\\EmailBasic+multi-attachment-202010.OL-template",
+        "fileDuration": "temporary",
+        "name": "upload template",
+        "x": 380,
+        "y": 40,
+        "wires": [
+            [
+                "4f0999b7.7e4f7"
+            ]
+        ]
+    },
+    {
+        "id": "b6a95f7b.4e6ab8",
+        "type": "olcnr-file-upload",
+        "z": "2ab9b87c.975ed8",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "files\\email\\EmailBasic.OL-datamapper",
+        "fileDuration": "temporary",
+        "name": "upload dm",
+        "x": 370,
+        "y": 80,
+        "wires": [
+            [
+                "5e0bdad8.25d944"
+            ]
+        ]
+    },
+    {
+        "id": "4f0999b7.7e4f7",
+        "type": "change",
+        "z": "2ab9b87c.975ed8",
+        "name": "template",
+        "rules": [
+            {
+                "t": "move",
+                "p": "managedFileId",
+                "pt": "msg",
+                "to": "template",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 40,
+        "wires": [
+            [
+                "73100d6f.2f991c"
+            ]
+        ]
+    },
+    {
+        "id": "5e0bdad8.25d944",
+        "type": "change",
+        "z": "2ab9b87c.975ed8",
+        "name": "dmConfiguration",
+        "rules": [
+            {
+                "t": "move",
+                "p": "managedFileId",
+                "pt": "msg",
+                "to": "dmConfiguration",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 670,
+        "y": 80,
+        "wires": [
+            [
+                "73100d6f.2f991c"
+            ]
+        ]
+    },
+    {
+        "id": "73100d6f.2f991c",
+        "type": "debug",
+        "z": "2ab9b87c.975ed8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 890,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "c1108b5d.46fb18",
+        "type": "comment",
+        "z": "2ab9b87c.975ed8",
+        "name": "upload test data",
+        "info": "",
+        "x": 120,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "2f5eeabc.401c16",
+        "type": "inject",
+        "z": "2ab9b87c.975ed8",
+        "name": "inject 50",
+        "props": [
+            {
+                "p": "filename",
+                "v": "files\\email\\rendermailtest-50.csv",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 120,
+        "y": 900,
+        "wires": [
+            [
+                "151ad57f.4861f3"
+            ]
+        ]
+    },
+    {
+        "id": "caec0be2.ed81c8",
+        "type": "inject",
+        "z": "2ab9b87c.975ed8",
+        "name": "inject 1000",
+        "props": [
+            {
+                "p": "filename",
+                "v": "files\\email\\rendermailtest-1000.csv",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 120,
+        "y": 940,
+        "wires": [
+            [
+                "151ad57f.4861f3"
+            ]
+        ]
+    },
+    {
+        "id": "c00c119a.5b7018",
+        "type": "inject",
+        "z": "2ab9b87c.975ed8",
+        "name": "inject 1",
+        "props": [
+            {
+                "p": "filename",
+                "v": "files\\email\\rendermailtest-1.csv",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 680,
+        "wires": [
+            [
+                "4b24dd1c.f00a54"
+            ]
+        ]
+    },
+    {
+        "id": "1b86576f.4fc9b1",
+        "type": "inject",
+        "z": "2ab9b87c.975ed8",
+        "name": "inject 4",
+        "props": [
+            {
+                "p": "filename",
+                "v": "files\\email\\rendermailtest-4.csv",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 720,
+        "wires": [
+            [
+                "4b24dd1c.f00a54"
+            ]
+        ]
+    },
+    {
+        "id": "4b24dd1c.f00a54",
+        "type": "change",
+        "z": "2ab9b87c.975ed8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "template",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "dmConfiguration",
+                "pt": "msg",
+                "to": "dmConfiguration",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "timeStart",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 300,
+        "y": 680,
+        "wires": [
+            [
+                "e78dacd5.1eccc8"
+            ]
+        ]
+    },
+    {
+        "id": "e78dacd5.1eccc8",
+        "type": "olcnr-data-mapping",
+        "z": "2ab9b87c.975ed8",
+        "connect_server": "3c2c110.e9ac1f",
+        "dmConfiguration": "",
+        "active": false,
+        "name": "",
+        "x": 500,
+        "y": 680,
+        "wires": [
+            [
+                "30f71d32.31c3da"
+            ]
+        ]
+    },
+    {
+        "id": "30f71d32.31c3da",
+        "type": "olcnr-data-get",
+        "z": "2ab9b87c.975ed8",
+        "connect_server": "3c2c110.e9ac1f",
+        "inputType": "set",
+        "outputType": "values",
+        "details": "false",
+        "outputJSON": "simple",
+        "name": "",
+        "x": 680,
+        "y": 680,
+        "wires": [
+            [
+                "9e717728.096b78"
+            ]
+        ]
+    },
+    {
+        "id": "9e717728.096b78",
+        "type": "function",
+        "z": "2ab9b87c.975ed8",
+        "name": "Single DataRecord Value",
+        "func": "msg.payload = msg.payload[1]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 890,
+        "y": 680,
+        "wires": [
+            [
+                "64ecba83.850c94"
+            ]
+        ]
+    },
+    {
+        "id": "15233307.cec3cd",
+        "type": "comment",
+        "z": "2ab9b87c.975ed8",
+        "name": "Use single record values JSON",
+        "info": "",
+        "x": 910,
+        "y": 640,
         "wires": []
     }
 ]
