@@ -14773,9 +14773,9 @@
         "y": 260,
         "wires": [
             [
-                "4ac71a11.e270ac",
                 "7a30c86c.7e952",
-                "765ddd2a.aee55c"
+                "765ddd2a.aee55c",
+                "c19dacb8.3a7e78"
             ]
         ]
     },
@@ -14905,7 +14905,7 @@
                 "t": "set",
                 "p": "filename",
                 "pt": "msg",
-                "to": "'c:\\\\users\\\\Administrator\\\\.node-red\\\\projects\\\\olc-nr-test\\\\output\\\\' & timeStart & '.pdf'",
+                "to": "'C:\\\\nr-output\\\\' & timeStart & '.pdf'",
                 "tot": "jsonata"
             }
         ],
@@ -14990,7 +14990,7 @@
                 "t": "set",
                 "p": "filename",
                 "pt": "msg",
-                "to": "'c:\\\\users\\\\Administrator\\\\.node-red\\\\projects\\\\olc-nr-test\\\\output\\\\' & timeStart & '.pdf'",
+                "to": "'C:\\\\nr-output\\\\' & timeStart & '.pdf'",
                 "tot": "jsonata"
             }
         ],
@@ -15053,7 +15053,7 @@
         "id": "3120c6aa.5bb6f2",
         "type": "comment",
         "z": "df200617.1e584",
-        "name": "trigger by loading http://127.0.0.1:1880/happybirthday",
+        "name": "trigger by loading http://127.0.0.1:1881/happybirthday",
         "info": "",
         "x": 280,
         "y": 300,
@@ -15084,6 +15084,43 @@
         "statusType": "auto",
         "x": 850,
         "y": 260,
+        "wires": []
+    },
+    {
+        "id": "c19dacb8.3a7e78",
+        "type": "change",
+        "z": "df200617.1e584",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "headers",
+                "pt": "msg",
+                "to": "{\"Content-Type\":\"application/pdf\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 810,
+        "y": 140,
+        "wires": [
+            [
+                "4ac71a11.e270ac"
+            ]
+        ]
+    },
+    {
+        "id": "59bb4145.f7f938",
+        "type": "comment",
+        "z": "df200617.1e584",
+        "name": "temporary workaround",
+        "info": "",
+        "x": 820,
+        "y": 100,
         "wires": []
     }
 ]
