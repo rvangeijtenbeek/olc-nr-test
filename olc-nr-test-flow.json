@@ -37,14 +37,14 @@
     {
         "id": "6db61924.bfbfa8",
         "type": "tab",
-        "label": "data get happy flow",
+        "label": "data get happy",
         "disabled": false,
         "info": ""
     },
     {
         "id": "8742607d.9ee268",
         "type": "tab",
-        "label": "data get unhappy flow",
+        "label": "data get unhappy",
         "disabled": false,
         "info": ""
     },
@@ -14817,9 +14817,9 @@
         "connect_server": "3c2c110.e9ac1f",
         "filename": "",
         "fileDuration": "temporary",
-        "name": "store template on server",
-        "x": 330,
-        "y": 160,
+        "name": "upload template",
+        "x": 320,
+        "y": 40,
         "wires": [
             [
                 "bd676225.cdce9"
@@ -14843,8 +14843,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 130,
-        "y": 160,
+        "x": 150,
+        "y": 40,
         "wires": [
             [
                 "37af67fe.e67d5"
@@ -14864,18 +14864,18 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 530,
-        "y": 160,
+        "x": 490,
+        "y": 40,
         "wires": []
     },
     {
         "id": "d32a63b3.938448",
         "type": "comment",
         "z": "df200617.1e584",
-        "name": "upload the template",
+        "name": "upload template",
         "info": "",
-        "x": 170,
-        "y": 120,
+        "x": 180,
+        "y": 80,
         "wires": []
     },
     {
@@ -14910,7 +14910,7 @@
             },
             {
                 "t": "set",
-                "p": "managedFileId",
+                "p": "template",
                 "pt": "msg",
                 "to": "Superhero-card.OL-template",
                 "tot": "str"
@@ -15128,7 +15128,7 @@
             },
             {
                 "t": "set",
-                "p": "managedFileId",
+                "p": "template",
                 "pt": "msg",
                 "to": "Superhero-card.OL-template",
                 "tot": "str"
@@ -15146,5 +15146,35 @@
                 "ab8d3cc1.0acd38"
             ]
         ]
+    },
+    {
+        "id": "6aa2d16f.b0a8c8",
+        "type": "comment",
+        "z": "be4af37d.14dec",
+        "name": "upload test data",
+        "info": "",
+        "x": 160,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "fad14ab6.5d8038",
+        "type": "comment",
+        "z": "62064950.8a3c68",
+        "name": "upload test data",
+        "info": "",
+        "x": 160,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "99b6cb9.1cc6ab8",
+        "type": "comment",
+        "z": "ed01ae8b.f2b208",
+        "name": "upload test data",
+        "info": "",
+        "x": 160,
+        "y": 100,
+        "wires": []
     }
 ]
