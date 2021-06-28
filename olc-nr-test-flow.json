@@ -1708,7 +1708,7 @@
         "topic": "",
         "payloadType": "str",
         "x": 110,
-        "y": 260,
+        "y": 140,
         "wires": [
             [
                 "75e8b6ed.bbaf3",
@@ -2025,7 +2025,7 @@
         "topic": "",
         "payloadType": "str",
         "x": 110,
-        "y": 620,
+        "y": 500,
         "wires": [
             [
                 "953709e.c0fc878",
@@ -2341,7 +2341,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 110,
-        "y": 980,
+        "y": 860,
         "wires": [
             [
                 "b80469d1.c2bb98",
@@ -15193,7 +15193,7 @@
         "section": "",
         "outputFormat": "eml",
         "name": "",
-        "x": 880,
+        "x": 860,
         "y": 940,
         "wires": [
             [
@@ -15213,7 +15213,7 @@
         "active": false,
         "name": "",
         "x": 500,
-        "y": 200,
+        "y": 280,
         "wires": [
             [
                 "f53ee803.8de9c8"
@@ -15233,7 +15233,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1050,
+        "x": 1030,
         "y": 940,
         "wires": []
     },
@@ -15246,7 +15246,7 @@
         "active": false,
         "name": "",
         "x": 500,
-        "y": 440,
+        "y": 520,
         "wires": [
             [
                 "803944f3.e55118"
@@ -15264,7 +15264,7 @@
         "outputJSON": "simple",
         "name": "",
         "x": 680,
-        "y": 440,
+        "y": 520,
         "wires": [
             [
                 "64ecba83.850c94"
@@ -15278,7 +15278,7 @@
         "name": "Use record id's",
         "info": "",
         "x": 700,
-        "y": 160,
+        "y": 240,
         "wires": []
     },
     {
@@ -15288,7 +15288,7 @@
         "name": "Use record values JSON",
         "info": "",
         "x": 730,
-        "y": 400,
+        "y": 480,
         "wires": []
     },
     {
@@ -15300,7 +15300,7 @@
         "active": false,
         "name": "",
         "x": 500,
-        "y": 340,
+        "y": 380,
         "wires": [
             [
                 "1fe4b776.ffe031"
@@ -15318,7 +15318,7 @@
         "initialize": "",
         "finalize": "",
         "x": 880,
-        "y": 340,
+        "y": 380,
         "wires": [
             [
                 "64ecba83.850c94"
@@ -15334,7 +15334,7 @@
         "active": false,
         "name": "",
         "x": 500,
-        "y": 580,
+        "y": 620,
         "wires": [
             [
                 "ff5b2b84.f3ff48"
@@ -15352,7 +15352,7 @@
         "outputJSON": "full",
         "name": "",
         "x": 680,
-        "y": 580,
+        "y": 620,
         "wires": [
             [
                 "cd53414c.7b96b"
@@ -15370,7 +15370,7 @@
         "initialize": "",
         "finalize": "",
         "x": 890,
-        "y": 580,
+        "y": 620,
         "wires": [
             [
                 "64ecba83.850c94"
@@ -15411,7 +15411,7 @@
         "active": false,
         "name": "",
         "x": 500,
-        "y": 780,
+        "y": 940,
         "wires": [
             [
                 "64ecba83.850c94"
@@ -15425,7 +15425,7 @@
         "name": "Use msg.dataSetId",
         "info": "",
         "x": 510,
-        "y": 740,
+        "y": 900,
         "wires": []
     },
     {
@@ -15743,8 +15743,8 @@
         "links": [
             "413c20f6.220638"
         ],
-        "x": 1015,
-        "y": 900,
+        "x": 995,
+        "y": 1060,
         "wires": []
     },
     {
@@ -15781,7 +15781,7 @@
         "to": "",
         "reg": false,
         "x": 300,
-        "y": 200,
+        "y": 280,
         "wires": [
             [
                 "8f0e5a59.4403c8"
@@ -15822,7 +15822,7 @@
         "to": "",
         "reg": false,
         "x": 300,
-        "y": 340,
+        "y": 380,
         "wires": [
             [
                 "646a9e04.cd008"
@@ -15863,7 +15863,7 @@
         "to": "",
         "reg": false,
         "x": 300,
-        "y": 440,
+        "y": 520,
         "wires": [
             [
                 "cd5e7be.07f1088"
@@ -15904,7 +15904,7 @@
         "to": "",
         "reg": false,
         "x": 300,
-        "y": 580,
+        "y": 620,
         "wires": [
             [
                 "bf1a1028.ef0f1"
@@ -15945,7 +15945,7 @@
         "to": "",
         "reg": false,
         "x": 300,
-        "y": 780,
+        "y": 940,
         "wires": [
             [
                 "b25d6ee9.b7b67"
@@ -15958,8 +15958,8 @@
         "z": "2ab9b87c.975ed8",
         "name": "SendGrid",
         "info": "",
-        "x": 1100,
-        "y": 900,
+        "x": 1080,
+        "y": 1060,
         "wires": []
     },
     {
@@ -15969,7 +15969,7 @@
         "name": "Use single record id",
         "info": "",
         "x": 870,
-        "y": 300,
+        "y": 340,
         "wires": []
     },
     {
@@ -15979,7 +15979,7 @@
         "name": "Use single record values JSON",
         "info": "",
         "x": 910,
-        "y": 540,
+        "y": 580,
         "wires": []
     },
     {
@@ -15991,8 +15991,8 @@
         "links": [
             "6698cd02.978bcc"
         ],
-        "x": 1015,
-        "y": 860,
+        "x": 995,
+        "y": 1020,
         "wires": []
     },
     {
@@ -16001,8 +16001,8 @@
         "z": "2ab9b87c.975ed8",
         "name": "SendGrid with attachment",
         "info": "",
-        "x": 1150,
-        "y": 860,
+        "x": 1130,
+        "y": 1020,
         "wires": []
     },
     {
@@ -16018,7 +16018,7 @@
         "targetType": "jsonata",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1090,
+        "x": 1070,
         "y": 980,
         "wires": []
     },
@@ -16033,7 +16033,7 @@
         "outputJSON": "full",
         "name": "",
         "x": 680,
-        "y": 200,
+        "y": 280,
         "wires": [
             [
                 "64ecba83.850c94"
@@ -16051,7 +16051,7 @@
         "outputJSON": "full",
         "name": "",
         "x": 680,
-        "y": 340,
+        "y": 380,
         "wires": [
             [
                 "cdaaa6c8.bf3a18"
@@ -16331,7 +16331,7 @@
         "to": "",
         "reg": false,
         "x": 300,
-        "y": 680,
+        "y": 720,
         "wires": [
             [
                 "e78dacd5.1eccc8"
@@ -16347,7 +16347,7 @@
         "active": false,
         "name": "",
         "x": 500,
-        "y": 680,
+        "y": 720,
         "wires": [
             [
                 "30f71d32.31c3da"
@@ -16365,7 +16365,7 @@
         "outputJSON": "simple",
         "name": "",
         "x": 680,
-        "y": 680,
+        "y": 720,
         "wires": [
             [
                 "9e717728.096b78"
@@ -16383,7 +16383,7 @@
         "initialize": "",
         "finalize": "",
         "x": 890,
-        "y": 680,
+        "y": 720,
         "wires": [
             [
                 "64ecba83.850c94"
@@ -16397,7 +16397,7 @@
         "name": "Use single record values JSON",
         "info": "",
         "x": 910,
-        "y": 640,
+        "y": 680,
         "wires": []
     }
 ]
