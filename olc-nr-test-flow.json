@@ -14773,8 +14773,6 @@
         "type": "olcnr-preview-pdf",
         "z": "df200617.1e584",
         "connect_server": "3c2c110.e9ac1f",
-        "payload": "",
-        "dataRecordId": "",
         "template": "",
         "x": 570,
         "y": 260,
@@ -14782,7 +14780,7 @@
             [
                 "7a30c86c.7e952",
                 "765ddd2a.aee55c",
-                "c19dacb8.3a7e78"
+                "4ac71a11.e270ac"
             ]
         ]
     },
@@ -14958,8 +14956,6 @@
         "type": "olcnr-preview-pdf",
         "z": "df200617.1e584",
         "connect_server": "3c2c110.e9ac1f",
-        "payload": "",
-        "dataRecordId": "",
         "template": "",
         "x": 570,
         "y": 420,
@@ -15064,43 +15060,6 @@
         "statusType": "auto",
         "x": 730,
         "y": 260,
-        "wires": []
-    },
-    {
-        "id": "c19dacb8.3a7e78",
-        "type": "change",
-        "z": "df200617.1e584",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "headers",
-                "pt": "msg",
-                "to": "{\"Content-Type\":\"application/pdf\"}",
-                "tot": "json"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 770,
-        "y": 160,
-        "wires": [
-            [
-                "4ac71a11.e270ac"
-            ]
-        ]
-    },
-    {
-        "id": "59bb4145.f7f938",
-        "type": "comment",
-        "z": "df200617.1e584",
-        "name": "temporary workaround",
-        "info": "",
-        "x": 780,
-        "y": 120,
         "wires": []
     },
     {
