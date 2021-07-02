@@ -112,6 +112,13 @@
         "info": ""
     },
     {
+        "id": "8002060c.a21e1",
+        "type": "tab",
+        "label": "html content unhappy",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "3c2c110.e9ac1f",
         "type": "OL Connect Server",
         "url": "http://localhost:9340",
@@ -16398,7 +16405,6 @@
         "y": 40,
         "wires": [
             [
-                "c97fbdf8.972408",
                 "e4671023.9eac",
                 "2e9279de.85e186",
                 "53aa7109.41a2",
@@ -16419,22 +16425,6 @@
         "wires": [
             [
                 "eedf0ced.97c47"
-            ]
-        ]
-    },
-    {
-        "id": "c97fbdf8.972408",
-        "type": "olcnr-file-upload",
-        "z": "bb2cdd1d.165788",
-        "connect_server": "3c2c110.e9ac1f",
-        "filename": "files\\email\\EmailBasic.OL-datamapper",
-        "fileDuration": "temporary",
-        "name": "upload dm",
-        "x": 370,
-        "y": 120,
-        "wires": [
-            [
-                "a990dbe.1e11a28"
             ]
         ]
     },
@@ -16466,33 +16456,6 @@
         ]
     },
     {
-        "id": "a990dbe.1e11a28",
-        "type": "change",
-        "z": "bb2cdd1d.165788",
-        "name": "dmConfiguration",
-        "rules": [
-            {
-                "t": "move",
-                "p": "managedFileId",
-                "pt": "msg",
-                "to": "dmConfiguration",
-                "tot": "flow"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 670,
-        "y": 120,
-        "wires": [
-            [
-                "8e204326.5c8f9"
-            ]
-        ]
-    },
-    {
         "id": "8e204326.5c8f9",
         "type": "debug",
         "z": "bb2cdd1d.165788",
@@ -16506,7 +16469,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 890,
-        "y": 200,
+        "y": 160,
         "wires": []
     },
     {
@@ -16526,7 +16489,7 @@
         "name": "unhappy flows",
         "info": "",
         "x": 110,
-        "y": 200,
+        "y": 400,
         "wires": []
     },
     {
@@ -16543,7 +16506,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 450,
-        "y": 320,
+        "y": 480,
         "wires": []
     },
     {
@@ -16553,7 +16516,7 @@
         "name": "no data, but Connect Server doesn't mind - no error message expected",
         "info": "",
         "x": 830,
-        "y": 320,
+        "y": 480,
         "wires": []
     },
     {
@@ -16566,11 +16529,6 @@
                 "p": "template",
                 "v": "template",
                 "vt": "flow"
-            },
-            {
-                "p": "outputFormat",
-                "v": "HTML",
-                "vt": "str"
             }
         ],
         "repeat": "",
@@ -16578,9 +16536,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payloadType": "str",
         "x": 110,
-        "y": 320,
+        "y": 480,
         "wires": [
             [
                 "5a31d591.bc5c74"
@@ -16594,10 +16551,10 @@
         "connect_server": "3c2c110.e9ac1f",
         "template": "",
         "section": "",
-        "outputFormat": "by-msg",
+        "outputFormat": "html",
         "name": "",
         "x": 280,
-        "y": 320,
+        "y": 480,
         "wires": [
             [
                 "47ea6a01.1ee92c"
@@ -16618,7 +16575,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 450,
-        "y": 380,
+        "y": 540,
         "wires": []
     },
     {
@@ -16628,33 +16585,23 @@
         "name": "no template",
         "info": "",
         "x": 650,
-        "y": 380,
+        "y": 540,
         "wires": []
     },
     {
         "id": "2479fc91.01f6bc",
         "type": "inject",
         "z": "bb2cdd1d.165788",
-        "name": "inject",
-        "props": [
-            {
-                "p": "outputFormat",
-                "v": "HTML",
-                "vt": "str"
-            },
-            {
-                "p": "payload"
-            }
-        ],
+        "name": "",
+        "props": [],
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "JSONData1",
         "payloadType": "str",
         "x": 110,
-        "y": 380,
+        "y": 540,
         "wires": [
             [
                 "ca163e04.e0774"
@@ -16668,10 +16615,10 @@
         "connect_server": "3c2c110.e9ac1f",
         "template": "",
         "section": "",
-        "outputFormat": "by-msg",
+        "outputFormat": "html",
         "name": "",
         "x": 280,
-        "y": 380,
+        "y": 540,
         "wires": [
             [
                 "ce332e4e.09772"
@@ -16685,7 +16632,7 @@
         "name": "input msg incomplete",
         "info": "",
         "x": 140,
-        "y": 280,
+        "y": 440,
         "wires": []
     },
     {
@@ -16695,7 +16642,7 @@
         "name": "data set doesn't exist",
         "info": "",
         "x": 680,
-        "y": 620,
+        "y": 780,
         "wires": []
     },
     {
@@ -16712,14 +16659,14 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 450,
-        "y": 440,
+        "y": 600,
         "wires": []
     },
     {
         "id": "cbd5c6b6.0301d8",
         "type": "inject",
         "z": "bb2cdd1d.165788",
-        "name": "inject",
+        "name": "",
         "props": [
             {
                 "p": "template",
@@ -16735,10 +16682,10 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "JSONData1",
-        "payloadType": "str",
+        "payload": "[ \t{ \t\t\"FirstName\": \"Rijk\", \t\t\"Email\": \"test@example.nl\", \t\t\"Country\": \"CA\" \t},\t{ \t\t\"FirstName\": \"神\", \t\t\"Email\": \"testchina@example.com\", \t\t\"Country\": \"CA\" \t},\t{ \t\t\"FirstName\": \"André\", \t\t\"Email\": \"test@example.fr\", \t\t\"Country\": \"FR\" \t},\t{ \t\t\"FirstName\": \"Jim\", \t\t\"Email\": \"test@example.com\", \t\t\"Country\": \"US\" \t} ]",
+        "payloadType": "json",
         "x": 110,
-        "y": 440,
+        "y": 600,
         "wires": [
             [
                 "1d7e0cbc.82be5b"
@@ -16755,7 +16702,7 @@
         "outputFormat": "by-msg",
         "name": "",
         "x": 280,
-        "y": 440,
+        "y": 600,
         "wires": [
             [
                 "f09bdd88.cad498"
@@ -16769,7 +16716,7 @@
         "name": "no outputFormat",
         "info": "",
         "x": 660,
-        "y": 440,
+        "y": 600,
         "wires": []
     },
     {
@@ -16785,7 +16732,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 470,
-        "y": 620,
+        "y": 780,
         "wires": []
     },
     {
@@ -16795,7 +16742,7 @@
         "name": "template doesn't exist",
         "info": "",
         "x": 680,
-        "y": 560,
+        "y": 720,
         "wires": []
     },
     {
@@ -16805,7 +16752,7 @@
         "name": "files not present on the Connect Server",
         "info": "",
         "x": 190,
-        "y": 520,
+        "y": 680,
         "wires": []
     },
     {
@@ -16815,10 +16762,10 @@
         "connect_server": "3c2c110.e9ac1f",
         "template": "",
         "section": "",
-        "outputFormat": "by-msg",
+        "outputFormat": "html",
         "name": "",
         "x": 280,
-        "y": 560,
+        "y": 720,
         "wires": [
             [
                 "a713e2ef.acb3a"
@@ -16837,11 +16784,6 @@
                 "vt": "str"
             },
             {
-                "p": "outputFormat",
-                "v": "HTML",
-                "vt": "str"
-            },
-            {
                 "p": "payload"
             }
         ],
@@ -16850,10 +16792,10 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "files\\email\\rendermailtest.json",
-        "payloadType": "str",
+        "payload": "[{\"FirstName\":\"Rijk\",\"Email\":\"test@example.nl\",\"Country\":\"CA\"},{\"FirstName\":\"神\",\"Email\":\"testchina@example.com\",\"Country\":\"CA\"},{\"FirstName\":\"André\",\"Email\":\"test@example.fr\",\"Country\":\"FR\"},{\"FirstName\":\"Jim\",\"Email\":\"test@example.com\",\"Country\":\"US\"}]",
+        "payloadType": "json",
         "x": 110,
-        "y": 560,
+        "y": 720,
         "wires": [
             [
                 "db5875c5.00d8e8"
@@ -16873,7 +16815,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 470,
-        "y": 560,
+        "y": 720,
         "wires": []
     },
     {
@@ -16888,11 +16830,6 @@
                 "vt": "flow"
             },
             {
-                "p": "outputFormat",
-                "v": "HTML",
-                "vt": "str"
-            },
-            {
                 "p": "dataSetId",
                 "v": "",
                 "vt": "date"
@@ -16905,7 +16842,7 @@
         "topic": "",
         "payloadType": "str",
         "x": 110,
-        "y": 620,
+        "y": 780,
         "wires": [
             [
                 "82eb7c46.a491d8"
@@ -16919,10 +16856,10 @@
         "connect_server": "3c2c110.e9ac1f",
         "template": "",
         "section": "",
-        "outputFormat": "by-msg",
+        "outputFormat": "html",
         "name": "",
         "x": 280,
-        "y": 620,
+        "y": 780,
         "wires": [
             [
                 "ef431c77.d3c7e8"
@@ -16936,7 +16873,7 @@
         "name": "section doesn't exist",
         "info": "",
         "x": 670,
-        "y": 820,
+        "y": 960,
         "wires": []
     },
     {
@@ -16952,7 +16889,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 470,
-        "y": 820,
+        "y": 960,
         "wires": []
     },
     {
@@ -16962,7 +16899,7 @@
         "name": "template doesn't have email context",
         "info": "",
         "x": 720,
-        "y": 760,
+        "y": 900,
         "wires": []
     },
     {
@@ -16972,7 +16909,7 @@
         "name": "faulty files on the Connect Server",
         "info": "",
         "x": 170,
-        "y": 720,
+        "y": 860,
         "wires": []
     },
     {
@@ -16982,10 +16919,10 @@
         "connect_server": "3c2c110.e9ac1f",
         "template": "",
         "section": "",
-        "outputFormat": "by-msg",
+        "outputFormat": "html",
         "name": "",
         "x": 280,
-        "y": 760,
+        "y": 900,
         "wires": [
             [
                 "f3b0cfc7.cd09d8"
@@ -16996,17 +16933,12 @@
         "id": "f5b8ff45.7bbc3",
         "type": "inject",
         "z": "bb2cdd1d.165788",
-        "name": "inject",
+        "name": "",
         "props": [
             {
                 "p": "template",
                 "v": "template-noemailcontext",
                 "vt": "flow"
-            },
-            {
-                "p": "outputFormat",
-                "v": "HTML",
-                "vt": "str"
             },
             {
                 "p": "payload"
@@ -17017,10 +16949,10 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "JSONData1",
-        "payloadType": "str",
+        "payload": "[ \t{ \t\t\"FirstName\": \"Rijk\", \t\t\"Email\": \"test@example.nl\", \t\t\"Country\": \"CA\" \t},\t{ \t\t\"FirstName\": \"神\", \t\t\"Email\": \"testchina@example.com\", \t\t\"Country\": \"CA\" \t},\t{ \t\t\"FirstName\": \"André\", \t\t\"Email\": \"test@example.fr\", \t\t\"Country\": \"FR\" \t},\t{ \t\t\"FirstName\": \"Jim\", \t\t\"Email\": \"test@example.com\", \t\t\"Country\": \"US\" \t} ]",
+        "payloadType": "json",
         "x": 110,
-        "y": 760,
+        "y": 900,
         "wires": [
             [
                 "129c51a1.127136"
@@ -17040,14 +16972,14 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 470,
-        "y": 760,
+        "y": 900,
         "wires": []
     },
     {
         "id": "316e5041.3fb83",
         "type": "inject",
         "z": "bb2cdd1d.165788",
-        "name": "inject",
+        "name": "",
         "props": [
             {
                 "p": "template",
@@ -17055,17 +16987,12 @@
                 "vt": "flow"
             },
             {
-                "p": "outputFormat",
-                "v": "HTML",
+                "p": "section",
+                "v": "doesnotexist",
                 "vt": "str"
             },
             {
                 "p": "payload"
-            },
-            {
-                "p": "section",
-                "v": "doesnotexist",
-                "vt": "str"
             }
         ],
         "repeat": "",
@@ -17073,10 +17000,10 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "JSONData1",
-        "payloadType": "str",
+        "payload": "[ \t{ \t\t\"FirstName\": \"Rijk\", \t\t\"Email\": \"test@example.nl\", \t\t\"Country\": \"CA\" \t},\t{ \t\t\"FirstName\": \"神\", \t\t\"Email\": \"testchina@example.com\", \t\t\"Country\": \"CA\" \t},\t{ \t\t\"FirstName\": \"André\", \t\t\"Email\": \"test@example.fr\", \t\t\"Country\": \"FR\" \t},\t{ \t\t\"FirstName\": \"Jim\", \t\t\"Email\": \"test@example.com\", \t\t\"Country\": \"US\" \t} ]",
+        "payloadType": "json",
         "x": 110,
-        "y": 820,
+        "y": 960,
         "wires": [
             [
                 "37d6cd01.952a1a"
@@ -17090,10 +17017,10 @@
         "connect_server": "3c2c110.e9ac1f",
         "template": "",
         "section": "",
-        "outputFormat": "by-msg",
+        "outputFormat": "html",
         "name": "",
         "x": 280,
-        "y": 820,
+        "y": 960,
         "wires": [
             [
                 "15675c46.817164"
@@ -17123,7 +17050,7 @@
         "name": "string as payload",
         "info": "",
         "x": 660,
-        "y": 1000,
+        "y": 1140,
         "wires": []
     },
     {
@@ -17139,24 +17066,19 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 470,
-        "y": 1000,
+        "y": 1140,
         "wires": []
     },
     {
         "id": "48000858.943928",
         "type": "inject",
         "z": "bb2cdd1d.165788",
-        "name": "inject",
+        "name": "",
         "props": [
             {
                 "p": "template",
                 "v": "template",
                 "vt": "flow"
-            },
-            {
-                "p": "outputFormat",
-                "v": "HTML",
-                "vt": "str"
             },
             {
                 "p": "payload"
@@ -17170,7 +17092,7 @@
         "payload": "{\"FirstName\":\"Rijk\",\"Email\":\"rijk@example.com\",\"Country\":\"CA\"}",
         "payloadType": "str",
         "x": 110,
-        "y": 1000,
+        "y": 1140,
         "wires": [
             [
                 "56faaede.4cb12"
@@ -17183,11 +17105,11 @@
         "z": "bb2cdd1d.165788",
         "connect_server": "3c2c110.e9ac1f",
         "template": "",
-        "section": "doesnotexist",
-        "outputFormat": "by-msg",
+        "section": "",
+        "outputFormat": "html",
         "name": "",
         "x": 280,
-        "y": 1000,
+        "y": 1140,
         "wires": [
             [
                 "88089dad.522e3"
@@ -17246,7 +17168,7 @@
         "fileDuration": "temporary",
         "name": "upload data file 1 rec",
         "x": 400,
-        "y": 160,
+        "y": 120,
         "wires": [
             [
                 "f40514bb.fe30f8"
@@ -17262,7 +17184,7 @@
         "fileDuration": "temporary",
         "name": "upload data file 4 rec",
         "x": 400,
-        "y": 200,
+        "y": 160,
         "wires": [
             [
                 "35e34787.be28c8"
@@ -17289,7 +17211,7 @@
         "to": "",
         "reg": false,
         "x": 650,
-        "y": 160,
+        "y": 120,
         "wires": [
             [
                 "8e204326.5c8f9"
@@ -17316,7 +17238,7 @@
         "to": "",
         "reg": false,
         "x": 650,
-        "y": 200,
+        "y": 160,
         "wires": [
             [
                 "8e204326.5c8f9"
@@ -17330,7 +17252,7 @@
         "name": "boolean as payload",
         "info": "",
         "x": 670,
-        "y": 1060,
+        "y": 1200,
         "wires": []
     },
     {
@@ -17346,24 +17268,19 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 470,
-        "y": 1060,
+        "y": 1200,
         "wires": []
     },
     {
         "id": "4795c755.38a01",
         "type": "inject",
         "z": "bb2cdd1d.165788",
-        "name": "inject",
+        "name": "",
         "props": [
             {
                 "p": "template",
                 "v": "template",
                 "vt": "flow"
-            },
-            {
-                "p": "outputFormat",
-                "v": "HTML",
-                "vt": "str"
             },
             {
                 "p": "payload"
@@ -17377,7 +17294,7 @@
         "payload": "true",
         "payloadType": "bool",
         "x": 110,
-        "y": 1060,
+        "y": 1200,
         "wires": [
             [
                 "dfc0a267.a2f288"
@@ -17390,11 +17307,11 @@
         "z": "bb2cdd1d.165788",
         "connect_server": "3c2c110.e9ac1f",
         "template": "",
-        "section": "doesnotexist",
-        "outputFormat": "by-msg",
+        "section": "",
+        "outputFormat": "html",
         "name": "",
         "x": 280,
-        "y": 1060,
+        "y": 1200,
         "wires": [
             [
                 "2c36594d.fa1abe"
@@ -17408,24 +17325,19 @@
         "name": "input validation",
         "info": "",
         "x": 140,
-        "y": 900,
+        "y": 1040,
         "wires": []
     },
     {
         "id": "b0896f31.e99bb8",
         "type": "inject",
         "z": "bb2cdd1d.165788",
-        "name": "inject",
+        "name": "",
         "props": [
             {
                 "p": "template",
                 "v": "true",
                 "vt": "bool"
-            },
-            {
-                "p": "outputFormat",
-                "v": "HTML",
-                "vt": "str"
             },
             {
                 "p": "payload"
@@ -17439,7 +17351,7 @@
         "payload": "{\"FirstName\":\"Rijk\",\"Email\":\"rijk@example.com\",\"Country\":\"CA\"}",
         "payloadType": "json",
         "x": 110,
-        "y": 940,
+        "y": 1080,
         "wires": [
             [
                 "759706c9.33ff08"
@@ -17452,11 +17364,11 @@
         "z": "bb2cdd1d.165788",
         "connect_server": "3c2c110.e9ac1f",
         "template": "",
-        "section": "doesnotexist",
-        "outputFormat": "by-msg",
+        "section": "",
+        "outputFormat": "html",
         "name": "",
         "x": 280,
-        "y": 940,
+        "y": 1080,
         "wires": [
             [
                 "c2229a4.804b568"
@@ -17476,7 +17388,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 470,
-        "y": 940,
+        "y": 1080,
         "wires": []
     },
     {
@@ -17486,7 +17398,7 @@
         "name": "boolean as template",
         "info": "",
         "x": 670,
-        "y": 940,
+        "y": 1080,
         "wires": []
     },
     {
@@ -17552,6 +17464,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
+        "payloadType": "str",
         "x": 110,
         "y": 1160,
         "wires": [
@@ -17891,8 +17804,8 @@
         "z": "a49a6730.7d33a8",
         "name": "embedded resources",
         "info": "",
-        "x": 320,
-        "y": 780,
+        "x": 660,
+        "y": 600,
         "wires": []
     },
     {
@@ -17901,8 +17814,8 @@
         "z": "a49a6730.7d33a8",
         "name": "css selector",
         "info": "",
-        "x": 750,
-        "y": 780,
+        "x": 1090,
+        "y": 600,
         "wires": []
     },
     {
@@ -17911,8 +17824,8 @@
         "z": "a49a6730.7d33a8",
         "name": "section",
         "info": "",
-        "x": 130,
-        "y": 780,
+        "x": 490,
+        "y": 600,
         "wires": []
     },
     {
@@ -17922,7 +17835,7 @@
         "name": "payload",
         "info": "",
         "x": 370,
-        "y": 720,
+        "y": 600,
         "wires": []
     },
     {
@@ -17931,8 +17844,8 @@
         "z": "a49a6730.7d33a8",
         "name": "dataSetId trumps payload",
         "info": "",
-        "x": 550,
-        "y": 780,
+        "x": 890,
+        "y": 600,
         "wires": []
     },
     {
@@ -17941,8 +17854,8 @@
         "z": "a49a6730.7d33a8",
         "name": "UI fields trump input msg",
         "info": "",
-        "x": 190,
-        "y": 720,
+        "x": 170,
+        "y": 620,
         "wires": []
     },
     {
@@ -18245,7 +18158,8 @@
         "y": 340,
         "wires": [
             [
-                "d706847e.4ffba"
+                "d706847e.4ffba",
+                "73fb38fe.f41268"
             ]
         ]
     },
@@ -18340,7 +18254,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 160,
-        "y": 420,
+        "y": 480,
         "wires": [
             [
                 "cb1bb431.4fcfc8"
@@ -18367,7 +18281,7 @@
         "to": "",
         "reg": false,
         "x": 370,
-        "y": 420,
+        "y": 480,
         "wires": [
             [
                 "f1b9a845.7d9fe8"
@@ -18383,7 +18297,7 @@
         "attr": "",
         "chr": "",
         "x": 550,
-        "y": 420,
+        "y": 480,
         "wires": [
             [
                 "aa78e5e8.7f7a68"
@@ -18401,7 +18315,7 @@
         "overwriteFile": "true",
         "encoding": "none",
         "x": 690,
-        "y": 420,
+        "y": 480,
         "wires": [
             [
                 "9c643b7c.64019"
@@ -18417,7 +18331,7 @@
         "active": false,
         "name": "",
         "x": 380,
-        "y": 480,
+        "y": 540,
         "wires": [
             [
                 "2ee36853.06e5a"
@@ -18435,7 +18349,7 @@
         "outputJSON": "simple",
         "name": "",
         "x": 560,
-        "y": 480,
+        "y": 540,
         "wires": [
             [
                 "df89937b.1047"
@@ -18462,7 +18376,7 @@
         "to": "",
         "reg": false,
         "x": 760,
-        "y": 480,
+        "y": 540,
         "wires": [
             [
                 "f232f88e.d3374"
@@ -18503,7 +18417,7 @@
         "to": "",
         "reg": false,
         "x": 180,
-        "y": 480,
+        "y": 540,
         "wires": [
             [
                 "433705d7.05559c"
@@ -18521,7 +18435,7 @@
         "embedResources": "true",
         "name": "",
         "x": 970,
-        "y": 480,
+        "y": 540,
         "wires": [
             [
                 "9607d123.e87108"
@@ -18536,7 +18450,7 @@
         "statusCode": "",
         "headers": {},
         "x": 1130,
-        "y": 480,
+        "y": 540,
         "wires": []
     },
     {
@@ -18546,7 +18460,1032 @@
         "name": "note: C:\\nr\\workspace has to exist",
         "info": "",
         "x": 920,
-        "y": 420,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "971d8819.6cc48",
+        "type": "comment",
+        "z": "8002060c.a21e1",
+        "name": "unhappy flows",
+        "info": "",
+        "x": 110,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "1dc8f130.834737",
+        "type": "debug",
+        "z": "8002060c.a21e1",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 430,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "7a23fd8b.e55694",
+        "type": "comment",
+        "z": "8002060c.a21e1",
+        "name": "no data, but Connect Server doesn't mind - no error message expected",
+        "info": "",
+        "x": 790,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "c20d8c9c.bc57e",
+        "type": "inject",
+        "z": "8002060c.a21e1",
+        "name": "",
+        "props": [
+            {
+                "p": "template",
+                "v": "template",
+                "vt": "flow"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "str",
+        "x": 110,
+        "y": 520,
+        "wires": [
+            [
+                "eae8fbda.bb495"
+            ]
+        ]
+    },
+    {
+        "id": "fd01ea1d.c67be8",
+        "type": "debug",
+        "z": "8002060c.a21e1",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 430,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "8240a252.4e60e",
+        "type": "comment",
+        "z": "8002060c.a21e1",
+        "name": "no template",
+        "info": "",
+        "x": 610,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "75bead45.4dd394",
+        "type": "inject",
+        "z": "8002060c.a21e1",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"text_input\":\"€ - é - 神 - Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\",\"select_menu\":\"courgettes\",\"radio_button\":\"radish\",\"checkbox\":\"1\"}",
+        "payloadType": "json",
+        "x": 110,
+        "y": 580,
+        "wires": [
+            [
+                "a6dbfdf6.85cf6"
+            ]
+        ]
+    },
+    {
+        "id": "4699c125.db1dd",
+        "type": "comment",
+        "z": "8002060c.a21e1",
+        "name": "input msg incomplete",
+        "info": "",
+        "x": 140,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "1b7ad43d.bbca9c",
+        "type": "comment",
+        "z": "8002060c.a21e1",
+        "name": "data set doesn't exist - surprise, no server error?",
+        "info": "",
+        "x": 760,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "b6557322.589268",
+        "type": "debug",
+        "z": "8002060c.a21e1",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 450,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "b050398d.d0a208",
+        "type": "comment",
+        "z": "8002060c.a21e1",
+        "name": "template doesn't exist",
+        "info": "",
+        "x": 680,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "89fcf830.d580f8",
+        "type": "comment",
+        "z": "8002060c.a21e1",
+        "name": "files not present on the Connect Server",
+        "info": "",
+        "x": 190,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "3e069c1f.6b74a4",
+        "type": "inject",
+        "z": "8002060c.a21e1",
+        "name": "",
+        "props": [
+            {
+                "p": "template",
+                "v": "doesnotexist",
+                "vt": "str"
+            },
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"text_input\":\"€ - é - 神 - Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\",\"select_menu\":\"courgettes\",\"radio_button\":\"radish\",\"checkbox\":\"1\"}",
+        "payloadType": "json",
+        "x": 110,
+        "y": 700,
+        "wires": [
+            [
+                "be82d239.7976f8"
+            ]
+        ]
+    },
+    {
+        "id": "acffa66.70c7b58",
+        "type": "debug",
+        "z": "8002060c.a21e1",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 450,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "daa5009d.50561",
+        "type": "inject",
+        "z": "8002060c.a21e1",
+        "name": "",
+        "props": [
+            {
+                "p": "template",
+                "v": "template",
+                "vt": "flow"
+            },
+            {
+                "p": "dataSetId",
+                "v": "",
+                "vt": "date"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "str",
+        "x": 110,
+        "y": 760,
+        "wires": [
+            [
+                "31d830f8.9ea66"
+            ]
+        ]
+    },
+    {
+        "id": "d1475596.9b7fd",
+        "type": "inject",
+        "z": "8002060c.a21e1",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 40,
+        "wires": [
+            [
+                "f15930a1.1dcc4",
+                "6e4ffd04.5c3cc4",
+                "85dab036.f3b0c8"
+            ]
+        ]
+    },
+    {
+        "id": "6e4ffd04.5c3cc4",
+        "type": "olcnr-file-upload",
+        "z": "8002060c.a21e1",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "files\\html\\WEB_FORM Web Page.OL-template",
+        "fileDuration": "temporary",
+        "name": "upload template",
+        "x": 380,
+        "y": 40,
+        "wires": [
+            [
+                "174254e9.7cd163"
+            ]
+        ]
+    },
+    {
+        "id": "f15930a1.1dcc4",
+        "type": "olcnr-file-upload",
+        "z": "8002060c.a21e1",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "files\\html\\WEB_FORM Data NR XML.OL-datamapper",
+        "fileDuration": "temporary",
+        "name": "upload XML dm",
+        "x": 380,
+        "y": 80,
+        "wires": [
+            [
+                "f51aac65.2ef9d8"
+            ]
+        ]
+    },
+    {
+        "id": "174254e9.7cd163",
+        "type": "change",
+        "z": "8002060c.a21e1",
+        "name": "template",
+        "rules": [
+            {
+                "t": "move",
+                "p": "managedFileId",
+                "pt": "msg",
+                "to": "template",
+                "tot": "flow"
+            },
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "templateName",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 40,
+        "wires": [
+            [
+                "f5ded4d0.c619c"
+            ]
+        ]
+    },
+    {
+        "id": "f51aac65.2ef9d8",
+        "type": "change",
+        "z": "8002060c.a21e1",
+        "name": "dmConfiguration",
+        "rules": [
+            {
+                "t": "move",
+                "p": "managedFileId",
+                "pt": "msg",
+                "to": "dmConfiguration",
+                "tot": "flow"
+            },
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "dmConfigurationName",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 670,
+        "y": 80,
+        "wires": [
+            [
+                "f5ded4d0.c619c"
+            ]
+        ]
+    },
+    {
+        "id": "c811bb2e.39aa18",
+        "type": "comment",
+        "z": "8002060c.a21e1",
+        "name": "upload test data",
+        "info": "",
+        "x": 140,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "f5ded4d0.c619c",
+        "type": "debug",
+        "z": "8002060c.a21e1",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 890,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "eae8fbda.bb495",
+        "type": "olcnr-html-content",
+        "z": "8002060c.a21e1",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "section": "",
+        "cssSelector": "",
+        "embedResources": "true",
+        "name": "",
+        "x": 270,
+        "y": 520,
+        "wires": [
+            [
+                "1dc8f130.834737"
+            ]
+        ]
+    },
+    {
+        "id": "a6dbfdf6.85cf6",
+        "type": "olcnr-html-content",
+        "z": "8002060c.a21e1",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "section": "",
+        "cssSelector": "",
+        "embedResources": "true",
+        "name": "",
+        "x": 270,
+        "y": 580,
+        "wires": [
+            [
+                "fd01ea1d.c67be8"
+            ]
+        ]
+    },
+    {
+        "id": "73fb38fe.f41268",
+        "type": "debug",
+        "z": "a49a6730.7d33a8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 350,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "11523a45.0f6066",
+        "type": "change",
+        "z": "8002060c.a21e1",
+        "name": "JSONData",
+        "rules": [
+            {
+                "t": "move",
+                "p": "managedFileId",
+                "pt": "msg",
+                "to": "JSONData",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 120,
+        "wires": [
+            [
+                "f5ded4d0.c619c"
+            ]
+        ]
+    },
+    {
+        "id": "85dab036.f3b0c8",
+        "type": "olcnr-file-upload",
+        "z": "8002060c.a21e1",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "files\\html\\sample-form-out.json",
+        "fileDuration": "temporary",
+        "name": "upload json data",
+        "x": 390,
+        "y": 120,
+        "wires": [
+            [
+                "11523a45.0f6066"
+            ]
+        ]
+    },
+    {
+        "id": "fb0ae4f2.5463b8",
+        "type": "comment",
+        "z": "bb2cdd1d.165788",
+        "name": "all OK",
+        "info": "",
+        "x": 970,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "34ed8cff.4ba57c",
+        "type": "debug",
+        "z": "bb2cdd1d.165788",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 790,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "b9891702.e426e8",
+        "type": "inject",
+        "z": "bb2cdd1d.165788",
+        "name": "",
+        "props": [
+            {
+                "p": "template",
+                "v": "template",
+                "vt": "flow"
+            },
+            {
+                "p": "managedFileId",
+                "v": "JSONData4",
+                "vt": "flow"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 280,
+        "wires": [
+            [
+                "89bf9997.e3ec18"
+            ]
+        ]
+    },
+    {
+        "id": "621818a.0412968",
+        "type": "olcnr-email-content",
+        "z": "bb2cdd1d.165788",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "section": "",
+        "outputFormat": "html",
+        "name": "",
+        "x": 600,
+        "y": 280,
+        "wires": [
+            [
+                "34ed8cff.4ba57c"
+            ]
+        ]
+    },
+    {
+        "id": "cbbce320.e127b8",
+        "type": "comment",
+        "z": "bb2cdd1d.165788",
+        "name": "happy flows",
+        "info": "",
+        "x": 110,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "89bf9997.e3ec18",
+        "type": "olcnr-file-download",
+        "z": "bb2cdd1d.165788",
+        "connect_server": "3c2c110.e9ac1f",
+        "managedFileId": "",
+        "name": "",
+        "outputType": "UTF-8",
+        "x": 270,
+        "y": 280,
+        "wires": [
+            [
+                "2ce4186f.3b04f"
+            ]
+        ]
+    },
+    {
+        "id": "2ce4186f.3b04f",
+        "type": "json",
+        "z": "bb2cdd1d.165788",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 430,
+        "y": 280,
+        "wires": [
+            [
+                "621818a.0412968"
+            ]
+        ]
+    },
+    {
+        "id": "d0b04b72.ff2f4",
+        "type": "comment",
+        "z": "bb2cdd1d.165788",
+        "name": "all OK",
+        "info": "",
+        "x": 970,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "985d28b6.7b0a58",
+        "type": "debug",
+        "z": "bb2cdd1d.165788",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 790,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "fe7a1abd.2f2ee8",
+        "type": "olcnr-email-content",
+        "z": "bb2cdd1d.165788",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "section": "",
+        "outputFormat": "html",
+        "name": "",
+        "x": 600,
+        "y": 320,
+        "wires": [
+            [
+                "985d28b6.7b0a58"
+            ]
+        ]
+    },
+    {
+        "id": "973245a8.dc499",
+        "type": "inject",
+        "z": "bb2cdd1d.165788",
+        "name": "",
+        "props": [
+            {
+                "p": "template",
+                "v": "template",
+                "vt": "flow"
+            },
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[ \t{ \t\t\"FirstName\": \"Rijk\", \t\t\"Email\": \"test@example.nl\", \t\t\"Country\": \"CA\" \t},\t{ \t\t\"FirstName\": \"神\", \t\t\"Email\": \"testchina@example.com\", \t\t\"Country\": \"CA\" \t},\t{ \t\t\"FirstName\": \"André\", \t\t\"Email\": \"test@example.fr\", \t\t\"Country\": \"FR\" \t},\t{ \t\t\"FirstName\": \"Jim\", \t\t\"Email\": \"test@example.com\", \t\t\"Country\": \"US\" \t} ]",
+        "payloadType": "json",
+        "x": 110,
+        "y": 320,
+        "wires": [
+            [
+                "fe7a1abd.2f2ee8"
+            ]
+        ]
+    },
+    {
+        "id": "f60cabc8.e8cc1",
+        "type": "comment",
+        "z": "8002060c.a21e1",
+        "name": "all OK",
+        "info": "",
+        "x": 1110,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "a8d94989.a7ec08",
+        "type": "debug",
+        "z": "8002060c.a21e1",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1010,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "1dfcd27c.785b76",
+        "type": "inject",
+        "z": "8002060c.a21e1",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 240,
+        "wires": [
+            [
+                "54fbd5f7.8408dc"
+            ]
+        ]
+    },
+    {
+        "id": "e35ea909.9fd7c",
+        "type": "comment",
+        "z": "8002060c.a21e1",
+        "name": "happy flows",
+        "info": "",
+        "x": 110,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "961736e3.c3ef9",
+        "type": "olcnr-file-download",
+        "z": "8002060c.a21e1",
+        "connect_server": "3c2c110.e9ac1f",
+        "managedFileId": "",
+        "name": "",
+        "outputType": "UTF-8",
+        "x": 510,
+        "y": 280,
+        "wires": [
+            [
+                "36a59083.cbcdf"
+            ]
+        ]
+    },
+    {
+        "id": "36a59083.cbcdf",
+        "type": "json",
+        "z": "8002060c.a21e1",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 670,
+        "y": 280,
+        "wires": [
+            [
+                "34013306.e0c9e4"
+            ]
+        ]
+    },
+    {
+        "id": "2ee490a7.a34f88",
+        "type": "comment",
+        "z": "8002060c.a21e1",
+        "name": "all OK",
+        "info": "",
+        "x": 1110,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "b5d669f4.478df8",
+        "type": "debug",
+        "z": "8002060c.a21e1",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1010,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "df17ddf8.cf83b8",
+        "type": "inject",
+        "z": "8002060c.a21e1",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 360,
+        "wires": [
+            [
+                "e81d8e05.0bd378"
+            ]
+        ]
+    },
+    {
+        "id": "34013306.e0c9e4",
+        "type": "olcnr-html-content",
+        "z": "8002060c.a21e1",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "section": "thank_you",
+        "cssSelector": "",
+        "embedResources": "true",
+        "name": "",
+        "x": 830,
+        "y": 280,
+        "wires": [
+            [
+                "a8d94989.a7ec08",
+                "3e56d748.90eb1"
+            ]
+        ]
+    },
+    {
+        "id": "387a133c.0263fc",
+        "type": "olcnr-html-content",
+        "z": "8002060c.a21e1",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "section": "thank_you",
+        "cssSelector": "",
+        "embedResources": "true",
+        "name": "",
+        "x": 830,
+        "y": 320,
+        "wires": [
+            [
+                "b5d669f4.478df8",
+                "468a9b0e.c3dc24"
+            ]
+        ]
+    },
+    {
+        "id": "47127a45.63c4a4",
+        "type": "http in",
+        "z": "8002060c.a21e1",
+        "name": "",
+        "url": "happytest2",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 320,
+        "wires": [
+            [
+                "e81d8e05.0bd378"
+            ]
+        ]
+    },
+    {
+        "id": "2e2a6e49.45cfd2",
+        "type": "http in",
+        "z": "8002060c.a21e1",
+        "name": "",
+        "url": "happytest1",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 280,
+        "wires": [
+            [
+                "54fbd5f7.8408dc"
+            ]
+        ]
+    },
+    {
+        "id": "468a9b0e.c3dc24",
+        "type": "http response",
+        "z": "8002060c.a21e1",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 990,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "3e56d748.90eb1",
+        "type": "http response",
+        "z": "8002060c.a21e1",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 990,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "54fbd5f7.8408dc",
+        "type": "change",
+        "z": "8002060c.a21e1",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "template",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "managedFileId",
+                "pt": "msg",
+                "to": "JSONData",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 280,
+        "wires": [
+            [
+                "961736e3.c3ef9"
+            ]
+        ]
+    },
+    {
+        "id": "e81d8e05.0bd378",
+        "type": "change",
+        "z": "8002060c.a21e1",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "template",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"text_input\":\"Happy 2 - € - é - 神 - Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\",\"select_menu\":\"courgettes\",\"radio_button\":\"radish\",\"checkbox\":\"1\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 320,
+        "wires": [
+            [
+                "387a133c.0263fc"
+            ]
+        ]
+    },
+    {
+        "id": "be82d239.7976f8",
+        "type": "olcnr-html-content",
+        "z": "8002060c.a21e1",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "section": "",
+        "cssSelector": "",
+        "embedResources": "true",
+        "name": "",
+        "x": 270,
+        "y": 700,
+        "wires": [
+            [
+                "acffa66.70c7b58"
+            ]
+        ]
+    },
+    {
+        "id": "31d830f8.9ea66",
+        "type": "olcnr-html-content",
+        "z": "8002060c.a21e1",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "section": "",
+        "cssSelector": "",
+        "embedResources": "true",
+        "name": "",
+        "x": 270,
+        "y": 760,
+        "wires": [
+            [
+                "b6557322.589268"
+            ]
+        ]
+    },
+    {
+        "id": "d17b9701.f852f8",
+        "type": "comment",
+        "z": "a49a6730.7d33a8",
+        "name": "flow with data mapping - not really needed",
+        "info": "",
+        "x": 240,
+        "y": 440,
         "wires": []
     }
 ]
