@@ -17790,8 +17790,8 @@
         "z": "a49a6730.7d33a8",
         "name": "to do: css selector",
         "info": "",
-        "x": 110,
-        "y": 400,
+        "x": 950,
+        "y": 60,
         "wires": []
     },
     {
@@ -21013,7 +21013,7 @@
         "connect_server": "3c2c110.e9ac1f",
         "inputType": "set",
         "outputType": "values",
-        "details": "false",
+        "details": "true",
         "outputJSON": "full",
         "name": "",
         "x": 740,
@@ -21281,7 +21281,7 @@
         "connect_server": "3c2c110.e9ac1f",
         "inputType": "set",
         "outputType": "values",
-        "details": "false",
+        "details": "true",
         "outputJSON": "simple",
         "name": "",
         "x": 740,
@@ -21289,7 +21289,8 @@
         "wires": [
             [
                 "e1190626.338ee8",
-                "be522ec8.9fd17"
+                "be522ec8.9fd17",
+                "7257a9e9.fc9898"
             ]
         ]
     },
@@ -22894,5 +22895,48 @@
         "x": 1140,
         "y": 720,
         "wires": []
+    },
+    {
+        "id": "61bb019b.03ed7",
+        "type": "file",
+        "z": "a49a6730.7d33a8",
+        "name": "",
+        "filename": "",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1230,
+        "y": 1220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7257a9e9.fc9898",
+        "type": "change",
+        "z": "a49a6730.7d33a8",
+        "name": "set the file location",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "'C:\\\\nr\\\\workspace\\\\' & $millis() & '-dataget-out.json'",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1000,
+        "y": 1220,
+        "wires": [
+            [
+                "61bb019b.03ed7"
+            ]
+        ]
     }
 ]
