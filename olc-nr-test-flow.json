@@ -49,6 +49,13 @@
         "info": ""
     },
     {
+        "id": "c3930632.638ce",
+        "type": "tab",
+        "label": "data get to content",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "8bdf1dd0.ebdbb",
         "type": "tab",
         "label": "paginated happy",
@@ -23065,6 +23072,991 @@
         "info": "",
         "x": 970,
         "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "46501e1f.ebc5c",
+        "type": "inject",
+        "z": "c3930632.638ce",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 60,
+        "wires": [
+            [
+                "8580ac79.596988",
+                "3a125ad3.c58d6e",
+                "e837a339.4d71b8",
+                "a5ad34da.f640f",
+                "2beb9836.4bb78"
+            ]
+        ]
+    },
+    {
+        "id": "3a125ad3.c58d6e",
+        "type": "olcnr-file-upload",
+        "z": "c3930632.638ce",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "files\\printcontent\\printbsc-invoice.OL-template",
+        "fileDuration": "temporary",
+        "name": "upload template",
+        "x": 400,
+        "y": 60,
+        "wires": [
+            [
+                "d8eed736.ecfb08"
+            ]
+        ]
+    },
+    {
+        "id": "8580ac79.596988",
+        "type": "olcnr-file-upload",
+        "z": "c3930632.638ce",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "files\\printcontent\\printbsc-transactional xml.OL-datamapper",
+        "fileDuration": "temporary",
+        "name": "upload dm",
+        "x": 390,
+        "y": 100,
+        "wires": [
+            [
+                "162beb10.5fdfbd"
+            ]
+        ]
+    },
+    {
+        "id": "d8eed736.ecfb08",
+        "type": "change",
+        "z": "c3930632.638ce",
+        "name": "template",
+        "rules": [
+            {
+                "t": "move",
+                "p": "managedFileId",
+                "pt": "msg",
+                "to": "template",
+                "tot": "flow"
+            },
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "templateName",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 60,
+        "wires": [
+            [
+                "d7dac7d4.4b3af"
+            ]
+        ]
+    },
+    {
+        "id": "162beb10.5fdfbd",
+        "type": "change",
+        "z": "c3930632.638ce",
+        "name": "dmConfiguration",
+        "rules": [
+            {
+                "t": "move",
+                "p": "managedFileId",
+                "pt": "msg",
+                "to": "dmConfiguration",
+                "tot": "flow"
+            },
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "dmConfigurationName",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 690,
+        "y": 100,
+        "wires": [
+            [
+                "d7dac7d4.4b3af"
+            ]
+        ]
+    },
+    {
+        "id": "d7dac7d4.4b3af",
+        "type": "debug",
+        "z": "c3930632.638ce",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 950,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "e837a339.4d71b8",
+        "type": "olcnr-file-upload",
+        "z": "c3930632.638ce",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "files\\printcontent\\printbsc-group customers.OL-jobpreset",
+        "fileDuration": "temporary",
+        "name": "upload job preset",
+        "x": 410,
+        "y": 140,
+        "wires": [
+            [
+                "75956762.c50ec8"
+            ]
+        ]
+    },
+    {
+        "id": "75956762.c50ec8",
+        "type": "change",
+        "z": "c3930632.638ce",
+        "name": "jobPreset",
+        "rules": [
+            {
+                "t": "move",
+                "p": "managedFileId",
+                "pt": "msg",
+                "to": "jobPreset",
+                "tot": "flow"
+            },
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "jobPresetName",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 140,
+        "wires": [
+            [
+                "d7dac7d4.4b3af"
+            ]
+        ]
+    },
+    {
+        "id": "a5ad34da.f640f",
+        "type": "olcnr-file-upload",
+        "z": "c3930632.638ce",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "files\\printcontent\\printbsc-full job.OL-outputpreset",
+        "fileDuration": "temporary",
+        "name": "upload out preset full",
+        "x": 420,
+        "y": 180,
+        "wires": [
+            [
+                "94e19b6e.19664"
+            ]
+        ]
+    },
+    {
+        "id": "94e19b6e.19664",
+        "type": "change",
+        "z": "c3930632.638ce",
+        "name": "outputPreset",
+        "rules": [
+            {
+                "t": "move",
+                "p": "managedFileId",
+                "pt": "msg",
+                "to": "outputPreset",
+                "tot": "flow"
+            },
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "outputPresetName",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 670,
+        "y": 180,
+        "wires": [
+            [
+                "d7dac7d4.4b3af"
+            ]
+        ]
+    },
+    {
+        "id": "865b690c.516428",
+        "type": "comment",
+        "z": "c3930632.638ce",
+        "name": "upload test data",
+        "info": "",
+        "x": 160,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "e6bd644b.13e038",
+        "type": "olcnr-data-mapping",
+        "z": "c3930632.638ce",
+        "connect_server": "3c2c110.e9ac1f",
+        "dmConfiguration": "",
+        "active": false,
+        "name": "",
+        "x": 160,
+        "y": 420,
+        "wires": [
+            [
+                "2156a744.d2d42",
+                "95b21876.cfaba8",
+                "78907534.2b187c",
+                "4412b676.332ad"
+            ]
+        ]
+    },
+    {
+        "id": "e4022cff.e1b5f",
+        "type": "inject",
+        "z": "c3930632.638ce",
+        "name": "",
+        "props": [
+            {
+                "p": "timeStart",
+                "v": "",
+                "vt": "date"
+            },
+            {
+                "p": "dmConfiguration",
+                "v": "dmConfiguration",
+                "vt": "flow"
+            },
+            {
+                "p": "managedFileId",
+                "v": "datafileId",
+                "vt": "flow"
+            },
+            {
+                "p": "template",
+                "v": "template",
+                "vt": "flow"
+            },
+            {
+                "p": "jobPreset",
+                "v": "jobPreset",
+                "vt": "flow"
+            },
+            {
+                "p": "outputPreset",
+                "v": "outputPreset",
+                "vt": "flow"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "str",
+        "x": 130,
+        "y": 300,
+        "wires": [
+            [
+                "e6bd644b.13e038"
+            ]
+        ]
+    },
+    {
+        "id": "2156a744.d2d42",
+        "type": "olcnr-data-get",
+        "z": "c3930632.638ce",
+        "connect_server": "3c2c110.e9ac1f",
+        "inputType": "set",
+        "outputType": "ids",
+        "details": "false",
+        "outputJSON": "full",
+        "name": "",
+        "x": 500,
+        "y": 500,
+        "wires": [
+            [
+                "7899e674.d12d",
+                "5abdda3e.144c0c"
+            ]
+        ]
+    },
+    {
+        "id": "7899e674.d12d",
+        "type": "debug",
+        "z": "c3930632.638ce",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "dc0776d2.74755",
+        "type": "olcnr-data-get",
+        "z": "c3930632.638ce",
+        "connect_server": "3c2c110.e9ac1f",
+        "inputType": "record",
+        "outputType": "values",
+        "details": "true",
+        "outputJSON": "full",
+        "name": "",
+        "x": 500,
+        "y": 880,
+        "wires": [
+            [
+                "86a7f591.aa8e18",
+                "6f299660.2d25"
+            ]
+        ]
+    },
+    {
+        "id": "86a7f591.aa8e18",
+        "type": "debug",
+        "z": "c3930632.638ce",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "95b21876.cfaba8",
+        "type": "olcnr-data-get",
+        "z": "c3930632.638ce",
+        "connect_server": "3c2c110.e9ac1f",
+        "inputType": "set",
+        "outputType": "values",
+        "details": "true",
+        "outputJSON": "full",
+        "name": "",
+        "x": 500,
+        "y": 420,
+        "wires": [
+            [
+                "bc77f3b.07bdc1",
+                "5abdda3e.144c0c"
+            ]
+        ]
+    },
+    {
+        "id": "407db06b.faa2d8",
+        "type": "comment",
+        "z": "c3930632.638ce",
+        "name": "payload: array of Objects with values",
+        "info": "",
+        "x": 950,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "1236404d.06819",
+        "type": "comment",
+        "z": "c3930632.638ce",
+        "name": "payload: array of Record IDs",
+        "info": "",
+        "x": 920,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "7b7aa309.13adc4",
+        "type": "comment",
+        "z": "c3930632.638ce",
+        "name": "payload: values of second item",
+        "info": "",
+        "x": 930,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "fbbaaebe.b1f0e",
+        "type": "olcnr-data-get",
+        "z": "c3930632.638ce",
+        "connect_server": "3c2c110.e9ac1f",
+        "inputType": "record",
+        "outputType": "values",
+        "details": "true",
+        "outputJSON": "simple",
+        "name": "",
+        "x": 500,
+        "y": 920,
+        "wires": [
+            [
+                "7a2ac388.f1cb4c",
+                "6f299660.2d25"
+            ]
+        ]
+    },
+    {
+        "id": "7a2ac388.f1cb4c",
+        "type": "debug",
+        "z": "c3930632.638ce",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "3c772426.bf1784",
+        "type": "comment",
+        "z": "c3930632.638ce",
+        "name": "payload: simplied values of second item",
+        "info": "",
+        "x": 950,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "78907534.2b187c",
+        "type": "olcnr-data-get",
+        "z": "c3930632.638ce",
+        "connect_server": "3c2c110.e9ac1f",
+        "inputType": "set",
+        "outputType": "values",
+        "details": "true",
+        "outputJSON": "simple",
+        "name": "",
+        "x": 500,
+        "y": 460,
+        "wires": [
+            [
+                "5ef0f93b.47c76",
+                "5abdda3e.144c0c"
+            ]
+        ]
+    },
+    {
+        "id": "5ef0f93b.47c76",
+        "type": "debug",
+        "z": "c3930632.638ce",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "cf12568.eebbe28",
+        "type": "comment",
+        "z": "c3930632.638ce",
+        "name": "payload: array of Objects with simplified values",
+        "info": "",
+        "x": 980,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "c505eaac.a3f408",
+        "type": "comment",
+        "z": "c3930632.638ce",
+        "name": "get using payload with Dataset ID",
+        "info": "",
+        "x": 270,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "7aaa7db2.c3df14",
+        "type": "olcnr-data-get",
+        "z": "c3930632.638ce",
+        "connect_server": "3c2c110.e9ac1f",
+        "inputType": "set",
+        "outputType": "ids",
+        "details": "true",
+        "outputJSON": "full",
+        "name": "",
+        "x": 500,
+        "y": 600,
+        "wires": [
+            [
+                "874bd474.2fb6b8",
+                "ff75c849.a1d0e8"
+            ]
+        ]
+    },
+    {
+        "id": "874bd474.2fb6b8",
+        "type": "debug",
+        "z": "c3930632.638ce",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "4412b676.332ad",
+        "type": "change",
+        "z": "c3930632.638ce",
+        "name": "",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "managedFileId",
+                "pt": "msg"
+            },
+            {
+                "t": "move",
+                "p": "dataSetId",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 220,
+        "y": 600,
+        "wires": [
+            [
+                "7aaa7db2.c3df14"
+            ]
+        ]
+    },
+    {
+        "id": "1849d216.1a5b0e",
+        "type": "comment",
+        "z": "c3930632.638ce",
+        "name": "payload: array of Record IDs",
+        "info": "",
+        "x": 920,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "8767da91.b69b8",
+        "type": "comment",
+        "z": "c3930632.638ce",
+        "name": "get using payload with Record ID",
+        "info": "",
+        "x": 270,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "7683c07a.df10f",
+        "type": "comment",
+        "z": "c3930632.638ce",
+        "name": "get using msg.dataSetId",
+        "info": "",
+        "x": 550,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "b51cad69.311598",
+        "type": "comment",
+        "z": "c3930632.638ce",
+        "name": "get using msg.dataRecordId",
+        "info": "",
+        "x": 260,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "80e0bf0d.f1f108",
+        "type": "change",
+        "z": "c3930632.638ce",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "dataRecordId",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 230,
+        "y": 1060,
+        "wires": [
+            [
+                "15ea575e.18ce09",
+                "9f94a95c.28957"
+            ]
+        ]
+    },
+    {
+        "id": "15ea575e.18ce09",
+        "type": "olcnr-data-get",
+        "z": "c3930632.638ce",
+        "connect_server": "3c2c110.e9ac1f",
+        "inputType": "record",
+        "outputType": "values",
+        "details": "true",
+        "outputJSON": "full",
+        "name": "",
+        "x": 500,
+        "y": 1060,
+        "wires": [
+            [
+                "e7cf422d.63a458",
+                "6f299660.2d25"
+            ]
+        ]
+    },
+    {
+        "id": "e7cf422d.63a458",
+        "type": "debug",
+        "z": "c3930632.638ce",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "266f1355.38424c",
+        "type": "comment",
+        "z": "c3930632.638ce",
+        "name": "payload: values of second item",
+        "info": "",
+        "x": 930,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "9679107.6944a7",
+        "type": "comment",
+        "z": "c3930632.638ce",
+        "name": "create dataset",
+        "info": "",
+        "x": 160,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "2beb9836.4bb78",
+        "type": "olcnr-file-upload",
+        "z": "c3930632.638ce",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "files\\printcontent\\Sample Data-5recs.xml",
+        "fileDuration": "temporary",
+        "name": "upload data file",
+        "x": 400,
+        "y": 220,
+        "wires": [
+            [
+                "31b7d238.5cf236"
+            ]
+        ]
+    },
+    {
+        "id": "31b7d238.5cf236",
+        "type": "change",
+        "z": "c3930632.638ce",
+        "name": "datafileId",
+        "rules": [
+            {
+                "t": "set",
+                "p": "datafileId",
+                "pt": "flow",
+                "to": "managedFileId",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 220,
+        "wires": [
+            [
+                "d7dac7d4.4b3af"
+            ]
+        ]
+    },
+    {
+        "id": "bc77f3b.07bdc1",
+        "type": "debug",
+        "z": "c3930632.638ce",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "4f987cc8.5a430c",
+        "type": "debug",
+        "z": "c3930632.638ce",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "ce43d8cd.e18a28",
+        "type": "comment",
+        "z": "c3930632.638ce",
+        "name": "PDF of the record",
+        "info": "",
+        "x": 890,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "6f299660.2d25",
+        "type": "olcnr-preview-pdf",
+        "z": "c3930632.638ce",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "x": 510,
+        "y": 1200,
+        "wires": [
+            [
+                "4f987cc8.5a430c"
+            ]
+        ]
+    },
+    {
+        "id": "ff75c849.a1d0e8",
+        "type": "change",
+        "z": "c3930632.638ce",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[1]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 220,
+        "y": 880,
+        "wires": [
+            [
+                "dc0776d2.74755",
+                "fbbaaebe.b1f0e",
+                "80e0bf0d.f1f108"
+            ]
+        ]
+    },
+    {
+        "id": "ccd4da44.0d6f58",
+        "type": "debug",
+        "z": "c3930632.638ce",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "3a194294.19ef2e",
+        "type": "comment",
+        "z": "c3930632.638ce",
+        "name": "PDF of the second record",
+        "info": "",
+        "x": 910,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "5cef5564.004d5c",
+        "type": "olcnr-preview-pdf",
+        "z": "c3930632.638ce",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "x": 510,
+        "y": 700,
+        "wires": [
+            [
+                "ccd4da44.0d6f58"
+            ]
+        ]
+    },
+    {
+        "id": "5abdda3e.144c0c",
+        "type": "change",
+        "z": "c3930632.638ce",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[1]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 700,
+        "wires": [
+            [
+                "5cef5564.004d5c"
+            ]
+        ]
+    },
+    {
+        "id": "9f94a95c.28957",
+        "type": "olcnr-data-get",
+        "z": "c3930632.638ce",
+        "connect_server": "3c2c110.e9ac1f",
+        "inputType": "record",
+        "outputType": "values",
+        "details": "true",
+        "outputJSON": "simple",
+        "name": "",
+        "x": 500,
+        "y": 1100,
+        "wires": [
+            [
+                "734e068e.049a98",
+                "6f299660.2d25"
+            ]
+        ]
+    },
+    {
+        "id": "734e068e.049a98",
+        "type": "debug",
+        "z": "c3930632.638ce",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "7fb9021d.a15bcc",
+        "type": "comment",
+        "z": "c3930632.638ce",
+        "name": "payload: simplied values of second item",
+        "info": "",
+        "x": 950,
+        "y": 1100,
         "wires": []
     }
 ]
