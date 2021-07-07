@@ -23457,7 +23457,8 @@
         "y": 420,
         "wires": [
             [
-                "bfedc12c.87662"
+                "bfedc12c.87662",
+                "406a0263.c0e5c4"
             ]
         ]
     },
@@ -24068,7 +24069,7 @@
                 "vt": "date"
             },
             {
-                "p": "dataMapper",
+                "p": "dmConfiguration",
                 "v": "dmConfiguration",
                 "vt": "flow"
             },
@@ -24098,6 +24099,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
+        "payloadType": "str",
         "x": 150,
         "y": 280,
         "wires": [
@@ -24126,6 +24128,7 @@
         "id": "de108556.4ee1e",
         "type": "olcnr-data-get",
         "z": "d530b89d.ddd6c8",
+        "d": true,
         "connect_server": "3c2c110.e9ac1f",
         "inputType": "set",
         "outputType": "values",
@@ -24164,6 +24167,7 @@
         "id": "6ddb4261.18e8bc",
         "type": "olcnr-data-get",
         "z": "d530b89d.ddd6c8",
+        "d": true,
         "connect_server": "3c2c110.e9ac1f",
         "inputType": "set",
         "outputType": "values",
@@ -24216,7 +24220,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "filename",
+                "p": "savename",
                 "pt": "msg",
                 "to": "'C:\\\\nr\\\\output\\\\fulljob-get-json-full-' & timeStart & '.zip'",
                 "tot": "jsonata"
@@ -24243,7 +24247,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "filename",
+                "p": "savename",
                 "pt": "msg",
                 "to": "'C:\\\\nr\\\\output\\\\fulljob-get-json-simple-' & timeStart & '.zip'",
                 "tot": "jsonata"
@@ -24270,7 +24274,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "filename",
+                "p": "savename",
                 "pt": "msg",
                 "to": "'C:\\\\nr\\\\output\\\\fulljob-get-ids-' & timeStart & '.zip'",
                 "tot": "jsonata"
@@ -24296,7 +24300,7 @@
         "name": "Save the PDF",
         "filename": "",
         "appendNewline": false,
-        "createDir": false,
+        "createDir": true,
         "overwriteFile": "true",
         "encoding": "none",
         "x": 800,
@@ -24335,32 +24339,17 @@
         "wires": []
     },
     {
-        "id": "5f577993.d39578",
-        "type": "olcnr-file-download",
-        "z": "d530b89d.ddd6c8",
-        "connect_server": "3c2c110.e9ac1f",
-        "managedFileId": "",
-        "name": "",
-        "x": 610,
-        "y": 580,
-        "wires": [
-            [
-                "bd78fe2b.caf508"
-            ]
-        ]
-    },
-    {
         "id": "8c8c2b2b.556f8",
         "type": "olcnr-paginated-output",
         "z": "d530b89d.ddd6c8",
         "connect_server": "3c2c110.e9ac1f",
         "outputPreset": "",
         "name": "",
-        "x": 390,
+        "x": 170,
         "y": 580,
         "wires": [
             [
-                "5f577993.d39578"
+                "2ee7e218.d81e96"
             ]
         ]
     },
@@ -24371,8 +24360,8 @@
         "connect_server": "3c2c110.e9ac1f",
         "jobPreset": "",
         "name": "",
-        "x": 180,
-        "y": 580,
+        "x": 1020,
+        "y": 520,
         "wires": [
             [
                 "8c8c2b2b.556f8"
@@ -24528,7 +24517,7 @@
         "type": "debug",
         "z": "d530b89d.ddd6c8",
         "name": "",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -24697,10 +24686,69 @@
         "id": "729b4161.1c0938",
         "type": "comment",
         "z": "d530b89d.ddd6c8",
-        "name": "currently not supported for JSON payloads",
+        "name": "currently not supported for JSON payloads - NODERED-1175?",
         "info": "",
-        "x": 960,
+        "x": 1030,
         "y": 660,
         "wires": []
+    },
+    {
+        "id": "406a0263.c0e5c4",
+        "type": "debug",
+        "z": "c3930632.638ce",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "2ee7e218.d81e96",
+        "type": "olcnr-file-download",
+        "z": "d530b89d.ddd6c8",
+        "connect_server": "3c2c110.e9ac1f",
+        "managedFileId": "",
+        "name": "",
+        "outputType": "buffer",
+        "x": 370,
+        "y": 580,
+        "wires": [
+            [
+                "97bcee6f.1a3128"
+            ]
+        ]
+    },
+    {
+        "id": "97bcee6f.1a3128",
+        "type": "change",
+        "z": "d530b89d.ddd6c8",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "savename",
+                "pt": "msg",
+                "to": "filename",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 580,
+        "y": 580,
+        "wires": [
+            [
+                "bd78fe2b.caf508"
+            ]
+        ]
     }
 ]
