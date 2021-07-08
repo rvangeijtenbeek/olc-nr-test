@@ -15201,11 +15201,11 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1030,
+        "x": 1050,
         "y": 940,
         "wires": []
     },
@@ -15366,6 +15366,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
+        "payloadType": "str",
         "x": 110,
         "y": 780,
         "wires": [
@@ -15965,7 +15966,7 @@
         "type": "debug",
         "z": "2ab9b87c.975ed8",
         "name": "Debug: used time",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -16130,7 +16131,7 @@
         "type": "debug",
         "z": "2ab9b87c.975ed8",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -17533,7 +17534,7 @@
         "connect_server": "3c2c110.e9ac1f",
         "template": "",
         "section": "",
-        "outputFormat": "html",
+        "outputFormat": "eml",
         "name": "",
         "x": 680,
         "y": 1160,
@@ -17554,7 +17555,7 @@
         "outputFormat": "html",
         "name": "",
         "x": 280,
-        "y": 1420,
+        "y": 1800,
         "wires": [
             [
                 "f73e160f.d566"
@@ -17570,12 +17571,12 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 450,
-        "y": 1420,
+        "x": 470,
+        "y": 1800,
         "wires": []
     },
     {
@@ -17601,7 +17602,7 @@
         "payload": "{\"FirstName\":\"Rijk\",\"Country\":\"CA\"}",
         "payloadType": "json",
         "x": 110,
-        "y": 1420,
+        "y": 1800,
         "wires": [
             [
                 "cf26c08e.c9c5e8",
@@ -17616,7 +17617,7 @@
         "name": "errors in payload",
         "info": "",
         "x": 120,
-        "y": 1380,
+        "y": 1760,
         "wires": []
     },
     {
@@ -17629,7 +17630,7 @@
         "outputFormat": "eml",
         "name": "",
         "x": 280,
-        "y": 1480,
+        "y": 1860,
         "wires": [
             [
                 "56bba923.dbf9b"
@@ -17645,12 +17646,12 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 450,
-        "y": 1480,
+        "x": 470,
+        "y": 1860,
         "wires": []
     },
     {
@@ -17659,8 +17660,8 @@
         "z": "2ab9b87c.975ed8",
         "name": "HTML only, 1 message in payload",
         "info": "",
-        "x": 680,
-        "y": 1420,
+        "x": 720,
+        "y": 1800,
         "wires": []
     },
     {
@@ -17669,8 +17670,8 @@
         "z": "2ab9b87c.975ed8",
         "name": "HTML and EML, 1 error in payload",
         "info": "",
-        "x": 680,
-        "y": 1480,
+        "x": 720,
+        "y": 1860,
         "wires": []
     },
     {
@@ -17693,7 +17694,7 @@
         "outputFormat": "html",
         "name": "",
         "x": 280,
-        "y": 1300,
+        "y": 1640,
         "wires": [
             [
                 "f8c49c15.ccf8d8"
@@ -17709,12 +17710,12 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
+        "complete": "payload.messages[0]",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 450,
-        "y": 1300,
+        "x": 520,
+        "y": 1640,
         "wires": []
     },
     {
@@ -17745,7 +17746,7 @@
         "payload": "{\"FirstName\":\"Rijk\",\"Email\":\"rijk@example.com\",\"Country\":\"CA\"}",
         "payloadType": "json",
         "x": 110,
-        "y": 1300,
+        "y": 1640,
         "wires": [
             [
                 "2bb05892.9fac1"
@@ -17758,8 +17759,8 @@
         "z": "2ab9b87c.975ed8",
         "name": "UI trumps msg.outputFormat, no EML in payload",
         "info": "",
-        "x": 720,
-        "y": 1300,
+        "x": 860,
+        "y": 1640,
         "wires": []
     },
     {
@@ -17769,7 +17770,7 @@
         "name": "UI trumps msg.outputFormat",
         "info": "",
         "x": 160,
-        "y": 1260,
+        "y": 1600,
         "wires": []
     },
     {
@@ -18797,7 +18798,7 @@
         "type": "debug",
         "z": "8002060c.a21e1",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -24288,6 +24289,411 @@
         "info": "",
         "x": 240,
         "y": 300,
+        "wires": []
+    },
+    {
+        "id": "f26f5c07.d4caa8",
+        "type": "olcnr-email-content",
+        "z": "2ab9b87c.975ed8",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "section": "",
+        "outputFormat": "eml",
+        "name": "",
+        "x": 280,
+        "y": 1700,
+        "wires": [
+            [
+                "e0ab0a13.e0012"
+            ]
+        ]
+    },
+    {
+        "id": "e0ab0a13.e0012",
+        "type": "debug",
+        "z": "2ab9b87c.975ed8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.messages[0]",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 1700,
+        "wires": []
+    },
+    {
+        "id": "f3ad3106.4fab88",
+        "type": "inject",
+        "z": "2ab9b87c.975ed8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "template",
+                "v": "template",
+                "vt": "flow"
+            },
+            {
+                "p": "outputFormat",
+                "v": "HTML",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"FirstName\":\"Rijk\",\"Email\":\"rijk@example.com\",\"Country\":\"CA\"}",
+        "payloadType": "json",
+        "x": 110,
+        "y": 1700,
+        "wires": [
+            [
+                "f26f5c07.d4caa8"
+            ]
+        ]
+    },
+    {
+        "id": "e2236d0.a5a0b1",
+        "type": "comment",
+        "z": "2ab9b87c.975ed8",
+        "name": "UI trumps msg.outputFormat, EML present in payload",
+        "info": "",
+        "x": 880,
+        "y": 1700,
+        "wires": []
+    },
+    {
+        "id": "4ab174ba.52285c",
+        "type": "olcnr-email-content",
+        "z": "2ab9b87c.975ed8",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "section": "",
+        "outputFormat": "by-msg",
+        "name": "",
+        "x": 280,
+        "y": 1320,
+        "wires": [
+            [
+                "d22011d1.3cc2d"
+            ]
+        ]
+    },
+    {
+        "id": "d22011d1.3cc2d",
+        "type": "debug",
+        "z": "2ab9b87c.975ed8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.messages[0]",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "d1d0b974.337668",
+        "type": "inject",
+        "z": "2ab9b87c.975ed8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "template",
+                "v": "template",
+                "vt": "flow"
+            },
+            {
+                "p": "outputFormat",
+                "v": "EML",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"FirstName\":\"Rijk\",\"Email\":\"rijk@example.com\",\"Country\":\"CA\"}",
+        "payloadType": "json",
+        "x": 110,
+        "y": 1320,
+        "wires": [
+            [
+                "4ab174ba.52285c"
+            ]
+        ]
+    },
+    {
+        "id": "d718b0e9.c41b8",
+        "type": "comment",
+        "z": "2ab9b87c.975ed8",
+        "name": "msg.outputFormat=EML, EML present in payload",
+        "info": "",
+        "x": 860,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "1b40e40c.5fc884",
+        "type": "comment",
+        "z": "2ab9b87c.975ed8",
+        "name": "msg.outputFormat",
+        "info": "",
+        "x": 130,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "96dc9540.fd77",
+        "type": "olcnr-email-content",
+        "z": "2ab9b87c.975ed8",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "section": "",
+        "outputFormat": "by-msg",
+        "name": "",
+        "x": 280,
+        "y": 1380,
+        "wires": [
+            [
+                "79635651.175578"
+            ]
+        ]
+    },
+    {
+        "id": "79635651.175578",
+        "type": "debug",
+        "z": "2ab9b87c.975ed8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.messages[0]",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 1380,
+        "wires": []
+    },
+    {
+        "id": "42adefcf.122998",
+        "type": "inject",
+        "z": "2ab9b87c.975ed8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "template",
+                "v": "template",
+                "vt": "flow"
+            },
+            {
+                "p": "outputFormat",
+                "v": "HTML",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"FirstName\":\"Rijk\",\"Email\":\"rijk@example.com\",\"Country\":\"CA\"}",
+        "payloadType": "json",
+        "x": 110,
+        "y": 1380,
+        "wires": [
+            [
+                "96dc9540.fd77"
+            ]
+        ]
+    },
+    {
+        "id": "9f97685b.29b408",
+        "type": "comment",
+        "z": "2ab9b87c.975ed8",
+        "name": "msg.outputFormat=HTML, no EML in payload",
+        "info": "",
+        "x": 850,
+        "y": 1380,
+        "wires": []
+    },
+    {
+        "id": "b71b5e06.01fa78",
+        "type": "olcnr-email-content",
+        "z": "2ab9b87c.975ed8",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "section": "",
+        "outputFormat": "eml",
+        "name": "",
+        "x": 280,
+        "y": 1480,
+        "wires": [
+            [
+                "d0b051f1.069008"
+            ]
+        ]
+    },
+    {
+        "id": "d0b051f1.069008",
+        "type": "debug",
+        "z": "2ab9b87c.975ed8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.messages[0]",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "12089158.25f8b7",
+        "type": "inject",
+        "z": "2ab9b87c.975ed8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "template",
+                "v": "template",
+                "vt": "flow"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"FirstName\":\"Rijk\",\"Email\":\"rijk@example.com\",\"Country\":\"CA\"}",
+        "payloadType": "json",
+        "x": 110,
+        "y": 1480,
+        "wires": [
+            [
+                "b71b5e06.01fa78"
+            ]
+        ]
+    },
+    {
+        "id": "2aa4a8e7.b6f728",
+        "type": "comment",
+        "z": "2ab9b87c.975ed8",
+        "name": "Output format=EML, EML present in payload",
+        "info": "",
+        "x": 850,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "99e97f.3f48968",
+        "type": "comment",
+        "z": "2ab9b87c.975ed8",
+        "name": "Output Format from UI",
+        "info": "",
+        "x": 140,
+        "y": 1440,
+        "wires": []
+    },
+    {
+        "id": "63ba6263.84a9dc",
+        "type": "olcnr-email-content",
+        "z": "2ab9b87c.975ed8",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "section": "",
+        "outputFormat": "html",
+        "name": "",
+        "x": 280,
+        "y": 1540,
+        "wires": [
+            [
+                "20c2e7dd.e5376"
+            ]
+        ]
+    },
+    {
+        "id": "20c2e7dd.e5376",
+        "type": "debug",
+        "z": "2ab9b87c.975ed8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.messages[0]",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 1540,
+        "wires": []
+    },
+    {
+        "id": "8ec2f0dd.9f5468",
+        "type": "inject",
+        "z": "2ab9b87c.975ed8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "template",
+                "v": "template",
+                "vt": "flow"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"FirstName\":\"Rijk\",\"Email\":\"rijk@example.com\",\"Country\":\"CA\"}",
+        "payloadType": "json",
+        "x": 110,
+        "y": 1540,
+        "wires": [
+            [
+                "63ba6263.84a9dc"
+            ]
+        ]
+    },
+    {
+        "id": "5c369005.049e8",
+        "type": "comment",
+        "z": "2ab9b87c.975ed8",
+        "name": "Output format=HTML, no EML in payload",
+        "info": "",
+        "x": 840,
+        "y": 1540,
         "wires": []
     }
 ]
