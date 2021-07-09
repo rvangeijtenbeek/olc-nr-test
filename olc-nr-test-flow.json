@@ -93,7 +93,7 @@
     {
         "id": "df200617.1e584",
         "type": "tab",
-        "label": "pdf preview",
+        "label": "preview pdf",
         "disabled": false,
         "info": ""
     },
@@ -13138,8 +13138,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 170,
-        "y": 380,
+        "x": 150,
+        "y": 420,
         "wires": [
             [
                 "5224df60.187e48",
@@ -13153,8 +13153,8 @@
         "z": "df200617.1e584",
         "connect_server": "3c2c110.e9ac1f",
         "template": "",
-        "x": 570,
-        "y": 380,
+        "x": 550,
+        "y": 420,
         "wires": [
             [
                 "7a30c86c.7e952",
@@ -13171,8 +13171,8 @@
         "headers": {
             "content-type": "application/pdf"
         },
-        "x": 730,
-        "y": 380,
+        "x": 710,
+        "y": 420,
         "wires": []
     },
     {
@@ -13185,8 +13185,8 @@
         "createDir": true,
         "overwriteFile": "true",
         "encoding": "none",
-        "x": 760,
-        "y": 420,
+        "x": 740,
+        "y": 460,
         "wires": [
             [
                 "f5a787b9.4a3c9"
@@ -13198,14 +13198,15 @@
         "type": "olcnr-file-upload",
         "z": "df200617.1e584",
         "connect_server": "3c2c110.e9ac1f",
-        "filename": "",
+        "filename": "files\\Superhero-card.OL-template",
         "fileDuration": "temporary",
-        "name": "upload template",
-        "x": 380,
-        "y": 40,
+        "name": "upload template superhero",
+        "x": 320,
+        "y": 140,
         "wires": [
             [
-                "bd676225.cdce9"
+                "bd676225.cdce9",
+                "2cb65904.8f23e6"
             ]
         ]
     },
@@ -13214,26 +13215,20 @@
         "type": "inject",
         "z": "df200617.1e584",
         "name": "",
-        "props": [
-            {
-                "p": "filename",
-                "v": "files\\Superhero-card.OL-template",
-                "vt": "str"
-            }
-        ],
+        "props": [],
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payloadType": "str",
-        "x": 150,
-        "y": 40,
+        "x": 110,
+        "y": 140,
         "wires": [
             [
                 "37af67fe.e67d5",
                 "f797f704.ddc53",
-                "f224c5f1.162778"
+                "f224c5f1.162778",
+                "47f75e84.eeba48"
             ]
         ]
     },
@@ -13250,8 +13245,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 810,
-        "y": 120,
+        "x": 750,
+        "y": 260,
         "wires": []
     },
     {
@@ -13260,8 +13255,8 @@
         "z": "df200617.1e584",
         "name": "produce Preview PDF to return & save",
         "info": "",
-        "x": 230,
-        "y": 340,
+        "x": 210,
+        "y": 380,
         "wires": []
     },
     {
@@ -13281,15 +13276,15 @@
                 "t": "set",
                 "p": "filename",
                 "pt": "msg",
-                "to": "'C:\\\\nr\\\\output\\\\' & timeStart & '.pdf'",
+                "to": "'C:\\\\nr\\\\output\\\\birthday-' & timeStart & '.pdf'",
                 "tot": "jsonata"
             },
             {
                 "t": "set",
                 "p": "template",
                 "pt": "msg",
-                "to": "Superhero-card.OL-template",
-                "tot": "str"
+                "to": "templateSuperhero",
+                "tot": "flow"
             }
         ],
         "action": "",
@@ -13297,8 +13292,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 380,
-        "y": 380,
+        "x": 360,
+        "y": 420,
         "wires": [
             [
                 "a6d12d72.bdf41"
@@ -13309,7 +13304,7 @@
         "id": "f5a787b9.4a3c9",
         "type": "debug",
         "z": "df200617.1e584",
-        "name": "Debug: used time",
+        "name": "time",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -13318,8 +13313,8 @@
         "targetType": "jsonata",
         "statusVal": "",
         "statusType": "auto",
-        "x": 970,
-        "y": 420,
+        "x": 910,
+        "y": 460,
         "wires": []
     },
     {
@@ -13328,8 +13323,8 @@
         "z": "df200617.1e584",
         "connect_server": "3c2c110.e9ac1f",
         "template": "",
-        "x": 570,
-        "y": 540,
+        "x": 270,
+        "y": 580,
         "wires": [
             [
                 "a7e4113f.10dfd"
@@ -13346,30 +13341,13 @@
         "createDir": false,
         "overwriteFile": "true",
         "encoding": "none",
-        "x": 760,
-        "y": 540,
+        "x": 460,
+        "y": 580,
         "wires": [
             [
-                "146c1517.13d473"
+                "fd034820.60a468"
             ]
         ]
-    },
-    {
-        "id": "146c1517.13d473",
-        "type": "debug",
-        "z": "df200617.1e584",
-        "name": "Debug: used time",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "'Time used: ' & ($millis() - timeStart ) /1000 & ' seconds'",
-        "targetType": "jsonata",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 970,
-        "y": 540,
-        "wires": []
     },
     {
         "id": "b17b428f.bb871",
@@ -13379,6 +13357,21 @@
         "props": [
             {
                 "p": "payload"
+            },
+            {
+                "p": "timeStart",
+                "v": "",
+                "vt": "date"
+            },
+            {
+                "p": "filename",
+                "v": "'C:\\\\nr\\\\output\\\\json-in-' & timeStart & '.pdf'",
+                "vt": "jsonata"
+            },
+            {
+                "p": "template",
+                "v": "templateSuperhero",
+                "vt": "flow"
             }
         ],
         "repeat": "",
@@ -13388,11 +13381,11 @@
         "topic": "",
         "payload": "{\"first\":\"Rijk was here\"}",
         "payloadType": "json",
-        "x": 130,
-        "y": 540,
+        "x": 110,
+        "y": 580,
         "wires": [
             [
-                "e709f6e4.e3e128"
+                "ab8d3cc1.0acd38"
             ]
         ]
     },
@@ -13402,70 +13395,19 @@
         "z": "df200617.1e584",
         "name": "trigger by loading http://127.0.0.1:1881/happybirthday?first=MyName",
         "info": "",
-        "x": 330,
-        "y": 300,
+        "x": 310,
+        "y": 340,
         "wires": []
     },
     {
         "id": "3e565a67.6c6946",
         "type": "comment",
         "z": "df200617.1e584",
-        "name": "trigger by injecting JSON object",
+        "name": "with JSON object as payload",
         "info": "",
-        "x": 210,
-        "y": 500,
-        "wires": []
-    },
-    {
-        "id": "ced77a5.5060988",
-        "type": "comment",
-        "z": "df200617.1e584",
-        "name": "make sure C:\\nr\\output\\ exists",
-        "info": "",
-        "x": 800,
-        "y": 480,
-        "wires": []
-    },
-    {
-        "id": "e709f6e4.e3e128",
-        "type": "change",
-        "z": "df200617.1e584",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "timeStart",
-                "pt": "msg",
-                "to": "$millis()",
-                "tot": "jsonata"
-            },
-            {
-                "t": "set",
-                "p": "filename",
-                "pt": "msg",
-                "to": "'C:\\\\nr\\\\output\\\\' & timeStart & '.pdf'",
-                "tot": "jsonata"
-            },
-            {
-                "t": "set",
-                "p": "template",
-                "pt": "msg",
-                "to": "Superhero-card.OL-template",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 380,
+        "x": 180,
         "y": 540,
-        "wires": [
-            [
-                "ab8d3cc1.0acd38"
-            ]
-        ]
+        "wires": []
     },
     {
         "id": "99b6cb9.1cc6ab8",
@@ -14340,20 +14282,14 @@
         "type": "inject",
         "z": "2ab9b87c.975ed8",
         "name": "",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
+        "props": [],
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 120,
-        "y": 40,
+        "x": 110,
+        "y": 80,
         "wires": [
             [
                 "b6a95f7b.4e6ab8",
@@ -14369,8 +14305,8 @@
         "filename": "files\\email\\EmailBasic+multi-attachment-202010.OL-template",
         "fileDuration": "temporary",
         "name": "upload template",
-        "x": 380,
-        "y": 40,
+        "x": 280,
+        "y": 80,
         "wires": [
             [
                 "4f0999b7.7e4f7"
@@ -14385,8 +14321,8 @@
         "filename": "files\\email\\EmailBasic.OL-datamapper",
         "fileDuration": "temporary",
         "name": "upload dm",
-        "x": 370,
-        "y": 80,
+        "x": 270,
+        "y": 120,
         "wires": [
             [
                 "5e0bdad8.25d944"
@@ -14412,8 +14348,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 640,
-        "y": 40,
+        "x": 460,
+        "y": 80,
         "wires": [
             [
                 "73100d6f.2f991c"
@@ -14439,8 +14375,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 670,
-        "y": 80,
+        "x": 490,
+        "y": 120,
         "wires": [
             [
                 "73100d6f.2f991c"
@@ -14460,8 +14396,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 890,
-        "y": 80,
+        "x": 670,
+        "y": 120,
         "wires": []
     },
     {
@@ -14470,8 +14406,8 @@
         "z": "2ab9b87c.975ed8",
         "name": "upload test data",
         "info": "",
-        "x": 120,
-        "y": 80,
+        "x": 140,
+        "y": 40,
         "wires": []
     },
     {
@@ -14716,7 +14652,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 120,
-        "y": 40,
+        "y": 140,
         "wires": [
             [
                 "e4671023.9eac",
@@ -14735,7 +14671,7 @@
         "fileDuration": "temporary",
         "name": "upload template",
         "x": 380,
-        "y": 40,
+        "y": 140,
         "wires": [
             [
                 "eedf0ced.97c47"
@@ -14762,7 +14698,7 @@
         "to": "",
         "reg": false,
         "x": 640,
-        "y": 40,
+        "y": 140,
         "wires": [
             [
                 "8e204326.5c8f9"
@@ -14774,7 +14710,7 @@
         "type": "debug",
         "z": "bb2cdd1d.165788",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -14783,7 +14719,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 890,
-        "y": 160,
+        "y": 260,
         "wires": []
     },
     {
@@ -14792,18 +14728,18 @@
         "z": "bb2cdd1d.165788",
         "name": "upload test data",
         "info": "",
-        "x": 120,
-        "y": 80,
+        "x": 140,
+        "y": 100,
         "wires": []
     },
     {
         "id": "5a693c0f.7d3bac",
         "type": "comment",
         "z": "bb2cdd1d.165788",
-        "name": "unhappy flows",
+        "name": "email content unhappy flows",
         "info": "",
-        "x": 110,
-        "y": 400,
+        "x": 140,
+        "y": 40,
         "wires": []
     },
     {
@@ -14815,12 +14751,12 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 450,
-        "y": 480,
+        "x": 470,
+        "y": 540,
         "wires": []
     },
     {
@@ -14830,7 +14766,7 @@
         "name": "no data, but Connect Server doesn't mind - no error message expected",
         "info": "",
         "x": 830,
-        "y": 480,
+        "y": 540,
         "wires": []
     },
     {
@@ -14852,7 +14788,7 @@
         "topic": "",
         "payloadType": "str",
         "x": 110,
-        "y": 480,
+        "y": 540,
         "wires": [
             [
                 "5a31d591.bc5c74"
@@ -14869,7 +14805,7 @@
         "outputFormat": "html",
         "name": "",
         "x": 280,
-        "y": 480,
+        "y": 540,
         "wires": [
             [
                 "47ea6a01.1ee92c"
@@ -14885,12 +14821,12 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 450,
-        "y": 540,
+        "x": 470,
+        "y": 600,
         "wires": []
     },
     {
@@ -14900,7 +14836,7 @@
         "name": "no template",
         "info": "",
         "x": 650,
-        "y": 540,
+        "y": 600,
         "wires": []
     },
     {
@@ -14916,7 +14852,7 @@
         "topic": "",
         "payloadType": "str",
         "x": 110,
-        "y": 540,
+        "y": 600,
         "wires": [
             [
                 "ca163e04.e0774"
@@ -14933,7 +14869,7 @@
         "outputFormat": "html",
         "name": "",
         "x": 280,
-        "y": 540,
+        "y": 600,
         "wires": [
             [
                 "ce332e4e.09772"
@@ -14946,8 +14882,8 @@
         "z": "bb2cdd1d.165788",
         "name": "input msg incomplete",
         "info": "",
-        "x": 140,
-        "y": 440,
+        "x": 160,
+        "y": 500,
         "wires": []
     },
     {
@@ -14957,7 +14893,7 @@
         "name": "data set doesn't exist",
         "info": "",
         "x": 680,
-        "y": 780,
+        "y": 840,
         "wires": []
     },
     {
@@ -14969,12 +14905,12 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 450,
-        "y": 600,
+        "x": 470,
+        "y": 660,
         "wires": []
     },
     {
@@ -15000,7 +14936,7 @@
         "payload": "[ \t{ \t\t\"FirstName\": \"Rijk\", \t\t\"Email\": \"test@example.nl\", \t\t\"Country\": \"CA\" \t},\t{ \t\t\"FirstName\": \"神\", \t\t\"Email\": \"testchina@example.com\", \t\t\"Country\": \"CA\" \t},\t{ \t\t\"FirstName\": \"André\", \t\t\"Email\": \"test@example.fr\", \t\t\"Country\": \"FR\" \t},\t{ \t\t\"FirstName\": \"Jim\", \t\t\"Email\": \"test@example.com\", \t\t\"Country\": \"US\" \t} ]",
         "payloadType": "json",
         "x": 110,
-        "y": 600,
+        "y": 660,
         "wires": [
             [
                 "1d7e0cbc.82be5b"
@@ -15017,7 +14953,7 @@
         "outputFormat": "by-msg",
         "name": "",
         "x": 280,
-        "y": 600,
+        "y": 660,
         "wires": [
             [
                 "f09bdd88.cad498"
@@ -15031,7 +14967,7 @@
         "name": "no outputFormat",
         "info": "",
         "x": 660,
-        "y": 600,
+        "y": 660,
         "wires": []
     },
     {
@@ -15047,7 +14983,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 470,
-        "y": 780,
+        "y": 840,
         "wires": []
     },
     {
@@ -15057,7 +14993,7 @@
         "name": "template doesn't exist",
         "info": "",
         "x": 680,
-        "y": 720,
+        "y": 780,
         "wires": []
     },
     {
@@ -15066,8 +15002,8 @@
         "z": "bb2cdd1d.165788",
         "name": "files not present on the Connect Server",
         "info": "",
-        "x": 190,
-        "y": 680,
+        "x": 210,
+        "y": 740,
         "wires": []
     },
     {
@@ -15080,7 +15016,7 @@
         "outputFormat": "html",
         "name": "",
         "x": 280,
-        "y": 720,
+        "y": 780,
         "wires": [
             [
                 "a713e2ef.acb3a"
@@ -15110,7 +15046,7 @@
         "payload": "[{\"FirstName\":\"Rijk\",\"Email\":\"test@example.nl\",\"Country\":\"CA\"},{\"FirstName\":\"神\",\"Email\":\"testchina@example.com\",\"Country\":\"CA\"},{\"FirstName\":\"André\",\"Email\":\"test@example.fr\",\"Country\":\"FR\"},{\"FirstName\":\"Jim\",\"Email\":\"test@example.com\",\"Country\":\"US\"}]",
         "payloadType": "json",
         "x": 110,
-        "y": 720,
+        "y": 780,
         "wires": [
             [
                 "db5875c5.00d8e8"
@@ -15130,7 +15066,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 470,
-        "y": 720,
+        "y": 780,
         "wires": []
     },
     {
@@ -15157,7 +15093,7 @@
         "topic": "",
         "payloadType": "str",
         "x": 110,
-        "y": 780,
+        "y": 840,
         "wires": [
             [
                 "82eb7c46.a491d8"
@@ -15174,7 +15110,7 @@
         "outputFormat": "html",
         "name": "",
         "x": 280,
-        "y": 780,
+        "y": 840,
         "wires": [
             [
                 "ef431c77.d3c7e8"
@@ -15188,7 +15124,7 @@
         "name": "section doesn't exist",
         "info": "",
         "x": 670,
-        "y": 960,
+        "y": 1020,
         "wires": []
     },
     {
@@ -15204,7 +15140,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 470,
-        "y": 960,
+        "y": 1020,
         "wires": []
     },
     {
@@ -15214,7 +15150,7 @@
         "name": "template doesn't have email context",
         "info": "",
         "x": 720,
-        "y": 900,
+        "y": 960,
         "wires": []
     },
     {
@@ -15223,8 +15159,8 @@
         "z": "bb2cdd1d.165788",
         "name": "faulty files on the Connect Server",
         "info": "",
-        "x": 170,
-        "y": 860,
+        "x": 190,
+        "y": 920,
         "wires": []
     },
     {
@@ -15237,7 +15173,7 @@
         "outputFormat": "html",
         "name": "",
         "x": 280,
-        "y": 900,
+        "y": 960,
         "wires": [
             [
                 "f3b0cfc7.cd09d8"
@@ -15267,7 +15203,7 @@
         "payload": "[ \t{ \t\t\"FirstName\": \"Rijk\", \t\t\"Email\": \"test@example.nl\", \t\t\"Country\": \"CA\" \t},\t{ \t\t\"FirstName\": \"神\", \t\t\"Email\": \"testchina@example.com\", \t\t\"Country\": \"CA\" \t},\t{ \t\t\"FirstName\": \"André\", \t\t\"Email\": \"test@example.fr\", \t\t\"Country\": \"FR\" \t},\t{ \t\t\"FirstName\": \"Jim\", \t\t\"Email\": \"test@example.com\", \t\t\"Country\": \"US\" \t} ]",
         "payloadType": "json",
         "x": 110,
-        "y": 900,
+        "y": 960,
         "wires": [
             [
                 "129c51a1.127136"
@@ -15287,7 +15223,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 470,
-        "y": 900,
+        "y": 960,
         "wires": []
     },
     {
@@ -15318,7 +15254,7 @@
         "payload": "[ \t{ \t\t\"FirstName\": \"Rijk\", \t\t\"Email\": \"test@example.nl\", \t\t\"Country\": \"CA\" \t},\t{ \t\t\"FirstName\": \"神\", \t\t\"Email\": \"testchina@example.com\", \t\t\"Country\": \"CA\" \t},\t{ \t\t\"FirstName\": \"André\", \t\t\"Email\": \"test@example.fr\", \t\t\"Country\": \"FR\" \t},\t{ \t\t\"FirstName\": \"Jim\", \t\t\"Email\": \"test@example.com\", \t\t\"Country\": \"US\" \t} ]",
         "payloadType": "json",
         "x": 110,
-        "y": 960,
+        "y": 1020,
         "wires": [
             [
                 "37d6cd01.952a1a"
@@ -15335,7 +15271,7 @@
         "outputFormat": "html",
         "name": "",
         "x": 280,
-        "y": 960,
+        "y": 1020,
         "wires": [
             [
                 "15675c46.817164"
@@ -15365,7 +15301,7 @@
         "name": "string as payload",
         "info": "",
         "x": 660,
-        "y": 1140,
+        "y": 1200,
         "wires": []
     },
     {
@@ -15381,7 +15317,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 470,
-        "y": 1140,
+        "y": 1200,
         "wires": []
     },
     {
@@ -15407,7 +15343,7 @@
         "payload": "{\"FirstName\":\"Rijk\",\"Email\":\"rijk@example.com\",\"Country\":\"CA\"}",
         "payloadType": "str",
         "x": 110,
-        "y": 1140,
+        "y": 1200,
         "wires": [
             [
                 "56faaede.4cb12"
@@ -15424,7 +15360,7 @@
         "outputFormat": "html",
         "name": "",
         "x": 280,
-        "y": 1140,
+        "y": 1200,
         "wires": [
             [
                 "88089dad.522e3"
@@ -15440,7 +15376,7 @@
         "fileDuration": "temporary",
         "name": "upload template",
         "x": 380,
-        "y": 80,
+        "y": 180,
         "wires": [
             [
                 "228525f7.23be22"
@@ -15467,7 +15403,7 @@
         "to": "",
         "reg": false,
         "x": 660,
-        "y": 80,
+        "y": 180,
         "wires": [
             [
                 "8e204326.5c8f9"
@@ -15483,7 +15419,7 @@
         "fileDuration": "temporary",
         "name": "upload data file 1 rec",
         "x": 400,
-        "y": 120,
+        "y": 220,
         "wires": [
             [
                 "f40514bb.fe30f8"
@@ -15499,7 +15435,7 @@
         "fileDuration": "temporary",
         "name": "upload data file 4 rec",
         "x": 400,
-        "y": 160,
+        "y": 260,
         "wires": [
             [
                 "35e34787.be28c8"
@@ -15526,7 +15462,7 @@
         "to": "",
         "reg": false,
         "x": 650,
-        "y": 120,
+        "y": 220,
         "wires": [
             [
                 "8e204326.5c8f9"
@@ -15553,7 +15489,7 @@
         "to": "",
         "reg": false,
         "x": 650,
-        "y": 160,
+        "y": 260,
         "wires": [
             [
                 "8e204326.5c8f9"
@@ -15567,7 +15503,7 @@
         "name": "boolean as payload",
         "info": "",
         "x": 670,
-        "y": 1200,
+        "y": 1260,
         "wires": []
     },
     {
@@ -15583,7 +15519,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 470,
-        "y": 1200,
+        "y": 1260,
         "wires": []
     },
     {
@@ -15609,7 +15545,7 @@
         "payload": "true",
         "payloadType": "bool",
         "x": 110,
-        "y": 1200,
+        "y": 1260,
         "wires": [
             [
                 "dfc0a267.a2f288"
@@ -15626,7 +15562,7 @@
         "outputFormat": "html",
         "name": "",
         "x": 280,
-        "y": 1200,
+        "y": 1260,
         "wires": [
             [
                 "2c36594d.fa1abe"
@@ -15639,8 +15575,8 @@
         "z": "bb2cdd1d.165788",
         "name": "input validation",
         "info": "",
-        "x": 120,
-        "y": 1040,
+        "x": 140,
+        "y": 1100,
         "wires": []
     },
     {
@@ -15666,7 +15602,7 @@
         "payload": "{\"FirstName\":\"Rijk\",\"Email\":\"rijk@example.com\",\"Country\":\"CA\"}",
         "payloadType": "json",
         "x": 110,
-        "y": 1080,
+        "y": 1140,
         "wires": [
             [
                 "759706c9.33ff08"
@@ -15683,7 +15619,7 @@
         "outputFormat": "html",
         "name": "",
         "x": 280,
-        "y": 1080,
+        "y": 1140,
         "wires": [
             [
                 "c2229a4.804b568"
@@ -15703,7 +15639,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 470,
-        "y": 1080,
+        "y": 1140,
         "wires": []
     },
     {
@@ -15713,7 +15649,7 @@
         "name": "boolean as template",
         "info": "",
         "x": 670,
-        "y": 1080,
+        "y": 1140,
         "wires": []
     },
     {
@@ -15750,7 +15686,7 @@
         "to": "",
         "reg": false,
         "x": 280,
-        "y": 1160,
+        "y": 1200,
         "wires": [
             [
                 "204207df.7b3e08"
@@ -15781,7 +15717,7 @@
         "topic": "",
         "payloadType": "str",
         "x": 110,
-        "y": 1160,
+        "y": 1200,
         "wires": [
             [
                 "189cb7e2.29e2b"
@@ -15797,12 +15733,12 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 850,
-        "y": 1160,
+        "x": 870,
+        "y": 1200,
         "wires": []
     },
     {
@@ -15814,7 +15750,7 @@
         "active": false,
         "name": "",
         "x": 480,
-        "y": 1160,
+        "y": 1200,
         "wires": [
             [
                 "5f2db54f.6b4ac4"
@@ -15828,7 +15764,7 @@
         "name": "dataSetId trumps payload",
         "info": "",
         "x": 150,
-        "y": 1120,
+        "y": 1160,
         "wires": []
     },
     {
@@ -15845,7 +15781,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 860,
-        "y": 1200,
+        "y": 1240,
         "wires": []
     },
     {
@@ -15858,7 +15794,7 @@
         "outputFormat": "eml",
         "name": "",
         "x": 680,
-        "y": 1160,
+        "y": 1200,
         "wires": [
             [
                 "63329648.033f4",
@@ -16001,8 +15937,8 @@
         "z": "2ab9b87c.975ed8",
         "name": "payload contains 4 messages",
         "info": "",
-        "x": 1090,
-        "y": 1160,
+        "x": 1100,
+        "y": 1200,
         "wires": []
     },
     {
@@ -16104,229 +16040,14 @@
         "cssSelector": "",
         "embedResources": "true",
         "name": "",
-        "x": 530,
-        "y": 280,
+        "x": 510,
+        "y": 380,
         "wires": [
             [
                 "65392456.507e74",
                 "3b8464de.27c454"
             ]
         ]
-    },
-    {
-        "id": "eb810837.8d1148",
-        "type": "comment",
-        "z": "a49a6730.7d33a8",
-        "name": "to do: css selector",
-        "info": "",
-        "x": 950,
-        "y": 60,
-        "wires": []
-    },
-    {
-        "id": "1aaf18fe.aed707",
-        "type": "inject",
-        "z": "a49a6730.7d33a8",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 140,
-        "y": 60,
-        "wires": [
-            [
-                "2a74ca71.f624e6",
-                "c62d8c83.8b68a8",
-                "a6f23c64.01414",
-                "10297edb.94a569"
-            ]
-        ]
-    },
-    {
-        "id": "c62d8c83.8b68a8",
-        "type": "olcnr-file-upload",
-        "z": "a49a6730.7d33a8",
-        "connect_server": "3c2c110.e9ac1f",
-        "filename": "files\\html\\WEB_FORM Web Page.OL-template",
-        "fileDuration": "temporary",
-        "name": "upload template",
-        "x": 400,
-        "y": 60,
-        "wires": [
-            [
-                "a35630e9.9a912"
-            ]
-        ]
-    },
-    {
-        "id": "2a74ca71.f624e6",
-        "type": "olcnr-file-upload",
-        "z": "a49a6730.7d33a8",
-        "connect_server": "3c2c110.e9ac1f",
-        "filename": "files\\html\\WEB_FORM Data NR XML.OL-datamapper",
-        "fileDuration": "temporary",
-        "name": "upload XML dm",
-        "x": 400,
-        "y": 140,
-        "wires": [
-            [
-                "be3d1582.4cc328"
-            ]
-        ]
-    },
-    {
-        "id": "a35630e9.9a912",
-        "type": "change",
-        "z": "a49a6730.7d33a8",
-        "name": "template",
-        "rules": [
-            {
-                "t": "move",
-                "p": "managedFileId",
-                "pt": "msg",
-                "to": "template",
-                "tot": "flow"
-            },
-            {
-                "t": "move",
-                "p": "payload",
-                "pt": "msg",
-                "to": "templateName",
-                "tot": "flow"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 660,
-        "y": 60,
-        "wires": [
-            [
-                "e98fd780.050bb"
-            ]
-        ]
-    },
-    {
-        "id": "be3d1582.4cc328",
-        "type": "change",
-        "z": "a49a6730.7d33a8",
-        "name": "dmConfiguration",
-        "rules": [
-            {
-                "t": "move",
-                "p": "managedFileId",
-                "pt": "msg",
-                "to": "dmConfiguration",
-                "tot": "flow"
-            },
-            {
-                "t": "move",
-                "p": "payload",
-                "pt": "msg",
-                "to": "dmConfigurationName",
-                "tot": "flow"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 690,
-        "y": 140,
-        "wires": [
-            [
-                "e98fd780.050bb"
-            ]
-        ]
-    },
-    {
-        "id": "a6f23c64.01414",
-        "type": "olcnr-file-upload",
-        "z": "a49a6730.7d33a8",
-        "connect_server": "3c2c110.e9ac1f",
-        "filename": "files\\html\\WEB_FORM Web Page-chartest.OL-template",
-        "fileDuration": "temporary",
-        "name": "upload alt template",
-        "x": 410,
-        "y": 100,
-        "wires": [
-            [
-                "6f03a2a.a3dacdc"
-            ]
-        ]
-    },
-    {
-        "id": "5603b3da.f4462c",
-        "type": "comment",
-        "z": "a49a6730.7d33a8",
-        "name": "upload test data",
-        "info": "",
-        "x": 160,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "6f03a2a.a3dacdc",
-        "type": "change",
-        "z": "a49a6730.7d33a8",
-        "name": "alttemplate",
-        "rules": [
-            {
-                "t": "move",
-                "p": "managedFileId",
-                "pt": "msg",
-                "to": "alttemplate",
-                "tot": "flow"
-            },
-            {
-                "t": "move",
-                "p": "payload",
-                "pt": "msg",
-                "to": "alttemplateName",
-                "tot": "flow"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 670,
-        "y": 100,
-        "wires": [
-            [
-                "e98fd780.050bb"
-            ]
-        ]
-    },
-    {
-        "id": "e98fd780.050bb",
-        "type": "debug",
-        "z": "a49a6730.7d33a8",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 910,
-        "y": 180,
-        "wires": []
     },
     {
         "id": "8b37a8a9.62a27",
@@ -16337,8 +16058,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 140,
-        "y": 280,
+        "x": 120,
+        "y": 380,
         "wires": [
             [
                 "2eea31c0.3aabe6"
@@ -16364,8 +16085,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 330,
-        "y": 280,
+        "x": 310,
+        "y": 380,
         "wires": [
             [
                 "e0adf2b9.76a0d8"
@@ -16379,18 +16100,18 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 690,
-        "y": 280,
+        "x": 670,
+        "y": 380,
         "wires": []
     },
     {
         "id": "34ddd602.5e14ca",
         "type": "comment",
         "z": "a49a6730.7d33a8",
-        "name": "happy flow",
+        "name": "present form, return thank_you on form submit",
         "info": "",
-        "x": 140,
-        "y": 240,
+        "x": 240,
+        "y": 340,
         "wires": []
     },
     {
@@ -16403,8 +16124,8 @@
         "cssSelector": "",
         "embedResources": "true",
         "name": "",
-        "x": 710,
-        "y": 360,
+        "x": 790,
+        "y": 480,
         "wires": [
             [
                 "5bb9d4fd.87fb9c"
@@ -16421,8 +16142,8 @@
         "method": "post",
         "upload": false,
         "swaggerDoc": "",
-        "x": 160,
-        "y": 360,
+        "x": 140,
+        "y": 480,
         "wires": [
             [
                 "d706847e.4ffba",
@@ -16437,8 +16158,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 870,
-        "y": 360,
+        "x": 950,
+        "y": 480,
         "wires": []
     },
     {
@@ -16467,8 +16188,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 520,
-        "y": 360,
+        "x": 600,
+        "y": 480,
         "wires": [
             [
                 "b55b45e6.f6b14"
@@ -16479,14 +16200,14 @@
         "id": "d706847e.4ffba",
         "type": "function",
         "z": "a49a6730.7d33a8",
-        "name": "",
+        "name": "handle hidden chekcbox",
         "func": "// Workaround for the workaround created for datamapper,\n// with a hidden duplicate checkbox in the template.\n\nif (Array.isArray(msg.payload.checkbox)) {\n    msg.payload.checkbox = msg.payload.checkbox[1];\n    }\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 340,
-        "y": 360,
+        "x": 370,
+        "y": 480,
         "wires": [
             [
                 "170e184f.202e98"
@@ -16506,8 +16227,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 690,
-        "y": 240,
+        "x": 670,
+        "y": 340,
         "wires": []
     },
     {
@@ -16519,8 +16240,8 @@
         "method": "post",
         "upload": false,
         "swaggerDoc": "",
-        "x": 160,
-        "y": 480,
+        "x": 140,
+        "y": 580,
         "wires": [
             [
                 "cb1bb431.4fcfc8"
@@ -16546,8 +16267,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 370,
-        "y": 480,
+        "x": 350,
+        "y": 580,
         "wires": [
             [
                 "f1b9a845.7d9fe8"
@@ -16562,8 +16283,8 @@
         "property": "payload",
         "attr": "",
         "chr": "",
-        "x": 550,
-        "y": 480,
+        "x": 530,
+        "y": 580,
         "wires": [
             [
                 "aa78e5e8.7f7a68"
@@ -16580,8 +16301,8 @@
         "createDir": true,
         "overwriteFile": "true",
         "encoding": "none",
-        "x": 690,
-        "y": 480,
+        "x": 670,
+        "y": 580,
         "wires": [
             [
                 "9c643b7c.64019"
@@ -16596,8 +16317,8 @@
         "dmConfiguration": "",
         "active": false,
         "name": "",
-        "x": 380,
-        "y": 540,
+        "x": 1040,
+        "y": 580,
         "wires": [
             [
                 "2ee36853.06e5a"
@@ -16614,8 +16335,8 @@
         "details": "false",
         "outputJSON": "simple",
         "name": "",
-        "x": 560,
-        "y": 540,
+        "x": 540,
+        "y": 640,
         "wires": [
             [
                 "df89937b.1047"
@@ -16641,8 +16362,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 740,
-        "y": 540,
+        "x": 720,
+        "y": 640,
         "wires": [
             [
                 "f232f88e.d3374"
@@ -16682,8 +16403,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 180,
-        "y": 540,
+        "x": 840,
+        "y": 580,
         "wires": [
             [
                 "433705d7.05559c"
@@ -16700,8 +16421,8 @@
         "cssSelector": "",
         "embedResources": "true",
         "name": "",
-        "x": 970,
-        "y": 540,
+        "x": 910,
+        "y": 640,
         "wires": [
             [
                 "9607d123.e87108"
@@ -16715,8 +16436,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 1130,
-        "y": 540,
+        "x": 1070,
+        "y": 640,
         "wires": []
     },
     {
@@ -16725,18 +16446,8 @@
         "z": "a49a6730.7d33a8",
         "name": "note: C:\\nr\\workspace has to exist",
         "info": "",
-        "x": 920,
-        "y": 480,
-        "wires": []
-    },
-    {
-        "id": "971d8819.6cc48",
-        "type": "comment",
-        "z": "8002060c.a21e1",
-        "name": "unhappy flows",
-        "info": "",
-        "x": 110,
-        "y": 440,
+        "x": 760,
+        "y": 540,
         "wires": []
     },
     {
@@ -16748,12 +16459,12 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 430,
-        "y": 520,
+        "x": 450,
+        "y": 660,
         "wires": []
     },
     {
@@ -16762,8 +16473,8 @@
         "z": "8002060c.a21e1",
         "name": "no data, but Connect Server doesn't mind - no error message expected",
         "info": "",
-        "x": 790,
-        "y": 520,
+        "x": 810,
+        "y": 660,
         "wires": []
     },
     {
@@ -16785,7 +16496,7 @@
         "topic": "",
         "payloadType": "str",
         "x": 110,
-        "y": 520,
+        "y": 660,
         "wires": [
             [
                 "eae8fbda.bb495"
@@ -16801,12 +16512,12 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 430,
-        "y": 580,
+        "x": 450,
+        "y": 720,
         "wires": []
     },
     {
@@ -16815,8 +16526,8 @@
         "z": "8002060c.a21e1",
         "name": "no template",
         "info": "",
-        "x": 610,
-        "y": 580,
+        "x": 630,
+        "y": 720,
         "wires": []
     },
     {
@@ -16837,7 +16548,7 @@
         "payload": "{\"text_input\":\"€ - é - 神 - Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\",\"select_menu\":\"courgettes\",\"radio_button\":\"radish\",\"checkbox\":\"1\"}",
         "payloadType": "json",
         "x": 110,
-        "y": 580,
+        "y": 720,
         "wires": [
             [
                 "a6dbfdf6.85cf6"
@@ -16850,8 +16561,8 @@
         "z": "8002060c.a21e1",
         "name": "input msg incomplete",
         "info": "",
-        "x": 140,
-        "y": 480,
+        "x": 160,
+        "y": 620,
         "wires": []
     },
     {
@@ -16860,8 +16571,8 @@
         "z": "8002060c.a21e1",
         "name": "data record not found",
         "info": "",
-        "x": 680,
-        "y": 760,
+        "x": 660,
+        "y": 900,
         "wires": []
     },
     {
@@ -16877,7 +16588,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 450,
-        "y": 760,
+        "y": 900,
         "wires": []
     },
     {
@@ -16886,8 +16597,8 @@
         "z": "8002060c.a21e1",
         "name": "template doesn't exist",
         "info": "",
-        "x": 680,
-        "y": 700,
+        "x": 660,
+        "y": 840,
         "wires": []
     },
     {
@@ -16896,8 +16607,8 @@
         "z": "8002060c.a21e1",
         "name": "files not present on the Connect Server",
         "info": "",
-        "x": 190,
-        "y": 660,
+        "x": 210,
+        "y": 800,
         "wires": []
     },
     {
@@ -16923,7 +16634,7 @@
         "payload": "{\"text_input\":\"€ - é - 神 - Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\",\"select_menu\":\"courgettes\",\"radio_button\":\"radish\",\"checkbox\":\"1\"}",
         "payloadType": "json",
         "x": 110,
-        "y": 700,
+        "y": 840,
         "wires": [
             [
                 "be82d239.7976f8"
@@ -16943,7 +16654,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 450,
-        "y": 700,
+        "y": 840,
         "wires": []
     },
     {
@@ -16969,167 +16680,12 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 110,
-        "y": 760,
+        "y": 900,
         "wires": [
             [
                 "31d830f8.9ea66"
             ]
         ]
-    },
-    {
-        "id": "d1475596.9b7fd",
-        "type": "inject",
-        "z": "8002060c.a21e1",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 120,
-        "y": 40,
-        "wires": [
-            [
-                "f15930a1.1dcc4",
-                "6e4ffd04.5c3cc4",
-                "85dab036.f3b0c8",
-                "d4055baa.b9f4c"
-            ]
-        ]
-    },
-    {
-        "id": "6e4ffd04.5c3cc4",
-        "type": "olcnr-file-upload",
-        "z": "8002060c.a21e1",
-        "connect_server": "3c2c110.e9ac1f",
-        "filename": "files\\html\\WEB_FORM Web Page.OL-template",
-        "fileDuration": "temporary",
-        "name": "upload template",
-        "x": 380,
-        "y": 40,
-        "wires": [
-            [
-                "174254e9.7cd163"
-            ]
-        ]
-    },
-    {
-        "id": "f15930a1.1dcc4",
-        "type": "olcnr-file-upload",
-        "z": "8002060c.a21e1",
-        "connect_server": "3c2c110.e9ac1f",
-        "filename": "files\\html\\WEB_FORM Data NR XML.OL-datamapper",
-        "fileDuration": "temporary",
-        "name": "upload XML dm",
-        "x": 380,
-        "y": 120,
-        "wires": [
-            [
-                "f51aac65.2ef9d8"
-            ]
-        ]
-    },
-    {
-        "id": "174254e9.7cd163",
-        "type": "change",
-        "z": "8002060c.a21e1",
-        "name": "template",
-        "rules": [
-            {
-                "t": "move",
-                "p": "managedFileId",
-                "pt": "msg",
-                "to": "template",
-                "tot": "flow"
-            },
-            {
-                "t": "move",
-                "p": "payload",
-                "pt": "msg",
-                "to": "templateName",
-                "tot": "flow"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 640,
-        "y": 40,
-        "wires": [
-            [
-                "f5ded4d0.c619c"
-            ]
-        ]
-    },
-    {
-        "id": "f51aac65.2ef9d8",
-        "type": "change",
-        "z": "8002060c.a21e1",
-        "name": "dmConfiguration",
-        "rules": [
-            {
-                "t": "move",
-                "p": "managedFileId",
-                "pt": "msg",
-                "to": "dmConfiguration",
-                "tot": "flow"
-            },
-            {
-                "t": "move",
-                "p": "payload",
-                "pt": "msg",
-                "to": "dmConfigurationName",
-                "tot": "flow"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 670,
-        "y": 120,
-        "wires": [
-            [
-                "f5ded4d0.c619c"
-            ]
-        ]
-    },
-    {
-        "id": "c811bb2e.39aa18",
-        "type": "comment",
-        "z": "8002060c.a21e1",
-        "name": "upload test data",
-        "info": "",
-        "x": 120,
-        "y": 80,
-        "wires": []
-    },
-    {
-        "id": "f5ded4d0.c619c",
-        "type": "debug",
-        "z": "8002060c.a21e1",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 890,
-        "y": 160,
-        "wires": []
     },
     {
         "id": "eae8fbda.bb495",
@@ -17142,7 +16698,7 @@
         "embedResources": "true",
         "name": "",
         "x": 270,
-        "y": 520,
+        "y": 660,
         "wires": [
             [
                 "1dc8f130.834737"
@@ -17160,7 +16716,7 @@
         "embedResources": "true",
         "name": "",
         "x": 270,
-        "y": 580,
+        "y": 720,
         "wires": [
             [
                 "fd01ea1d.c67be8"
@@ -17172,59 +16728,16 @@
         "type": "debug",
         "z": "a49a6730.7d33a8",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 350,
-        "y": 320,
+        "x": 410,
+        "y": 440,
         "wires": []
-    },
-    {
-        "id": "11523a45.0f6066",
-        "type": "change",
-        "z": "8002060c.a21e1",
-        "name": "JSONData",
-        "rules": [
-            {
-                "t": "move",
-                "p": "managedFileId",
-                "pt": "msg",
-                "to": "JSONData",
-                "tot": "flow"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 650,
-        "y": 160,
-        "wires": [
-            [
-                "f5ded4d0.c619c"
-            ]
-        ]
-    },
-    {
-        "id": "85dab036.f3b0c8",
-        "type": "olcnr-file-upload",
-        "z": "8002060c.a21e1",
-        "connect_server": "3c2c110.e9ac1f",
-        "filename": "files\\html\\sample-form-out.json",
-        "fileDuration": "temporary",
-        "name": "upload json data",
-        "x": 390,
-        "y": 160,
-        "wires": [
-            [
-                "11523a45.0f6066"
-            ]
-        ]
     },
     {
         "id": "fb0ae4f2.5463b8",
@@ -17232,8 +16745,8 @@
         "z": "bb2cdd1d.165788",
         "name": "all OK",
         "info": "",
-        "x": 970,
-        "y": 280,
+        "x": 950,
+        "y": 380,
         "wires": []
     },
     {
@@ -17249,7 +16762,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 790,
-        "y": 280,
+        "y": 380,
         "wires": []
     },
     {
@@ -17275,7 +16788,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 110,
-        "y": 280,
+        "y": 380,
         "wires": [
             [
                 "89bf9997.e3ec18"
@@ -17292,7 +16805,7 @@
         "outputFormat": "html",
         "name": "",
         "x": 600,
-        "y": 280,
+        "y": 380,
         "wires": [
             [
                 "34ed8cff.4ba57c"
@@ -17303,10 +16816,10 @@
         "id": "cbbce320.e127b8",
         "type": "comment",
         "z": "bb2cdd1d.165788",
-        "name": "happy flows",
+        "name": "control flows, these are happy",
         "info": "",
-        "x": 110,
-        "y": 240,
+        "x": 180,
+        "y": 340,
         "wires": []
     },
     {
@@ -17318,7 +16831,7 @@
         "name": "",
         "outputType": "UTF-8",
         "x": 270,
-        "y": 280,
+        "y": 380,
         "wires": [
             [
                 "2ce4186f.3b04f"
@@ -17334,7 +16847,7 @@
         "action": "obj",
         "pretty": false,
         "x": 430,
-        "y": 280,
+        "y": 380,
         "wires": [
             [
                 "621818a.0412968"
@@ -17347,8 +16860,8 @@
         "z": "bb2cdd1d.165788",
         "name": "all OK",
         "info": "",
-        "x": 970,
-        "y": 320,
+        "x": 950,
+        "y": 420,
         "wires": []
     },
     {
@@ -17364,7 +16877,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 790,
-        "y": 320,
+        "y": 420,
         "wires": []
     },
     {
@@ -17377,7 +16890,7 @@
         "outputFormat": "html",
         "name": "",
         "x": 600,
-        "y": 320,
+        "y": 420,
         "wires": [
             [
                 "985d28b6.7b0a58"
@@ -17407,7 +16920,7 @@
         "payload": "[ \t{ \t\t\"FirstName\": \"Rijk\", \t\t\"Email\": \"test@example.nl\", \t\t\"Country\": \"CA\" \t},\t{ \t\t\"FirstName\": \"神\", \t\t\"Email\": \"testchina@example.com\", \t\t\"Country\": \"CA\" \t},\t{ \t\t\"FirstName\": \"André\", \t\t\"Email\": \"test@example.fr\", \t\t\"Country\": \"FR\" \t},\t{ \t\t\"FirstName\": \"Jim\", \t\t\"Email\": \"test@example.com\", \t\t\"Country\": \"US\" \t} ]",
         "payloadType": "json",
         "x": 110,
-        "y": 320,
+        "y": 420,
         "wires": [
             [
                 "fe7a1abd.2f2ee8"
@@ -17420,8 +16933,8 @@
         "z": "8002060c.a21e1",
         "name": "all OK",
         "info": "",
-        "x": 1110,
-        "y": 280,
+        "x": 1130,
+        "y": 460,
         "wires": []
     },
     {
@@ -17436,8 +16949,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1010,
-        "y": 240,
+        "x": 1030,
+        "y": 420,
         "wires": []
     },
     {
@@ -17452,7 +16965,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 110,
-        "y": 240,
+        "y": 420,
         "wires": [
             [
                 "54fbd5f7.8408dc"
@@ -17463,10 +16976,10 @@
         "id": "e35ea909.9fd7c",
         "type": "comment",
         "z": "8002060c.a21e1",
-        "name": "happy flows",
+        "name": "control flow, this one is happy",
         "info": "",
-        "x": 110,
-        "y": 200,
+        "x": 180,
+        "y": 380,
         "wires": []
     },
     {
@@ -17477,8 +16990,8 @@
         "managedFileId": "",
         "name": "",
         "outputType": "UTF-8",
-        "x": 510,
-        "y": 280,
+        "x": 530,
+        "y": 460,
         "wires": [
             [
                 "36a59083.cbcdf"
@@ -17493,8 +17006,8 @@
         "property": "payload",
         "action": "obj",
         "pretty": false,
-        "x": 670,
-        "y": 280,
+        "x": 690,
+        "y": 460,
         "wires": [
             [
                 "34013306.e0c9e4"
@@ -17507,8 +17020,8 @@
         "z": "8002060c.a21e1",
         "name": "all OK",
         "info": "",
-        "x": 1110,
-        "y": 320,
+        "x": 1130,
+        "y": 500,
         "wires": []
     },
     {
@@ -17523,8 +17036,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1010,
-        "y": 360,
+        "x": 1030,
+        "y": 540,
         "wires": []
     },
     {
@@ -17538,8 +17051,9 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
+        "payloadType": "str",
         "x": 110,
-        "y": 360,
+        "y": 540,
         "wires": [
             [
                 "e81d8e05.0bd378"
@@ -17556,8 +17070,8 @@
         "cssSelector": "",
         "embedResources": "true",
         "name": "",
-        "x": 830,
-        "y": 280,
+        "x": 850,
+        "y": 460,
         "wires": [
             [
                 "a8d94989.a7ec08",
@@ -17575,8 +17089,8 @@
         "cssSelector": "",
         "embedResources": "true",
         "name": "",
-        "x": 830,
-        "y": 320,
+        "x": 850,
+        "y": 500,
         "wires": [
             [
                 "b5d669f4.478df8",
@@ -17593,8 +17107,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 120,
-        "y": 320,
+        "x": 140,
+        "y": 500,
         "wires": [
             [
                 "e81d8e05.0bd378"
@@ -17610,8 +17124,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 120,
-        "y": 280,
+        "x": 140,
+        "y": 460,
         "wires": [
             [
                 "54fbd5f7.8408dc"
@@ -17625,8 +17139,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 990,
-        "y": 320,
+        "x": 1010,
+        "y": 500,
         "wires": []
     },
     {
@@ -17636,8 +17150,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 990,
-        "y": 280,
+        "x": 1010,
+        "y": 460,
         "wires": []
     },
     {
@@ -17666,8 +17180,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 320,
-        "y": 280,
+        "x": 340,
+        "y": 460,
         "wires": [
             [
                 "961736e3.c3ef9"
@@ -17700,8 +17214,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 320,
-        "y": 320,
+        "x": 340,
+        "y": 500,
         "wires": [
             [
                 "387a133c.0263fc"
@@ -17719,7 +17233,7 @@
         "embedResources": "true",
         "name": "",
         "x": 270,
-        "y": 700,
+        "y": 840,
         "wires": [
             [
                 "acffa66.70c7b58"
@@ -17737,7 +17251,7 @@
         "embedResources": "true",
         "name": "",
         "x": 270,
-        "y": 760,
+        "y": 900,
         "wires": [
             [
                 "b6557322.589268"
@@ -17748,10 +17262,10 @@
         "id": "d17b9701.f852f8",
         "type": "comment",
         "z": "a49a6730.7d33a8",
-        "name": "flow with data mapping the form data",
+        "name": "data mapping the form data",
         "info": "",
-        "x": 220,
-        "y": 440,
+        "x": 180,
+        "y": 540,
         "wires": []
     },
     {
@@ -17760,8 +17274,8 @@
         "z": "8002060c.a21e1",
         "name": "section doesn't exist",
         "info": "",
-        "x": 670,
-        "y": 940,
+        "x": 650,
+        "y": 1080,
         "wires": []
     },
     {
@@ -17777,7 +17291,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 450,
-        "y": 940,
+        "y": 1080,
         "wires": []
     },
     {
@@ -17786,8 +17300,8 @@
         "z": "8002060c.a21e1",
         "name": "template doesn't have html context",
         "info": "",
-        "x": 720,
-        "y": 880,
+        "x": 700,
+        "y": 1020,
         "wires": []
     },
     {
@@ -17796,8 +17310,8 @@
         "z": "8002060c.a21e1",
         "name": "faulty files on the Connect Server",
         "info": "",
-        "x": 170,
-        "y": 840,
+        "x": 190,
+        "y": 980,
         "wires": []
     },
     {
@@ -17813,7 +17327,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 450,
-        "y": 880,
+        "y": 1020,
         "wires": []
     },
     {
@@ -17844,7 +17358,7 @@
         "payload": "{\"text_input\":\"€ - é - 神 - Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\",\"select_menu\":\"courgettes\",\"radio_button\":\"radish\",\"checkbox\":\"1\"}",
         "payloadType": "json",
         "x": 110,
-        "y": 940,
+        "y": 1080,
         "wires": [
             [
                 "32c89d9e.2fffca"
@@ -17857,8 +17371,8 @@
         "z": "8002060c.a21e1",
         "name": "string as payload",
         "info": "",
-        "x": 660,
-        "y": 1120,
+        "x": 640,
+        "y": 1260,
         "wires": []
     },
     {
@@ -17874,7 +17388,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 450,
-        "y": 1120,
+        "y": 1260,
         "wires": []
     },
     {
@@ -17900,7 +17414,7 @@
         "payload": "{\"text_input\":\"€ - é - 神 - Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\",\"select_menu\":\"courgettes\",\"radio_button\":\"radish\",\"checkbox\":\"1\"}",
         "payloadType": "str",
         "x": 110,
-        "y": 1120,
+        "y": 1260,
         "wires": [
             [
                 "6ff5e7ff.7258a"
@@ -17913,8 +17427,8 @@
         "z": "8002060c.a21e1",
         "name": "boolean as payload",
         "info": "",
-        "x": 670,
-        "y": 1180,
+        "x": 650,
+        "y": 1320,
         "wires": []
     },
     {
@@ -17930,7 +17444,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 450,
-        "y": 1180,
+        "y": 1320,
         "wires": []
     },
     {
@@ -17956,7 +17470,7 @@
         "payload": "true",
         "payloadType": "bool",
         "x": 110,
-        "y": 1180,
+        "y": 1320,
         "wires": [
             [
                 "cabbd265.ba2be"
@@ -17969,8 +17483,8 @@
         "z": "8002060c.a21e1",
         "name": "input validation",
         "info": "",
-        "x": 120,
-        "y": 1020,
+        "x": 140,
+        "y": 1160,
         "wires": []
     },
     {
@@ -17996,7 +17510,7 @@
         "payload": "{\"text_input\":\"€ - é - 神 - Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\",\"select_menu\":\"courgettes\",\"radio_button\":\"radish\",\"checkbox\":\"1\"}",
         "payloadType": "json",
         "x": 110,
-        "y": 1060,
+        "y": 1200,
         "wires": [
             [
                 "296af8fa.ae5a8"
@@ -18016,7 +17530,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 450,
-        "y": 1060,
+        "y": 1200,
         "wires": []
     },
     {
@@ -18025,52 +17539,9 @@
         "z": "8002060c.a21e1",
         "name": "boolean as template",
         "info": "",
-        "x": 670,
-        "y": 1060,
+        "x": 650,
+        "y": 1200,
         "wires": []
-    },
-    {
-        "id": "d4055baa.b9f4c",
-        "type": "olcnr-file-upload",
-        "z": "8002060c.a21e1",
-        "connect_server": "3c2c110.e9ac1f",
-        "filename": "files\\email\\EmailBasic+multi-attachment-202010.OL-template",
-        "fileDuration": "temporary",
-        "name": "upload template",
-        "x": 380,
-        "y": 80,
-        "wires": [
-            [
-                "167fda94.79dc3d"
-            ]
-        ]
-    },
-    {
-        "id": "167fda94.79dc3d",
-        "type": "change",
-        "z": "8002060c.a21e1",
-        "name": "wrong template",
-        "rules": [
-            {
-                "t": "move",
-                "p": "managedFileId",
-                "pt": "msg",
-                "to": "template-nohtmlcontext",
-                "tot": "flow"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 660,
-        "y": 80,
-        "wires": [
-            [
-                "f5ded4d0.c619c"
-            ]
-        ]
     },
     {
         "id": "d770964e.20d39",
@@ -18083,7 +17554,7 @@
         "embedResources": "true",
         "name": "",
         "x": 270,
-        "y": 880,
+        "y": 1020,
         "wires": [
             [
                 "4a157889.df7b3"
@@ -18113,7 +17584,7 @@
         "payload": "{\"text_input\":\"€ - é - 神 - Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\",\"select_menu\":\"courgettes\",\"radio_button\":\"radish\",\"checkbox\":\"1\"}",
         "payloadType": "json",
         "x": 110,
-        "y": 880,
+        "y": 1020,
         "wires": [
             [
                 "d770964e.20d39"
@@ -18131,7 +17602,7 @@
         "embedResources": "true",
         "name": "",
         "x": 270,
-        "y": 940,
+        "y": 1080,
         "wires": [
             [
                 "9e893582.6f8058"
@@ -18149,7 +17620,7 @@
         "embedResources": "true",
         "name": "",
         "x": 270,
-        "y": 1060,
+        "y": 1200,
         "wires": [
             [
                 "6ffebf6a.018fa8"
@@ -18167,7 +17638,7 @@
         "embedResources": "true",
         "name": "",
         "x": 270,
-        "y": 1120,
+        "y": 1260,
         "wires": [
             [
                 "3d918c1d.008a1c"
@@ -18185,7 +17656,7 @@
         "embedResources": "true",
         "name": "",
         "x": 270,
-        "y": 1180,
+        "y": 1320,
         "wires": [
             [
                 "a4f14fdc.4619d8"
@@ -18198,8 +17669,8 @@
         "z": "a49a6730.7d33a8",
         "name": "dataRecordId trumps payload",
         "info": "",
-        "x": 200,
-        "y": 620,
+        "x": 180,
+        "y": 720,
         "wires": []
     },
     {
@@ -18208,8 +17679,8 @@
         "z": "a49a6730.7d33a8",
         "name": "UI trumps msg.section, thank_you section used",
         "info": "",
-        "x": 1020,
-        "y": 820,
+        "x": 920,
+        "y": 920,
         "wires": []
     },
     {
@@ -18218,8 +17689,8 @@
         "z": "a49a6730.7d33a8",
         "name": "UI trumps msg.section",
         "info": "",
-        "x": 180,
-        "y": 780,
+        "x": 160,
+        "y": 880,
         "wires": []
     },
     {
@@ -18228,8 +17699,8 @@
         "z": "a49a6730.7d33a8",
         "name": "dataRecordId doesn't exist, error is expected here",
         "info": "",
-        "x": 1030,
-        "y": 660,
+        "x": 950,
+        "y": 760,
         "wires": []
     },
     {
@@ -18244,8 +17715,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 730,
-        "y": 700,
+        "x": 710,
+        "y": 800,
         "wires": []
     },
     {
@@ -18259,8 +17730,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 150,
-        "y": 700,
+        "x": 110,
+        "y": 800,
         "wires": [
             [
                 "906e8c10.28da"
@@ -18277,8 +17748,8 @@
         "cssSelector": "",
         "embedResources": "true",
         "name": "",
-        "x": 550,
-        "y": 660,
+        "x": 530,
+        "y": 760,
         "wires": [
             [
                 "3712fa88.1ae236",
@@ -18295,8 +17766,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 150,
-        "y": 660,
+        "x": 130,
+        "y": 760,
         "wires": [
             [
                 "906e8c10.28da"
@@ -18310,8 +17781,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 710,
-        "y": 660,
+        "x": 690,
+        "y": 760,
         "wires": []
     },
     {
@@ -18347,8 +17818,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 360,
-        "y": 660,
+        "x": 340,
+        "y": 760,
         "wires": [
             [
                 "618958ac.872fe8"
@@ -18361,8 +17832,8 @@
         "z": "8002060c.a21e1",
         "name": "string as data record id",
         "info": "",
-        "x": 680,
-        "y": 1240,
+        "x": 660,
+        "y": 1380,
         "wires": []
     },
     {
@@ -18378,7 +17849,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 450,
-        "y": 1240,
+        "y": 1380,
         "wires": []
     },
     {
@@ -18409,7 +17880,7 @@
         "payload": "{\"text_input\":\"€ - é - 神 - Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\",\"select_menu\":\"courgettes\",\"radio_button\":\"radish\",\"checkbox\":\"1\"}",
         "payloadType": "str",
         "x": 110,
-        "y": 1240,
+        "y": 1380,
         "wires": [
             [
                 "bbc7be85.c3e3f"
@@ -18427,7 +17898,7 @@
         "embedResources": "true",
         "name": "",
         "x": 270,
-        "y": 1240,
+        "y": 1380,
         "wires": [
             [
                 "5370797e.398978"
@@ -18440,8 +17911,8 @@
         "z": "8002060c.a21e1",
         "name": "object as section",
         "info": "",
-        "x": 660,
-        "y": 1300,
+        "x": 640,
+        "y": 1440,
         "wires": []
     },
     {
@@ -18457,7 +17928,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 450,
-        "y": 1300,
+        "y": 1440,
         "wires": []
     },
     {
@@ -18488,7 +17959,7 @@
         "payload": "{\"text_input\":\"€ - é - 神 - Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\",\"select_menu\":\"courgettes\",\"radio_button\":\"radish\",\"checkbox\":\"1\"}",
         "payloadType": "str",
         "x": 110,
-        "y": 1300,
+        "y": 1440,
         "wires": [
             [
                 "a2075243.4529f8"
@@ -18506,7 +17977,7 @@
         "embedResources": "true",
         "name": "",
         "x": 270,
-        "y": 1300,
+        "y": 1440,
         "wires": [
             [
                 "6aff95e.657086c"
@@ -18519,8 +17990,8 @@
         "z": "8002060c.a21e1",
         "name": "number as section",
         "info": "",
-        "x": 670,
-        "y": 1360,
+        "x": 650,
+        "y": 1500,
         "wires": []
     },
     {
@@ -18536,7 +18007,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 450,
-        "y": 1360,
+        "y": 1500,
         "wires": []
     },
     {
@@ -18567,7 +18038,7 @@
         "payload": "{\"text_input\":\"€ - é - 神 - Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\",\"select_menu\":\"courgettes\",\"radio_button\":\"radish\",\"checkbox\":\"1\"}",
         "payloadType": "str",
         "x": 110,
-        "y": 1360,
+        "y": 1500,
         "wires": [
             [
                 "a1a4a525.ec0a3"
@@ -18585,7 +18056,7 @@
         "embedResources": "true",
         "name": "",
         "x": 270,
-        "y": 1360,
+        "y": 1500,
         "wires": [
             [
                 "c1762079.5b481"
@@ -18598,8 +18069,8 @@
         "z": "8002060c.a21e1",
         "name": "object as cssSelector",
         "info": "",
-        "x": 680,
-        "y": 1420,
+        "x": 660,
+        "y": 1560,
         "wires": []
     },
     {
@@ -18615,7 +18086,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 450,
-        "y": 1420,
+        "y": 1560,
         "wires": []
     },
     {
@@ -18646,7 +18117,7 @@
         "payload": "{\"text_input\":\"€ - é - 神 - Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\",\"select_menu\":\"courgettes\",\"radio_button\":\"radish\",\"checkbox\":\"1\"}",
         "payloadType": "str",
         "x": 110,
-        "y": 1420,
+        "y": 1560,
         "wires": [
             [
                 "24b7b642.a6867a"
@@ -18664,7 +18135,7 @@
         "embedResources": "true",
         "name": "",
         "x": 270,
-        "y": 1420,
+        "y": 1560,
         "wires": [
             [
                 "b9b7ae7.c0d89d"
@@ -18677,8 +18148,8 @@
         "z": "8002060c.a21e1",
         "name": "number as cssSelector",
         "info": "",
-        "x": 680,
-        "y": 1480,
+        "x": 660,
+        "y": 1620,
         "wires": []
     },
     {
@@ -18694,7 +18165,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 450,
-        "y": 1480,
+        "y": 1620,
         "wires": []
     },
     {
@@ -18725,7 +18196,7 @@
         "payload": "{\"text_input\":\"€ - é - 神 - Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\",\"select_menu\":\"courgettes\",\"radio_button\":\"radish\",\"checkbox\":\"1\"}",
         "payloadType": "str",
         "x": 110,
-        "y": 1480,
+        "y": 1620,
         "wires": [
             [
                 "ace9c269.fa4be8"
@@ -18743,7 +18214,7 @@
         "embedResources": "true",
         "name": "",
         "x": 270,
-        "y": 1480,
+        "y": 1620,
         "wires": [
             [
                 "3f8d7c8e.4b68cc"
@@ -18756,8 +18227,8 @@
         "z": "8002060c.a21e1",
         "name": "string as parameters",
         "info": "",
-        "x": 670,
-        "y": 1540,
+        "x": 650,
+        "y": 1680,
         "wires": []
     },
     {
@@ -18773,7 +18244,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 450,
-        "y": 1540,
+        "y": 1680,
         "wires": []
     },
     {
@@ -18804,7 +18275,7 @@
         "payload": "{\"text_input\":\"€ - é - 神 - Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\",\"select_menu\":\"courgettes\",\"radio_button\":\"radish\",\"checkbox\":\"1\"}",
         "payloadType": "json",
         "x": 110,
-        "y": 1540,
+        "y": 1680,
         "wires": [
             [
                 "d429bcaf.adb5d"
@@ -18822,7 +18293,7 @@
         "embedResources": "true",
         "name": "",
         "x": 270,
-        "y": 1540,
+        "y": 1680,
         "wires": [
             [
                 "b1271490.59b7b8"
@@ -18841,8 +18312,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 730,
-        "y": 860,
+        "x": 690,
+        "y": 960,
         "wires": []
     },
     {
@@ -18857,8 +18328,8 @@
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "str",
-        "x": 150,
-        "y": 860,
+        "x": 110,
+        "y": 960,
         "wires": [
             [
                 "256db92e.2f5c66"
@@ -18875,8 +18346,8 @@
         "cssSelector": "",
         "embedResources": "true",
         "name": "",
-        "x": 550,
-        "y": 820,
+        "x": 510,
+        "y": 920,
         "wires": [
             [
                 "dc1d2c6c.4d492",
@@ -18893,8 +18364,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 150,
-        "y": 820,
+        "x": 130,
+        "y": 920,
         "wires": [
             [
                 "256db92e.2f5c66"
@@ -18908,8 +18379,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 710,
-        "y": 820,
+        "x": 670,
+        "y": 920,
         "wires": []
     },
     {
@@ -18945,8 +18416,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 360,
-        "y": 820,
+        "x": 320,
+        "y": 920,
         "wires": [
             [
                 "593fc8cb.b30a4"
@@ -18959,8 +18430,8 @@
         "z": "a49a6730.7d33a8",
         "name": "LINK elements in HEAD, unstyled result",
         "info": "",
-        "x": 990,
-        "y": 980,
+        "x": 890,
+        "y": 1080,
         "wires": []
     },
     {
@@ -18969,8 +18440,8 @@
         "z": "a49a6730.7d33a8",
         "name": "External resources",
         "info": "",
-        "x": 170,
-        "y": 940,
+        "x": 150,
+        "y": 1040,
         "wires": []
     },
     {
@@ -18985,8 +18456,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 730,
-        "y": 1020,
+        "x": 690,
+        "y": 1120,
         "wires": []
     },
     {
@@ -19001,8 +18472,8 @@
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "str",
-        "x": 150,
-        "y": 1020,
+        "x": 110,
+        "y": 1120,
         "wires": [
             [
                 "74ac696e.4fe51"
@@ -19019,8 +18490,8 @@
         "cssSelector": "",
         "embedResources": "false",
         "name": "",
-        "x": 550,
-        "y": 980,
+        "x": 510,
+        "y": 1080,
         "wires": [
             [
                 "5abdb161.d35b18",
@@ -19037,8 +18508,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 150,
-        "y": 980,
+        "x": 130,
+        "y": 1080,
         "wires": [
             [
                 "74ac696e.4fe51"
@@ -19052,8 +18523,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 710,
-        "y": 980,
+        "x": 670,
+        "y": 1080,
         "wires": []
     },
     {
@@ -19082,8 +18553,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 360,
-        "y": 980,
+        "x": 320,
+        "y": 1080,
         "wires": [
             [
                 "b209e99e.7864b"
@@ -19100,12 +18571,11 @@
         "details": "false",
         "outputJSON": "simple",
         "name": "",
-        "x": 740,
-        "y": 1420,
+        "x": 700,
+        "y": 1440,
         "wires": [
             [
-                "7f00f8cd.4a6878",
-                "be522ec8.9fd17"
+                "7f00f8cd.4a6878"
             ]
         ]
     },
@@ -19128,8 +18598,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 940,
-        "y": 1420,
+        "x": 900,
+        "y": 1440,
         "wires": [
             [
                 "8babbc54.323588"
@@ -19142,52 +18612,9 @@
         "z": "a49a6730.7d33a8",
         "name": "testing payload options",
         "info": "",
-        "x": 180,
-        "y": 1100,
+        "x": 160,
+        "y": 1200,
         "wires": []
-    },
-    {
-        "id": "10297edb.94a569",
-        "type": "olcnr-file-upload",
-        "z": "a49a6730.7d33a8",
-        "connect_server": "3c2c110.e9ac1f",
-        "filename": "files\\html\\sample-form-out.json",
-        "fileDuration": "temporary",
-        "name": "upload json data",
-        "x": 410,
-        "y": 180,
-        "wires": [
-            [
-                "e66607c5.bb4498"
-            ]
-        ]
-    },
-    {
-        "id": "e66607c5.bb4498",
-        "type": "change",
-        "z": "a49a6730.7d33a8",
-        "name": "JSONData",
-        "rules": [
-            {
-                "t": "move",
-                "p": "managedFileId",
-                "pt": "msg",
-                "to": "JSONData",
-                "tot": "flow"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 670,
-        "y": 180,
-        "wires": [
-            [
-                "e98fd780.050bb"
-            ]
-        ]
     },
     {
         "id": "6e74ad4f.7aafac",
@@ -19229,8 +18656,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 360,
-        "y": 1140,
+        "x": 320,
+        "y": 1240,
         "wires": [
             [
                 "354075dd.ca09ca"
@@ -19249,8 +18676,8 @@
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "str",
-        "x": 150,
-        "y": 1180,
+        "x": 110,
+        "y": 1280,
         "wires": [
             [
                 "6e74ad4f.7aafac"
@@ -19266,8 +18693,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 150,
-        "y": 1140,
+        "x": 130,
+        "y": 1240,
         "wires": [
             [
                 "6e74ad4f.7aafac"
@@ -19284,12 +18711,13 @@
         "cssSelector": "",
         "embedResources": "true",
         "name": "",
-        "x": 910,
-        "y": 1540,
+        "x": 1070,
+        "y": 1340,
         "wires": [
             [
                 "5e9683e9.b57dfc",
-                "f7c53718.5b4f68"
+                "f7c53718.5b4f68",
+                "884151ef.73c0e8"
             ]
         ]
     },
@@ -19305,8 +18733,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1030,
-        "y": 1580,
+        "x": 1250,
+        "y": 1380,
         "wires": []
     },
     {
@@ -19316,8 +18744,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 1070,
-        "y": 1540,
+        "x": 1230,
+        "y": 1340,
         "wires": []
     },
     {
@@ -19328,8 +18756,8 @@
         "dmConfiguration": "",
         "active": false,
         "name": "",
-        "x": 560,
-        "y": 1140,
+        "x": 520,
+        "y": 1240,
         "wires": [
             [
                 "f1474df9.6637a"
@@ -19346,12 +18774,11 @@
         "details": "true",
         "outputJSON": "full",
         "name": "",
-        "x": 740,
-        "y": 1140,
+        "x": 700,
+        "y": 1240,
         "wires": [
             [
-                "1cef8647.4ec332",
-                "be522ec8.9fd17"
+                "1cef8647.4ec332"
             ]
         ]
     },
@@ -19364,8 +18791,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 150,
-        "y": 1420,
+        "x": 130,
+        "y": 1440,
         "wires": [
             [
                 "f193d564.9df27"
@@ -19384,8 +18811,8 @@
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "str",
-        "x": 150,
-        "y": 1460,
+        "x": 110,
+        "y": 1480,
         "wires": [
             [
                 "f193d564.9df27"
@@ -19432,8 +18859,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 360,
-        "y": 1420,
+        "x": 320,
+        "y": 1440,
         "wires": [
             [
                 "af75d485.6a0dd8"
@@ -19448,8 +18875,8 @@
         "dmConfiguration": "",
         "active": false,
         "name": "",
-        "x": 560,
-        "y": 1420,
+        "x": 520,
+        "y": 1440,
         "wires": [
             [
                 "a0ceb103.4622e8"
@@ -19475,8 +18902,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 920,
-        "y": 1140,
+        "x": 880,
+        "y": 1240,
         "wires": [
             [
                 "8babbc54.323588"
@@ -19489,8 +18916,8 @@
         "z": "a49a6730.7d33a8",
         "name": "retrieve JSON Record Data List object",
         "info": "",
-        "x": 830,
-        "y": 1100,
+        "x": 790,
+        "y": 1200,
         "wires": []
     },
     {
@@ -19499,8 +18926,8 @@
         "z": "a49a6730.7d33a8",
         "name": "retrieve  Data Record ID",
         "info": "",
-        "x": 780,
-        "y": 1380,
+        "x": 740,
+        "y": 1400,
         "wires": []
     },
     {
@@ -19543,8 +18970,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 360,
-        "y": 1280,
+        "x": 320,
+        "y": 1340,
         "wires": [
             [
                 "afe5cb97.35764"
@@ -19563,8 +18990,8 @@
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "str",
-        "x": 150,
-        "y": 1320,
+        "x": 110,
+        "y": 1380,
         "wires": [
             [
                 "4a536b04.6bc40c"
@@ -19580,8 +19007,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 150,
-        "y": 1280,
+        "x": 130,
+        "y": 1340,
         "wires": [
             [
                 "4a536b04.6bc40c"
@@ -19596,8 +19023,8 @@
         "dmConfiguration": "",
         "active": false,
         "name": "",
-        "x": 560,
-        "y": 1280,
+        "x": 520,
+        "y": 1340,
         "wires": [
             [
                 "66d19ec0.d8f978"
@@ -19614,13 +19041,11 @@
         "details": "true",
         "outputJSON": "simple",
         "name": "",
-        "x": 740,
-        "y": 1280,
+        "x": 700,
+        "y": 1340,
         "wires": [
             [
-                "e1190626.338ee8",
-                "be522ec8.9fd17",
-                "7257a9e9.fc9898"
+                "e1190626.338ee8"
             ]
         ]
     },
@@ -19643,8 +19068,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 920,
-        "y": 1280,
+        "x": 880,
+        "y": 1340,
         "wires": [
             [
                 "8babbc54.323588"
@@ -19657,8 +19082,8 @@
         "z": "a49a6730.7d33a8",
         "name": "retrieve JavaScript object",
         "info": "",
-        "x": 790,
-        "y": 1240,
+        "x": 750,
+        "y": 1300,
         "wires": []
     },
     {
@@ -19673,8 +19098,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 370,
-        "y": 420,
+        "x": 350,
+        "y": 460,
         "wires": []
     },
     {
@@ -19698,31 +19123,30 @@
         "wires": []
     },
     {
-        "id": "be522ec8.9fd17",
-        "type": "debug",
-        "z": "a49a6730.7d33a8",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 960,
-        "y": 1340,
-        "wires": []
-    },
-    {
         "id": "93550787.f583a8",
         "type": "inject",
         "z": "df200617.1e584",
-        "name": "Sample data 5 recs",
+        "name": "",
         "props": [
             {
-                "p": "filename",
-                "v": "files\\printcontent\\Sample Data-5recs.xml",
-                "vt": "str"
+                "p": "manageFileId",
+                "v": "dataFile",
+                "vt": "flow"
+            },
+            {
+                "p": "template",
+                "v": "template",
+                "vt": "flow"
+            },
+            {
+                "p": "dmConfiguration",
+                "v": "dmConfiguration",
+                "vt": "flow"
+            },
+            {
+                "p": "parameters",
+                "v": "{\"cc_param1\":\"CCParamIsSet\",\"dm_param1\":\"DmParamIsSet\"}",
+                "vt": "json"
             }
         ],
         "repeat": "",
@@ -19731,49 +19155,8 @@
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "str",
-        "x": 170,
-        "y": 660,
-        "wires": [
-            [
-                "e27db27c.c03c6"
-            ]
-        ]
-    },
-    {
-        "id": "e27db27c.c03c6",
-        "type": "change",
-        "z": "df200617.1e584",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "parameters",
-                "pt": "msg",
-                "to": "{\"cc_param1\":\"CCParamIsSet\",\"dm_param1\":\"DmParamIsSet\"}",
-                "tot": "json"
-            },
-            {
-                "t": "set",
-                "p": "dmConfiguration",
-                "pt": "msg",
-                "to": "dmConfiguration",
-                "tot": "flow"
-            },
-            {
-                "t": "set",
-                "p": "template",
-                "pt": "msg",
-                "to": "template",
-                "tot": "flow"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 380,
-        "y": 660,
+        "x": 110,
+        "y": 700,
         "wires": [
             [
                 "13d4c6ca.f4a5c9"
@@ -19788,8 +19171,8 @@
         "dmConfiguration": "",
         "active": false,
         "name": "",
-        "x": 580,
-        "y": 660,
+        "x": 280,
+        "y": 700,
         "wires": [
             [
                 "cc785c3f.d08fc8"
@@ -19802,8 +19185,8 @@
         "z": "df200617.1e584",
         "connect_server": "3c2c110.e9ac1f",
         "template": "",
-        "x": 1130,
-        "y": 660,
+        "x": 830,
+        "y": 700,
         "wires": [
             [
                 "d889d0a6.318cf8"
@@ -19820,8 +19203,8 @@
         "details": "false",
         "outputJSON": "full",
         "name": "",
-        "x": 760,
-        "y": 660,
+        "x": 460,
+        "y": 700,
         "wires": [
             [
                 "ed5a1cf6.ec0a28"
@@ -19847,8 +19230,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 940,
-        "y": 660,
+        "x": 640,
+        "y": 700,
         "wires": [
             [
                 "fc2ae3fa.24155"
@@ -19859,14 +19242,14 @@
         "id": "4365aa69.89f2f4",
         "type": "file",
         "z": "df200617.1e584",
-        "name": "",
+        "name": "Save the PDF",
         "filename": "",
-        "appendNewline": true,
-        "createDir": false,
-        "overwriteFile": "false",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
         "encoding": "none",
-        "x": 900,
-        "y": 720,
+        "x": 1020,
+        "y": 740,
         "wires": [
             []
         ]
@@ -19890,78 +19273,11 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 690,
-        "y": 720,
+        "x": 1030,
+        "y": 700,
         "wires": [
             [
                 "4365aa69.89f2f4"
-            ]
-        ]
-    },
-    {
-        "id": "71c56b7d.667d8c",
-        "type": "inject",
-        "z": "df200617.1e584",
-        "name": "Sample data 5 recs",
-        "props": [
-            {
-                "p": "filename",
-                "v": "files\\printcontent\\Sample Data-5recs.xml",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payloadType": "str",
-        "x": 170,
-        "y": 780,
-        "wires": [
-            [
-                "e0ea977d.7cfdb"
-            ]
-        ]
-    },
-    {
-        "id": "e0ea977d.7cfdb",
-        "type": "change",
-        "z": "df200617.1e584",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "parameters",
-                "pt": "msg",
-                "to": "{\"cc_param1\":\"CCParamIsSet\",\"dm_param1\":\"DmParamIsSet\"}",
-                "tot": "json"
-            },
-            {
-                "t": "set",
-                "p": "dmConfiguration",
-                "pt": "msg",
-                "to": "dmConfiguration",
-                "tot": "flow"
-            },
-            {
-                "t": "set",
-                "p": "template",
-                "pt": "msg",
-                "to": "template",
-                "tot": "flow"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 380,
-        "y": 780,
-        "wires": [
-            [
-                "ae747647.97d85"
             ]
         ]
     },
@@ -19973,8 +19289,8 @@
         "dmConfiguration": "",
         "active": false,
         "name": "",
-        "x": 580,
-        "y": 780,
+        "x": 280,
+        "y": 840,
         "wires": [
             [
                 "73a1941f.8a1174"
@@ -19987,7 +19303,7 @@
         "z": "df200617.1e584",
         "connect_server": "3c2c110.e9ac1f",
         "template": "",
-        "x": 810,
+        "x": 830,
         "y": 840,
         "wires": [
             [
@@ -20005,8 +19321,8 @@
         "details": "false",
         "outputJSON": "full",
         "name": "",
-        "x": 760,
-        "y": 780,
+        "x": 460,
+        "y": 840,
         "wires": [
             [
                 "df8e4727.31aab",
@@ -20040,7 +19356,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 620,
+        "x": 640,
         "y": 840,
         "wires": [
             [
@@ -20058,7 +19374,7 @@
         "createDir": false,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 1190,
+        "x": 1210,
         "y": 840,
         "wires": [
             []
@@ -20074,7 +19390,7 @@
                 "t": "set",
                 "p": "filename",
                 "pt": "msg",
-                "to": "'C:\\\\nr\\\\output\\\\' & $millis() & '.pdf'",
+                "to": "'C:\\\\nr\\\\output\\\\dr-over-pl-1-' & $millis() & '.pdf'",
                 "tot": "jsonata"
             }
         ],
@@ -20083,7 +19399,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1010,
+        "x": 1030,
         "y": 840,
         "wires": [
             [
@@ -20108,7 +19424,7 @@
                 "t": "set",
                 "p": "dataRecordId",
                 "pt": "msg",
-                "to": "payload[0]",
+                "to": "payload[1]",
                 "tot": "msg"
             }
         ],
@@ -20117,7 +19433,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 620,
+        "x": 640,
         "y": 900,
         "wires": [
             [
@@ -20131,7 +19447,7 @@
         "z": "df200617.1e584",
         "connect_server": "3c2c110.e9ac1f",
         "template": "",
-        "x": 810,
+        "x": 830,
         "y": 900,
         "wires": [
             [
@@ -20149,7 +19465,7 @@
                 "t": "set",
                 "p": "filename",
                 "pt": "msg",
-                "to": "'C:\\\\nr\\\\output\\\\' & $millis() & '.pdf'",
+                "to": "'C:\\\\nr\\\\output\\\\dr-over-pl-2-' & $millis() & '.pdf'",
                 "tot": "jsonata"
             }
         ],
@@ -20158,7 +19474,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1010,
+        "x": 1030,
         "y": 900,
         "wires": [
             [
@@ -20176,7 +19492,7 @@
         "createDir": false,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 1190,
+        "x": 1210,
         "y": 900,
         "wires": [
             []
@@ -20186,78 +19502,11 @@
         "id": "775f0d41.1d5d5c",
         "type": "comment",
         "z": "df200617.1e584",
-        "name": "these PDFs should be from the same record",
+        "name": "both PDFs should be from record 2",
         "info": "",
-        "x": 1070,
+        "x": 1120,
         "y": 800,
         "wires": []
-    },
-    {
-        "id": "625d0921.7b77e",
-        "type": "inject",
-        "z": "df200617.1e584",
-        "name": "Sample data 5 recs",
-        "props": [
-            {
-                "p": "filename",
-                "v": "files\\printcontent\\Sample Data-5recs.xml",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payloadType": "str",
-        "x": 170,
-        "y": 1000,
-        "wires": [
-            [
-                "9c8433a.00080d"
-            ]
-        ]
-    },
-    {
-        "id": "9c8433a.00080d",
-        "type": "change",
-        "z": "df200617.1e584",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "parameters",
-                "pt": "msg",
-                "to": "{\"cc_param1\":\"CCParamIsSet\",\"dm_param1\":\"DmParamIsSet\"}",
-                "tot": "json"
-            },
-            {
-                "t": "set",
-                "p": "dmConfiguration",
-                "pt": "msg",
-                "to": "dmConfiguration",
-                "tot": "flow"
-            },
-            {
-                "t": "set",
-                "p": "template",
-                "pt": "msg",
-                "to": "template",
-                "tot": "flow"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 380,
-        "y": 1000,
-        "wires": [
-            [
-                "362a911b.a70a8e"
-            ]
-        ]
     },
     {
         "id": "362a911b.a70a8e",
@@ -20267,7 +19516,7 @@
         "dmConfiguration": "",
         "active": false,
         "name": "",
-        "x": 580,
+        "x": 280,
         "y": 1000,
         "wires": [
             [
@@ -20285,7 +19534,7 @@
         "details": "false",
         "outputJSON": "full",
         "name": "",
-        "x": 760,
+        "x": 460,
         "y": 1000,
         "wires": [
             [
@@ -20300,8 +19549,8 @@
         "z": "df200617.1e584",
         "name": "these should both return a server error",
         "info": "",
-        "x": 1090,
-        "y": 1060,
+        "x": 1110,
+        "y": 960,
         "wires": []
     },
     {
@@ -20330,8 +19579,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 620,
-        "y": 1160,
+        "x": 640,
+        "y": 1060,
         "wires": [
             [
                 "df6c3196.21665"
@@ -20344,8 +19593,8 @@
         "z": "df200617.1e584",
         "connect_server": "3c2c110.e9ac1f",
         "template": "",
-        "x": 810,
-        "y": 1160,
+        "x": 830,
+        "y": 1060,
         "wires": [
             [
                 "7dde610b.ee4c7"
@@ -20371,8 +19620,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1010,
-        "y": 1160,
+        "x": 1030,
+        "y": 1060,
         "wires": [
             [
                 "d4119b47.3bc0e8"
@@ -20389,8 +19638,8 @@
         "createDir": false,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 1190,
-        "y": 1160,
+        "x": 1210,
+        "y": 1060,
         "wires": [
             []
         ]
@@ -20421,8 +19670,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 620,
-        "y": 1100,
+        "x": 640,
+        "y": 1000,
         "wires": [
             [
                 "1c2bf2a8.29ab05"
@@ -20435,8 +19684,8 @@
         "z": "df200617.1e584",
         "connect_server": "3c2c110.e9ac1f",
         "template": "",
-        "x": 810,
-        "y": 1100,
+        "x": 830,
+        "y": 1000,
         "wires": [
             [
                 "e770af49.421688"
@@ -20462,8 +19711,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1010,
-        "y": 1100,
+        "x": 1030,
+        "y": 1000,
         "wires": [
             [
                 "161f1674.a0724a"
@@ -20480,77 +19729,10 @@
         "createDir": false,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 1190,
-        "y": 1100,
+        "x": 1210,
+        "y": 1000,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "f754c788.54a418",
-        "type": "inject",
-        "z": "df200617.1e584",
-        "name": "Sample data 5 recs",
-        "props": [
-            {
-                "p": "filename",
-                "v": "files\\printcontent\\Sample Data-5recs.xml",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payloadType": "str",
-        "x": 170,
-        "y": 1260,
-        "wires": [
-            [
-                "a308f155.c226c8"
-            ]
-        ]
-    },
-    {
-        "id": "a308f155.c226c8",
-        "type": "change",
-        "z": "df200617.1e584",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "parameters",
-                "pt": "msg",
-                "to": "{\"cc_param1\":\"CCParamIsSet\",\"dm_param1\":\"DmParamIsSet\"}",
-                "tot": "json"
-            },
-            {
-                "t": "set",
-                "p": "dmConfiguration",
-                "pt": "msg",
-                "to": "dmConfiguration",
-                "tot": "flow"
-            },
-            {
-                "t": "set",
-                "p": "template",
-                "pt": "msg",
-                "to": "template",
-                "tot": "flow"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 380,
-        "y": 1260,
-        "wires": [
-            [
-                "e0001859.995168"
-            ]
         ]
     },
     {
@@ -20561,8 +19743,8 @@
         "dmConfiguration": "",
         "active": false,
         "name": "",
-        "x": 580,
-        "y": 1260,
+        "x": 280,
+        "y": 1160,
         "wires": [
             [
                 "e185f5a4.114a3"
@@ -20575,8 +19757,8 @@
         "z": "df200617.1e584",
         "connect_server": "3c2c110.e9ac1f",
         "template": "",
-        "x": 810,
-        "y": 1320,
+        "x": 830,
+        "y": 1160,
         "wires": [
             [
                 "9f04819d.f5c158"
@@ -20593,8 +19775,8 @@
         "details": "false",
         "outputJSON": "full",
         "name": "",
-        "x": 760,
-        "y": 1260,
+        "x": 460,
+        "y": 1160,
         "wires": [
             [
                 "a2948326.16826",
@@ -20612,7 +19794,7 @@
                 "t": "set",
                 "p": "dataRecordId",
                 "pt": "msg",
-                "to": "payload[0]",
+                "to": "payload[1]",
                 "tot": "msg"
             },
             {
@@ -20628,8 +19810,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 620,
-        "y": 1320,
+        "x": 640,
+        "y": 1160,
         "wires": [
             [
                 "1175485c.978278"
@@ -20646,8 +19828,8 @@
         "createDir": false,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 1190,
-        "y": 1320,
+        "x": 1210,
+        "y": 1160,
         "wires": [
             []
         ]
@@ -20662,7 +19844,7 @@
                 "t": "set",
                 "p": "filename",
                 "pt": "msg",
-                "to": "'C:\\\\nr\\\\output\\\\' & $millis() & '.pdf'",
+                "to": "'C:\\\\nr\\\\output\\\\dr-over-pl-3-' & $millis() & '.pdf'",
                 "tot": "jsonata"
             }
         ],
@@ -20671,8 +19853,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1010,
-        "y": 1320,
+        "x": 1030,
+        "y": 1160,
         "wires": [
             [
                 "acbe796d.0bd278"
@@ -20696,7 +19878,7 @@
                 "t": "set",
                 "p": "dataRecordId",
                 "pt": "msg",
-                "to": "payload[0]",
+                "to": "payload[1]",
                 "tot": "msg"
             }
         ],
@@ -20705,8 +19887,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 620,
-        "y": 1380,
+        "x": 640,
+        "y": 1220,
         "wires": [
             [
                 "cc69a192.7cdf5"
@@ -20719,8 +19901,8 @@
         "z": "df200617.1e584",
         "connect_server": "3c2c110.e9ac1f",
         "template": "",
-        "x": 810,
-        "y": 1380,
+        "x": 830,
+        "y": 1220,
         "wires": [
             [
                 "7e68e0ff.d1421"
@@ -20737,7 +19919,7 @@
                 "t": "set",
                 "p": "filename",
                 "pt": "msg",
-                "to": "'C:\\\\nr\\\\output\\\\' & $millis() & '.pdf'",
+                "to": "'C:\\\\nr\\\\output\\\\dr-over-pl-4-' & $millis() & '.pdf'",
                 "tot": "jsonata"
             }
         ],
@@ -20746,8 +19928,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1010,
-        "y": 1380,
+        "x": 1030,
+        "y": 1220,
         "wires": [
             [
                 "eaf2831c.9e2d28"
@@ -20764,54 +19946,10 @@
         "createDir": false,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 1190,
-        "y": 1380,
+        "x": 1210,
+        "y": 1220,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "eb35e768.b81be",
-        "type": "comment",
-        "z": "df200617.1e584",
-        "name": "these PDFs should be from the same record; no errors",
-        "info": "",
-        "x": 1100,
-        "y": 1280,
-        "wires": []
-    },
-    {
-        "id": "2ef4e20e.da87a6",
-        "type": "change",
-        "z": "df200617.1e584",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "parameters",
-                "pt": "msg",
-                "to": "{\"cc_param1\":\"CCParamIsSet\",\"dm_param1\":\"DmParamIsSet\"}",
-                "tot": "json"
-            },
-            {
-                "t": "set",
-                "p": "template",
-                "pt": "msg",
-                "to": "template",
-                "tot": "flow"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 360,
-        "y": 1480,
-        "wires": [
-            [
-                "1150373c.d3a2a9"
-            ]
         ]
     },
     {
@@ -20820,8 +19958,8 @@
         "z": "df200617.1e584",
         "connect_server": "3c2c110.e9ac1f",
         "template": "",
-        "x": 550,
-        "y": 1480,
+        "x": 270,
+        "y": 1320,
         "wires": [
             [
                 "88f1886d.93f78"
@@ -20838,8 +19976,8 @@
         "createDir": false,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 930,
-        "y": 1480,
+        "x": 650,
+        "y": 1320,
         "wires": [
             []
         ]
@@ -20854,7 +19992,7 @@
                 "t": "set",
                 "p": "filename",
                 "pt": "msg",
-                "to": "'C:\\\\nr\\\\output\\\\' & $millis() & '.pdf'",
+                "to": "'C:\\\\nr\\\\output\\\\nodata-1-' & $millis() & '.pdf'",
                 "tot": "jsonata"
             }
         ],
@@ -20863,8 +20001,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 750,
-        "y": 1480,
+        "x": 470,
+        "y": 1320,
         "wires": [
             [
                 "fdcfc4d5.b84608"
@@ -20877,60 +20015,9 @@
         "z": "df200617.1e584",
         "name": "no data, just parameters",
         "info": "",
-        "x": 210,
-        "y": 1440,
+        "x": 170,
+        "y": 1280,
         "wires": []
-    },
-    {
-        "id": "de863c08.4ec47",
-        "type": "inject",
-        "z": "df200617.1e584",
-        "name": "",
-        "props": [
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 140,
-        "y": 1480,
-        "wires": [
-            [
-                "2ef4e20e.da87a6"
-            ]
-        ]
-    },
-    {
-        "id": "39cccafd.7df5f6",
-        "type": "change",
-        "z": "df200617.1e584",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "template",
-                "pt": "msg",
-                "to": "template",
-                "tot": "flow"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 350,
-        "y": 1580,
-        "wires": [
-            [
-                "64b07ccd.4b43a4"
-            ]
-        ]
     },
     {
         "id": "64b07ccd.4b43a4",
@@ -20938,8 +20025,8 @@
         "z": "df200617.1e584",
         "connect_server": "3c2c110.e9ac1f",
         "template": "",
-        "x": 550,
-        "y": 1580,
+        "x": 270,
+        "y": 1420,
         "wires": [
             [
                 "2e3e9557.16c3d2"
@@ -20956,8 +20043,8 @@
         "createDir": false,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 930,
-        "y": 1580,
+        "x": 650,
+        "y": 1420,
         "wires": [
             []
         ]
@@ -20972,7 +20059,7 @@
                 "t": "set",
                 "p": "filename",
                 "pt": "msg",
-                "to": "'C:\\\\nr\\\\output\\\\' & $millis() & '.pdf'",
+                "to": "'C:\\\\nr\\\\output\\\\no-data-2-' & $millis() & '.pdf'",
                 "tot": "jsonata"
             }
         ],
@@ -20981,8 +20068,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 750,
-        "y": 1580,
+        "x": 470,
+        "y": 1420,
         "wires": [
             [
                 "aab99af2.27d6e"
@@ -20995,42 +20082,18 @@
         "z": "df200617.1e584",
         "name": "no data, no parameters",
         "info": "",
-        "x": 200,
-        "y": 1540,
+        "x": 160,
+        "y": 1380,
         "wires": []
-    },
-    {
-        "id": "d63f674d.df48f",
-        "type": "inject",
-        "z": "df200617.1e584",
-        "name": "",
-        "props": [
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 140,
-        "y": 1580,
-        "wires": [
-            [
-                "39cccafd.7df5f6"
-            ]
-        ]
     },
     {
         "id": "48c89d4a.881834",
         "type": "comment",
         "z": "df200617.1e584",
-        "name": "with parameters",
+        "name": "data mapping and parameters",
         "info": "",
-        "x": 160,
-        "y": 620,
+        "x": 180,
+        "y": 660,
         "wires": []
     },
     {
@@ -21041,8 +20104,8 @@
         "filename": "files\\printcontent\\printbsc-invoice+param.OL-template",
         "fileDuration": "temporary",
         "name": "upload template",
-        "x": 380,
-        "y": 80,
+        "x": 280,
+        "y": 180,
         "wires": [
             [
                 "6b890277.ed923c"
@@ -21068,8 +20131,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 560,
-        "y": 80,
+        "x": 540,
+        "y": 180,
         "wires": [
             [
                 "bd676225.cdce9"
@@ -21084,8 +20147,8 @@
         "filename": "files\\printcontent\\printbsc-transactional+param xml.OL-datamapper",
         "fileDuration": "temporary",
         "name": "upload dm",
-        "x": 370,
-        "y": 120,
+        "x": 270,
+        "y": 220,
         "wires": [
             [
                 "41d19976.363d3"
@@ -21111,8 +20174,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 590,
-        "y": 120,
+        "x": 570,
+        "y": 220,
         "wires": [
             [
                 "bd676225.cdce9"
@@ -21135,62 +20198,9 @@
         "z": "df200617.1e584",
         "name": "upload test data",
         "info": "",
-        "x": 180,
-        "y": 80,
+        "x": 140,
+        "y": 100,
         "wires": []
-    },
-    {
-        "id": "461cec3b.d7f27c",
-        "type": "comment",
-        "z": "df200617.1e584",
-        "name": "make sure C:\\nr\\output\\ exists",
-        "info": "",
-        "x": 1140,
-        "y": 720,
-        "wires": []
-    },
-    {
-        "id": "61bb019b.03ed7",
-        "type": "file",
-        "z": "a49a6730.7d33a8",
-        "name": "",
-        "filename": "",
-        "appendNewline": true,
-        "createDir": false,
-        "overwriteFile": "false",
-        "encoding": "none",
-        "x": 1230,
-        "y": 1220,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "7257a9e9.fc9898",
-        "type": "change",
-        "z": "a49a6730.7d33a8",
-        "name": "set the file location",
-        "rules": [
-            {
-                "t": "set",
-                "p": "filename",
-                "pt": "msg",
-                "to": "'C:\\\\nr\\\\workspace\\\\' & $millis() & '-dataget-out.json'",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1000,
-        "y": 1220,
-        "wires": [
-            [
-                "61bb019b.03ed7"
-            ]
-        ]
     },
     {
         "id": "faff2bcb.d8237",
@@ -23003,30 +22013,20 @@
         "id": "65cdc769.e7c16",
         "type": "comment",
         "z": "df200617.1e584",
-        "name": "dataRecordId trumps payload",
+        "name": "dataRecordId trumps payload A",
         "info": "",
-        "x": 200,
-        "y": 740,
+        "x": 190,
+        "y": 800,
         "wires": []
     },
     {
         "id": "cbfc886f.fa57d8",
         "type": "comment",
         "z": "df200617.1e584",
-        "name": "dataRecordId trumps payload",
+        "name": "dataRecordId trumps payload B",
         "info": "",
-        "x": 200,
+        "x": 190,
         "y": 960,
-        "wires": []
-    },
-    {
-        "id": "25df305a.d9db1",
-        "type": "comment",
-        "z": "df200617.1e584",
-        "name": "dataRecordId trumps payload",
-        "info": "",
-        "x": 200,
-        "y": 1220,
         "wires": []
     },
     {
@@ -25172,5 +24172,1941 @@
         "x": 1200,
         "y": 400,
         "wires": []
+    },
+    {
+        "id": "852f9f8a.e92258",
+        "type": "comment",
+        "z": "a49a6730.7d33a8",
+        "name": "msg.cssSelector 'body'",
+        "info": "",
+        "x": 340,
+        "y": 1640,
+        "wires": []
+    },
+    {
+        "id": "1e66c446.a5698c",
+        "type": "debug",
+        "z": "a49a6730.7d33a8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 1640,
+        "wires": []
+    },
+    {
+        "id": "fbb20adc.4ddd58",
+        "type": "inject",
+        "z": "a49a6730.7d33a8",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "str",
+        "x": 110,
+        "y": 1640,
+        "wires": [
+            [
+                "7bcba895.d0cf5"
+            ]
+        ]
+    },
+    {
+        "id": "c23e6a99.d63a18",
+        "type": "olcnr-html-content",
+        "z": "a49a6730.7d33a8",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "section": "thank_you",
+        "cssSelector": "",
+        "embedResources": "false",
+        "name": "",
+        "x": 510,
+        "y": 1600,
+        "wires": [
+            [
+                "1e66c446.a5698c",
+                "dbecf07a.840548"
+            ]
+        ]
+    },
+    {
+        "id": "6270f604.1dda28",
+        "type": "http in",
+        "z": "a49a6730.7d33a8",
+        "name": "",
+        "url": "check7",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 130,
+        "y": 1600,
+        "wires": [
+            [
+                "7bcba895.d0cf5"
+            ]
+        ]
+    },
+    {
+        "id": "dbecf07a.840548",
+        "type": "http response",
+        "z": "a49a6730.7d33a8",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 670,
+        "y": 1600,
+        "wires": []
+    },
+    {
+        "id": "7bcba895.d0cf5",
+        "type": "change",
+        "z": "a49a6730.7d33a8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "template",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"text_input\":\"Happy - € - é - 神 - Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\",\"select_menu\":\"courgettes\",\"radio_button\":\"radish\",\"checkbox\":\"1\"}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "cssSelector",
+                "pt": "msg",
+                "to": "body",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 1600,
+        "wires": [
+            [
+                "c23e6a99.d63a18"
+            ]
+        ]
+    },
+    {
+        "id": "1aaf18fe.aed707",
+        "type": "inject",
+        "z": "a49a6730.7d33a8",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 140,
+        "wires": [
+            [
+                "2a74ca71.f624e6",
+                "c62d8c83.8b68a8",
+                "a6f23c64.01414",
+                "10297edb.94a569"
+            ]
+        ]
+    },
+    {
+        "id": "c62d8c83.8b68a8",
+        "type": "olcnr-file-upload",
+        "z": "a49a6730.7d33a8",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "files\\html\\WEB_FORM Web Page.OL-template",
+        "fileDuration": "temporary",
+        "name": "upload template",
+        "x": 280,
+        "y": 140,
+        "wires": [
+            [
+                "a35630e9.9a912"
+            ]
+        ]
+    },
+    {
+        "id": "2a74ca71.f624e6",
+        "type": "olcnr-file-upload",
+        "z": "a49a6730.7d33a8",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "files\\html\\WEB_FORM Data NR XML.OL-datamapper",
+        "fileDuration": "temporary",
+        "name": "upload XML dm",
+        "x": 280,
+        "y": 220,
+        "wires": [
+            [
+                "be3d1582.4cc328"
+            ]
+        ]
+    },
+    {
+        "id": "a35630e9.9a912",
+        "type": "change",
+        "z": "a49a6730.7d33a8",
+        "name": "template",
+        "rules": [
+            {
+                "t": "move",
+                "p": "managedFileId",
+                "pt": "msg",
+                "to": "template",
+                "tot": "flow"
+            },
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "templateName",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 140,
+        "wires": [
+            [
+                "e98fd780.050bb"
+            ]
+        ]
+    },
+    {
+        "id": "be3d1582.4cc328",
+        "type": "change",
+        "z": "a49a6730.7d33a8",
+        "name": "dmConfiguration",
+        "rules": [
+            {
+                "t": "move",
+                "p": "managedFileId",
+                "pt": "msg",
+                "to": "dmConfiguration",
+                "tot": "flow"
+            },
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "dmConfigurationName",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 510,
+        "y": 220,
+        "wires": [
+            [
+                "e98fd780.050bb"
+            ]
+        ]
+    },
+    {
+        "id": "a6f23c64.01414",
+        "type": "olcnr-file-upload",
+        "z": "a49a6730.7d33a8",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "files\\html\\WEB_FORM Web Page-chartest.OL-template",
+        "fileDuration": "temporary",
+        "name": "upload alt template",
+        "x": 290,
+        "y": 180,
+        "wires": [
+            [
+                "6f03a2a.a3dacdc"
+            ]
+        ]
+    },
+    {
+        "id": "5603b3da.f4462c",
+        "type": "comment",
+        "z": "a49a6730.7d33a8",
+        "name": "upload test data",
+        "info": "",
+        "x": 140,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "6f03a2a.a3dacdc",
+        "type": "change",
+        "z": "a49a6730.7d33a8",
+        "name": "alttemplate",
+        "rules": [
+            {
+                "t": "move",
+                "p": "managedFileId",
+                "pt": "msg",
+                "to": "alttemplate",
+                "tot": "flow"
+            },
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "alttemplateName",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 490,
+        "y": 180,
+        "wires": [
+            [
+                "e98fd780.050bb"
+            ]
+        ]
+    },
+    {
+        "id": "e98fd780.050bb",
+        "type": "debug",
+        "z": "a49a6730.7d33a8",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "10297edb.94a569",
+        "type": "olcnr-file-upload",
+        "z": "a49a6730.7d33a8",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "files\\html\\sample-form-out.json",
+        "fileDuration": "temporary",
+        "name": "upload json data",
+        "x": 290,
+        "y": 260,
+        "wires": [
+            [
+                "e66607c5.bb4498"
+            ]
+        ]
+    },
+    {
+        "id": "e66607c5.bb4498",
+        "type": "change",
+        "z": "a49a6730.7d33a8",
+        "name": "JSONData",
+        "rules": [
+            {
+                "t": "move",
+                "p": "managedFileId",
+                "pt": "msg",
+                "to": "JSONData",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 490,
+        "y": 260,
+        "wires": [
+            [
+                "e98fd780.050bb"
+            ]
+        ]
+    },
+    {
+        "id": "b85ca04f.369578",
+        "type": "comment",
+        "z": "a49a6730.7d33a8",
+        "name": "html content happy flows",
+        "info": "",
+        "x": 130,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "884151ef.73c0e8",
+        "type": "debug",
+        "z": "a49a6730.7d33a8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "headers",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1250,
+        "y": 1420,
+        "wires": []
+    },
+    {
+        "id": "cfbe2f7.0e325d",
+        "type": "comment",
+        "z": "a49a6730.7d33a8",
+        "name": "form data as payload",
+        "info": "",
+        "x": 160,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "66fc7d90.6d1514",
+        "type": "comment",
+        "z": "a49a6730.7d33a8",
+        "name": "returns content of BODY element",
+        "info": "",
+        "x": 930,
+        "y": 1640,
+        "wires": []
+    },
+    {
+        "id": "2fcfe030.bf41b",
+        "type": "comment",
+        "z": "a49a6730.7d33a8",
+        "name": "msg.cssSelector 'body'",
+        "info": "",
+        "x": 340,
+        "y": 2300,
+        "wires": []
+    },
+    {
+        "id": "57a3499e.be8668",
+        "type": "debug",
+        "z": "a49a6730.7d33a8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 2300,
+        "wires": []
+    },
+    {
+        "id": "1efc06e5.4c4b11",
+        "type": "inject",
+        "z": "a49a6730.7d33a8",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "str",
+        "x": 110,
+        "y": 2300,
+        "wires": [
+            [
+                "8cddb4e2.1c6cf8"
+            ]
+        ]
+    },
+    {
+        "id": "f980d551.c44af",
+        "type": "olcnr-html-content",
+        "z": "a49a6730.7d33a8",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "section": "thank_you",
+        "cssSelector": "head",
+        "embedResources": "false",
+        "name": "",
+        "x": 510,
+        "y": 2260,
+        "wires": [
+            [
+                "57a3499e.be8668",
+                "f5bb6af4.e727b8"
+            ]
+        ]
+    },
+    {
+        "id": "85c7163a.af5a",
+        "type": "http in",
+        "z": "a49a6730.7d33a8",
+        "name": "",
+        "url": "check12",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 130,
+        "y": 2260,
+        "wires": [
+            [
+                "8cddb4e2.1c6cf8"
+            ]
+        ]
+    },
+    {
+        "id": "f5bb6af4.e727b8",
+        "type": "http response",
+        "z": "a49a6730.7d33a8",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 670,
+        "y": 2260,
+        "wires": []
+    },
+    {
+        "id": "8cddb4e2.1c6cf8",
+        "type": "change",
+        "z": "a49a6730.7d33a8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "template",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"text_input\":\"Happy - € - é - 神 - Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\",\"select_menu\":\"courgettes\",\"radio_button\":\"radish\",\"checkbox\":\"1\"}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "cssSelector",
+                "pt": "msg",
+                "to": "head",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 2260,
+        "wires": [
+            [
+                "f980d551.c44af"
+            ]
+        ]
+    },
+    {
+        "id": "1541bf97.830cc8",
+        "type": "comment",
+        "z": "a49a6730.7d33a8",
+        "name": "returns content of HEAD element",
+        "info": "",
+        "x": 930,
+        "y": 2300,
+        "wires": []
+    },
+    {
+        "id": "1406dec1.680741",
+        "type": "comment",
+        "z": "a49a6730.7d33a8",
+        "name": "msg.cssSelector '.container'",
+        "info": "",
+        "x": 360,
+        "y": 1840,
+        "wires": []
+    },
+    {
+        "id": "31e4ef37.c5a468",
+        "type": "debug",
+        "z": "a49a6730.7d33a8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 1840,
+        "wires": []
+    },
+    {
+        "id": "7ab8c6be.6825a8",
+        "type": "inject",
+        "z": "a49a6730.7d33a8",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "str",
+        "x": 110,
+        "y": 1840,
+        "wires": [
+            [
+                "109ef5ae.42d172"
+            ]
+        ]
+    },
+    {
+        "id": "b6a741c4.bf0838",
+        "type": "olcnr-html-content",
+        "z": "a49a6730.7d33a8",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "section": "thank_you",
+        "cssSelector": "",
+        "embedResources": "false",
+        "name": "",
+        "x": 510,
+        "y": 1800,
+        "wires": [
+            [
+                "31e4ef37.c5a468",
+                "e947df05.fc0f5"
+            ]
+        ]
+    },
+    {
+        "id": "ddc34bf6.f77a28",
+        "type": "http in",
+        "z": "a49a6730.7d33a8",
+        "name": "",
+        "url": "check9",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 130,
+        "y": 1800,
+        "wires": [
+            [
+                "109ef5ae.42d172"
+            ]
+        ]
+    },
+    {
+        "id": "e947df05.fc0f5",
+        "type": "http response",
+        "z": "a49a6730.7d33a8",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 670,
+        "y": 1800,
+        "wires": []
+    },
+    {
+        "id": "109ef5ae.42d172",
+        "type": "change",
+        "z": "a49a6730.7d33a8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "template",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"text_input\":\"Happy - € - é - 神 - Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\",\"select_menu\":\"courgettes\",\"radio_button\":\"radish\",\"checkbox\":\"1\"}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "cssSelector",
+                "pt": "msg",
+                "to": ".container",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 1800,
+        "wires": [
+            [
+                "b6a741c4.bf0838"
+            ]
+        ]
+    },
+    {
+        "id": "a2e8b4fd.4f0af8",
+        "type": "comment",
+        "z": "a49a6730.7d33a8",
+        "name": "returns content of DIV with classs 'container' (first)",
+        "info": "",
+        "x": 990,
+        "y": 1840,
+        "wires": []
+    },
+    {
+        "id": "e7930280.6bb47",
+        "type": "comment",
+        "z": "a49a6730.7d33a8",
+        "name": "msg.cssSelector 'p'",
+        "info": "",
+        "x": 330,
+        "y": 1940,
+        "wires": []
+    },
+    {
+        "id": "e3c8a009.ba2a4",
+        "type": "debug",
+        "z": "a49a6730.7d33a8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 1940,
+        "wires": []
+    },
+    {
+        "id": "39f1f6f6.d36c3a",
+        "type": "inject",
+        "z": "a49a6730.7d33a8",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "str",
+        "x": 110,
+        "y": 1940,
+        "wires": [
+            [
+                "9ad9f6c4.fdc488"
+            ]
+        ]
+    },
+    {
+        "id": "4f4dbd97.42eeb4",
+        "type": "olcnr-html-content",
+        "z": "a49a6730.7d33a8",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "section": "thank_you",
+        "cssSelector": "",
+        "embedResources": "false",
+        "name": "",
+        "x": 510,
+        "y": 1900,
+        "wires": [
+            [
+                "e3c8a009.ba2a4",
+                "af7a746.01a7c08"
+            ]
+        ]
+    },
+    {
+        "id": "973ec42c.661c98",
+        "type": "http in",
+        "z": "a49a6730.7d33a8",
+        "name": "",
+        "url": "check10",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 130,
+        "y": 1900,
+        "wires": [
+            [
+                "9ad9f6c4.fdc488"
+            ]
+        ]
+    },
+    {
+        "id": "af7a746.01a7c08",
+        "type": "http response",
+        "z": "a49a6730.7d33a8",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 670,
+        "y": 1900,
+        "wires": []
+    },
+    {
+        "id": "9ad9f6c4.fdc488",
+        "type": "change",
+        "z": "a49a6730.7d33a8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "template",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"text_input\":\"Happy - € - é - 神 - Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\",\"select_menu\":\"courgettes\",\"radio_button\":\"radish\",\"checkbox\":\"1\"}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "cssSelector",
+                "pt": "msg",
+                "to": "p",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 1900,
+        "wires": [
+            [
+                "4f4dbd97.42eeb4"
+            ]
+        ]
+    },
+    {
+        "id": "20d28ca4.38cf7c",
+        "type": "comment",
+        "z": "a49a6730.7d33a8",
+        "name": "returns content of P element (first)",
+        "info": "",
+        "x": 940,
+        "y": 1940,
+        "wires": []
+    },
+    {
+        "id": "ebec161b.7bae8",
+        "type": "comment",
+        "z": "a49a6730.7d33a8",
+        "name": "msg.cssSelector 'h2 + p'",
+        "info": "",
+        "x": 350,
+        "y": 2140,
+        "wires": []
+    },
+    {
+        "id": "5a2a5a46.870cdc",
+        "type": "debug",
+        "z": "a49a6730.7d33a8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 2140,
+        "wires": []
+    },
+    {
+        "id": "72748830.4f173",
+        "type": "inject",
+        "z": "a49a6730.7d33a8",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "str",
+        "x": 110,
+        "y": 2140,
+        "wires": [
+            [
+                "cd4bf2d9.5cf2d"
+            ]
+        ]
+    },
+    {
+        "id": "394b9ba6.8ab9bc",
+        "type": "olcnr-html-content",
+        "z": "a49a6730.7d33a8",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "section": "thank_you",
+        "cssSelector": "",
+        "embedResources": "false",
+        "name": "",
+        "x": 510,
+        "y": 2100,
+        "wires": [
+            [
+                "5a2a5a46.870cdc",
+                "94578e5a.613998"
+            ]
+        ]
+    },
+    {
+        "id": "dfd0e5f0.d6a868",
+        "type": "http in",
+        "z": "a49a6730.7d33a8",
+        "name": "",
+        "url": "check11",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 130,
+        "y": 2100,
+        "wires": [
+            [
+                "cd4bf2d9.5cf2d"
+            ]
+        ]
+    },
+    {
+        "id": "94578e5a.613998",
+        "type": "http response",
+        "z": "a49a6730.7d33a8",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 670,
+        "y": 2100,
+        "wires": []
+    },
+    {
+        "id": "cd4bf2d9.5cf2d",
+        "type": "change",
+        "z": "a49a6730.7d33a8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "template",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"text_input\":\"Happy - € - é - 神 - Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\",\"select_menu\":\"courgettes\",\"radio_button\":\"radish\",\"checkbox\":\"1\"}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "cssSelector",
+                "pt": "msg",
+                "to": "h2 + p",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 2100,
+        "wires": [
+            [
+                "394b9ba6.8ab9bc"
+            ]
+        ]
+    },
+    {
+        "id": "6531eb78.4cef94",
+        "type": "comment",
+        "z": "a49a6730.7d33a8",
+        "name": "returns content of P element after H2",
+        "info": "",
+        "x": 950,
+        "y": 2140,
+        "wires": []
+    },
+    {
+        "id": "4afe3e4d.36f5c",
+        "type": "comment",
+        "z": "a49a6730.7d33a8",
+        "name": "cssSelector tests",
+        "info": "",
+        "x": 140,
+        "y": 1560,
+        "wires": []
+    },
+    {
+        "id": "edf5f25f.7da4f",
+        "type": "comment",
+        "z": "a49a6730.7d33a8",
+        "name": "CSS Selector 'head'",
+        "info": "",
+        "x": 530,
+        "y": 2220,
+        "wires": []
+    },
+    {
+        "id": "86f4fb94.b01548",
+        "type": "comment",
+        "z": "a49a6730.7d33a8",
+        "name": "UI trumps msg.cssSelector",
+        "info": "",
+        "x": 170,
+        "y": 2220,
+        "wires": []
+    },
+    {
+        "id": "e48b8546.59eeb8",
+        "type": "comment",
+        "z": "a49a6730.7d33a8",
+        "name": "msg.cssSelector '#hero'",
+        "info": "",
+        "x": 340,
+        "y": 1740,
+        "wires": []
+    },
+    {
+        "id": "9b56dca5.f3d7c8",
+        "type": "debug",
+        "z": "a49a6730.7d33a8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 1740,
+        "wires": []
+    },
+    {
+        "id": "5d3aef8c.c5bb5",
+        "type": "inject",
+        "z": "a49a6730.7d33a8",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "str",
+        "x": 110,
+        "y": 1740,
+        "wires": [
+            [
+                "3854a3f2.f2522c"
+            ]
+        ]
+    },
+    {
+        "id": "3486b465.eacf3c",
+        "type": "olcnr-html-content",
+        "z": "a49a6730.7d33a8",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "section": "thank_you",
+        "cssSelector": "",
+        "embedResources": "false",
+        "name": "",
+        "x": 510,
+        "y": 1700,
+        "wires": [
+            [
+                "9b56dca5.f3d7c8",
+                "c83a6ba1.b5f7e"
+            ]
+        ]
+    },
+    {
+        "id": "ed470fe.d916c7",
+        "type": "http in",
+        "z": "a49a6730.7d33a8",
+        "name": "",
+        "url": "check8",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 130,
+        "y": 1700,
+        "wires": [
+            [
+                "3854a3f2.f2522c"
+            ]
+        ]
+    },
+    {
+        "id": "c83a6ba1.b5f7e",
+        "type": "http response",
+        "z": "a49a6730.7d33a8",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 670,
+        "y": 1700,
+        "wires": []
+    },
+    {
+        "id": "3854a3f2.f2522c",
+        "type": "change",
+        "z": "a49a6730.7d33a8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "template",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"text_input\":\"Happy - € - é - 神 - Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\",\"select_menu\":\"courgettes\",\"radio_button\":\"radish\",\"checkbox\":\"1\"}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "cssSelector",
+                "pt": "msg",
+                "to": "#hero",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 1700,
+        "wires": [
+            [
+                "3486b465.eacf3c"
+            ]
+        ]
+    },
+    {
+        "id": "1e853a42.003d96",
+        "type": "comment",
+        "z": "a49a6730.7d33a8",
+        "name": "returns content of section with ID 'hero'",
+        "info": "",
+        "x": 950,
+        "y": 1740,
+        "wires": []
+    },
+    {
+        "id": "fbdbb4e5.178208",
+        "type": "comment",
+        "z": "a49a6730.7d33a8",
+        "name": "msg.cssSelector 'p:nth-of-type(2)'",
+        "info": "",
+        "x": 380,
+        "y": 2040,
+        "wires": []
+    },
+    {
+        "id": "22520ef.b2a6172",
+        "type": "debug",
+        "z": "a49a6730.7d33a8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 2040,
+        "wires": []
+    },
+    {
+        "id": "9b9b505e.bf3b88",
+        "type": "inject",
+        "z": "a49a6730.7d33a8",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "str",
+        "x": 110,
+        "y": 2040,
+        "wires": [
+            [
+                "4021c893.ddf2c8"
+            ]
+        ]
+    },
+    {
+        "id": "31daf0f8.2cad6",
+        "type": "olcnr-html-content",
+        "z": "a49a6730.7d33a8",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "section": "thank_you",
+        "cssSelector": "",
+        "embedResources": "false",
+        "name": "",
+        "x": 510,
+        "y": 2000,
+        "wires": [
+            [
+                "22520ef.b2a6172",
+                "8fd1e304.a372b8"
+            ]
+        ]
+    },
+    {
+        "id": "463545db.0149dc",
+        "type": "http in",
+        "z": "a49a6730.7d33a8",
+        "name": "",
+        "url": "check11",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 130,
+        "y": 2000,
+        "wires": [
+            [
+                "4021c893.ddf2c8"
+            ]
+        ]
+    },
+    {
+        "id": "8fd1e304.a372b8",
+        "type": "http response",
+        "z": "a49a6730.7d33a8",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 670,
+        "y": 2000,
+        "wires": []
+    },
+    {
+        "id": "4021c893.ddf2c8",
+        "type": "change",
+        "z": "a49a6730.7d33a8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "template",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"text_input\":\"Happy - € - é - 神 - Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\",\"select_menu\":\"courgettes\",\"radio_button\":\"radish\",\"checkbox\":\"1\"}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "cssSelector",
+                "pt": "msg",
+                "to": "p:nth-of-type(2)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 2000,
+        "wires": [
+            [
+                "31daf0f8.2cad6"
+            ]
+        ]
+    },
+    {
+        "id": "301422bf.45e09e",
+        "type": "comment",
+        "z": "a49a6730.7d33a8",
+        "name": "returns content of second P element",
+        "info": "",
+        "x": 940,
+        "y": 2040,
+        "wires": []
+    },
+    {
+        "id": "2206af58.8853b",
+        "type": "olcnr-file-upload",
+        "z": "8002060c.a21e1",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "files\\email\\EmailBasic+multi-attachment-202010.OL-template",
+        "fileDuration": "temporary",
+        "name": "upload template",
+        "x": 280,
+        "y": 220,
+        "wires": [
+            [
+                "6668baf.b883d44"
+            ]
+        ]
+    },
+    {
+        "id": "6668baf.b883d44",
+        "type": "change",
+        "z": "8002060c.a21e1",
+        "name": "wrong template",
+        "rules": [
+            {
+                "t": "move",
+                "p": "managedFileId",
+                "pt": "msg",
+                "to": "template-nohtmlcontext",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 220,
+        "wires": [
+            [
+                "1504f188.53fca6"
+            ]
+        ]
+    },
+    {
+        "id": "42e37654.d0b6e",
+        "type": "inject",
+        "z": "8002060c.a21e1",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 140,
+        "wires": [
+            [
+                "e47462cb.1156f",
+                "3be8883a.29b588",
+                "2058b2cc.7cee2e",
+                "386a814e.deb38e",
+                "2206af58.8853b"
+            ]
+        ]
+    },
+    {
+        "id": "3be8883a.29b588",
+        "type": "olcnr-file-upload",
+        "z": "8002060c.a21e1",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "files\\html\\WEB_FORM Web Page.OL-template",
+        "fileDuration": "temporary",
+        "name": "upload template",
+        "x": 280,
+        "y": 140,
+        "wires": [
+            [
+                "c95bd853.b38578"
+            ]
+        ]
+    },
+    {
+        "id": "e47462cb.1156f",
+        "type": "olcnr-file-upload",
+        "z": "8002060c.a21e1",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "files\\html\\WEB_FORM Data NR XML.OL-datamapper",
+        "fileDuration": "temporary",
+        "name": "upload XML dm",
+        "x": 280,
+        "y": 260,
+        "wires": [
+            [
+                "d683932.a6fa5f"
+            ]
+        ]
+    },
+    {
+        "id": "c95bd853.b38578",
+        "type": "change",
+        "z": "8002060c.a21e1",
+        "name": "template",
+        "rules": [
+            {
+                "t": "move",
+                "p": "managedFileId",
+                "pt": "msg",
+                "to": "template",
+                "tot": "flow"
+            },
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "templateName",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 140,
+        "wires": [
+            [
+                "1504f188.53fca6"
+            ]
+        ]
+    },
+    {
+        "id": "d683932.a6fa5f",
+        "type": "change",
+        "z": "8002060c.a21e1",
+        "name": "dmConfiguration",
+        "rules": [
+            {
+                "t": "move",
+                "p": "managedFileId",
+                "pt": "msg",
+                "to": "dmConfiguration",
+                "tot": "flow"
+            },
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "dmConfigurationName",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 510,
+        "y": 260,
+        "wires": [
+            [
+                "1504f188.53fca6"
+            ]
+        ]
+    },
+    {
+        "id": "2058b2cc.7cee2e",
+        "type": "olcnr-file-upload",
+        "z": "8002060c.a21e1",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "files\\html\\WEB_FORM Web Page-chartest.OL-template",
+        "fileDuration": "temporary",
+        "name": "upload alt template",
+        "x": 290,
+        "y": 180,
+        "wires": [
+            [
+                "be18efe6.10e84"
+            ]
+        ]
+    },
+    {
+        "id": "b68b1ee9.1ad308",
+        "type": "comment",
+        "z": "8002060c.a21e1",
+        "name": "upload test data",
+        "info": "",
+        "x": 140,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "be18efe6.10e84",
+        "type": "change",
+        "z": "8002060c.a21e1",
+        "name": "alttemplate",
+        "rules": [
+            {
+                "t": "move",
+                "p": "managedFileId",
+                "pt": "msg",
+                "to": "alttemplate",
+                "tot": "flow"
+            },
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "alttemplateName",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 490,
+        "y": 180,
+        "wires": [
+            [
+                "1504f188.53fca6"
+            ]
+        ]
+    },
+    {
+        "id": "1504f188.53fca6",
+        "type": "debug",
+        "z": "8002060c.a21e1",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "386a814e.deb38e",
+        "type": "olcnr-file-upload",
+        "z": "8002060c.a21e1",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "files\\html\\sample-form-out.json",
+        "fileDuration": "temporary",
+        "name": "upload json data",
+        "x": 290,
+        "y": 300,
+        "wires": [
+            [
+                "eda4d9b5.9d8d68"
+            ]
+        ]
+    },
+    {
+        "id": "eda4d9b5.9d8d68",
+        "type": "change",
+        "z": "8002060c.a21e1",
+        "name": "JSONData",
+        "rules": [
+            {
+                "t": "move",
+                "p": "managedFileId",
+                "pt": "msg",
+                "to": "JSONData",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 490,
+        "y": 300,
+        "wires": [
+            [
+                "1504f188.53fca6"
+            ]
+        ]
+    },
+    {
+        "id": "515a60b0.3effe8",
+        "type": "comment",
+        "z": "8002060c.a21e1",
+        "name": "html content happy flows",
+        "info": "",
+        "x": 130,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "28688419.a8bf6c",
+        "type": "comment",
+        "z": "df200617.1e584",
+        "name": "preview pdf tests",
+        "info": "",
+        "x": 100,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "47f75e84.eeba48",
+        "type": "olcnr-file-upload",
+        "z": "df200617.1e584",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "files\\printcontent\\Sample Data-5recs.xml",
+        "fileDuration": "temporary",
+        "name": "upload data file",
+        "x": 280,
+        "y": 260,
+        "wires": [
+            [
+                "46b35cb9.9eb654"
+            ]
+        ]
+    },
+    {
+        "id": "46b35cb9.9eb654",
+        "type": "change",
+        "z": "df200617.1e584",
+        "name": "dataFile",
+        "rules": [
+            {
+                "t": "move",
+                "p": "managedFileId",
+                "pt": "msg",
+                "to": "dataFile",
+                "tot": "flow"
+            },
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "dataFileName",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 260,
+        "wires": [
+            [
+                "bd676225.cdce9"
+            ]
+        ]
+    },
+    {
+        "id": "2cb65904.8f23e6",
+        "type": "change",
+        "z": "df200617.1e584",
+        "name": "templateSuperhero",
+        "rules": [
+            {
+                "t": "move",
+                "p": "managedFileId",
+                "pt": "msg",
+                "to": "templateSuperhero",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 140,
+        "wires": [
+            [
+                "bd676225.cdce9"
+            ]
+        ]
+    },
+    {
+        "id": "66983537.88d4e4",
+        "type": "comment",
+        "z": "df200617.1e584",
+        "name": "make sure C:\\nr\\output\\ exists",
+        "info": "",
+        "x": 340,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "1af58be1.bd3874",
+        "type": "comment",
+        "z": "df200617.1e584",
+        "name": "get third record",
+        "info": "",
+        "x": 640,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "fd034820.60a468",
+        "type": "debug",
+        "z": "df200617.1e584",
+        "name": "time",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "'Time used: ' & ($millis() - timeStart ) /1000 & ' seconds'",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 630,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "1a918411.833e3c",
+        "type": "inject",
+        "z": "df200617.1e584",
+        "name": "",
+        "props": [
+            {
+                "p": "manageFileId",
+                "v": "dataFile",
+                "vt": "flow"
+            },
+            {
+                "p": "template",
+                "v": "template",
+                "vt": "flow"
+            },
+            {
+                "p": "dmConfiguration",
+                "v": "dmConfiguration",
+                "vt": "flow"
+            },
+            {
+                "p": "parameters",
+                "v": "{\"cc_param1\":\"CCParamIsSet\",\"dm_param1\":\"DmParamIsSet\"}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "str",
+        "x": 110,
+        "y": 840,
+        "wires": [
+            [
+                "ae747647.97d85"
+            ]
+        ]
+    },
+    {
+        "id": "28965952.2f5216",
+        "type": "inject",
+        "z": "df200617.1e584",
+        "name": "",
+        "props": [
+            {
+                "p": "manageFileId",
+                "v": "dataFile",
+                "vt": "flow"
+            },
+            {
+                "p": "template",
+                "v": "template",
+                "vt": "flow"
+            },
+            {
+                "p": "dmConfiguration",
+                "v": "dmConfiguration",
+                "vt": "flow"
+            },
+            {
+                "p": "parameters",
+                "v": "{\"cc_param1\":\"CCParamIsSet\",\"dm_param1\":\"DmParamIsSet\"}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "str",
+        "x": 110,
+        "y": 1000,
+        "wires": [
+            [
+                "362a911b.a70a8e"
+            ]
+        ]
+    },
+    {
+        "id": "d930d4e9.cc981",
+        "type": "inject",
+        "z": "df200617.1e584",
+        "name": "",
+        "props": [
+            {
+                "p": "manageFileId",
+                "v": "dataFile",
+                "vt": "flow"
+            },
+            {
+                "p": "template",
+                "v": "template",
+                "vt": "flow"
+            },
+            {
+                "p": "dmConfiguration",
+                "v": "dmConfiguration",
+                "vt": "flow"
+            },
+            {
+                "p": "parameters",
+                "v": "{\"cc_param1\":\"CCParamIsSet\",\"dm_param1\":\"DmParamIsSet\"}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "str",
+        "x": 110,
+        "y": 1160,
+        "wires": [
+            [
+                "e0001859.995168"
+            ]
+        ]
+    },
+    {
+        "id": "cf1d50be.825f98",
+        "type": "comment",
+        "z": "df200617.1e584",
+        "name": "dataRecordId trumps payload C",
+        "info": "",
+        "x": 190,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "127d7912.595b07",
+        "type": "comment",
+        "z": "df200617.1e584",
+        "name": "both PDFs should be from record 2, no errors",
+        "info": "",
+        "x": 1090,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "857bc959.75236",
+        "type": "inject",
+        "z": "df200617.1e584",
+        "name": "",
+        "props": [
+            {
+                "p": "template",
+                "v": "template",
+                "vt": "flow"
+            },
+            {
+                "p": "parameters",
+                "v": "{\"cc_param1\":\"CCParamIsSet\",\"dm_param1\":\"DmParamIsSet\"}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "str",
+        "x": 110,
+        "y": 1320,
+        "wires": [
+            [
+                "1150373c.d3a2a9"
+            ]
+        ]
+    },
+    {
+        "id": "5f137a42.f1e99c",
+        "type": "inject",
+        "z": "df200617.1e584",
+        "name": "",
+        "props": [
+            {
+                "p": "template",
+                "v": "template",
+                "vt": "flow"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 1420,
+        "wires": [
+            [
+                "64b07ccd.4b43a4"
+            ]
+        ]
     }
 ]
