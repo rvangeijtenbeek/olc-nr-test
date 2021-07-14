@@ -126,6 +126,33 @@
         "info": ""
     },
     {
+        "id": "ed7a5e42.4bcee8",
+        "type": "subflow",
+        "name": "store test results",
+        "info": "This subflow stores test result data in a text file.\n\n## Inputs\n\n - flow.filepath (for the file path)\n - flow.maintopic (for the file name)\n - msg.payload (containing the test results)\n",
+        "category": "",
+        "in": [
+            {
+                "x": 40,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "e3f3246d.befca"
+                    }
+                ]
+            }
+        ],
+        "out": [],
+        "env": [
+            {
+                "name": "one",
+                "type": "env",
+                "value": "test"
+            }
+        ],
+        "color": "#DDAA99"
+    },
+    {
         "id": "3c2c110.e9ac1f",
         "type": "OL Connect Server",
         "url": "http://localhost:9340",
@@ -1443,13 +1470,13 @@
         "connect_server": "3c2c110.e9ac1f",
         "filename": "",
         "fileDuration": "temporary",
-        "name": "upload dmconfig",
-        "x": 570,
+        "name": "",
+        "x": 590,
         "y": 220,
         "wires": [
             [
                 "bef26ee5.88f3d8",
-                "24a1fc47.c96c34"
+                "3ae44876.27df88"
             ]
         ]
     },
@@ -1460,13 +1487,13 @@
         "connect_server": "3c2c110.e9ac1f",
         "filename": "",
         "fileDuration": "temporary",
-        "name": "upload template",
-        "x": 560,
+        "name": "",
+        "x": 590,
         "y": 140,
         "wires": [
             [
                 "a5fd2b9b.c64f5",
-                "48d68b52.d7a054"
+                "3ae44876.27df88"
             ]
         ]
     },
@@ -1477,13 +1504,13 @@
         "connect_server": "3c2c110.e9ac1f",
         "filename": "",
         "fileDuration": "temporary",
-        "name": "upload data file",
-        "x": 560,
+        "name": "",
+        "x": 590,
         "y": 300,
         "wires": [
             [
                 "fc91dcf0.9875a",
-                "911b7ad4.aedef"
+                "3ae44876.27df88"
             ]
         ]
     },
@@ -1491,6 +1518,7 @@
         "id": "635125c.0e0f15c",
         "type": "inject",
         "z": "aa6fd619.ba432",
+        "d": true,
         "name": "",
         "props": [],
         "repeat": "",
@@ -1498,7 +1526,6 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payloadType": "str",
         "x": 110,
         "y": 140,
         "wires": [
@@ -1514,7 +1541,7 @@
         "id": "75e8b6ed.bbaf3",
         "type": "change",
         "z": "aa6fd619.ba432",
-        "name": "",
+        "name": "set OL-template file path",
         "rules": [
             {
                 "t": "set",
@@ -1522,6 +1549,13 @@
                 "pt": "msg",
                 "to": "C:\\ProgramData\\Objectif Lune\\.node-red\\projects\\OLC-NR-TEST\\files\\base\\base.OL-template",
                 "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "topic & '-OLtemplate'",
+                "tot": "jsonata"
             }
         ],
         "action": "",
@@ -1529,7 +1563,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 350,
+        "x": 370,
         "y": 140,
         "wires": [
             [
@@ -1541,7 +1575,7 @@
         "id": "a3051fc3.7a041",
         "type": "change",
         "z": "aa6fd619.ba432",
-        "name": "",
+        "name": "set OL-datamapper file path",
         "rules": [
             {
                 "t": "set",
@@ -1549,6 +1583,13 @@
                 "pt": "msg",
                 "to": "C:\\ProgramData\\Objectif Lune\\.node-red\\projects\\OLC-NR-TEST\\files\\base\\base.OL-datamapper",
                 "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "topic & '-OLdatamapper'",
+                "tot": "jsonata"
             }
         ],
         "action": "",
@@ -1556,7 +1597,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 350,
+        "x": 380,
         "y": 220,
         "wires": [
             [
@@ -1568,7 +1609,7 @@
         "id": "16a0d5ee.760892",
         "type": "change",
         "z": "aa6fd619.ba432",
-        "name": "",
+        "name": "set XML file path",
         "rules": [
             {
                 "t": "set",
@@ -1576,6 +1617,13 @@
                 "pt": "msg",
                 "to": "C:\\ProgramData\\Objectif Lune\\.node-red\\projects\\OLC-NR-TEST\\files\\base\\base.xml",
                 "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "topic & '-xmlfile'",
+                "tot": "jsonata"
             }
         ],
         "action": "",
@@ -1592,49 +1640,19 @@
         ]
     },
     {
-        "id": "5de8313f.69d038",
-        "type": "comment",
-        "z": "aa6fd619.ba432",
-        "name": ".OL-template file",
-        "info": "",
-        "x": 340,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "222a0f2c.c5a908",
-        "type": "comment",
-        "z": "aa6fd619.ba432",
-        "name": ".OL-datamapper file",
-        "info": "",
-        "x": 350,
-        "y": 180,
-        "wires": []
-    },
-    {
-        "id": "de9fd456.5f84b8",
-        "type": "comment",
-        "z": "aa6fd619.ba432",
-        "name": ".xml file",
-        "info": "",
-        "x": 310,
-        "y": 260,
-        "wires": []
-    },
-    {
         "id": "4c0b5df9.ea4cdc",
         "type": "olcnr-file-upload",
         "z": "aa6fd619.ba432",
         "connect_server": "3c2c110.e9ac1f",
         "filename": "",
         "fileDuration": "temporary",
-        "name": "upload zip file",
-        "x": 560,
+        "name": "",
+        "x": 590,
         "y": 380,
         "wires": [
             [
                 "5faff1c6.5d802",
-                "c206d8ac.705e2"
+                "3ae44876.27df88"
             ]
         ]
     },
@@ -1642,7 +1660,7 @@
         "id": "ab666996.72d178",
         "type": "change",
         "z": "aa6fd619.ba432",
-        "name": "",
+        "name": "set zip file path",
         "rules": [
             {
                 "t": "set",
@@ -1650,6 +1668,13 @@
                 "pt": "msg",
                 "to": "C:\\ProgramData\\Objectif Lune\\.node-red\\projects\\OLC-NR-TEST\\files\\base\\Foo.zip",
                 "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "topic & '-zipfile'",
+                "tot": "jsonata"
             }
         ],
         "action": "",
@@ -1657,23 +1682,13 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 350,
+        "x": 340,
         "y": 380,
         "wires": [
             [
                 "4c0b5df9.ea4cdc"
             ]
         ]
-    },
-    {
-        "id": "7aef037a.787064",
-        "type": "comment",
-        "z": "aa6fd619.ba432",
-        "name": ".zip file",
-        "info": "",
-        "x": 310,
-        "y": 340,
-        "wires": []
     },
     {
         "id": "e4168f90.f91b4",
@@ -5433,10 +5448,10 @@
         "name": "",
         "outputType": "buffer",
         "x": 770,
-        "y": 180,
+        "y": 140,
         "wires": [
             [
-                "6c95852d.20ae7c"
+                "733c10c3.d506a"
             ]
         ]
     },
@@ -5449,10 +5464,10 @@
         "name": "",
         "outputType": "buffer",
         "x": 770,
-        "y": 260,
+        "y": 220,
         "wires": [
             [
-                "91be427f.8d98d"
+                "733c10c3.d506a"
             ]
         ]
     },
@@ -5465,10 +5480,10 @@
         "name": "",
         "outputType": "UTF-8",
         "x": 770,
-        "y": 340,
+        "y": 300,
         "wires": [
             [
-                "3cb6a177.0ba61e"
+                "733c10c3.d506a"
             ]
         ]
     },
@@ -5481,10 +5496,10 @@
         "name": "",
         "outputType": "buffer",
         "x": 770,
-        "y": 420,
+        "y": 380,
         "wires": [
             [
-                "3deb1abd.91fdce"
+                "733c10c3.d506a"
             ]
         ]
     },
@@ -25404,142 +25419,6 @@
         "wires": []
     },
     {
-        "id": "48d68b52.d7a054",
-        "type": "debug",
-        "z": "aa6fd619.ba432",
-        "name": "outputs",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "'id: ' & managedFileId & ' - payload: ' & payload",
-        "targetType": "jsonata",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 760,
-        "y": 140,
-        "wires": []
-    },
-    {
-        "id": "6c95852d.20ae7c",
-        "type": "debug",
-        "z": "aa6fd619.ba432",
-        "name": "outputs",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "'filename: ' & filename & ' - payload present: ' & $exists(payload) & ' - headers: ' &\t headers\t",
-        "targetType": "jsonata",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 940,
-        "y": 180,
-        "wires": []
-    },
-    {
-        "id": "24a1fc47.c96c34",
-        "type": "debug",
-        "z": "aa6fd619.ba432",
-        "name": "outputs",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "'id: ' & managedFileId & ' - payload: ' & payload",
-        "targetType": "jsonata",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 760,
-        "y": 220,
-        "wires": []
-    },
-    {
-        "id": "91be427f.8d98d",
-        "type": "debug",
-        "z": "aa6fd619.ba432",
-        "name": "outputs",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "'filename: ' & filename & ' - payload present: ' & $exists(payload) & ' - headers: ' &\t headers\t",
-        "targetType": "jsonata",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 940,
-        "y": 260,
-        "wires": []
-    },
-    {
-        "id": "911b7ad4.aedef",
-        "type": "debug",
-        "z": "aa6fd619.ba432",
-        "name": "outputs",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "'id: ' & managedFileId & ' - payload: ' & payload",
-        "targetType": "jsonata",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 760,
-        "y": 300,
-        "wires": []
-    },
-    {
-        "id": "3cb6a177.0ba61e",
-        "type": "debug",
-        "z": "aa6fd619.ba432",
-        "name": "outputs",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "'filename: ' & filename & ' - payload present: ' & $exists(payload) & ' - headers: ' &\t headers\t",
-        "targetType": "jsonata",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 940,
-        "y": 340,
-        "wires": []
-    },
-    {
-        "id": "c206d8ac.705e2",
-        "type": "debug",
-        "z": "aa6fd619.ba432",
-        "name": "outputs",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "'id: ' & managedFileId & ' - payload: ' & payload",
-        "targetType": "jsonata",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 760,
-        "y": 380,
-        "wires": []
-    },
-    {
-        "id": "3deb1abd.91fdce",
-        "type": "debug",
-        "z": "aa6fd619.ba432",
-        "name": "outputs",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "'filename: ' & filename & ' - payload present: ' & $exists(payload) & ' - headers: ' &\t headers\t",
-        "targetType": "jsonata",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 940,
-        "y": 420,
-        "wires": []
-    },
-    {
         "id": "240934b4.eecef4",
         "type": "debug",
         "z": "aa6fd619.ba432",
@@ -26505,6 +26384,244 @@
         "statusType": "auto",
         "x": 700,
         "y": 1640,
+        "wires": []
+    },
+    {
+        "id": "40bd197e.a8d7e8",
+        "type": "inject",
+        "z": "aa6fd619.ba432",
+        "name": "start test 1",
+        "props": [
+            {
+                "p": "timeStart",
+                "v": "",
+                "vt": "date"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "fullpath-temporary",
+        "payloadType": "str",
+        "x": 110,
+        "y": 220,
+        "wires": [
+            [
+                "75e8b6ed.bbaf3",
+                "a3051fc3.7a041",
+                "16a0d5ee.760892",
+                "ab666996.72d178"
+            ]
+        ]
+    },
+    {
+        "id": "70531984.393878",
+        "type": "file",
+        "z": "ed7a5e42.4bcee8",
+        "name": "write to file",
+        "filename": "",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 370,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "67142369.9469fc",
+        "type": "change",
+        "z": "aa6fd619.ba432",
+        "name": "setup flow variables",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filepath",
+                "pt": "flow",
+                "to": "c:/nr/test/",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "maintopic",
+                "pt": "flow",
+                "to": "file_upload",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 580,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6fdc0320.f21e1c",
+        "type": "inject",
+        "z": "aa6fd619.ba432",
+        "name": "prepare testing",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "str",
+        "x": 340,
+        "y": 40,
+        "wires": [
+            [
+                "67142369.9469fc"
+            ]
+        ]
+    },
+    {
+        "id": "e3f3246d.befca",
+        "type": "change",
+        "z": "ed7a5e42.4bcee8",
+        "name": "set filename",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filepath",
+                "pt": "msg",
+                "to": "filepath",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "file",
+                "pt": "msg",
+                "to": "maintopic",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "filepath & file & '.txt'",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 190,
+        "y": 80,
+        "wires": [
+            [
+                "70531984.393878"
+            ]
+        ]
+    },
+    {
+        "id": "3ae44876.27df88",
+        "type": "change",
+        "z": "aa6fd619.ba432",
+        "name": "set results",
+        "rules": [
+            {
+                "t": "set",
+                "p": "time",
+                "pt": "msg",
+                "to": "'[' & $now('[Y0001]-[M01]-[D01]T[H01]:[m01]:[s01][Z]', '-0500') & '] '",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "time & topic & ' - managedFileId: ' & managedFileId & ' - payload: ' & payload",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 950,
+        "y": 180,
+        "wires": [
+            [
+                "f72d7bf7.4cdbf8",
+                "2c06534d.4bfb44"
+            ]
+        ]
+    },
+    {
+        "id": "733c10c3.d506a",
+        "type": "change",
+        "z": "aa6fd619.ba432",
+        "name": "set results",
+        "rules": [
+            {
+                "t": "set",
+                "p": "time",
+                "pt": "msg",
+                "to": "'[' & $now('[Y0001]-[M01]-[D01]T[H01]:[m01]:[s01][Z]', '-0500') & '] '",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "time & topic & ' (after download) filename: ' & filename & ' - payload present: ' & $exists(payload) & ' - headers: ' &\t headers\t",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 950,
+        "y": 220,
+        "wires": [
+            [
+                "f72d7bf7.4cdbf8",
+                "2c06534d.4bfb44"
+            ]
+        ]
+    },
+    {
+        "id": "f72d7bf7.4cdbf8",
+        "type": "debug",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1130,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "2c06534d.4bfb44",
+        "type": "subflow:ed7a5e42.4bcee8",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "env": [],
+        "x": 1190,
+        "y": 120,
         "wires": []
     }
 ]
