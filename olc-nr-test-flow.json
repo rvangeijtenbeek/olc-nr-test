@@ -144,7 +144,7 @@
         ],
         "out": [
             {
-                "x": 880,
+                "x": 800,
                 "y": 80,
                 "wires": [
                     {
@@ -154,13 +154,7 @@
                 ]
             }
         ],
-        "env": [
-            {
-                "name": "one",
-                "type": "env",
-                "value": "test"
-            }
-        ],
+        "env": [],
         "color": "#DDAA99"
     },
     {
@@ -1482,8 +1476,8 @@
         "filename": "",
         "fileDuration": "temporary",
         "name": "",
-        "x": 590,
-        "y": 240,
+        "x": 570,
+        "y": 280,
         "wires": [
             [
                 "bef26ee5.88f3d8",
@@ -1499,8 +1493,8 @@
         "filename": "",
         "fileDuration": "temporary",
         "name": "",
-        "x": 590,
-        "y": 180,
+        "x": 570,
+        "y": 220,
         "wires": [
             [
                 "a5fd2b9b.c64f5",
@@ -1516,8 +1510,8 @@
         "filename": "",
         "fileDuration": "temporary",
         "name": "",
-        "x": 590,
-        "y": 300,
+        "x": 570,
+        "y": 340,
         "wires": [
             [
                 "fc91dcf0.9875a",
@@ -1551,8 +1545,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 370,
-        "y": 180,
+        "x": 350,
+        "y": 220,
         "wires": [
             [
                 "3a850f13.7da8c8"
@@ -1585,8 +1579,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 380,
-        "y": 240,
+        "x": 360,
+        "y": 280,
         "wires": [
             [
                 "c891b875.caa45"
@@ -1619,8 +1613,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 350,
-        "y": 300,
+        "x": 330,
+        "y": 340,
         "wires": [
             [
                 "38b58af9.cd53fe"
@@ -1635,8 +1629,8 @@
         "filename": "",
         "fileDuration": "temporary",
         "name": "",
-        "x": 590,
-        "y": 360,
+        "x": 570,
+        "y": 400,
         "wires": [
             [
                 "5faff1c6.5d802",
@@ -1670,8 +1664,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 340,
-        "y": 360,
+        "x": 320,
+        "y": 400,
         "wires": [
             [
                 "4c0b5df9.ea4cdc"
@@ -5425,8 +5419,8 @@
         "managedFileId": "",
         "name": "",
         "outputType": "buffer",
-        "x": 770,
-        "y": 180,
+        "x": 750,
+        "y": 260,
         "wires": [
             [
                 "733c10c3.d506a"
@@ -5441,8 +5435,8 @@
         "managedFileId": "",
         "name": "",
         "outputType": "buffer",
-        "x": 770,
-        "y": 240,
+        "x": 750,
+        "y": 320,
         "wires": [
             [
                 "733c10c3.d506a"
@@ -5457,8 +5451,8 @@
         "managedFileId": "",
         "name": "",
         "outputType": "UTF-8",
-        "x": 770,
-        "y": 300,
+        "x": 750,
+        "y": 380,
         "wires": [
             [
                 "733c10c3.d506a"
@@ -5473,8 +5467,8 @@
         "managedFileId": "",
         "name": "",
         "outputType": "buffer",
-        "x": 770,
-        "y": 360,
+        "x": 750,
+        "y": 440,
         "wires": [
             [
                 "733c10c3.d506a"
@@ -26368,31 +26362,24 @@
         "id": "40bd197e.a8d7e8",
         "type": "inject",
         "z": "aa6fd619.ba432",
-        "name": "start full path test",
+        "name": "start full path tests",
         "props": [
             {
                 "p": "timeStart",
                 "v": "",
                 "vt": "date"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
             }
         ],
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "topic": "fullpath-temporary",
-        "x": 140,
-        "y": 180,
+        "topic": "",
+        "x": 150,
+        "y": 160,
         "wires": [
             [
-                "75e8b6ed.bbaf3",
-                "a3051fc3.7a041",
-                "16a0d5ee.760892",
-                "ab666996.72d178"
+                "5678907c.6f87b"
             ]
         ]
     },
@@ -26406,7 +26393,7 @@
         "createDir": false,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 730,
+        "x": 670,
         "y": 80,
         "wires": [
             []
@@ -26474,7 +26461,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "' - managedFileId: ' & managedFileId & ' - payload: ' & payload",
+                "to": "topic & ' - managedFileId: ' & managedFileId & ' - payload: ' & payload",
                 "tot": "jsonata"
             }
         ],
@@ -26483,12 +26470,11 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 950,
-        "y": 360,
+        "x": 930,
+        "y": 460,
         "wires": [
             [
-                "f72d7bf7.4cdbf8",
-                "2c06534d.4bfb44"
+                "d7fd6bb8.c729e"
             ]
         ]
     },
@@ -26502,8 +26488,13 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "' (after download) filename: ' & filename & ' - payload present: ' & $exists(payload) & ' - headers: ' &\t headers\t",
+                "to": "topic & ' (after download) filename: ' & filename & ' - payload present: ' & $exists(payload) & ' - headers: ' &\t headers\t",
                 "tot": "jsonata"
+            },
+            {
+                "t": "delete",
+                "p": "headers",
+                "pt": "msg"
             }
         ],
         "action": "",
@@ -26511,30 +26502,13 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 950,
-        "y": 400,
+        "x": 930,
+        "y": 500,
         "wires": [
             [
-                "f72d7bf7.4cdbf8",
-                "2c06534d.4bfb44"
+                "d7fd6bb8.c729e"
             ]
         ]
-    },
-    {
-        "id": "f72d7bf7.4cdbf8",
-        "type": "debug",
-        "z": "aa6fd619.ba432",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1130,
-        "y": 360,
-        "wires": []
     },
     {
         "id": "2c06534d.4bfb44",
@@ -26542,11 +26516,11 @@
         "z": "aa6fd619.ba432",
         "name": "",
         "env": [],
-        "x": 1150,
-        "y": 400,
+        "x": 1270,
+        "y": 460,
         "wires": [
             [
-                "606487a9.4c3e5"
+                "b8e84d9e.7b1fb"
             ]
         ]
     },
@@ -26554,7 +26528,7 @@
         "id": "a2d7dcf3.24cde",
         "type": "change",
         "z": "ed7a5e42.4bcee8",
-        "name": "prepend payload with date and topic",
+        "name": "prepend payload with date",
         "rules": [
             {
                 "t": "set",
@@ -26567,7 +26541,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "time & topic & payload",
+                "to": "time & '\\n' & payload",
                 "tot": "jsonata"
             }
         ],
@@ -26576,7 +26550,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 270,
+        "x": 240,
         "y": 80,
         "wires": [
             [
@@ -26589,21 +26563,195 @@
         "type": "function",
         "z": "ed7a5e42.4bcee8",
         "name": "create filename",
-        "func": "var filepath = flow.get(\"$parent.filepath\");\nvar maintopic = flow.get(\"$parent.maintopic\");\nmsg.filename = filepath + maintopic + \".txt\";\nreturn msg;",
+        "func": "var filepath = flow.get(\"$parent.filepath\");\nvar maintopic = flow.get(\"$parent.maintopic\");\nmsg.maintopic = maintopic;\nmsg.filename = filepath + maintopic + \".txt\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 540,
+        "x": 480,
         "y": 80,
         "wires": [
             [
-                "70531984.393878"
+                "70531984.393878",
+                "c4d3c184.3ff9b"
             ]
         ]
     },
     {
-        "id": "606487a9.4c3e5",
+        "id": "bf4579c7.47d308",
+        "type": "change",
+        "z": "aa6fd619.ba432",
+        "name": "set csv file path",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "C:\\ProgramData\\Objectif Lune\\.node-red\\projects\\OLC-NR-TEST\\files\\base\\base.csv",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "topic & '-csvfile'",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 460,
+        "wires": [
+            [
+                "1eba0921.85ed4f"
+            ]
+        ]
+    },
+    {
+        "id": "1eba0921.85ed4f",
+        "type": "olcnr-file-upload",
+        "z": "aa6fd619.ba432",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "",
+        "fileDuration": "temporary",
+        "name": "",
+        "x": 570,
+        "y": 460,
+        "wires": [
+            [
+                "3b223fb0.f2279",
+                "3ae44876.27df88"
+            ]
+        ]
+    },
+    {
+        "id": "3b223fb0.f2279",
+        "type": "olcnr-file-download",
+        "z": "aa6fd619.ba432",
+        "connect_server": "3c2c110.e9ac1f",
+        "managedFileId": "",
+        "name": "",
+        "outputType": "buffer",
+        "x": 750,
+        "y": 500,
+        "wires": [
+            [
+                "733c10c3.d506a"
+            ]
+        ]
+    },
+    {
+        "id": "45523837.8ea2e8",
+        "type": "http in",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "url": "/fullpath-temporary",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 390,
+        "y": 160,
+        "wires": [
+            [
+                "5678907c.6f87b"
+            ]
+        ]
+    },
+    {
+        "id": "5678907c.6f87b",
+        "type": "change",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "fullpath-temporary",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 130,
+        "y": 220,
+        "wires": [
+            [
+                "75e8b6ed.bbaf3",
+                "a3051fc3.7a041",
+                "16a0d5ee.760892",
+                "ab666996.72d178",
+                "bf4579c7.47d308"
+            ]
+        ]
+    },
+    {
+        "id": "d7fd6bb8.c729e",
+        "type": "join",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "mode": "custom",
+        "build": "string",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "10",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 1090,
+        "y": 460,
+        "wires": [
+            [
+                "2c06534d.4bfb44"
+            ]
+        ]
+    },
+    {
+        "id": "c4d3c184.3ff9b",
+        "type": "template",
+        "z": "ed7a5e42.4bcee8",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "<html>\n    <head><title>Test flow result</title></head>\n    <body>\n        <h1>The test flow <strong>{{maintopic}}</strong> has been executed</h1>\n        <p>This is the result:</p>\n        <pre>{{{payload}}}</pre>\n        <p>This result is stored in <code>{{{filename}}}</code></p>\n    </body>\n</html>",
+        "output": "str",
+        "x": 660,
+        "y": 120,
+        "wires": [
+            [
+                "7caf8947.2e1108"
+            ]
+        ]
+    },
+    {
+        "id": "7caf8947.2e1108",
+        "type": "http response",
+        "z": "ed7a5e42.4bcee8",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 830,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "b8e84d9e.7b1fb",
         "type": "debug",
         "z": "aa6fd619.ba432",
         "name": "",
@@ -26611,12 +26759,44 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "filename",
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1230,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "46fcd4fa.1d51d4",
+        "type": "catch",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 1100,
+        "y": 380,
+        "wires": [
+            [
+                "b61c2aa.7d6db58"
+            ]
+        ]
+    },
+    {
+        "id": "b61c2aa.7d6db58",
+        "type": "debug",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "error",
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1130,
-        "y": 440,
+        "x": 1260,
+        "y": 380,
         "wires": []
     }
 ]
