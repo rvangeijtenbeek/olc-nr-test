@@ -129,7 +129,7 @@
         "id": "ed7a5e42.4bcee8",
         "type": "subflow",
         "name": "store test results",
-        "info": "This subflow stores test result data in a text file.\n\n## Inputs\n\n - flow.filepath (for the file path)\n - flow.maintopic (for the file name)\n - msg.payload (containing the test results)\n",
+        "info": "This subflow stores the test result data in a text file.\n\n## Inputs\n\n - flow.filepath (for the file path)\n - flow.maintopic (for the file name)\n - msg.topic (for the test name)\n - msg.payload (for the test results)\n\n## Outputs\n - msg.filename (the full file name of the test results file)\n - msg.payload (the test results prepended with datetime and topic)\n",
         "category": "",
         "in": [
             {
@@ -137,12 +137,23 @@
                 "y": 80,
                 "wires": [
                     {
-                        "id": "e3f3246d.befca"
+                        "id": "a2d7dcf3.24cde"
                     }
                 ]
             }
         ],
-        "out": [],
+        "out": [
+            {
+                "x": 880,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "70531984.393878",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
         "env": [
             {
                 "name": "one",
@@ -1472,7 +1483,7 @@
         "fileDuration": "temporary",
         "name": "",
         "x": 590,
-        "y": 220,
+        "y": 240,
         "wires": [
             [
                 "bef26ee5.88f3d8",
@@ -1489,7 +1500,7 @@
         "fileDuration": "temporary",
         "name": "",
         "x": 590,
-        "y": 140,
+        "y": 180,
         "wires": [
             [
                 "a5fd2b9b.c64f5",
@@ -1511,29 +1522,6 @@
             [
                 "fc91dcf0.9875a",
                 "3ae44876.27df88"
-            ]
-        ]
-    },
-    {
-        "id": "635125c.0e0f15c",
-        "type": "inject",
-        "z": "aa6fd619.ba432",
-        "d": true,
-        "name": "",
-        "props": [],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 110,
-        "y": 140,
-        "wires": [
-            [
-                "75e8b6ed.bbaf3",
-                "a3051fc3.7a041",
-                "16a0d5ee.760892",
-                "ab666996.72d178"
             ]
         ]
     },
@@ -1564,7 +1552,7 @@
         "to": "",
         "reg": false,
         "x": 370,
-        "y": 140,
+        "y": 180,
         "wires": [
             [
                 "3a850f13.7da8c8"
@@ -1598,7 +1586,7 @@
         "to": "",
         "reg": false,
         "x": 380,
-        "y": 220,
+        "y": 240,
         "wires": [
             [
                 "c891b875.caa45"
@@ -1648,7 +1636,7 @@
         "fileDuration": "temporary",
         "name": "",
         "x": 590,
-        "y": 380,
+        "y": 360,
         "wires": [
             [
                 "5faff1c6.5d802",
@@ -1683,22 +1671,12 @@
         "to": "",
         "reg": false,
         "x": 340,
-        "y": 380,
+        "y": 360,
         "wires": [
             [
                 "4c0b5df9.ea4cdc"
             ]
         ]
-    },
-    {
-        "id": "e4168f90.f91b4",
-        "type": "comment",
-        "z": "aa6fd619.ba432",
-        "name": "full path temp",
-        "info": "",
-        "x": 130,
-        "y": 100,
-        "wires": []
     },
     {
         "id": "432088ab.5bb048",
@@ -1709,7 +1687,7 @@
         "fileDuration": "temporary",
         "name": "upload dmconfig",
         "x": 570,
-        "y": 600,
+        "y": 700,
         "wires": [
             [
                 "17e9bc07.4f03e4",
@@ -1726,7 +1704,7 @@
         "fileDuration": "temporary",
         "name": "upload template",
         "x": 560,
-        "y": 520,
+        "y": 620,
         "wires": [
             [
                 "8ef71095.676658",
@@ -1743,7 +1721,7 @@
         "fileDuration": "temporary",
         "name": "upload data file",
         "x": 560,
-        "y": 680,
+        "y": 780,
         "wires": [
             [
                 "31ef1871.95ebc8",
@@ -1764,7 +1742,7 @@
         "topic": "",
         "payloadType": "str",
         "x": 110,
-        "y": 520,
+        "y": 620,
         "wires": [
             [
                 "953709e.c0fc878",
@@ -1794,7 +1772,7 @@
         "to": "",
         "reg": false,
         "x": 350,
-        "y": 520,
+        "y": 620,
         "wires": [
             [
                 "908889ce.b1a2e"
@@ -1821,7 +1799,7 @@
         "to": "",
         "reg": false,
         "x": 350,
-        "y": 600,
+        "y": 700,
         "wires": [
             [
                 "432088ab.5bb048"
@@ -1848,7 +1826,7 @@
         "to": "",
         "reg": false,
         "x": 350,
-        "y": 680,
+        "y": 780,
         "wires": [
             [
                 "311f2ab4.0633d6"
@@ -1862,7 +1840,7 @@
         "name": ".OL-template file",
         "info": "",
         "x": 340,
-        "y": 480,
+        "y": 580,
         "wires": []
     },
     {
@@ -1872,7 +1850,7 @@
         "name": ".OL-datamapper file",
         "info": "",
         "x": 350,
-        "y": 560,
+        "y": 660,
         "wires": []
     },
     {
@@ -1882,7 +1860,7 @@
         "name": ".xml file",
         "info": "",
         "x": 310,
-        "y": 640,
+        "y": 740,
         "wires": []
     },
     {
@@ -1894,7 +1872,7 @@
         "fileDuration": "temporary",
         "name": "upload data file",
         "x": 560,
-        "y": 760,
+        "y": 860,
         "wires": [
             [
                 "1c83aa71.35588e",
@@ -1922,7 +1900,7 @@
         "to": "",
         "reg": false,
         "x": 350,
-        "y": 760,
+        "y": 860,
         "wires": [
             [
                 "56ec57d0.9c0348"
@@ -1936,7 +1914,7 @@
         "name": ".zip file",
         "info": "",
         "x": 310,
-        "y": 720,
+        "y": 820,
         "wires": []
     },
     {
@@ -1946,7 +1924,7 @@
         "name": "workdir path temp",
         "info": "",
         "x": 150,
-        "y": 480,
+        "y": 580,
         "wires": []
     },
     {
@@ -1958,7 +1936,7 @@
         "fileDuration": "temporary",
         "name": "upload dmconfig",
         "x": 570,
-        "y": 980,
+        "y": 1120,
         "wires": [
             [
                 "ce7f5144.02b3e8",
@@ -1975,7 +1953,7 @@
         "fileDuration": "temporary",
         "name": "upload template",
         "x": 560,
-        "y": 900,
+        "y": 1040,
         "wires": [
             [
                 "c44e0e2e.b6772",
@@ -1992,7 +1970,7 @@
         "fileDuration": "temporary",
         "name": "upload data file",
         "x": 560,
-        "y": 1060,
+        "y": 1200,
         "wires": [
             [
                 "fd5ce965.4dcb58",
@@ -2012,7 +1990,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 110,
-        "y": 900,
+        "y": 1040,
         "wires": [
             [
                 "b80469d1.c2bb98",
@@ -2042,7 +2020,7 @@
         "to": "",
         "reg": false,
         "x": 350,
-        "y": 900,
+        "y": 1040,
         "wires": [
             [
                 "575d8015.f40e68"
@@ -2069,7 +2047,7 @@
         "to": "",
         "reg": false,
         "x": 350,
-        "y": 980,
+        "y": 1120,
         "wires": [
             [
                 "6850505b.7c758"
@@ -2096,7 +2074,7 @@
         "to": "",
         "reg": false,
         "x": 350,
-        "y": 1060,
+        "y": 1200,
         "wires": [
             [
                 "1a605cdd.f11e93"
@@ -2110,7 +2088,7 @@
         "name": ".OL-template file",
         "info": "",
         "x": 340,
-        "y": 860,
+        "y": 1000,
         "wires": []
     },
     {
@@ -2120,7 +2098,7 @@
         "name": ".OL-datamapper file",
         "info": "",
         "x": 350,
-        "y": 940,
+        "y": 1080,
         "wires": []
     },
     {
@@ -2130,7 +2108,7 @@
         "name": ".xml file",
         "info": "",
         "x": 310,
-        "y": 1020,
+        "y": 1160,
         "wires": []
     },
     {
@@ -2142,7 +2120,7 @@
         "fileDuration": "temporary",
         "name": "upload data file",
         "x": 560,
-        "y": 1140,
+        "y": 1280,
         "wires": [
             [
                 "139facff.6e477b",
@@ -2170,7 +2148,7 @@
         "to": "",
         "reg": false,
         "x": 350,
-        "y": 1140,
+        "y": 1280,
         "wires": [
             [
                 "fafed0be.d0198"
@@ -2184,7 +2162,7 @@
         "name": ".zip file",
         "info": "",
         "x": 310,
-        "y": 1100,
+        "y": 1240,
         "wires": []
     },
     {
@@ -2194,7 +2172,7 @@
         "name": "project path, temp",
         "info": "",
         "x": 150,
-        "y": 860,
+        "y": 1000,
         "wires": []
     },
     {
@@ -5448,7 +5426,7 @@
         "name": "",
         "outputType": "buffer",
         "x": 770,
-        "y": 140,
+        "y": 180,
         "wires": [
             [
                 "733c10c3.d506a"
@@ -5464,7 +5442,7 @@
         "name": "",
         "outputType": "buffer",
         "x": 770,
-        "y": 220,
+        "y": 240,
         "wires": [
             [
                 "733c10c3.d506a"
@@ -5496,7 +5474,7 @@
         "name": "",
         "outputType": "buffer",
         "x": 770,
-        "y": 380,
+        "y": 360,
         "wires": [
             [
                 "733c10c3.d506a"
@@ -5512,7 +5490,7 @@
         "name": "",
         "outputType": "buffer",
         "x": 770,
-        "y": 560,
+        "y": 660,
         "wires": [
             [
                 "4507e9d8.82d7e"
@@ -5528,7 +5506,7 @@
         "name": "",
         "outputType": "buffer",
         "x": 770,
-        "y": 640,
+        "y": 740,
         "wires": [
             [
                 "86359abc.946f08"
@@ -5544,7 +5522,7 @@
         "name": "",
         "outputType": "buffer",
         "x": 770,
-        "y": 720,
+        "y": 820,
         "wires": [
             [
                 "a68c220.6bf87e"
@@ -5560,7 +5538,7 @@
         "name": "",
         "outputType": "buffer",
         "x": 770,
-        "y": 800,
+        "y": 900,
         "wires": [
             [
                 "8996eaf7.ca615"
@@ -5576,7 +5554,7 @@
         "name": "",
         "outputType": "buffer",
         "x": 770,
-        "y": 940,
+        "y": 1080,
         "wires": [
             [
                 "3ae0da.766aff26"
@@ -5592,7 +5570,7 @@
         "name": "",
         "outputType": "buffer",
         "x": 770,
-        "y": 1020,
+        "y": 1160,
         "wires": [
             [
                 "6d7c7b.a453b384"
@@ -5608,7 +5586,7 @@
         "name": "",
         "outputType": "buffer",
         "x": 770,
-        "y": 1100,
+        "y": 1240,
         "wires": [
             [
                 "9244d19f.555e88"
@@ -5624,7 +5602,7 @@
         "name": "",
         "outputType": "buffer",
         "x": 770,
-        "y": 1180,
+        "y": 1320,
         "wires": [
             [
                 "c3895f1.7bb6c2"
@@ -25432,7 +25410,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 760,
-        "y": 520,
+        "y": 620,
         "wires": []
     },
     {
@@ -25449,7 +25427,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 940,
-        "y": 560,
+        "y": 660,
         "wires": []
     },
     {
@@ -25466,7 +25444,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 760,
-        "y": 600,
+        "y": 700,
         "wires": []
     },
     {
@@ -25483,7 +25461,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 940,
-        "y": 640,
+        "y": 740,
         "wires": []
     },
     {
@@ -25500,7 +25478,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 760,
-        "y": 680,
+        "y": 780,
         "wires": []
     },
     {
@@ -25517,7 +25495,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 940,
-        "y": 720,
+        "y": 820,
         "wires": []
     },
     {
@@ -25534,7 +25512,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 760,
-        "y": 760,
+        "y": 860,
         "wires": []
     },
     {
@@ -25551,7 +25529,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 940,
-        "y": 800,
+        "y": 900,
         "wires": []
     },
     {
@@ -25568,7 +25546,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 760,
-        "y": 900,
+        "y": 1040,
         "wires": []
     },
     {
@@ -25585,7 +25563,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 940,
-        "y": 940,
+        "y": 1080,
         "wires": []
     },
     {
@@ -25602,7 +25580,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 760,
-        "y": 980,
+        "y": 1120,
         "wires": []
     },
     {
@@ -25619,7 +25597,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 940,
-        "y": 1020,
+        "y": 1160,
         "wires": []
     },
     {
@@ -25636,7 +25614,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 760,
-        "y": 1060,
+        "y": 1200,
         "wires": []
     },
     {
@@ -25653,7 +25631,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 940,
-        "y": 1100,
+        "y": 1240,
         "wires": []
     },
     {
@@ -25670,7 +25648,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 760,
-        "y": 1140,
+        "y": 1280,
         "wires": []
     },
     {
@@ -25687,7 +25665,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 940,
-        "y": 1180,
+        "y": 1320,
         "wires": []
     },
     {
@@ -26390,7 +26368,7 @@
         "id": "40bd197e.a8d7e8",
         "type": "inject",
         "z": "aa6fd619.ba432",
-        "name": "start test 1",
+        "name": "start full path test",
         "props": [
             {
                 "p": "timeStart",
@@ -26407,9 +26385,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "fullpath-temporary",
-        "payloadType": "str",
-        "x": 110,
-        "y": 220,
+        "x": 140,
+        "y": 180,
         "wires": [
             [
                 "75e8b6ed.bbaf3",
@@ -26429,7 +26406,7 @@
         "createDir": false,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 370,
+        "x": 730,
         "y": 80,
         "wires": [
             []
@@ -26439,7 +26416,7 @@
         "id": "67142369.9469fc",
         "type": "change",
         "z": "aa6fd619.ba432",
-        "name": "setup flow variables",
+        "name": "flow variables for results file",
         "rules": [
             {
                 "t": "set",
@@ -26452,7 +26429,7 @@
                 "t": "set",
                 "p": "maintopic",
                 "pt": "flow",
-                "to": "file_upload",
+                "to": "file_upload-filename",
                 "tot": "str"
             }
         ],
@@ -26461,8 +26438,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 580,
-        "y": 40,
+        "x": 380,
+        "y": 100,
         "wires": [
             []
         ]
@@ -26479,52 +26456,11 @@
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "str",
-        "x": 340,
-        "y": 40,
+        "x": 140,
+        "y": 100,
         "wires": [
             [
                 "67142369.9469fc"
-            ]
-        ]
-    },
-    {
-        "id": "e3f3246d.befca",
-        "type": "change",
-        "z": "ed7a5e42.4bcee8",
-        "name": "set filename",
-        "rules": [
-            {
-                "t": "set",
-                "p": "filepath",
-                "pt": "msg",
-                "to": "filepath",
-                "tot": "flow"
-            },
-            {
-                "t": "set",
-                "p": "file",
-                "pt": "msg",
-                "to": "maintopic",
-                "tot": "flow"
-            },
-            {
-                "t": "set",
-                "p": "filename",
-                "pt": "msg",
-                "to": "filepath & file & '.txt'",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 190,
-        "y": 80,
-        "wires": [
-            [
-                "70531984.393878"
             ]
         ]
     },
@@ -26536,16 +26472,9 @@
         "rules": [
             {
                 "t": "set",
-                "p": "time",
-                "pt": "msg",
-                "to": "'[' & $now('[Y0001]-[M01]-[D01]T[H01]:[m01]:[s01][Z]', '-0500') & '] '",
-                "tot": "jsonata"
-            },
-            {
-                "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "time & topic & ' - managedFileId: ' & managedFileId & ' - payload: ' & payload",
+                "to": "' - managedFileId: ' & managedFileId & ' - payload: ' & payload",
                 "tot": "jsonata"
             }
         ],
@@ -26555,7 +26484,7 @@
         "to": "",
         "reg": false,
         "x": 950,
-        "y": 180,
+        "y": 360,
         "wires": [
             [
                 "f72d7bf7.4cdbf8",
@@ -26571,16 +26500,9 @@
         "rules": [
             {
                 "t": "set",
-                "p": "time",
-                "pt": "msg",
-                "to": "'[' & $now('[Y0001]-[M01]-[D01]T[H01]:[m01]:[s01][Z]', '-0500') & '] '",
-                "tot": "jsonata"
-            },
-            {
-                "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "time & topic & ' (after download) filename: ' & filename & ' - payload present: ' & $exists(payload) & ' - headers: ' &\t headers\t",
+                "to": "' (after download) filename: ' & filename & ' - payload present: ' & $exists(payload) & ' - headers: ' &\t headers\t",
                 "tot": "jsonata"
             }
         ],
@@ -26590,7 +26512,7 @@
         "to": "",
         "reg": false,
         "x": 950,
-        "y": 220,
+        "y": 400,
         "wires": [
             [
                 "f72d7bf7.4cdbf8",
@@ -26611,7 +26533,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1130,
-        "y": 220,
+        "y": 360,
         "wires": []
     },
     {
@@ -26620,8 +26542,81 @@
         "z": "aa6fd619.ba432",
         "name": "",
         "env": [],
-        "x": 1190,
-        "y": 120,
+        "x": 1150,
+        "y": 400,
+        "wires": [
+            [
+                "606487a9.4c3e5"
+            ]
+        ]
+    },
+    {
+        "id": "a2d7dcf3.24cde",
+        "type": "change",
+        "z": "ed7a5e42.4bcee8",
+        "name": "prepend payload with date and topic",
+        "rules": [
+            {
+                "t": "set",
+                "p": "time",
+                "pt": "msg",
+                "to": "'[' & $now('[Y0001]-[M01]-[D01]T[H01]:[m01]:[s01][Z]', '+0100') & '] '",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "time & topic & payload",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 270,
+        "y": 80,
+        "wires": [
+            [
+                "4f2f399a.5d04d8"
+            ]
+        ]
+    },
+    {
+        "id": "4f2f399a.5d04d8",
+        "type": "function",
+        "z": "ed7a5e42.4bcee8",
+        "name": "create filename",
+        "func": "var filepath = flow.get(\"$parent.filepath\");\nvar maintopic = flow.get(\"$parent.maintopic\");\nmsg.filename = filepath + maintopic + \".txt\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 540,
+        "y": 80,
+        "wires": [
+            [
+                "70531984.393878"
+            ]
+        ]
+    },
+    {
+        "id": "606487a9.4c3e5",
+        "type": "debug",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "filename",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1130,
+        "y": 440,
         "wires": []
     }
 ]
