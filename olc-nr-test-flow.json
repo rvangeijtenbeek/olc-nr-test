@@ -164,6 +164,120 @@
         "name": "My OLC"
     },
     {
+        "id": "d6650e34.82a048",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "e9d3b4e2.d120b8",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "d6650e34.82a048",
+        "order": 1,
+        "disp": true,
+        "width": "12",
+        "collapse": false
+    },
+    {
+        "id": "ba02199d.83954",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
         "id": "1dcd722.f262a0e",
         "type": "inject",
         "z": "6db61924.bfbfa8",
@@ -26375,6 +26489,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
+        "payloadType": "str",
         "x": 150,
         "y": 160,
         "wires": [
@@ -26425,8 +26540,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 380,
-        "y": 100,
+        "x": 560,
+        "y": 80,
         "wires": [
             []
         ]
@@ -26443,8 +26558,8 @@
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "str",
-        "x": 140,
-        "y": 100,
+        "x": 320,
+        "y": 40,
         "wires": [
             [
                 "67142369.9469fc"
@@ -26520,7 +26635,8 @@
         "y": 460,
         "wires": [
             [
-                "b8e84d9e.7b1fb"
+                "b8e84d9e.7b1fb",
+                "4e59fbae.31fb84"
             ]
         ]
     },
@@ -26653,8 +26769,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 390,
-        "y": 160,
+        "x": 170,
+        "y": 120,
         "wires": [
             [
                 "5678907c.6f87b"
@@ -26774,11 +26890,12 @@
         "name": "",
         "scope": null,
         "uncaught": false,
-        "x": 1100,
-        "y": 380,
+        "x": 980,
+        "y": 340,
         "wires": [
             [
-                "b61c2aa.7d6db58"
+                "b61c2aa.7d6db58",
+                "71adbac9.57463c"
             ]
         ]
     },
@@ -26795,8 +26912,78 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1260,
-        "y": 380,
+        "x": 1240,
+        "y": 340,
         "wires": []
+    },
+    {
+        "id": "4e59fbae.31fb84",
+        "type": "ui_text",
+        "z": "aa6fd619.ba432",
+        "group": "e9d3b4e2.d120b8",
+        "order": 0,
+        "width": "12",
+        "height": "9",
+        "name": "Show debug data",
+        "label": "Debug data",
+        "format": "<pre>{{msg.payload}}</pre><br><p>Debug data has been saved to {{msg.filename}}</p>",
+        "layout": "col-center",
+        "x": 1270,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "7eb26028.8ad678",
+        "type": "ui_button",
+        "z": "aa6fd619.ba432",
+        "name": "UI button to start the full path test",
+        "group": "e9d3b4e2.d120b8",
+        "order": 1,
+        "width": "6",
+        "height": "1",
+        "passthru": false,
+        "label": "Start the full path tests for 'file upload'",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 200,
+        "y": 80,
+        "wires": [
+            [
+                "67142369.9469fc",
+                "5678907c.6f87b"
+            ]
+        ]
+    },
+    {
+        "id": "71adbac9.57463c",
+        "type": "change",
+        "z": "aa6fd619.ba432",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "error",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1000,
+        "y": 380,
+        "wires": [
+            [
+                "4e59fbae.31fb84"
+            ]
+        ]
     }
 ]
