@@ -3,8 +3,8 @@
     "description": "Testing OL Connect nodes for Node-RED",
     "version": "0.0.1",
     "dependencies": {
-        "node-red-contrib-ol-connect": "0.1.152",
-        "node-red-dashboard": "2.23.4"
+        "node-red-dashboard": "2.23.4",
+        "@objectif-lune/node-red-contrib-connect": "0.9.2"
     },
     "node-red": {
         "settings": {
