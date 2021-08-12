@@ -264,7 +264,8 @@
                 "primary": "indigo",
                 "accents": "blue",
                 "warn": "red",
-                "background": "grey"
+                "background": "grey",
+                "palette": "light"
             }
         },
         "site": {
@@ -5200,6 +5201,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
+        "payloadType": "str",
         "x": 150,
         "y": 540,
         "wires": [
@@ -10153,11 +10155,11 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 150,
-        "y": 420,
+        "y": 620,
         "wires": [
             [
-                "5224df60.187e48",
-                "5f2d7a94.fb56ac"
+                "5f2d7a94.fb56ac",
+                "81a475d4.1ff558"
             ]
         ]
     },
@@ -10167,12 +10169,12 @@
         "z": "df200617.1e584",
         "connect_server": "3c2c110.e9ac1f",
         "template": "",
-        "x": 550,
-        "y": 420,
+        "x": 830,
+        "y": 620,
         "wires": [
             [
-                "7a30c86c.7e952",
-                "4ac71a11.e270ac"
+                "4ac71a11.e270ac",
+                "7a30c86c.7e952"
             ]
         ]
     },
@@ -10185,8 +10187,8 @@
         "headers": {
             "content-type": "application/pdf"
         },
-        "x": 710,
-        "y": 420,
+        "x": 990,
+        "y": 580,
         "wires": []
     },
     {
@@ -10199,11 +10201,12 @@
         "createDir": true,
         "overwriteFile": "true",
         "encoding": "none",
-        "x": 740,
-        "y": 460,
+        "x": 1040,
+        "y": 620,
         "wires": [
             [
-                "2d06602a.2ab9a"
+                "2d06602a.2ab9a",
+                "e7ff66d0.200d58"
             ]
         ]
     },
@@ -10215,12 +10218,12 @@
         "filename": "files\\Superhero-card.OL-template",
         "fileDuration": "temporary",
         "name": "upload template",
-        "x": 280,
-        "y": 220,
+        "x": 480,
+        "y": 420,
         "wires": [
             [
-                "bd676225.cdce9",
-                "2cb65904.8f23e6"
+                "2cb65904.8f23e6",
+                "bd676225.cdce9"
             ]
         ]
     },
@@ -10228,15 +10231,15 @@
         "id": "f4779bec.de02d",
         "type": "inject",
         "z": "df200617.1e584",
-        "name": "",
+        "name": "Upload test documents and data",
         "props": [],
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 110,
-        "y": 140,
+        "x": 190,
+        "y": 340,
         "wires": [
             [
                 "37af67fe.e67d5",
@@ -10259,8 +10262,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 690,
-        "y": 260,
+        "x": 890,
+        "y": 460,
         "wires": []
     },
     {
@@ -10270,7 +10273,7 @@
         "name": "produce Preview PDF to return & save",
         "info": "",
         "x": 210,
-        "y": 380,
+        "y": 580,
         "wires": []
     },
     {
@@ -10290,7 +10293,7 @@
                 "t": "set",
                 "p": "filename",
                 "pt": "msg",
-                "to": "'C:\\\\nr\\\\output\\\\birthday-' & timeStart & '.pdf'",
+                "to": "'C:\\\\nr\\\\output\\\\' & maintopic & '\\\\' & topic & '-birthday-' & timeStart & '.pdf'",
                 "tot": "jsonata"
             },
             {
@@ -10299,6 +10302,13 @@
                 "pt": "msg",
                 "to": "templateSuperhero",
                 "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"first\":\"I was here\"}",
+                "tot": "json"
             }
         ],
         "action": "",
@@ -10306,11 +10316,12 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 360,
-        "y": 420,
+        "x": 640,
+        "y": 620,
         "wires": [
             [
-                "a6d12d72.bdf41"
+                "a6d12d72.bdf41",
+                "3c0acd66.d47402"
             ]
         ]
     },
@@ -10320,8 +10331,8 @@
         "z": "df200617.1e584",
         "connect_server": "3c2c110.e9ac1f",
         "template": "",
-        "x": 270,
-        "y": 580,
+        "x": 610,
+        "y": 780,
         "wires": [
             [
                 "a7e4113f.10dfd"
@@ -10338,11 +10349,12 @@
         "createDir": false,
         "overwriteFile": "true",
         "encoding": "none",
-        "x": 460,
-        "y": 580,
+        "x": 800,
+        "y": 780,
         "wires": [
             [
-                "fd034820.60a468"
+                "fd034820.60a468",
+                "44181515.5f874c"
             ]
         ]
     },
@@ -10350,39 +10362,18 @@
         "id": "b17b428f.bb871",
         "type": "inject",
         "z": "df200617.1e584",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "timeStart",
-                "v": "",
-                "vt": "date"
-            },
-            {
-                "p": "filename",
-                "v": "'C:\\\\nr\\\\output\\\\json-in-' & timeStart & '.pdf'",
-                "vt": "jsonata"
-            },
-            {
-                "p": "template",
-                "v": "templateSuperhero",
-                "vt": "flow"
-            }
-        ],
+        "name": "Start JSON as payload test",
+        "props": [],
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "{\"first\":\"Rijk was here\"}",
-        "payloadType": "json",
-        "x": 110,
-        "y": 580,
+        "x": 170,
+        "y": 780,
         "wires": [
             [
-                "ab8d3cc1.0acd38"
+                "58ba1e18.23d18"
             ]
         ]
     },
@@ -10392,8 +10383,8 @@
         "z": "df200617.1e584",
         "name": "trigger by loading http://127.0.0.1:1881/happybirthday?first=MyName",
         "info": "",
-        "x": 310,
-        "y": 340,
+        "x": 300,
+        "y": 540,
         "wires": []
     },
     {
@@ -10403,7 +10394,7 @@
         "name": "with JSON object as payload",
         "info": "",
         "x": 180,
-        "y": 540,
+        "y": 740,
         "wires": []
     },
     {
@@ -15055,11 +15046,12 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 350,
-        "y": 460,
+        "x": 410,
+        "y": 660,
         "wires": []
     },
     {
@@ -15086,40 +15078,19 @@
         "id": "93550787.f583a8",
         "type": "inject",
         "z": "df200617.1e584",
-        "name": "",
-        "props": [
-            {
-                "p": "manageFileId",
-                "v": "dataFile",
-                "vt": "flow"
-            },
-            {
-                "p": "template",
-                "v": "template",
-                "vt": "flow"
-            },
-            {
-                "p": "dmConfiguration",
-                "v": "dmConfiguration",
-                "vt": "flow"
-            },
-            {
-                "p": "parameters",
-                "v": "{\"cc_param1\":\"CCParamIsSet\",\"dm_param1\":\"DmParamIsSet\"}",
-                "vt": "json"
-            }
-        ],
+        "name": "Start datamap and parameter test",
+        "props": [],
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "str",
-        "x": 110,
-        "y": 700,
+        "x": 190,
+        "y": 900,
         "wires": [
             [
-                "13d4c6ca.f4a5c9"
+                "e8ac72f1.7c374"
             ]
         ]
     },
@@ -15131,8 +15102,8 @@
         "dmConfiguration": "",
         "active": false,
         "name": "",
-        "x": 280,
-        "y": 700,
+        "x": 640,
+        "y": 900,
         "wires": [
             [
                 "cc785c3f.d08fc8"
@@ -15145,11 +15116,11 @@
         "z": "df200617.1e584",
         "connect_server": "3c2c110.e9ac1f",
         "template": "",
-        "x": 830,
-        "y": 700,
+        "x": 1190,
+        "y": 900,
         "wires": [
             [
-                "d889d0a6.318cf8"
+                "4365aa69.89f2f4"
             ]
         ]
     },
@@ -15163,8 +15134,8 @@
         "details": "false",
         "outputJSON": "full",
         "name": "",
-        "x": 460,
-        "y": 700,
+        "x": 820,
+        "y": 900,
         "wires": [
             [
                 "ed5a1cf6.ec0a28"
@@ -15190,8 +15161,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 640,
-        "y": 700,
+        "x": 1000,
+        "y": 900,
         "wires": [
             [
                 "fc2ae3fa.24155"
@@ -15208,36 +15179,11 @@
         "createDir": true,
         "overwriteFile": "true",
         "encoding": "none",
-        "x": 1020,
-        "y": 740,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "d889d0a6.318cf8",
-        "type": "change",
-        "z": "df200617.1e584",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "filename",
-                "pt": "msg",
-                "to": "'C:\\\\nr\\\\output\\\\' & $millis() & '.pdf'",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1030,
-        "y": 700,
+        "x": 1380,
+        "y": 900,
         "wires": [
             [
-                "4365aa69.89f2f4"
+                "2a135c3d.2d2a64"
             ]
         ]
     },
@@ -15249,8 +15195,8 @@
         "dmConfiguration": "",
         "active": false,
         "name": "",
-        "x": 280,
-        "y": 840,
+        "x": 640,
+        "y": 1040,
         "wires": [
             [
                 "73a1941f.8a1174"
@@ -15263,8 +15209,8 @@
         "z": "df200617.1e584",
         "connect_server": "3c2c110.e9ac1f",
         "template": "",
-        "x": 830,
-        "y": 840,
+        "x": 1190,
+        "y": 1040,
         "wires": [
             [
                 "acd13019.20dbb"
@@ -15281,8 +15227,8 @@
         "details": "false",
         "outputJSON": "full",
         "name": "",
-        "x": 460,
-        "y": 840,
+        "x": 820,
+        "y": 1040,
         "wires": [
             [
                 "df8e4727.31aab",
@@ -15300,7 +15246,7 @@
                 "t": "set",
                 "p": "dataRecordId",
                 "pt": "msg",
-                "to": "payload[0]",
+                "to": "payload[1]",
                 "tot": "msg"
             },
             {
@@ -15316,8 +15262,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 640,
-        "y": 840,
+        "x": 1000,
+        "y": 1040,
         "wires": [
             [
                 "8e0bec34.26ccf8"
@@ -15334,10 +15280,12 @@
         "createDir": false,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 1210,
-        "y": 840,
+        "x": 1570,
+        "y": 1040,
         "wires": [
-            []
+            [
+                "a7eeb3de.51def"
+            ]
         ]
     },
     {
@@ -15350,7 +15298,7 @@
                 "t": "set",
                 "p": "filename",
                 "pt": "msg",
-                "to": "'C:\\\\nr\\\\output\\\\dr-over-pl-1-' & $millis() & '.pdf'",
+                "to": "'C:\\\\nr\\\\output\\\\' & maintopic & '\\\\' & topic & '-invoice-' & timeStart & '_1.pdf'",
                 "tot": "jsonata"
             }
         ],
@@ -15359,8 +15307,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1030,
-        "y": 840,
+        "x": 1390,
+        "y": 1040,
         "wires": [
             [
                 "61329269.5c839c"
@@ -15375,6 +15323,13 @@
         "rules": [
             {
                 "t": "set",
+                "p": "temp",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
                 "p": "payload",
                 "pt": "msg",
                 "to": "payload[2]",
@@ -15384,7 +15339,7 @@
                 "t": "set",
                 "p": "dataRecordId",
                 "pt": "msg",
-                "to": "payload[1]",
+                "to": "temp[1]",
                 "tot": "msg"
             }
         ],
@@ -15393,8 +15348,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 640,
-        "y": 900,
+        "x": 1000,
+        "y": 1100,
         "wires": [
             [
                 "f7534f48.feac9"
@@ -15407,8 +15362,8 @@
         "z": "df200617.1e584",
         "connect_server": "3c2c110.e9ac1f",
         "template": "",
-        "x": 830,
-        "y": 900,
+        "x": 1190,
+        "y": 1100,
         "wires": [
             [
                 "a4f9c4.a23c164"
@@ -15425,7 +15380,7 @@
                 "t": "set",
                 "p": "filename",
                 "pt": "msg",
-                "to": "'C:\\\\nr\\\\output\\\\dr-over-pl-2-' & $millis() & '.pdf'",
+                "to": "'C:\\\\nr\\\\output\\\\' & maintopic & '\\\\' & topic & '-invoice-' & timeStart & '_2.pdf'",
                 "tot": "jsonata"
             }
         ],
@@ -15434,8 +15389,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1030,
-        "y": 900,
+        "x": 1390,
+        "y": 1100,
         "wires": [
             [
                 "5ed64688.bc8848"
@@ -15452,10 +15407,12 @@
         "createDir": false,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 1210,
-        "y": 900,
+        "x": 1570,
+        "y": 1100,
         "wires": [
-            []
+            [
+                "a7eeb3de.51def"
+            ]
         ]
     },
     {
@@ -15465,7 +15422,7 @@
         "name": "both PDFs should be from record 2",
         "info": "",
         "x": 1120,
-        "y": 800,
+        "y": 1000,
         "wires": []
     },
     {
@@ -15476,8 +15433,8 @@
         "dmConfiguration": "",
         "active": false,
         "name": "",
-        "x": 280,
-        "y": 1000,
+        "x": 680,
+        "y": 1200,
         "wires": [
             [
                 "9003c836.32a8a"
@@ -15494,8 +15451,8 @@
         "details": "false",
         "outputJSON": "full",
         "name": "",
-        "x": 460,
-        "y": 1000,
+        "x": 860,
+        "y": 1200,
         "wires": [
             [
                 "2de1d7ec.1a54e8",
@@ -15510,7 +15467,7 @@
         "name": "these should both return a server error",
         "info": "",
         "x": 1110,
-        "y": 960,
+        "y": 1160,
         "wires": []
     },
     {
@@ -15539,8 +15496,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 640,
-        "y": 1060,
+        "x": 1040,
+        "y": 1260,
         "wires": [
             [
                 "df6c3196.21665"
@@ -15553,11 +15510,12 @@
         "z": "df200617.1e584",
         "connect_server": "3c2c110.e9ac1f",
         "template": "",
-        "x": 830,
-        "y": 1060,
+        "x": 1230,
+        "y": 1260,
         "wires": [
             [
-                "7dde610b.ee4c7"
+                "7dde610b.ee4c7",
+                "67c0cfc9.320f8"
             ]
         ]
     },
@@ -15565,13 +15523,14 @@
         "id": "7dde610b.ee4c7",
         "type": "change",
         "z": "df200617.1e584",
+        "d": true,
         "name": "",
         "rules": [
             {
                 "t": "set",
                 "p": "filename",
                 "pt": "msg",
-                "to": "'C:\\\\nr\\\\output\\\\' & $millis() & '.pdf'",
+                "to": "'C:\\\\nr\\\\output\\\\' & maintopic & '\\\\' & topic & '-invoice-' & timeStart & '_2.pdf'",
                 "tot": "jsonata"
             }
         ],
@@ -15580,8 +15539,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1030,
-        "y": 1060,
+        "x": 1430,
+        "y": 1260,
         "wires": [
             [
                 "d4119b47.3bc0e8"
@@ -15592,14 +15551,15 @@
         "id": "d4119b47.3bc0e8",
         "type": "file",
         "z": "df200617.1e584",
+        "d": true,
         "name": "",
         "filename": "",
         "appendNewline": true,
         "createDir": false,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 1210,
-        "y": 1060,
+        "x": 1610,
+        "y": 1260,
         "wires": [
             []
         ]
@@ -15630,8 +15590,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 640,
-        "y": 1000,
+        "x": 1040,
+        "y": 1200,
         "wires": [
             [
                 "1c2bf2a8.29ab05"
@@ -15644,11 +15604,12 @@
         "z": "df200617.1e584",
         "connect_server": "3c2c110.e9ac1f",
         "template": "",
-        "x": 830,
-        "y": 1000,
+        "x": 1230,
+        "y": 1200,
         "wires": [
             [
-                "e770af49.421688"
+                "e770af49.421688",
+                "8c848b8e.621bf8"
             ]
         ]
     },
@@ -15656,13 +15617,14 @@
         "id": "e770af49.421688",
         "type": "change",
         "z": "df200617.1e584",
+        "d": true,
         "name": "",
         "rules": [
             {
                 "t": "set",
                 "p": "filename",
                 "pt": "msg",
-                "to": "'C:\\\\nr\\\\output\\\\' & $millis() & '.pdf'",
+                "to": "'C:\\\\nr\\\\output\\\\' & maintopic & '\\\\' & topic & '-invoice-' & timeStart & '_1.pdf'",
                 "tot": "jsonata"
             }
         ],
@@ -15671,8 +15633,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1030,
-        "y": 1000,
+        "x": 1430,
+        "y": 1200,
         "wires": [
             [
                 "161f1674.a0724a"
@@ -15683,14 +15645,15 @@
         "id": "161f1674.a0724a",
         "type": "file",
         "z": "df200617.1e584",
+        "d": true,
         "name": "",
         "filename": "",
         "appendNewline": true,
         "createDir": false,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 1210,
-        "y": 1000,
+        "x": 1610,
+        "y": 1200,
         "wires": [
             []
         ]
@@ -15703,8 +15666,8 @@
         "dmConfiguration": "",
         "active": false,
         "name": "",
-        "x": 280,
-        "y": 1160,
+        "x": 680,
+        "y": 1360,
         "wires": [
             [
                 "e185f5a4.114a3"
@@ -15717,8 +15680,8 @@
         "z": "df200617.1e584",
         "connect_server": "3c2c110.e9ac1f",
         "template": "",
-        "x": 830,
-        "y": 1160,
+        "x": 1230,
+        "y": 1360,
         "wires": [
             [
                 "9f04819d.f5c158"
@@ -15735,8 +15698,8 @@
         "details": "false",
         "outputJSON": "full",
         "name": "",
-        "x": 460,
-        "y": 1160,
+        "x": 860,
+        "y": 1360,
         "wires": [
             [
                 "a2948326.16826",
@@ -15770,8 +15733,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 640,
-        "y": 1160,
+        "x": 1040,
+        "y": 1360,
         "wires": [
             [
                 "1175485c.978278"
@@ -15788,10 +15751,12 @@
         "createDir": false,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 1210,
-        "y": 1160,
+        "x": 1610,
+        "y": 1360,
         "wires": [
-            []
+            [
+                "1266b173.373d4f"
+            ]
         ]
     },
     {
@@ -15804,7 +15769,7 @@
                 "t": "set",
                 "p": "filename",
                 "pt": "msg",
-                "to": "'C:\\\\nr\\\\output\\\\dr-over-pl-3-' & $millis() & '.pdf'",
+                "to": "'C:\\\\nr\\\\output\\\\' & maintopic & '\\\\' & topic & '-invoice-' & timeStart & '_1.pdf'",
                 "tot": "jsonata"
             }
         ],
@@ -15813,8 +15778,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1030,
-        "y": 1160,
+        "x": 1430,
+        "y": 1360,
         "wires": [
             [
                 "acbe796d.0bd278"
@@ -15829,6 +15794,13 @@
         "rules": [
             {
                 "t": "set",
+                "p": "temp",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
                 "p": "payload",
                 "pt": "msg",
                 "to": "",
@@ -15838,7 +15810,7 @@
                 "t": "set",
                 "p": "dataRecordId",
                 "pt": "msg",
-                "to": "payload[1]",
+                "to": "temp[1]",
                 "tot": "msg"
             }
         ],
@@ -15847,8 +15819,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 640,
-        "y": 1220,
+        "x": 1040,
+        "y": 1420,
         "wires": [
             [
                 "cc69a192.7cdf5"
@@ -15861,8 +15833,8 @@
         "z": "df200617.1e584",
         "connect_server": "3c2c110.e9ac1f",
         "template": "",
-        "x": 830,
-        "y": 1220,
+        "x": 1230,
+        "y": 1420,
         "wires": [
             [
                 "7e68e0ff.d1421"
@@ -15879,7 +15851,7 @@
                 "t": "set",
                 "p": "filename",
                 "pt": "msg",
-                "to": "'C:\\\\nr\\\\output\\\\dr-over-pl-4-' & $millis() & '.pdf'",
+                "to": "'C:\\\\nr\\\\output\\\\' & maintopic & '\\\\' & topic & '-invoice-' & timeStart & '_2.pdf'",
                 "tot": "jsonata"
             }
         ],
@@ -15888,8 +15860,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1030,
-        "y": 1220,
+        "x": 1430,
+        "y": 1420,
         "wires": [
             [
                 "eaf2831c.9e2d28"
@@ -15906,10 +15878,12 @@
         "createDir": false,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 1210,
-        "y": 1220,
+        "x": 1610,
+        "y": 1420,
         "wires": [
-            []
+            [
+                "1266b173.373d4f"
+            ]
         ]
     },
     {
@@ -15918,11 +15892,11 @@
         "z": "df200617.1e584",
         "connect_server": "3c2c110.e9ac1f",
         "template": "",
-        "x": 270,
-        "y": 1320,
+        "x": 470,
+        "y": 1520,
         "wires": [
             [
-                "88f1886d.93f78"
+                "fdcfc4d5.b84608"
             ]
         ]
     },
@@ -15936,36 +15910,11 @@
         "createDir": false,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 650,
-        "y": 1320,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "88f1886d.93f78",
-        "type": "change",
-        "z": "df200617.1e584",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "filename",
-                "pt": "msg",
-                "to": "'C:\\\\nr\\\\output\\\\nodata-1-' & $millis() & '.pdf'",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 470,
-        "y": 1320,
+        "x": 630,
+        "y": 1520,
         "wires": [
             [
-                "fdcfc4d5.b84608"
+                "a280158a.330f98"
             ]
         ]
     },
@@ -15973,10 +15922,10 @@
         "id": "1ee6c513.d2109b",
         "type": "comment",
         "z": "df200617.1e584",
-        "name": "no data, just parameters",
+        "name": "JSON data (via msg.payload), JSON parameters (via msg.parameters)  should be FIXED ERROR NODERED-1245",
         "info": "",
-        "x": 170,
-        "y": 1280,
+        "x": 450,
+        "y": 1480,
         "wires": []
     },
     {
@@ -15985,11 +15934,11 @@
         "z": "df200617.1e584",
         "connect_server": "3c2c110.e9ac1f",
         "template": "",
-        "x": 270,
-        "y": 1420,
+        "x": 470,
+        "y": 1780,
         "wires": [
             [
-                "2e3e9557.16c3d2"
+                "aab99af2.27d6e"
             ]
         ]
     },
@@ -16003,57 +15952,30 @@
         "createDir": false,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 650,
-        "y": 1420,
+        "x": 630,
+        "y": 1780,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "2e3e9557.16c3d2",
-        "type": "change",
-        "z": "df200617.1e584",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "filename",
-                "pt": "msg",
-                "to": "'C:\\\\nr\\\\output\\\\no-data-2-' & $millis() & '.pdf'",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 470,
-        "y": 1420,
-        "wires": [
-            [
-                "aab99af2.27d6e"
-            ]
         ]
     },
     {
         "id": "6c6b7b59.1c43dc",
         "type": "comment",
         "z": "df200617.1e584",
-        "name": "no data, no parameters",
+        "name": "no data, no parameters - Input error returned about missing msg.payload or msg.RecordId",
         "info": "",
-        "x": 160,
-        "y": 1380,
+        "x": 370,
+        "y": 1740,
         "wires": []
     },
     {
         "id": "48c89d4a.881834",
         "type": "comment",
         "z": "df200617.1e584",
-        "name": "data mapping and parameters",
+        "name": "data mapping and parameters should be FIXED ERROR NODERED-1245",
         "info": "",
-        "x": 180,
-        "y": 660,
+        "x": 320,
+        "y": 860,
         "wires": []
     },
     {
@@ -16064,8 +15986,8 @@
         "filename": "files\\printcontent\\printbsc-invoice+param.OL-template",
         "fileDuration": "temporary",
         "name": "upload template",
-        "x": 280,
-        "y": 260,
+        "x": 480,
+        "y": 460,
         "wires": [
             [
                 "6b890277.ed923c"
@@ -16098,8 +16020,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 480,
-        "y": 260,
+        "x": 680,
+        "y": 460,
         "wires": [
             [
                 "bd676225.cdce9"
@@ -16114,8 +16036,8 @@
         "filename": "files\\printcontent\\printbsc-transactional+param xml.OL-datamapper",
         "fileDuration": "temporary",
         "name": "upload dmconfig",
-        "x": 290,
-        "y": 180,
+        "x": 480,
+        "y": 380,
         "wires": [
             [
                 "41d19976.363d3"
@@ -16141,8 +16063,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 510,
-        "y": 180,
+        "x": 700,
+        "y": 380,
         "wires": [
             [
                 "bd676225.cdce9"
@@ -16166,7 +16088,7 @@
         "name": "upload test data",
         "info": "",
         "x": 140,
-        "y": 100,
+        "y": 300,
         "wires": []
     },
     {
@@ -17988,7 +17910,7 @@
         "name": "dataRecordId trumps payload A",
         "info": "",
         "x": 190,
-        "y": 800,
+        "y": 1000,
         "wires": []
     },
     {
@@ -17998,7 +17920,7 @@
         "name": "dataRecordId trumps payload B",
         "info": "",
         "x": 190,
-        "y": 960,
+        "y": 1160,
         "wires": []
     },
     {
@@ -21122,7 +21044,7 @@
         "name": "preview pdf tests",
         "info": "",
         "x": 100,
-        "y": 40,
+        "y": 240,
         "wires": []
     },
     {
@@ -21133,8 +21055,8 @@
         "filename": "files\\printcontent\\Sample Data-5recs.xml",
         "fileDuration": "temporary",
         "name": "upload data file",
-        "x": 280,
-        "y": 140,
+        "x": 480,
+        "y": 340,
         "wires": [
             [
                 "46b35cb9.9eb654"
@@ -21167,8 +21089,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 480,
-        "y": 140,
+        "x": 680,
+        "y": 340,
         "wires": [
             [
                 "bd676225.cdce9"
@@ -21201,8 +21123,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 510,
-        "y": 220,
+        "x": 710,
+        "y": 420,
         "wires": [
             [
                 "bd676225.cdce9"
@@ -21216,7 +21138,7 @@
         "name": "make sure C:\\nr\\output\\ exists",
         "info": "",
         "x": 320,
-        "y": 40,
+        "y": 240,
         "wires": []
     },
     {
@@ -21225,65 +21147,43 @@
         "z": "df200617.1e584",
         "name": "get third record",
         "info": "",
-        "x": 640,
-        "y": 660,
+        "x": 660,
+        "y": 860,
         "wires": []
     },
     {
         "id": "fd034820.60a468",
         "type": "debug",
         "z": "df200617.1e584",
-        "name": "time",
+        "name": "timing&results",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "'Time used: ' & ($millis() - timeStart ) /1000 & ' seconds'",
+        "complete": "'Time used: ' & ($millis() - timeStart ) /1000 & ' seconds - filename: ' & filename",
         "targetType": "jsonata",
         "statusVal": "",
         "statusType": "auto",
-        "x": 630,
-        "y": 580,
+        "x": 1000,
+        "y": 740,
         "wires": []
     },
     {
         "id": "1a918411.833e3c",
         "type": "inject",
         "z": "df200617.1e584",
-        "name": "",
-        "props": [
-            {
-                "p": "manageFileId",
-                "v": "dataFile",
-                "vt": "flow"
-            },
-            {
-                "p": "template",
-                "v": "template",
-                "vt": "flow"
-            },
-            {
-                "p": "dmConfiguration",
-                "v": "dmConfiguration",
-                "vt": "flow"
-            },
-            {
-                "p": "parameters",
-                "v": "{\"cc_param1\":\"CCParamIsSet\",\"dm_param1\":\"DmParamIsSet\"}",
-                "vt": "json"
-            }
-        ],
+        "name": "Start dataRecordId over payload A",
+        "props": [],
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payloadType": "str",
-        "x": 110,
-        "y": 840,
+        "x": 200,
+        "y": 1040,
         "wires": [
             [
-                "ae747647.97d85"
+                "6a088832.c3c878"
             ]
         ]
     },
@@ -21291,40 +21191,19 @@
         "id": "28965952.2f5216",
         "type": "inject",
         "z": "df200617.1e584",
-        "name": "",
-        "props": [
-            {
-                "p": "manageFileId",
-                "v": "dataFile",
-                "vt": "flow"
-            },
-            {
-                "p": "template",
-                "v": "template",
-                "vt": "flow"
-            },
-            {
-                "p": "dmConfiguration",
-                "v": "dmConfiguration",
-                "vt": "flow"
-            },
-            {
-                "p": "parameters",
-                "v": "{\"cc_param1\":\"CCParamIsSet\",\"dm_param1\":\"DmParamIsSet\"}",
-                "vt": "json"
-            }
-        ],
+        "name": "Start dataRecordId over payload B",
+        "props": [],
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "str",
-        "x": 110,
-        "y": 1000,
+        "x": 200,
+        "y": 1200,
         "wires": [
             [
-                "362a911b.a70a8e"
+                "f558ed48.8c29e"
             ]
         ]
     },
@@ -21332,40 +21211,19 @@
         "id": "d930d4e9.cc981",
         "type": "inject",
         "z": "df200617.1e584",
-        "name": "",
-        "props": [
-            {
-                "p": "manageFileId",
-                "v": "dataFile",
-                "vt": "flow"
-            },
-            {
-                "p": "template",
-                "v": "template",
-                "vt": "flow"
-            },
-            {
-                "p": "dmConfiguration",
-                "v": "dmConfiguration",
-                "vt": "flow"
-            },
-            {
-                "p": "parameters",
-                "v": "{\"cc_param1\":\"CCParamIsSet\",\"dm_param1\":\"DmParamIsSet\"}",
-                "vt": "json"
-            }
-        ],
+        "name": "Start dataRecordId over payload C",
+        "props": [],
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "str",
-        "x": 110,
-        "y": 1160,
+        "x": 200,
+        "y": 1360,
         "wires": [
             [
-                "e0001859.995168"
+                "c8cc180b.959d28"
             ]
         ]
     },
@@ -21376,7 +21234,7 @@
         "name": "dataRecordId trumps payload C",
         "info": "",
         "x": 190,
-        "y": 1120,
+        "y": 1320,
         "wires": []
     },
     {
@@ -21386,7 +21244,7 @@
         "name": "both PDFs should be from record 2, no errors",
         "info": "",
         "x": 1090,
-        "y": 1120,
+        "y": 1320,
         "wires": []
     },
     {
@@ -21399,11 +21257,6 @@
                 "p": "template",
                 "v": "template",
                 "vt": "flow"
-            },
-            {
-                "p": "parameters",
-                "v": "{\"cc_param1\":\"CCParamIsSet\",\"dm_param1\":\"DmParamIsSet\"}",
-                "vt": "json"
             }
         ],
         "repeat": "",
@@ -21411,12 +21264,11 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payloadType": "str",
         "x": 110,
-        "y": 1320,
+        "y": 1520,
         "wires": [
             [
-                "1150373c.d3a2a9"
+                "e83ca3ec.af80f"
             ]
         ]
     },
@@ -21437,11 +21289,12 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
+        "payloadType": "str",
         "x": 110,
-        "y": 1420,
+        "y": 1780,
         "wires": [
             [
-                "64b07ccd.4b43a4"
+                "f632ec78.e58b4"
             ]
         ]
     },
@@ -25011,8 +24864,8 @@
         "targetType": "jsonata",
         "statusVal": "",
         "statusType": "auto",
-        "x": 940,
-        "y": 460,
+        "x": 1240,
+        "y": 580,
         "wires": []
     },
     {
@@ -25607,7 +25460,8 @@
             [
                 "70531984.393878",
                 "c4d3c184.3ff9b",
-                "c70fabcb.7b47e"
+                "c70fabcb.7b47e",
+                "e80b1c62.1e94a"
             ]
         ]
     },
@@ -26863,7 +26717,8 @@
         "name": "full path tests",
         "links": [
             "6892f0d9.23759",
-            "ac611adf.21e7c8"
+            "ac611adf.21e7c8",
+            "59007143.d84b4"
         ],
         "x": 255,
         "y": 240,
@@ -26881,7 +26736,8 @@
         "links": [
             "3b4d3a7a.84942e",
             "6892f0d9.23759",
-            "ac611adf.21e7c8"
+            "ac611adf.21e7c8",
+            "59007143.d84b4"
         ],
         "x": 255,
         "y": 660,
@@ -26899,7 +26755,8 @@
         "links": [
             "43889cc5.a14d4c",
             "6892f0d9.23759",
-            "ac611adf.21e7c8"
+            "ac611adf.21e7c8",
+            "59007143.d84b4"
         ],
         "x": 255,
         "y": 1080,
@@ -26988,7 +26845,7 @@
         "to": "",
         "reg": false,
         "x": 1170,
-        "y": 1280,
+        "y": 1260,
         "wires": [
             [
                 "f6452b20.365168"
@@ -27433,6 +27290,1462 @@
         "wires": [
             [
                 "9f1d9dd5.c7e97"
+            ]
+        ]
+    },
+    {
+        "id": "43ce95f8.28894c",
+        "type": "comment",
+        "z": "df200617.1e584",
+        "name": "msg.filename tests",
+        "info": "",
+        "x": 110,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "328d40d1.a4c24",
+        "type": "change",
+        "z": "df200617.1e584",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "maintopic",
+                "pt": "flow",
+                "to": "preview pdf",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fd6feb18.5a9d38",
+        "type": "inject",
+        "z": "df200617.1e584",
+        "name": "prepare testing",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "str",
+        "x": 140,
+        "y": 100,
+        "wires": [
+            [
+                "328d40d1.a4c24"
+            ]
+        ]
+    },
+    {
+        "id": "2e7519b.0853de6",
+        "type": "catch",
+        "z": "df200617.1e584",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 300,
+        "y": 40,
+        "wires": [
+            [
+                "1363e5da.c2dd4a"
+            ]
+        ]
+    },
+    {
+        "id": "1363e5da.c2dd4a",
+        "type": "debug",
+        "z": "df200617.1e584",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 450,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "243fdc6c.5281f4",
+        "type": "ui_button",
+        "z": "df200617.1e584",
+        "name": "UI button to start preview pdf tests",
+        "group": "e9d3b4e2.d120b8",
+        "order": 3,
+        "width": "6",
+        "height": "1",
+        "passthru": false,
+        "label": "Start tests for 'preview pdf'",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 760,
+        "y": 40,
+        "wires": [
+            [
+                "74425c86.c8bac4"
+            ]
+        ]
+    },
+    {
+        "id": "74425c86.c8bac4",
+        "type": "link out",
+        "z": "df200617.1e584",
+        "name": "start preview pdf test",
+        "links": [
+            "2e85cb77.9aecb4",
+            "bbc6af55.48d9d"
+        ],
+        "x": 955,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "2e85cb77.9aecb4",
+        "type": "link in",
+        "z": "df200617.1e584",
+        "name": "upload data pdf preview test",
+        "links": [
+            "74425c86.c8bac4"
+        ],
+        "x": 295,
+        "y": 380,
+        "wires": [
+            [
+                "47f75e84.eeba48",
+                "f224c5f1.162778",
+                "37af67fe.e67d5",
+                "f797f704.ddc53"
+            ]
+        ]
+    },
+    {
+        "id": "e7ff66d0.200d58",
+        "type": "change",
+        "z": "df200617.1e584",
+        "name": "set results",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "maintopic & '-' & topic & ' filename: ' & filename & ' - payload present: ' & $exists(payload) & ' - headers: ' &\t headers\t",
+                "tot": "jsonata"
+            },
+            {
+                "t": "delete",
+                "p": "headers",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1230,
+        "y": 620,
+        "wires": [
+            [
+                "87ac2197.0baf6",
+                "d59acb6b.bddd78"
+            ]
+        ]
+    },
+    {
+        "id": "87ac2197.0baf6",
+        "type": "join",
+        "z": "df200617.1e584",
+        "d": true,
+        "name": "",
+        "mode": "custom",
+        "build": "string",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 1350,
+        "y": 660,
+        "wires": [
+            [
+                "d59acb6b.bddd78"
+            ]
+        ]
+    },
+    {
+        "id": "d59acb6b.bddd78",
+        "type": "subflow:ed7a5e42.4bcee8",
+        "z": "df200617.1e584",
+        "name": "",
+        "env": [],
+        "x": 1420,
+        "y": 620,
+        "wires": [
+            [
+                "9d1a7f9e.bc5e1"
+            ]
+        ]
+    },
+    {
+        "id": "9d1a7f9e.bc5e1",
+        "type": "debug",
+        "z": "df200617.1e584",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1590,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "bbc6af55.48d9d",
+        "type": "link in",
+        "z": "df200617.1e584",
+        "name": "preview pdf test cases",
+        "links": [
+            "74425c86.c8bac4"
+        ],
+        "x": 55,
+        "y": 440,
+        "wires": [
+            [
+                "23d33c03.f98ec4"
+            ]
+        ]
+    },
+    {
+        "id": "53de8277.acf2ec",
+        "type": "http request",
+        "z": "df200617.1e584",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://127.0.0.1:1881/happybirthday",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 390,
+        "y": 700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "81a475d4.1ff558",
+        "type": "change",
+        "z": "df200617.1e584",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "JSON-in-http",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "maintopic",
+                "pt": "msg",
+                "to": "preview pdf",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 620,
+        "wires": [
+            [
+                "5224df60.187e48"
+            ]
+        ]
+    },
+    {
+        "id": "e564eb02.8d2e08",
+        "type": "olcnr-preview-pdf",
+        "z": "df200617.1e584",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "x": 470,
+        "y": 1640,
+        "wires": [
+            [
+                "ad7f46b8.a871c8"
+            ]
+        ]
+    },
+    {
+        "id": "ad7f46b8.a871c8",
+        "type": "file",
+        "z": "df200617.1e584",
+        "name": "",
+        "filename": "",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 630,
+        "y": 1640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "55100af1.7dca74",
+        "type": "inject",
+        "z": "df200617.1e584",
+        "name": "",
+        "props": [
+            {
+                "p": "template",
+                "v": "template",
+                "vt": "flow"
+            },
+            {
+                "p": "parameters",
+                "v": "{\"cc_param1\":\"CCParamIsSet\",\"dm_param1\":\"DmParamIsSet\"}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "str",
+        "x": 110,
+        "y": 1640,
+        "wires": [
+            [
+                "6ad6dbc9.de2544"
+            ]
+        ]
+    },
+    {
+        "id": "31096d1a.e01342",
+        "type": "comment",
+        "z": "df200617.1e584",
+        "name": "no data, just JSON parameters (via msg.parameters) -  Input error returned about missing msg.payload or msg.RecordId - IS IT CORRECT???",
+        "info": "",
+        "x": 530,
+        "y": 1600,
+        "wires": []
+    },
+    {
+        "id": "daf619d1.ea6ec8",
+        "type": "comment",
+        "z": "df200617.1e584",
+        "name": "NOTE: info about supported JSON Record Data List is removed from Help due to not fixed yet issue SHARED-82937 (NODERED-1175) - PDF Preview node: it does not work properly with JSON Record Data List",
+        "info": "",
+        "x": 710,
+        "y": 1860,
+        "wires": []
+    },
+    {
+        "id": "3c0acd66.d47402",
+        "type": "debug",
+        "z": "df200617.1e584",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "58ba1e18.23d18",
+        "type": "change",
+        "z": "df200617.1e584",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "timeStart",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"first\":\"Rijk was here\"}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "templateSuperhero",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "JSON-in",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "maintopic",
+                "pt": "msg",
+                "to": "preview pdf",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "'C:\\\\nr\\\\output\\\\' & maintopic & '\\\\' & topic & '-' & 'invoice' & '-' & timeStart & '.pdf'",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 780,
+        "wires": [
+            [
+                "ab8d3cc1.0acd38"
+            ]
+        ]
+    },
+    {
+        "id": "e8ac72f1.7c374",
+        "type": "change",
+        "z": "df200617.1e584",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "timeStart",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            },
+            {
+                "t": "set",
+                "p": "managedFileId",
+                "pt": "msg",
+                "to": "dataFile",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "datamap_param",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "maintopic",
+                "pt": "msg",
+                "to": "preview pdf",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "'C:\\\\nr\\\\output\\\\' & maintopic & '\\\\' & topic & '-invoice-' & timeStart & '.pdf'",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "template",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "dmConfiguration",
+                "pt": "msg",
+                "to": "dmConfiguration",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "parameters",
+                "pt": "msg",
+                "to": "{\"cc_param1\":\"CCParamIsSet\",\"dm_param1\":\"DmParamIsSet\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 440,
+        "y": 900,
+        "wires": [
+            [
+                "13d4c6ca.f4a5c9"
+            ]
+        ]
+    },
+    {
+        "id": "6a088832.c3c878",
+        "type": "change",
+        "z": "df200617.1e584",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "timeStart",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            },
+            {
+                "t": "set",
+                "p": "managedFileId",
+                "pt": "msg",
+                "to": "dataFile",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "template",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "dmConfiguration",
+                "pt": "msg",
+                "to": "dmConfiguration",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "parameters",
+                "pt": "msg",
+                "to": "{\"cc_param1\":\"CCParamIsSet\",\"dm_param1\":\"DmParamIsSet\"}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "dataRecordId-over-payload-A",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "maintopic",
+                "pt": "msg",
+                "to": "preview pdf",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "'C:\\\\nr\\\\output\\\\' & maintopic & '\\\\' & topic & '-invoice-' & timeStart & '.pdf'",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 440,
+        "y": 1040,
+        "wires": [
+            [
+                "ae747647.97d85"
+            ]
+        ]
+    },
+    {
+        "id": "f558ed48.8c29e",
+        "type": "change",
+        "z": "df200617.1e584",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "timeStart",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            },
+            {
+                "t": "set",
+                "p": "managedFileId",
+                "pt": "msg",
+                "to": "dataFile",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "template",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "dmConfiguration",
+                "pt": "msg",
+                "to": "dmConfiguration",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "dataRecordId-over-payload-B",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "maintopic",
+                "pt": "msg",
+                "to": "preview pdf",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "'C:\\\\nr\\\\output\\\\' & maintopic & '\\\\' & topic & '-invoice-' & timeStart & '.pdf'",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "parameters",
+                "pt": "msg",
+                "to": "{\"cc_param1\":\"CCParamIsSet\",\"dm_param1\":\"DmParamIsSet\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 1200,
+        "wires": [
+            [
+                "362a911b.a70a8e"
+            ]
+        ]
+    },
+    {
+        "id": "c8cc180b.959d28",
+        "type": "change",
+        "z": "df200617.1e584",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "timeStart",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            },
+            {
+                "t": "set",
+                "p": "managedFileId",
+                "pt": "msg",
+                "to": "dataFile",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "template",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "dmConfiguration",
+                "pt": "msg",
+                "to": "dmConfiguration",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "parameters",
+                "pt": "msg",
+                "to": "{\"cc_param1\":\"CCParamIsSet\",\"dm_param1\":\"DmParamIsSet\"}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "dataRecordId-over-payload-C",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "maintopic",
+                "pt": "msg",
+                "to": "preview pdf",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "'C:\\\\nr\\\\output\\\\' & maintopic & '\\\\' & topic & '-invoice-' & timeStart & '.pdf'",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 1360,
+        "wires": [
+            [
+                "e0001859.995168"
+            ]
+        ]
+    },
+    {
+        "id": "e80b1c62.1e94a",
+        "type": "debug",
+        "z": "ed7a5e42.4bcee8",
+        "name": "FILE NAME SUB",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "44181515.5f874c",
+        "type": "change",
+        "z": "df200617.1e584",
+        "name": "set results",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "maintopic & '-' & topic & ' filename: ' & filename & ' - payload present: ' & $exists(payload) & ' - headers: ' &\t headers\t",
+                "tot": "jsonata"
+            },
+            {
+                "t": "delete",
+                "p": "headers",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 990,
+        "y": 780,
+        "wires": [
+            [
+                "db7fe061.e5f8b"
+            ]
+        ]
+    },
+    {
+        "id": "db7fe061.e5f8b",
+        "type": "subflow:ed7a5e42.4bcee8",
+        "z": "df200617.1e584",
+        "name": "",
+        "env": [],
+        "x": 1180,
+        "y": 780,
+        "wires": [
+            [
+                "d2657d7a.59201"
+            ]
+        ]
+    },
+    {
+        "id": "d2657d7a.59201",
+        "type": "debug",
+        "z": "df200617.1e584",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1370,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "23d33c03.f98ec4",
+        "type": "delay",
+        "z": "df200617.1e584",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "3",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 80,
+        "y": 500,
+        "wires": [
+            [
+                "53de8277.acf2ec",
+                "58ba1e18.23d18",
+                "e8ac72f1.7c374",
+                "6a088832.c3c878",
+                "f558ed48.8c29e",
+                "c8cc180b.959d28",
+                "e83ca3ec.af80f",
+                "6ad6dbc9.de2544",
+                "f632ec78.e58b4"
+            ]
+        ]
+    },
+    {
+        "id": "2a135c3d.2d2a64",
+        "type": "change",
+        "z": "df200617.1e584",
+        "name": "set results",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "maintopic & '-' & topic & ' filename: ' & filename & ' - payload present: ' & $exists(payload) & ' - headers: ' &\t headers\t",
+                "tot": "jsonata"
+            },
+            {
+                "t": "delete",
+                "p": "headers",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1570,
+        "y": 900,
+        "wires": [
+            [
+                "32e4f06e.83f02"
+            ]
+        ]
+    },
+    {
+        "id": "32e4f06e.83f02",
+        "type": "subflow:ed7a5e42.4bcee8",
+        "z": "df200617.1e584",
+        "name": "",
+        "env": [],
+        "x": 1760,
+        "y": 900,
+        "wires": [
+            [
+                "ebbd83e6.a88a"
+            ]
+        ]
+    },
+    {
+        "id": "ebbd83e6.a88a",
+        "type": "debug",
+        "z": "df200617.1e584",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1930,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "a7eeb3de.51def",
+        "type": "change",
+        "z": "df200617.1e584",
+        "name": "set results",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "maintopic & '-' & topic & ' filename: ' & filename & ' - payload present: ' & $exists(payload) & ' - headers: ' &\t headers\t",
+                "tot": "jsonata"
+            },
+            {
+                "t": "delete",
+                "p": "headers",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1790,
+        "y": 1080,
+        "wires": [
+            [
+                "68a08c8a.7e6a84"
+            ]
+        ]
+    },
+    {
+        "id": "7be7da77.554894",
+        "type": "subflow:ed7a5e42.4bcee8",
+        "z": "df200617.1e584",
+        "name": "",
+        "env": [],
+        "x": 2140,
+        "y": 1080,
+        "wires": [
+            [
+                "ff066e46.1fcd7"
+            ]
+        ]
+    },
+    {
+        "id": "ff066e46.1fcd7",
+        "type": "debug",
+        "z": "df200617.1e584",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2310,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "68a08c8a.7e6a84",
+        "type": "join",
+        "z": "df200617.1e584",
+        "name": "",
+        "mode": "custom",
+        "build": "string",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 1970,
+        "y": 1080,
+        "wires": [
+            [
+                "7be7da77.554894"
+            ]
+        ]
+    },
+    {
+        "id": "13835052.37bbf",
+        "type": "debug",
+        "z": "df200617.1e584",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2310,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "67c0cfc9.320f8",
+        "type": "debug",
+        "z": "df200617.1e584",
+        "name": "outputs",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "'filename: ' & filename & ' - payload present: ' & $exists(payload) & ' - headers: ' &\t headers\t",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1400,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "8c848b8e.621bf8",
+        "type": "debug",
+        "z": "df200617.1e584",
+        "name": "outputs",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "'filename: ' & filename & ' - payload present: ' & $exists(payload) & ' - headers: ' &\t headers\t",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1400,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "1266b173.373d4f",
+        "type": "change",
+        "z": "df200617.1e584",
+        "name": "set results",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "maintopic & '-' & topic & ' filename: ' & filename & ' - payload present: ' & $exists(payload) & ' - headers: ' &\t headers\t",
+                "tot": "jsonata"
+            },
+            {
+                "t": "delete",
+                "p": "headers",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1790,
+        "y": 1400,
+        "wires": [
+            [
+                "31ca1e70.187542"
+            ]
+        ]
+    },
+    {
+        "id": "31ca1e70.187542",
+        "type": "join",
+        "z": "df200617.1e584",
+        "name": "",
+        "mode": "custom",
+        "build": "string",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 1950,
+        "y": 1400,
+        "wires": [
+            [
+                "9ba74170.7c582"
+            ]
+        ]
+    },
+    {
+        "id": "9ba74170.7c582",
+        "type": "subflow:ed7a5e42.4bcee8",
+        "z": "df200617.1e584",
+        "name": "",
+        "env": [],
+        "x": 2140,
+        "y": 1400,
+        "wires": [
+            [
+                "5d4441ee.f5538"
+            ]
+        ]
+    },
+    {
+        "id": "5d4441ee.f5538",
+        "type": "debug",
+        "z": "df200617.1e584",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2310,
+        "y": 1400,
+        "wires": []
+    },
+    {
+        "id": "e83ca3ec.af80f",
+        "type": "change",
+        "z": "df200617.1e584",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "timeStart",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            },
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "template",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"CustomerNumber\":\"CU8888TEST\"}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "parameters",
+                "pt": "msg",
+                "to": "{\"cc_param1\":\"CCParamIsSet\",\"dm_param1\":\"DmParamIsSet\"}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "JSON_data_and_param",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "maintopic",
+                "pt": "msg",
+                "to": "preview pdf",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "'C:\\\\nr\\\\output\\\\' & maintopic & '\\\\' & topic & '-invoice-' & timeStart & '.pdf'",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 280,
+        "y": 1520,
+        "wires": [
+            [
+                "1150373c.d3a2a9"
+            ]
+        ]
+    },
+    {
+        "id": "a280158a.330f98",
+        "type": "change",
+        "z": "df200617.1e584",
+        "name": "set results",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "maintopic & '-' & topic & ' filename: ' & filename & ' - payload present: ' & $exists(payload) & ' - headers: ' &\t headers\t",
+                "tot": "jsonata"
+            },
+            {
+                "t": "delete",
+                "p": "headers",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 790,
+        "y": 1520,
+        "wires": [
+            [
+                "8076ae9a.987a5"
+            ]
+        ]
+    },
+    {
+        "id": "8076ae9a.987a5",
+        "type": "join",
+        "z": "df200617.1e584",
+        "name": "",
+        "mode": "custom",
+        "build": "string",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "1",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 950,
+        "y": 1520,
+        "wires": [
+            [
+                "50c852e5.2d28fc"
+            ]
+        ]
+    },
+    {
+        "id": "50c852e5.2d28fc",
+        "type": "subflow:ed7a5e42.4bcee8",
+        "z": "df200617.1e584",
+        "name": "",
+        "env": [],
+        "x": 1120,
+        "y": 1520,
+        "wires": [
+            [
+                "53c8d307.98c58c"
+            ]
+        ]
+    },
+    {
+        "id": "53c8d307.98c58c",
+        "type": "debug",
+        "z": "df200617.1e584",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1290,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "6ad6dbc9.de2544",
+        "type": "change",
+        "z": "df200617.1e584",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "timeStart",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            },
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "template",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "parameters",
+                "pt": "msg",
+                "to": "{\"cc_param1\":\"CCParamIsSet\",\"dm_param1\":\"DmParamIsSet\"}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "JSON_no_data_only_param",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "maintopic",
+                "pt": "msg",
+                "to": "preview pdf",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "'C:\\\\nr\\\\output\\\\' & maintopic & '\\\\' & topic & '-invoice-' & timeStart & '.pdf'",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 280,
+        "y": 1640,
+        "wires": [
+            [
+                "e564eb02.8d2e08"
+            ]
+        ]
+    },
+    {
+        "id": "f632ec78.e58b4",
+        "type": "change",
+        "z": "df200617.1e584",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "timeStart",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            },
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "template",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "JSON_no_data_only_param",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "maintopic",
+                "pt": "msg",
+                "to": "preview pdf",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "'C:\\\\nr\\\\output\\\\' & maintopic & '\\\\' & topic & '-invoice-' & timeStart & '.pdf'",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 280,
+        "y": 1780,
+        "wires": [
+            [
+                "64b07ccd.4b43a4"
             ]
         ]
     }
