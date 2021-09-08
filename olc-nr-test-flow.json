@@ -24682,7 +24682,7 @@
         "fieldType": "msg",
         "format": "html",
         "syntax": "mustache",
-        "template": "<html>\n    <head><title>Test flow result</title></head>\n    <body>\n        <h1>The test flow <strong>{{maintopic}}</strong> has been executed</h1>\n        <p>This is the result:</p>\n        <pre>{{{payload}}}</pre>\n        <p>This result is stored in <code>{{{filename}}}</code></p>\n    </body>\n</html>",
+        "template": "<html>\n    <head><title>Test flow result</title></head>\n    <body>\n        <h1>The test flow <strong>{{maintopic}} {{topic}}</strong> has been executed</h1>\n        <p>This is the result:</p>\n        <pre>{{{payload}}}</pre>\n        <p>This result is stored in <code>{{{filename}}}</code></p>\n    </body>\n</html>",
         "output": "str",
         "x": 700,
         "y": 120,
@@ -28649,7 +28649,24 @@
         "links": [
             "bf49c0b9.89f03"
         ],
-        "x": 215,
+        "x": 255,
+        "y": 260,
+        "wires": [
+            [
+                "37e1e551.cb68a2"
+            ]
+        ]
+    },
+    {
+        "id": "cf8d8973.44892",
+        "type": "http in",
+        "z": "37cb15d3.0f6432",
+        "name": "",
+        "url": "/basename",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 140,
         "y": 260,
         "wires": [
             [
