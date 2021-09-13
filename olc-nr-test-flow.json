@@ -18240,7 +18240,8 @@
                 "d144384c.96c49",
                 "894deacb.e04048",
                 "3b57ac44.e77a04",
-                "67a4d25a.9b18b4"
+                "67a4d25a.9b18b4",
+                "72265579.cc62cc"
             ]
         ]
     },
@@ -28673,5 +28674,135 @@
                 "37e1e551.cb68a2"
             ]
         ]
+    },
+    {
+        "id": "72265579.cc62cc",
+        "type": "olcnr-file-upload",
+        "z": "bbaaf395.e6f598",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "files\\html\\WEB_FORM Web Page.OL-template",
+        "fileDuration": "temporary",
+        "name": "upload wrong template",
+        "x": 300,
+        "y": 340,
+        "wires": [
+            [
+                "9085a479.f44b68"
+            ]
+        ]
+    },
+    {
+        "id": "9085a479.f44b68",
+        "type": "change",
+        "z": "bbaaf395.e6f598",
+        "name": "wrong template",
+        "rules": [
+            {
+                "t": "move",
+                "p": "managedFileId",
+                "pt": "msg",
+                "to": "template-noprintcontext",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 520,
+        "y": 340,
+        "wires": [
+            [
+                "a23d22e7.ba7b68"
+            ]
+        ]
+    },
+    {
+        "id": "4f68aa1b.bd6824",
+        "type": "inject",
+        "z": "bbaaf395.e6f598",
+        "name": "",
+        "props": [
+            {
+                "p": "template",
+                "v": "template-noprintcontext",
+                "vt": "flow"
+            },
+            {
+                "p": "jobPreset",
+                "v": "doesnotexist",
+                "vt": "str"
+            },
+            {
+                "p": "outputPreset",
+                "v": "doesnotexist",
+                "vt": "str"
+            },
+            {
+                "p": "contentSetId",
+                "v": "",
+                "vt": "date"
+            },
+            {
+                "p": "jobSetId",
+                "v": "",
+                "vt": "date"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 1980,
+        "wires": [
+            [
+                "429eb605.f7a03"
+            ]
+        ]
+    },
+    {
+        "id": "429eb605.f7a03",
+        "type": "olcnr-paginated-content",
+        "z": "bbaaf395.e6f598",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "name": "",
+        "x": 290,
+        "y": 1980,
+        "wires": [
+            [
+                "e57a229b.26e528"
+            ]
+        ]
+    },
+    {
+        "id": "e57a229b.26e528",
+        "type": "debug",
+        "z": "bbaaf395.e6f598",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 470,
+        "y": 1980,
+        "wires": []
+    },
+    {
+        "id": "a472c51f.4304",
+        "type": "comment",
+        "z": "bbaaf395.e6f598",
+        "name": "template doesn't exist",
+        "info": "",
+        "x": 680,
+        "y": 1980,
+        "wires": []
     }
 ]
