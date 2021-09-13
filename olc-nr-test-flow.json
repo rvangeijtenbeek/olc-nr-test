@@ -28755,6 +28755,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
+        "payloadType": "str",
         "x": 110,
         "y": 1980,
         "wires": [
@@ -28799,9 +28800,9 @@
         "id": "a472c51f.4304",
         "type": "comment",
         "z": "bbaaf395.e6f598",
-        "name": "template doesn't exist",
+        "name": "template doesn't have email context",
         "info": "",
-        "x": 680,
+        "x": 720,
         "y": 1980,
         "wires": []
     }
