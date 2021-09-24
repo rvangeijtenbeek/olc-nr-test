@@ -28800,7 +28800,7 @@
         "id": "a472c51f.4304",
         "type": "comment",
         "z": "bbaaf395.e6f598",
-        "name": "template doesn't have email context",
+        "name": "template doesn't have print context",
         "info": "",
         "x": 720,
         "y": 1980,
