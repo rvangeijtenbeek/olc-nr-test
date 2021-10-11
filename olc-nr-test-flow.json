@@ -98,6 +98,13 @@
         "info": ""
     },
     {
+        "id": "1e489d085051a6b7",
+        "type": "tab",
+        "label": "preview image",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "2ab9b87c.975ed8",
         "type": "tab",
         "label": "email happy",
@@ -15689,7 +15696,7 @@
         "name": "",
         "props": [
             {
-                "p": "manageFileId",
+                "p": "managedFileId",
                 "v": "dataFile",
                 "vt": "flow"
             },
@@ -15714,7 +15721,6 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payloadType": "str",
         "x": 110,
         "y": 700,
         "wires": [
@@ -15886,7 +15892,7 @@
         "wires": [
             [
                 "df8e4727.31aab",
-                "95f6e93e.643b9"
+                "b0dc88d9fc487262"
             ]
         ]
     },
@@ -15900,7 +15906,7 @@
                 "t": "set",
                 "p": "dataRecordId",
                 "pt": "msg",
-                "to": "payload[0]",
+                "to": "payload[1]",
                 "tot": "msg"
             },
             {
@@ -15964,40 +15970,6 @@
         "wires": [
             [
                 "61329269.5c839c"
-            ]
-        ]
-    },
-    {
-        "id": "95f6e93e.643b9",
-        "type": "change",
-        "z": "df200617.1e584",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload[2]",
-                "tot": "msg"
-            },
-            {
-                "t": "set",
-                "p": "dataRecordId",
-                "pt": "msg",
-                "to": "payload[1]",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 640,
-        "y": 900,
-        "wires": [
-            [
-                "f7534f48.feac9"
             ]
         ]
     },
@@ -16340,7 +16312,7 @@
         "wires": [
             [
                 "a2948326.16826",
-                "bcef70e4.3d2af8"
+                "cbb33d4764cc686f"
             ]
         ]
     },
@@ -16354,7 +16326,7 @@
                 "t": "set",
                 "p": "dataRecordId",
                 "pt": "msg",
-                "to": "payload[1]",
+                "to": "payload[2]",
                 "tot": "msg"
             },
             {
@@ -16418,40 +16390,6 @@
         "wires": [
             [
                 "acbe796d.0bd278"
-            ]
-        ]
-    },
-    {
-        "id": "bcef70e4.3d2af8",
-        "type": "change",
-        "z": "df200617.1e584",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "",
-                "tot": "date"
-            },
-            {
-                "t": "set",
-                "p": "dataRecordId",
-                "pt": "msg",
-                "to": "payload[1]",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 640,
-        "y": 1220,
-        "wires": [
-            [
-                "cc69a192.7cdf5"
             ]
         ]
     },
@@ -19215,6 +19153,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
+        "payloadType": "str",
         "x": 110,
         "y": 900,
         "wires": [
@@ -21853,7 +21792,7 @@
         "name": "",
         "props": [
             {
-                "p": "manageFileId",
+                "p": "managedFileId",
                 "v": "dataFile",
                 "vt": "flow"
             },
@@ -21878,7 +21817,6 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payloadType": "str",
         "x": 110,
         "y": 840,
         "wires": [
@@ -21894,7 +21832,7 @@
         "name": "",
         "props": [
             {
-                "p": "manageFileId",
+                "p": "managedFileId",
                 "v": "dataFile",
                 "vt": "flow"
             },
@@ -21919,7 +21857,6 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payloadType": "str",
         "x": 110,
         "y": 1000,
         "wires": [
@@ -21935,7 +21872,7 @@
         "name": "",
         "props": [
             {
-                "p": "manageFileId",
+                "p": "managedFileId",
                 "v": "dataFile",
                 "vt": "flow"
             },
@@ -21960,7 +21897,6 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payloadType": "str",
         "x": 110,
         "y": 1160,
         "wires": [
@@ -22037,6 +21973,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
+        "payloadType": "str",
         "x": 110,
         "y": 1420,
         "wires": [
@@ -22113,7 +22050,7 @@
         "dataStorage": "none",
         "name": "",
         "x": 260,
-        "y": 420,
+        "y": 400,
         "wires": [
             [
                 "cfd8f09e.5758e"
@@ -26506,5 +26443,3335 @@
         "x": 700,
         "y": 1640,
         "wires": []
+    },
+    {
+        "id": "989d450ea41827e7",
+        "type": "http in",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "url": "img-happybirthday",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 170,
+        "y": 420,
+        "wires": [
+            [
+                "ed9dab0e91cb97c4",
+                "7918b430586d259e"
+            ]
+        ]
+    },
+    {
+        "id": "3af8eedcd0907619",
+        "type": "http response",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 790,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "f6bf94e7f7aaae38",
+        "type": "file",
+        "z": "1e489d085051a6b7",
+        "name": "Save the image",
+        "filename": "",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 820,
+        "y": 460,
+        "wires": [
+            [
+                "c6ac1a30f080ced0"
+            ]
+        ]
+    },
+    {
+        "id": "6a5eae9f1fcbdca5",
+        "type": "olcnr-file-upload",
+        "z": "1e489d085051a6b7",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "files\\Superhero-card.OL-template",
+        "fileDuration": "temporary",
+        "name": "upload template",
+        "x": 280,
+        "y": 220,
+        "wires": [
+            [
+                "7d53de27a13c62c3"
+            ]
+        ]
+    },
+    {
+        "id": "896bc5045452678c",
+        "type": "inject",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "str",
+        "x": 110,
+        "y": 140,
+        "wires": [
+            [
+                "6a5eae9f1fcbdca5",
+                "06ee21dc9ee9fac0",
+                "3b656e632f06217f",
+                "b2d2ad5a32201e15",
+                "67b3a5cc45a299be",
+                "afca64e065886ab1",
+                "e1374fd2f10e1c00"
+            ]
+        ]
+    },
+    {
+        "id": "def021019e282a42",
+        "type": "debug",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 910,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "0cee0b788f055650",
+        "type": "comment",
+        "z": "1e489d085051a6b7",
+        "name": "produce Preview Image to return & save",
+        "info": "",
+        "x": 220,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "ed9dab0e91cb97c4",
+        "type": "change",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "timeStart",
+                "pt": "msg",
+                "to": "$millis()",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "'C:\\\\nr\\\\output\\\\birthday-' & timeStart & '.png'",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "templateSuperhero",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 420,
+        "wires": [
+            [
+                "76593a3e1045d9c3"
+            ]
+        ]
+    },
+    {
+        "id": "4414b8ceedadadc0",
+        "type": "file",
+        "z": "1e489d085051a6b7",
+        "name": "Save the image",
+        "filename": "",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 480,
+        "y": 580,
+        "wires": [
+            [
+                "09ee0905a9dee7e0"
+            ]
+        ]
+    },
+    {
+        "id": "15c092db61c3d096",
+        "type": "inject",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "timeStart",
+                "v": "",
+                "vt": "date"
+            },
+            {
+                "p": "filename",
+                "v": "'C:\\\\nr\\\\output\\\\json-in-' & timeStart & '.png'",
+                "vt": "jsonata"
+            },
+            {
+                "p": "template",
+                "v": "templateSuperhero",
+                "vt": "flow"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"first\":\"Rijk was here\"}",
+        "payloadType": "json",
+        "x": 110,
+        "y": 580,
+        "wires": [
+            [
+                "9fb4a27d68de613d"
+            ]
+        ]
+    },
+    {
+        "id": "2de745c9bc0e51bd",
+        "type": "comment",
+        "z": "1e489d085051a6b7",
+        "name": "trigger by loading https://127.0.0.1:1880/img-happybirthday?first=MyName",
+        "info": "",
+        "x": 320,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "e4afbe4c4a165dbd",
+        "type": "comment",
+        "z": "1e489d085051a6b7",
+        "name": "with JSON object as payload",
+        "info": "",
+        "x": 180,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "7918b430586d259e",
+        "type": "debug",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 410,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "aee04455cd6d1212",
+        "type": "inject",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "props": [
+            {
+                "p": "managedFileId",
+                "v": "dataFile",
+                "vt": "flow"
+            },
+            {
+                "p": "template",
+                "v": "template",
+                "vt": "flow"
+            },
+            {
+                "p": "dmConfiguration",
+                "v": "dmConfiguration",
+                "vt": "flow"
+            },
+            {
+                "p": "parameters",
+                "v": "{\"cc_param1\":\"CCParamIsSet\",\"dm_param1\":\"DmParamIsSet\"}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 700,
+        "wires": [
+            [
+                "8e3ea7ea4b53cdd7"
+            ]
+        ]
+    },
+    {
+        "id": "8e3ea7ea4b53cdd7",
+        "type": "olcnr-data-mapping",
+        "z": "1e489d085051a6b7",
+        "connect_server": "3c2c110.e9ac1f",
+        "dmConfiguration": "",
+        "active": false,
+        "name": "",
+        "x": 280,
+        "y": 700,
+        "wires": [
+            [
+                "b5035a0f07c6ab3e"
+            ]
+        ]
+    },
+    {
+        "id": "b5035a0f07c6ab3e",
+        "type": "olcnr-data-get",
+        "z": "1e489d085051a6b7",
+        "connect_server": "3c2c110.e9ac1f",
+        "inputType": "set",
+        "outputType": "ids",
+        "details": "false",
+        "outputJSON": "full",
+        "name": "",
+        "x": 460,
+        "y": 700,
+        "wires": [
+            [
+                "aa490d040d5948a1"
+            ]
+        ]
+    },
+    {
+        "id": "aa490d040d5948a1",
+        "type": "change",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[2]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 700,
+        "wires": [
+            [
+                "f946f4a6d48cb592"
+            ]
+        ]
+    },
+    {
+        "id": "41d1d6c0dad6ab14",
+        "type": "file",
+        "z": "1e489d085051a6b7",
+        "name": "Save the image",
+        "filename": "",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 1040,
+        "y": 740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dba3354b4d3070c6",
+        "type": "change",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "'C:\\\\nr\\\\output\\\\' & $millis() & '.png'",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1050,
+        "y": 700,
+        "wires": [
+            [
+                "41d1d6c0dad6ab14"
+            ]
+        ]
+    },
+    {
+        "id": "7d5afa4b07275df4",
+        "type": "olcnr-data-mapping",
+        "z": "1e489d085051a6b7",
+        "connect_server": "3c2c110.e9ac1f",
+        "dmConfiguration": "",
+        "active": false,
+        "name": "",
+        "x": 280,
+        "y": 840,
+        "wires": [
+            [
+                "881c7ea7ab510a7a"
+            ]
+        ]
+    },
+    {
+        "id": "881c7ea7ab510a7a",
+        "type": "olcnr-data-get",
+        "z": "1e489d085051a6b7",
+        "connect_server": "3c2c110.e9ac1f",
+        "inputType": "set",
+        "outputType": "ids",
+        "details": "false",
+        "outputJSON": "full",
+        "name": "",
+        "x": 460,
+        "y": 840,
+        "wires": [
+            [
+                "67ca544b8cf5126d",
+                "1cd091fd0d8de716"
+            ]
+        ]
+    },
+    {
+        "id": "67ca544b8cf5126d",
+        "type": "change",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "dataRecordId",
+                "pt": "msg",
+                "to": "payload[0]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[2]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 840,
+        "wires": [
+            [
+                "3dc18a866f9b748b"
+            ]
+        ]
+    },
+    {
+        "id": "5c379cf122251abb",
+        "type": "file",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "filename": "",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1230,
+        "y": 840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "641a99ed0c651ac8",
+        "type": "change",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "'C:\\\\nr\\\\output\\\\pi-dr-over-pl-1-' & $millis() & '.png'",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1050,
+        "y": 840,
+        "wires": [
+            [
+                "5c379cf122251abb"
+            ]
+        ]
+    },
+    {
+        "id": "1cd091fd0d8de716",
+        "type": "change",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "_payload",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[2]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "dataRecordId",
+                "pt": "msg",
+                "to": "_payload[0]",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "_payload",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 900,
+        "wires": [
+            [
+                "2cf84e8b5c8f5af7"
+            ]
+        ]
+    },
+    {
+        "id": "65c27c82d8cd20ca",
+        "type": "change",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "'C:\\\\nr\\\\output\\\\pi-dr-over-pl-2-' & $millis() & '.png'",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1050,
+        "y": 900,
+        "wires": [
+            [
+                "c2e0da16fc57db67"
+            ]
+        ]
+    },
+    {
+        "id": "c2e0da16fc57db67",
+        "type": "file",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "filename": "",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1230,
+        "y": 900,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "77f2fa4cb9825acf",
+        "type": "comment",
+        "z": "1e489d085051a6b7",
+        "name": "both PDFs should be from record 1",
+        "info": "",
+        "x": 1140,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "3ba55ac2b12f8895",
+        "type": "olcnr-data-mapping",
+        "z": "1e489d085051a6b7",
+        "connect_server": "3c2c110.e9ac1f",
+        "dmConfiguration": "",
+        "active": false,
+        "name": "",
+        "x": 280,
+        "y": 1000,
+        "wires": [
+            [
+                "9938903c4eb13ccd"
+            ]
+        ]
+    },
+    {
+        "id": "9938903c4eb13ccd",
+        "type": "olcnr-data-get",
+        "z": "1e489d085051a6b7",
+        "connect_server": "3c2c110.e9ac1f",
+        "inputType": "set",
+        "outputType": "ids",
+        "details": "false",
+        "outputJSON": "full",
+        "name": "",
+        "x": 460,
+        "y": 1000,
+        "wires": [
+            [
+                "de7b4ae130878b69",
+                "21fcdb6af594a8cc"
+            ]
+        ]
+    },
+    {
+        "id": "0f04fc842a1a4820",
+        "type": "comment",
+        "z": "1e489d085051a6b7",
+        "name": "these should both return a server error",
+        "info": "",
+        "x": 1130,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "de7b4ae130878b69",
+        "type": "change",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "dataRecordId",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[2]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 1060,
+        "wires": [
+            [
+                "f038522e03440d30"
+            ]
+        ]
+    },
+    {
+        "id": "9fcb99c8c7cb74ec",
+        "type": "change",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "'C:\\\\nr\\\\output\\\\' & $millis() & '.png'",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1050,
+        "y": 1060,
+        "wires": [
+            [
+                "c7a7f0b49a984375"
+            ]
+        ]
+    },
+    {
+        "id": "c7a7f0b49a984375",
+        "type": "file",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "filename": "",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1230,
+        "y": 1060,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "21fcdb6af594a8cc",
+        "type": "change",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[2]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "dataRecordId",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 1000,
+        "wires": [
+            [
+                "b1af2795666408bb"
+            ]
+        ]
+    },
+    {
+        "id": "8e920bf38019d16c",
+        "type": "change",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "'C:\\\\nr\\\\output\\\\' & $millis() & '.png'",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1050,
+        "y": 1000,
+        "wires": [
+            [
+                "8964d3cad64ed636"
+            ]
+        ]
+    },
+    {
+        "id": "8964d3cad64ed636",
+        "type": "file",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "filename": "",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1230,
+        "y": 1000,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6f79ccdc61e12553",
+        "type": "olcnr-data-mapping",
+        "z": "1e489d085051a6b7",
+        "connect_server": "3c2c110.e9ac1f",
+        "dmConfiguration": "",
+        "active": false,
+        "name": "",
+        "x": 280,
+        "y": 1160,
+        "wires": [
+            [
+                "de2e1b359086e7a1"
+            ]
+        ]
+    },
+    {
+        "id": "de2e1b359086e7a1",
+        "type": "olcnr-data-get",
+        "z": "1e489d085051a6b7",
+        "connect_server": "3c2c110.e9ac1f",
+        "inputType": "set",
+        "outputType": "ids",
+        "details": "false",
+        "outputJSON": "full",
+        "name": "",
+        "x": 460,
+        "y": 1160,
+        "wires": [
+            [
+                "5583a73163581600",
+                "1096bbc719cc7e86"
+            ]
+        ]
+    },
+    {
+        "id": "5583a73163581600",
+        "type": "change",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "dataRecordId",
+                "pt": "msg",
+                "to": "payload[1]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 1160,
+        "wires": [
+            [
+                "847e205aab617ee6"
+            ]
+        ]
+    },
+    {
+        "id": "89df0ee93e052208",
+        "type": "file",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "filename": "",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1230,
+        "y": 1160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5b6e532db9c84b14",
+        "type": "change",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "'C:\\\\nr\\\\output\\\\pi-dr-over-pl-3-' & $millis() & '.png'",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1050,
+        "y": 1160,
+        "wires": [
+            [
+                "89df0ee93e052208"
+            ]
+        ]
+    },
+    {
+        "id": "1096bbc719cc7e86",
+        "type": "change",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "_payload",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            },
+            {
+                "t": "set",
+                "p": "dataRecordId",
+                "pt": "msg",
+                "to": "_payload[1]",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "_payload",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 1220,
+        "wires": [
+            [
+                "04aa0771a43ebf61"
+            ]
+        ]
+    },
+    {
+        "id": "5a3c196af63554c9",
+        "type": "change",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "'C:\\\\nr\\\\output\\\\pi-dr-over-pl-4-' & $millis() & '.png'",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1050,
+        "y": 1220,
+        "wires": [
+            [
+                "59c06824196464b2"
+            ]
+        ]
+    },
+    {
+        "id": "59c06824196464b2",
+        "type": "file",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "filename": "",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1230,
+        "y": 1220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "559246a7dfde8b55",
+        "type": "file",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "filename": "",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 670,
+        "y": 1320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "99ffcf4ca2dc44ac",
+        "type": "change",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "'C:\\\\nr\\\\output\\\\nodata-1-' & $millis() & '.pdf'",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 490,
+        "y": 1320,
+        "wires": [
+            [
+                "559246a7dfde8b55"
+            ]
+        ]
+    },
+    {
+        "id": "fcf4e05a128c6a6d",
+        "type": "comment",
+        "z": "1e489d085051a6b7",
+        "name": "no data, just parameters",
+        "info": "",
+        "x": 170,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "7dcc76c060fca4c2",
+        "type": "file",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "filename": "",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 670,
+        "y": 1420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "615c8b67e36bc663",
+        "type": "change",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "'C:\\\\nr\\\\output\\\\no-data-2-' & $millis() & '.pdf'",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 490,
+        "y": 1420,
+        "wires": [
+            [
+                "7dcc76c060fca4c2"
+            ]
+        ]
+    },
+    {
+        "id": "1b58a96e1d333b67",
+        "type": "comment",
+        "z": "1e489d085051a6b7",
+        "name": "no data, no parameters",
+        "info": "",
+        "x": 160,
+        "y": 1380,
+        "wires": []
+    },
+    {
+        "id": "4032c635a72101a6",
+        "type": "comment",
+        "z": "1e489d085051a6b7",
+        "name": "data mapping and parameters",
+        "info": "",
+        "x": 180,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "06ee21dc9ee9fac0",
+        "type": "olcnr-file-upload",
+        "z": "1e489d085051a6b7",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "files\\printcontent\\printbsc-invoice+param.OL-template",
+        "fileDuration": "temporary",
+        "name": "upload template",
+        "x": 280,
+        "y": 260,
+        "wires": [
+            [
+                "bdf5331861d9ab32"
+            ]
+        ]
+    },
+    {
+        "id": "bdf5331861d9ab32",
+        "type": "change",
+        "z": "1e489d085051a6b7",
+        "name": "template",
+        "rules": [
+            {
+                "t": "move",
+                "p": "managedFileId",
+                "pt": "msg",
+                "to": "template",
+                "tot": "flow"
+            },
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "templateName",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 260,
+        "wires": [
+            [
+                "def021019e282a42"
+            ]
+        ]
+    },
+    {
+        "id": "3b656e632f06217f",
+        "type": "olcnr-file-upload",
+        "z": "1e489d085051a6b7",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "files\\printcontent\\printbsc-transactional+param xml.OL-datamapper",
+        "fileDuration": "temporary",
+        "name": "upload dmconfig",
+        "x": 290,
+        "y": 180,
+        "wires": [
+            [
+                "cfdfa2e673e36512"
+            ]
+        ]
+    },
+    {
+        "id": "cfdfa2e673e36512",
+        "type": "change",
+        "z": "1e489d085051a6b7",
+        "name": "dmConfiguration",
+        "rules": [
+            {
+                "t": "move",
+                "p": "managedFileId",
+                "pt": "msg",
+                "to": "dmConfiguration",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 510,
+        "y": 180,
+        "wires": [
+            [
+                "def021019e282a42"
+            ]
+        ]
+    },
+    {
+        "id": "07066daac3c3c349",
+        "type": "comment",
+        "z": "1e489d085051a6b7",
+        "name": "upload test data",
+        "info": "",
+        "x": 140,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "17791b07bfbb5e02",
+        "type": "comment",
+        "z": "1e489d085051a6b7",
+        "name": "dataRecordId trumps payload A",
+        "info": "",
+        "x": 190,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "d321c9f0ea023b60",
+        "type": "comment",
+        "z": "1e489d085051a6b7",
+        "name": "dataRecordId trumps payload B",
+        "info": "",
+        "x": 190,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "acccdd35a0dd7f93",
+        "type": "comment",
+        "z": "1e489d085051a6b7",
+        "name": "preview image tests",
+        "info": "",
+        "x": 130,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "b2d2ad5a32201e15",
+        "type": "olcnr-file-upload",
+        "z": "1e489d085051a6b7",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "files\\printcontent\\Sample Data-5recs.xml",
+        "fileDuration": "temporary",
+        "name": "upload data file",
+        "x": 280,
+        "y": 140,
+        "wires": [
+            [
+                "54f504c61caa6a97"
+            ]
+        ]
+    },
+    {
+        "id": "54f504c61caa6a97",
+        "type": "change",
+        "z": "1e489d085051a6b7",
+        "name": "dataFile",
+        "rules": [
+            {
+                "t": "move",
+                "p": "managedFileId",
+                "pt": "msg",
+                "to": "dataFile",
+                "tot": "flow"
+            },
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "dataFileName",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 140,
+        "wires": [
+            [
+                "def021019e282a42"
+            ]
+        ]
+    },
+    {
+        "id": "7d53de27a13c62c3",
+        "type": "change",
+        "z": "1e489d085051a6b7",
+        "name": "templateSuperhero",
+        "rules": [
+            {
+                "t": "move",
+                "p": "managedFileId",
+                "pt": "msg",
+                "to": "templateSuperhero",
+                "tot": "flow"
+            },
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "templateSuperheroName",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 510,
+        "y": 220,
+        "wires": [
+            [
+                "def021019e282a42"
+            ]
+        ]
+    },
+    {
+        "id": "008da434bca9857d",
+        "type": "comment",
+        "z": "1e489d085051a6b7",
+        "name": "make sure C:\\nr\\output\\ exists",
+        "info": "",
+        "x": 360,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "e8477d5a324753f4",
+        "type": "comment",
+        "z": "1e489d085051a6b7",
+        "name": "get third record",
+        "info": "",
+        "x": 640,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "09ee0905a9dee7e0",
+        "type": "debug",
+        "z": "1e489d085051a6b7",
+        "name": "time",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "'Time used: ' & ($millis() - timeStart ) /1000 & ' seconds'",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "77052461d8ec3712",
+        "type": "inject",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "props": [
+            {
+                "p": "managedFileId",
+                "v": "dataFile",
+                "vt": "flow"
+            },
+            {
+                "p": "template",
+                "v": "template",
+                "vt": "flow"
+            },
+            {
+                "p": "dmConfiguration",
+                "v": "dmConfiguration",
+                "vt": "flow"
+            },
+            {
+                "p": "parameters",
+                "v": "{\"cc_param1\":\"CCParamIsSet\",\"dm_param1\":\"DmParamIsSet\"}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "str",
+        "x": 110,
+        "y": 840,
+        "wires": [
+            [
+                "7d5afa4b07275df4"
+            ]
+        ]
+    },
+    {
+        "id": "6ae97a802db9c0fc",
+        "type": "inject",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "props": [
+            {
+                "p": "managedFileId",
+                "v": "dataFile",
+                "vt": "flow"
+            },
+            {
+                "p": "template",
+                "v": "template",
+                "vt": "flow"
+            },
+            {
+                "p": "dmConfiguration",
+                "v": "dmConfiguration",
+                "vt": "flow"
+            },
+            {
+                "p": "parameters",
+                "v": "{\"cc_param1\":\"CCParamIsSet\",\"dm_param1\":\"DmParamIsSet\"}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 1000,
+        "wires": [
+            [
+                "3ba55ac2b12f8895"
+            ]
+        ]
+    },
+    {
+        "id": "71cc90d44f8a36dc",
+        "type": "inject",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "props": [
+            {
+                "p": "managedFileId",
+                "v": "dataFile",
+                "vt": "flow"
+            },
+            {
+                "p": "template",
+                "v": "template",
+                "vt": "flow"
+            },
+            {
+                "p": "dmConfiguration",
+                "v": "dmConfiguration",
+                "vt": "flow"
+            },
+            {
+                "p": "parameters",
+                "v": "{\"cc_param1\":\"CCParamIsSet\",\"dm_param1\":\"DmParamIsSet\"}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 1160,
+        "wires": [
+            [
+                "6f79ccdc61e12553"
+            ]
+        ]
+    },
+    {
+        "id": "a9dbea3b9a4a93a7",
+        "type": "comment",
+        "z": "1e489d085051a6b7",
+        "name": "dataRecordId trumps payload C",
+        "info": "",
+        "x": 190,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "dad995d37589c982",
+        "type": "comment",
+        "z": "1e489d085051a6b7",
+        "name": "both PDFs should be from record 2, no errors",
+        "info": "",
+        "x": 1110,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "bccbe5c65cdd0f1a",
+        "type": "inject",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "props": [
+            {
+                "p": "template",
+                "v": "template",
+                "vt": "flow"
+            },
+            {
+                "p": "parameters",
+                "v": "{\"cc_param1\":\"CCParamIsSet\",\"dm_param1\":\"DmParamIsSet\"}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "str",
+        "x": 110,
+        "y": 1320,
+        "wires": [
+            [
+                "8443b3f48888ec03"
+            ]
+        ]
+    },
+    {
+        "id": "591bc239d45d70a6",
+        "type": "inject",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "props": [
+            {
+                "p": "template",
+                "v": "template",
+                "vt": "flow"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "str",
+        "x": 110,
+        "y": 1420,
+        "wires": [
+            [
+                "479d8d4f62934e4a"
+            ]
+        ]
+    },
+    {
+        "id": "c6ac1a30f080ced0",
+        "type": "debug",
+        "z": "1e489d085051a6b7",
+        "name": "timing & results",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "'Time used: ' & ($millis() - timeStart ) /1000 & ' seconds - filename: ' & filename",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1020,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "76593a3e1045d9c3",
+        "type": "olcnr-preview-image",
+        "z": "1e489d085051a6b7",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "context": "default",
+        "section": "",
+        "imagetype": "png",
+        "pages": "1",
+        "dpi": 96,
+        "x": 620,
+        "y": 420,
+        "wires": [
+            [
+                "3af8eedcd0907619",
+                "f6bf94e7f7aaae38"
+            ]
+        ]
+    },
+    {
+        "id": "9fb4a27d68de613d",
+        "type": "olcnr-preview-image",
+        "z": "1e489d085051a6b7",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "context": "default",
+        "section": "",
+        "imagetype": "png",
+        "pages": "1",
+        "dpi": 96,
+        "x": 280,
+        "y": 580,
+        "wires": [
+            [
+                "4414b8ceedadadc0"
+            ]
+        ]
+    },
+    {
+        "id": "f946f4a6d48cb592",
+        "type": "olcnr-preview-image",
+        "z": "1e489d085051a6b7",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "context": "default",
+        "section": "",
+        "imagetype": "png",
+        "pages": "1",
+        "dpi": 96,
+        "x": 840,
+        "y": 700,
+        "wires": [
+            [
+                "dba3354b4d3070c6"
+            ]
+        ]
+    },
+    {
+        "id": "8443b3f48888ec03",
+        "type": "olcnr-preview-image",
+        "z": "1e489d085051a6b7",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "context": "default",
+        "section": "",
+        "imagetype": "png",
+        "pages": "1",
+        "dpi": "96",
+        "x": 280,
+        "y": 1320,
+        "wires": [
+            [
+                "99ffcf4ca2dc44ac"
+            ]
+        ]
+    },
+    {
+        "id": "479d8d4f62934e4a",
+        "type": "olcnr-preview-image",
+        "z": "1e489d085051a6b7",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "context": "default",
+        "section": "",
+        "imagetype": "png",
+        "pages": "1",
+        "dpi": 96,
+        "x": 280,
+        "y": 1420,
+        "wires": [
+            [
+                "615c8b67e36bc663"
+            ]
+        ]
+    },
+    {
+        "id": "67b3a5cc45a299be",
+        "type": "olcnr-file-upload",
+        "z": "1e489d085051a6b7",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "files\\printcontent\\multi-page-PDF-background.OL-template",
+        "fileDuration": "temporary",
+        "name": "upload template",
+        "x": 280,
+        "y": 300,
+        "wires": [
+            [
+                "bace39f81a7b4886"
+            ]
+        ]
+    },
+    {
+        "id": "bace39f81a7b4886",
+        "type": "change",
+        "z": "1e489d085051a6b7",
+        "name": "multipage template",
+        "rules": [
+            {
+                "t": "move",
+                "p": "managedFileId",
+                "pt": "msg",
+                "to": "multipagetemplate",
+                "tot": "flow"
+            },
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "multipagetemplateName",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 510,
+        "y": 300,
+        "wires": [
+            [
+                "def021019e282a42"
+            ]
+        ]
+    },
+    {
+        "id": "4dec66655ebe27b4",
+        "type": "file",
+        "z": "1e489d085051a6b7",
+        "name": "Save the image",
+        "filename": "",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 700,
+        "y": 1520,
+        "wires": [
+            [
+                "061c0db9965317aa"
+            ]
+        ]
+    },
+    {
+        "id": "09499792918bb2d0",
+        "type": "inject",
+        "z": "1e489d085051a6b7",
+        "name": "inject",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "timeStart",
+                "v": "",
+                "vt": "date"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"Counter\":\"5\"}",
+        "payloadType": "json",
+        "x": 110,
+        "y": 1520,
+        "wires": [
+            [
+                "02e11674a3d8848f",
+                "57fa74428075a7c1",
+                "7106a3d3fa359aaa"
+            ]
+        ]
+    },
+    {
+        "id": "183ce9b1484a4e09",
+        "type": "comment",
+        "z": "1e489d085051a6b7",
+        "name": "print with pages option",
+        "info": "",
+        "x": 160,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "061c0db9965317aa",
+        "type": "debug",
+        "z": "1e489d085051a6b7",
+        "name": "time",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "'Time used: ' & ($millis() - timeStart ) /1000 & ' seconds'",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "9993f6c046186674",
+        "type": "olcnr-preview-image",
+        "z": "1e489d085051a6b7",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "context": "default",
+        "section": "",
+        "imagetype": "png",
+        "pages": "*",
+        "dpi": "",
+        "x": 500,
+        "y": 1520,
+        "wires": [
+            [
+                "4dec66655ebe27b4"
+            ]
+        ]
+    },
+    {
+        "id": "02e11674a3d8848f",
+        "type": "change",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "'C:\\\\nr\\\\output\\\\previewimage-multipage-ui_pages_all-' & timeStart & '.zip'",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "multipagetemplate",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 280,
+        "y": 1520,
+        "wires": [
+            [
+                "9993f6c046186674"
+            ]
+        ]
+    },
+    {
+        "id": "9508b4210bd8110c",
+        "type": "file",
+        "z": "1e489d085051a6b7",
+        "name": "Save the image",
+        "filename": "",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 700,
+        "y": 1580,
+        "wires": [
+            [
+                "b5c068f29ac55e1f"
+            ]
+        ]
+    },
+    {
+        "id": "b5c068f29ac55e1f",
+        "type": "debug",
+        "z": "1e489d085051a6b7",
+        "name": "time",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "'Time used: ' & ($millis() - timeStart ) /1000 & ' seconds'",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 1580,
+        "wires": []
+    },
+    {
+        "id": "1f3794b917425361",
+        "type": "olcnr-preview-image",
+        "z": "1e489d085051a6b7",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "context": "default",
+        "section": "",
+        "imagetype": "png",
+        "pages": " 1,3,6-11",
+        "dpi": 96,
+        "x": 500,
+        "y": 1580,
+        "wires": [
+            [
+                "9508b4210bd8110c"
+            ]
+        ]
+    },
+    {
+        "id": "57fa74428075a7c1",
+        "type": "change",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "'C:\\\\nr\\\\output\\\\previewimage-multipage-ui_pages_range-' & timeStart & '.zip'",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "multipagetemplate",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 280,
+        "y": 1580,
+        "wires": [
+            [
+                "1f3794b917425361"
+            ]
+        ]
+    },
+    {
+        "id": "4586f902368fa745",
+        "type": "olcnr-preview-image",
+        "z": "1e489d085051a6b7",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "context": "default",
+        "section": "",
+        "imagetype": "png",
+        "pages": "1",
+        "dpi": 96,
+        "x": 500,
+        "y": 1640,
+        "wires": [
+            [
+                "9d5e9c6f1e2c1c16"
+            ]
+        ]
+    },
+    {
+        "id": "9d5e9c6f1e2c1c16",
+        "type": "file",
+        "z": "1e489d085051a6b7",
+        "name": "Save the image",
+        "filename": "",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 700,
+        "y": 1640,
+        "wires": [
+            [
+                "76b46c51c0e2b723"
+            ]
+        ]
+    },
+    {
+        "id": "76b46c51c0e2b723",
+        "type": "debug",
+        "z": "1e489d085051a6b7",
+        "name": "time",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "'Time used: ' & ($millis() - timeStart ) /1000 & ' seconds'",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 1640,
+        "wires": []
+    },
+    {
+        "id": "7106a3d3fa359aaa",
+        "type": "change",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "'C:\\\\nr\\\\output\\\\previewimage-multipage-ui_pages_1-' & timeStart & '.png'",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "multipagetemplate",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 280,
+        "y": 1640,
+        "wires": [
+            [
+                "4586f902368fa745"
+            ]
+        ]
+    },
+    {
+        "id": "3dc18a866f9b748b",
+        "type": "olcnr-preview-image",
+        "z": "1e489d085051a6b7",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "context": "default",
+        "section": "",
+        "imagetype": "png",
+        "pages": "1",
+        "dpi": 96,
+        "x": 840,
+        "y": 840,
+        "wires": [
+            [
+                "641a99ed0c651ac8"
+            ]
+        ]
+    },
+    {
+        "id": "2cf84e8b5c8f5af7",
+        "type": "olcnr-preview-image",
+        "z": "1e489d085051a6b7",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "context": "default",
+        "section": "",
+        "imagetype": "png",
+        "pages": "1",
+        "dpi": 96,
+        "x": 840,
+        "y": 900,
+        "wires": [
+            [
+                "65c27c82d8cd20ca"
+            ]
+        ]
+    },
+    {
+        "id": "b1af2795666408bb",
+        "type": "olcnr-preview-image",
+        "z": "1e489d085051a6b7",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "context": "default",
+        "section": "",
+        "imagetype": "png",
+        "pages": "1",
+        "dpi": 96,
+        "x": 840,
+        "y": 1000,
+        "wires": [
+            [
+                "8e920bf38019d16c"
+            ]
+        ]
+    },
+    {
+        "id": "f038522e03440d30",
+        "type": "olcnr-preview-image",
+        "z": "1e489d085051a6b7",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "context": "default",
+        "section": "",
+        "imagetype": "png",
+        "pages": "1",
+        "dpi": 96,
+        "x": 840,
+        "y": 1060,
+        "wires": [
+            [
+                "9fcb99c8c7cb74ec"
+            ]
+        ]
+    },
+    {
+        "id": "847e205aab617ee6",
+        "type": "olcnr-preview-image",
+        "z": "1e489d085051a6b7",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "context": "default",
+        "section": "",
+        "imagetype": "png",
+        "pages": "1",
+        "dpi": 96,
+        "x": 840,
+        "y": 1160,
+        "wires": [
+            [
+                "5b6e532db9c84b14"
+            ]
+        ]
+    },
+    {
+        "id": "04aa0771a43ebf61",
+        "type": "olcnr-preview-image",
+        "z": "1e489d085051a6b7",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "context": "default",
+        "section": "",
+        "imagetype": "png",
+        "pages": "1",
+        "dpi": 96,
+        "x": 840,
+        "y": 1220,
+        "wires": [
+            [
+                "5a3c196af63554c9"
+            ]
+        ]
+    },
+    {
+        "id": "b0dc88d9fc487262",
+        "type": "change",
+        "z": "df200617.1e584",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "_payload",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[2]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "dataRecordId",
+                "pt": "msg",
+                "to": "_payload[1]",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "_payload",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 900,
+        "wires": [
+            [
+                "f7534f48.feac9"
+            ]
+        ]
+    },
+    {
+        "id": "cbb33d4764cc686f",
+        "type": "change",
+        "z": "df200617.1e584",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "_payload",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            },
+            {
+                "t": "set",
+                "p": "dataRecordId",
+                "pt": "msg",
+                "to": "_payload[2]",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "_payload",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 1220,
+        "wires": [
+            [
+                "cc69a192.7cdf5"
+            ]
+        ]
+    },
+    {
+        "id": "432bd0d74758019d",
+        "type": "change",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "multipagetemplate",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"Counter\":\"1\"}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "'C:\\\\nr\\\\output\\\\previewimage-print-' & timeStart & '.jpg'",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 280,
+        "y": 1960,
+        "wires": [
+            [
+                "c5119cb068434f2e"
+            ]
+        ]
+    },
+    {
+        "id": "9344c08ccb9ba621",
+        "type": "inject",
+        "z": "1e489d085051a6b7",
+        "name": "print",
+        "props": [
+            {
+                "p": "timeStart",
+                "v": "",
+                "vt": "date"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 111,
+        "y": 1960,
+        "wires": [
+            [
+                "432bd0d74758019d"
+            ]
+        ]
+    },
+    {
+        "id": "c5119cb068434f2e",
+        "type": "olcnr-preview-image",
+        "z": "1e489d085051a6b7",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "context": "default",
+        "section": "",
+        "imagetype": "jpg",
+        "pages": "1",
+        "dpi": "",
+        "name": "",
+        "x": 481,
+        "y": 1960,
+        "wires": [
+            [
+                "f650d673981a4aeb"
+            ]
+        ]
+    },
+    {
+        "id": "d46d4076cdad173d",
+        "type": "file",
+        "z": "1e489d085051a6b7",
+        "name": "Save the image",
+        "filename": "",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 860,
+        "y": 1960,
+        "wires": [
+            [
+                "f1e09a568e080b68"
+            ]
+        ]
+    },
+    {
+        "id": "f1e09a568e080b68",
+        "type": "debug",
+        "z": "1e489d085051a6b7",
+        "name": "time",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "'Time used: ' & ($millis() - timeStart ) /1000 & ' seconds'",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1030,
+        "y": 1960,
+        "wires": []
+    },
+    {
+        "id": "afca64e065886ab1",
+        "type": "olcnr-file-upload",
+        "z": "1e489d085051a6b7",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "files\\email\\EmailBasic.OL-template",
+        "fileDuration": "temporary",
+        "name": "upload template",
+        "x": 700,
+        "y": 160,
+        "wires": [
+            [
+                "694f3da466ccd1c5"
+            ]
+        ]
+    },
+    {
+        "id": "694f3da466ccd1c5",
+        "type": "change",
+        "z": "1e489d085051a6b7",
+        "name": "email template",
+        "rules": [
+            {
+                "t": "move",
+                "p": "managedFileId",
+                "pt": "msg",
+                "to": "emailtemplate",
+                "tot": "flow"
+            },
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "emailtemplateName",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 900,
+        "y": 160,
+        "wires": [
+            [
+                "def021019e282a42"
+            ]
+        ]
+    },
+    {
+        "id": "b25ceed2c4349b3e",
+        "type": "change",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "emailtemplate",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"FirstName\":\"Vlad\"}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "'C:\\\\nr\\\\output\\\\previewimage-email_1-' & timeStart & '.png'",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 281,
+        "y": 2040,
+        "wires": [
+            [
+                "496bb41ca403a845"
+            ]
+        ]
+    },
+    {
+        "id": "38a561eaad6bc466",
+        "type": "inject",
+        "z": "1e489d085051a6b7",
+        "name": "email",
+        "props": [
+            {
+                "p": "timeStart",
+                "v": "",
+                "vt": "date"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "str",
+        "x": 112,
+        "y": 2040,
+        "wires": [
+            [
+                "b25ceed2c4349b3e"
+            ]
+        ]
+    },
+    {
+        "id": "496bb41ca403a845",
+        "type": "olcnr-preview-image",
+        "z": "1e489d085051a6b7",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "context": "email",
+        "section": "",
+        "imagetype": "png",
+        "pages": "1",
+        "dpi": "",
+        "name": "",
+        "x": 482,
+        "y": 2040,
+        "wires": [
+            [
+                "6b64b38e1d5f415e"
+            ]
+        ]
+    },
+    {
+        "id": "0cd6d970a0117f23",
+        "type": "file",
+        "z": "1e489d085051a6b7",
+        "name": "Save the image",
+        "filename": "",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 861,
+        "y": 2040,
+        "wires": [
+            [
+                "9365a0e8f74a61b0"
+            ]
+        ]
+    },
+    {
+        "id": "9365a0e8f74a61b0",
+        "type": "debug",
+        "z": "1e489d085051a6b7",
+        "name": "time",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "'Time used: ' & ($millis() - timeStart ) /1000 & ' seconds'",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1031,
+        "y": 2040,
+        "wires": []
+    },
+    {
+        "id": "853f4b0fe0aabbe3",
+        "type": "change",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "webtemplate",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"text_input\":\"€ - é - 神 - Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\",\"select_menu\":\"courgettes\",\"radio_button\":\"radish\",\"checkbox\":\"1\"}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "'C:\\\\nr\\\\output\\\\previewimage-web_1-' & timeStart & '.png'",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 281,
+        "y": 2100,
+        "wires": [
+            [
+                "6b119c9d0424e868"
+            ]
+        ]
+    },
+    {
+        "id": "70a48ff286a7fe85",
+        "type": "inject",
+        "z": "1e489d085051a6b7",
+        "name": "web",
+        "props": [
+            {
+                "p": "timeStart",
+                "v": "",
+                "vt": "date"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 112,
+        "y": 2100,
+        "wires": [
+            [
+                "853f4b0fe0aabbe3"
+            ]
+        ]
+    },
+    {
+        "id": "6b119c9d0424e868",
+        "type": "olcnr-preview-image",
+        "z": "1e489d085051a6b7",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "context": "default",
+        "section": "form",
+        "imagetype": "png",
+        "pages": "1",
+        "dpi": "",
+        "x": 482,
+        "y": 2100,
+        "wires": [
+            [
+                "d55d218fd97f1d6b"
+            ]
+        ]
+    },
+    {
+        "id": "83b5efd8967dec8e",
+        "type": "file",
+        "z": "1e489d085051a6b7",
+        "name": "Save the image",
+        "filename": "",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 861,
+        "y": 2100,
+        "wires": [
+            [
+                "a23c33ac38cfe563"
+            ]
+        ]
+    },
+    {
+        "id": "a23c33ac38cfe563",
+        "type": "debug",
+        "z": "1e489d085051a6b7",
+        "name": "time",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "'Time used: ' & ($millis() - timeStart ) /1000 & ' seconds'",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1031,
+        "y": 2100,
+        "wires": []
+    },
+    {
+        "id": "e1374fd2f10e1c00",
+        "type": "olcnr-file-upload",
+        "z": "1e489d085051a6b7",
+        "connect_server": "3c2c110.e9ac1f",
+        "filename": "files\\html\\WEB_FORM Web Page.OL-template",
+        "fileDuration": "temporary",
+        "name": "upload template",
+        "x": 700,
+        "y": 200,
+        "wires": [
+            [
+                "3ccdc23c1eecdfd3"
+            ]
+        ]
+    },
+    {
+        "id": "3ccdc23c1eecdfd3",
+        "type": "change",
+        "z": "1e489d085051a6b7",
+        "name": "web template",
+        "rules": [
+            {
+                "t": "move",
+                "p": "managedFileId",
+                "pt": "msg",
+                "to": "webtemplate",
+                "tot": "flow"
+            },
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "webtemplateName",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 890,
+        "y": 200,
+        "wires": [
+            [
+                "def021019e282a42"
+            ]
+        ]
+    },
+    {
+        "id": "550fe075ba96e956",
+        "type": "comment",
+        "z": "1e489d085051a6b7",
+        "name": "zip with 50 PNGs",
+        "info": "",
+        "x": 1060,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "e6ef434f5634b780",
+        "type": "comment",
+        "z": "1e489d085051a6b7",
+        "name": "zip with 8 PNGs",
+        "info": "",
+        "x": 1060,
+        "y": 1580,
+        "wires": []
+    },
+    {
+        "id": "a8f2d7482c46801e",
+        "type": "comment",
+        "z": "1e489d085051a6b7",
+        "name": "1 PNG",
+        "info": "",
+        "x": 1030,
+        "y": 1640,
+        "wires": []
+    },
+    {
+        "id": "5e543618a447441a",
+        "type": "comment",
+        "z": "1e489d085051a6b7",
+        "name": "error expected",
+        "info": "",
+        "x": 840,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "fd839a61400d07bd",
+        "type": "comment",
+        "z": "1e489d085051a6b7",
+        "name": "error expected",
+        "info": "",
+        "x": 840,
+        "y": 1420,
+        "wires": []
+    },
+    {
+        "id": "64ecbeb0916b6d17",
+        "type": "olcnr-preview-image",
+        "z": "1e489d085051a6b7",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "context": "default",
+        "section": "",
+        "imagetype": "png",
+        "pages": "1",
+        "dpi": 96,
+        "x": 500,
+        "y": 1740,
+        "wires": [
+            [
+                "15abdbcfe2ec25d9"
+            ]
+        ]
+    },
+    {
+        "id": "15abdbcfe2ec25d9",
+        "type": "file",
+        "z": "1e489d085051a6b7",
+        "name": "Save the image",
+        "filename": "",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 700,
+        "y": 1740,
+        "wires": [
+            [
+                "24b78179f1892735"
+            ]
+        ]
+    },
+    {
+        "id": "24b78179f1892735",
+        "type": "debug",
+        "z": "1e489d085051a6b7",
+        "name": "time",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "'Time used: ' & ($millis() - timeStart ) /1000 & ' seconds'",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 1740,
+        "wires": []
+    },
+    {
+        "id": "6961edff253b7068",
+        "type": "comment",
+        "z": "1e489d085051a6b7",
+        "name": "zip with 1 PNG",
+        "info": "",
+        "x": 1050,
+        "y": 1740,
+        "wires": []
+    },
+    {
+        "id": "60e9471aabcf5f70",
+        "type": "change",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "archive",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "'C:\\\\nr\\\\output\\\\previewimage-multipage-archive_true-' & timeStart & '.zip'",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "multipagetemplate",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 280,
+        "y": 1740,
+        "wires": [
+            [
+                "64ecbeb0916b6d17"
+            ]
+        ]
+    },
+    {
+        "id": "b8dd065ddadcf17e",
+        "type": "change",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "archive",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "'C:\\\\nr\\\\output\\\\previewimage-multipage-archive_false-' & timeStart & '.png'",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "multipagetemplate",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 280,
+        "y": 1800,
+        "wires": [
+            [
+                "d90df350dda7a4da"
+            ]
+        ]
+    },
+    {
+        "id": "d90df350dda7a4da",
+        "type": "olcnr-preview-image",
+        "z": "1e489d085051a6b7",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "context": "default",
+        "section": "",
+        "imagetype": "png",
+        "pages": "1",
+        "dpi": 96,
+        "x": 500,
+        "y": 1800,
+        "wires": [
+            [
+                "87f19c81b78b9cc7"
+            ]
+        ]
+    },
+    {
+        "id": "87f19c81b78b9cc7",
+        "type": "file",
+        "z": "1e489d085051a6b7",
+        "name": "Save the image",
+        "filename": "",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 700,
+        "y": 1800,
+        "wires": [
+            [
+                "96cf1483608c51f6"
+            ]
+        ]
+    },
+    {
+        "id": "96cf1483608c51f6",
+        "type": "debug",
+        "z": "1e489d085051a6b7",
+        "name": "time",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "'Time used: ' & ($millis() - timeStart ) /1000 & ' seconds'",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 1800,
+        "wires": []
+    },
+    {
+        "id": "16e125cccf48fba8",
+        "type": "comment",
+        "z": "1e489d085051a6b7",
+        "name": "1 PNG",
+        "info": "",
+        "x": 1030,
+        "y": 1800,
+        "wires": []
+    },
+    {
+        "id": "1e259272c50cb205",
+        "type": "change",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "archive",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "'C:\\\\nr\\\\output\\\\previewimage-multipage-archive_false_ignore-' & timeStart & '.zip'",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "multipagetemplate",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "pages",
+                "pt": "msg",
+                "to": "1-5",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 280,
+        "y": 1860,
+        "wires": [
+            [
+                "f23585f9806c3af8"
+            ]
+        ]
+    },
+    {
+        "id": "f23585f9806c3af8",
+        "type": "olcnr-preview-image",
+        "z": "1e489d085051a6b7",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "context": "default",
+        "section": "",
+        "imagetype": "png",
+        "pages": "",
+        "dpi": 96,
+        "x": 500,
+        "y": 1860,
+        "wires": [
+            [
+                "40e862f576f5317a"
+            ]
+        ]
+    },
+    {
+        "id": "40e862f576f5317a",
+        "type": "file",
+        "z": "1e489d085051a6b7",
+        "name": "Save the image",
+        "filename": "",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 700,
+        "y": 1860,
+        "wires": [
+            [
+                "0c50f68a58b1a574"
+            ]
+        ]
+    },
+    {
+        "id": "0c50f68a58b1a574",
+        "type": "debug",
+        "z": "1e489d085051a6b7",
+        "name": "time",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "'Time used: ' & ($millis() - timeStart ) /1000 & ' seconds'",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 1860,
+        "wires": []
+    },
+    {
+        "id": "b2f6e4bb599086cb",
+        "type": "comment",
+        "z": "1e489d085051a6b7",
+        "name": "error expected",
+        "info": "",
+        "x": 1060,
+        "y": 1860,
+        "wires": []
+    },
+    {
+        "id": "2fb1198bc2d29da3",
+        "type": "inject",
+        "z": "1e489d085051a6b7",
+        "name": "inject",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "timeStart",
+                "v": "",
+                "vt": "date"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"Counter\":\"5\"}",
+        "payloadType": "json",
+        "x": 110,
+        "y": 1740,
+        "wires": [
+            [
+                "60e9471aabcf5f70",
+                "b8dd065ddadcf17e",
+                "1e259272c50cb205"
+            ]
+        ]
+    },
+    {
+        "id": "7ef33b5b1e5cb16e",
+        "type": "comment",
+        "z": "1e489d085051a6b7",
+        "name": "print with archive option",
+        "info": "",
+        "x": 160,
+        "y": 1700,
+        "wires": []
+    },
+    {
+        "id": "35fb9219c4013806",
+        "type": "inject",
+        "z": "1e489d085051a6b7",
+        "name": "print",
+        "props": [
+            {
+                "p": "timeStart",
+                "v": "",
+                "vt": "date"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 111,
+        "y": 2200,
+        "wires": [
+            [
+                "b7eafa0b2baff8de"
+            ]
+        ]
+    },
+    {
+        "id": "b1b3d52085af2171",
+        "type": "olcnr-preview-image",
+        "z": "1e489d085051a6b7",
+        "connect_server": "3c2c110.e9ac1f",
+        "template": "",
+        "context": "default",
+        "section": "Section 2",
+        "imagetype": "by-msg",
+        "pages": "",
+        "dpi": "",
+        "name": "",
+        "x": 481,
+        "y": 2200,
+        "wires": [
+            [
+                "0cb0566386fbdfca"
+            ]
+        ]
+    },
+    {
+        "id": "0a92beadef031c8b",
+        "type": "file",
+        "z": "1e489d085051a6b7",
+        "name": "Save the image",
+        "filename": "",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 860,
+        "y": 2200,
+        "wires": [
+            [
+                "d2f2c35c85fe7f9b"
+            ]
+        ]
+    },
+    {
+        "id": "d2f2c35c85fe7f9b",
+        "type": "debug",
+        "z": "1e489d085051a6b7",
+        "name": "time",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "'Time used: ' & ($millis() - timeStart ) /1000 & ' seconds'",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1030,
+        "y": 2200,
+        "wires": []
+    },
+    {
+        "id": "b7eafa0b2baff8de",
+        "type": "change",
+        "z": "1e489d085051a6b7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "template",
+                "pt": "msg",
+                "to": "multipagetemplate",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"Counter\":\"1\"}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "'C:\\\\nr\\\\output\\\\previewimage-print_x-' & timeStart",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "imagetype",
+                "pt": "msg",
+                "to": "jpeg",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 280,
+        "y": 2200,
+        "wires": [
+            [
+                "b1b3d52085af2171"
+            ]
+        ]
+    },
+    {
+        "id": "0cb0566386fbdfca",
+        "type": "function",
+        "z": "1e489d085051a6b7",
+        "name": "file extension",
+        "func": "let type = msg.headers[\"Content-Type\"];\nlet file = msg.filename;\nlet pos = file.lastIndexOf(\".\");\nif (type == \"application/zip\") {\n    msg.filename = file.substr(0, pos < 0 ? file.length : pos) + \".zip\";\n    } else if (type == \"image/jpeg\") {\n    msg.filename = file.substr(0, pos < 0 ? file.length : pos) + \".jpg\";\n    } else if (type == \"image/png\") {\n    msg.filename = file.substr(0, pos < 0 ? file.length : pos) + \".png\";\n    }\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 2200,
+        "wires": [
+            [
+                "0a92beadef031c8b"
+            ]
+        ]
+    },
+    {
+        "id": "d55d218fd97f1d6b",
+        "type": "function",
+        "z": "1e489d085051a6b7",
+        "name": "file extension",
+        "func": "let type = msg.headers[\"Content-Type\"];\nlet file = msg.filename;\nlet pos = file.lastIndexOf(\".\");\nif (type == \"application/zip\") {\n    msg.filename = file.substr(0, pos < 0 ? file.length : pos) + \".zip\";\n    } else if (type == \"image/jpeg\") {\n    msg.filename = file.substr(0, pos < 0 ? file.length : pos) + \".jpg\";\n    } else if (type == \"image/png\") {\n    msg.filename = file.substr(0, pos < 0 ? file.length : pos) + \".png\";\n    }\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 2100,
+        "wires": [
+            [
+                "83b5efd8967dec8e"
+            ]
+        ]
+    },
+    {
+        "id": "6b64b38e1d5f415e",
+        "type": "function",
+        "z": "1e489d085051a6b7",
+        "name": "file extension",
+        "func": "let type = msg.headers[\"Content-Type\"];\nlet file = msg.filename;\nlet pos = file.lastIndexOf(\".\");\nif (type == \"application/zip\") {\n    msg.filename = file.substr(0, pos < 0 ? file.length : pos) + \".zip\";\n    } else if (type == \"image/jpeg\") {\n    msg.filename = file.substr(0, pos < 0 ? file.length : pos) + \".jpg\";\n    } else if (type == \"image/png\") {\n    msg.filename = file.substr(0, pos < 0 ? file.length : pos) + \".png\";\n    }\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 2040,
+        "wires": [
+            [
+                "0cd6d970a0117f23"
+            ]
+        ]
+    },
+    {
+        "id": "f650d673981a4aeb",
+        "type": "function",
+        "z": "1e489d085051a6b7",
+        "name": "file extension",
+        "func": "let type = msg.headers[\"Content-Type\"];\nlet file = msg.filename;\nlet pos = file.lastIndexOf(\".\");\nif (type == \"application/zip\") {\n    msg.filename = file.substr(0, pos < 0 ? file.length : pos) + \".zip\";\n    } else if (type == \"image/jpeg\") {\n    msg.filename = file.substr(0, pos < 0 ? file.length : pos) + \".jpg\";\n    } else if (type == \"image/png\") {\n    msg.filename = file.substr(0, pos < 0 ? file.length : pos) + \".png\";\n    }\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 1960,
+        "wires": [
+            [
+                "d46d4076cdad173d"
+            ]
+        ]
     }
 ]
