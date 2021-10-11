@@ -26454,7 +26454,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 170,
-        "y": 420,
+        "y": 440,
         "wires": [
             [
                 "ed9dab0e91cb97c4",
@@ -26470,7 +26470,7 @@
         "statusCode": "",
         "headers": {},
         "x": 790,
-        "y": 420,
+        "y": 440,
         "wires": []
     },
     {
@@ -26483,8 +26483,8 @@
         "createDir": true,
         "overwriteFile": "true",
         "encoding": "none",
-        "x": 820,
-        "y": 460,
+        "x": 1000,
+        "y": 480,
         "wires": [
             [
                 "c6ac1a30f080ced0"
@@ -26557,7 +26557,7 @@
         "name": "produce Preview Image to return & save",
         "info": "",
         "x": 220,
-        "y": 380,
+        "y": 400,
         "wires": []
     },
     {
@@ -26594,7 +26594,7 @@
         "to": "",
         "reg": false,
         "x": 420,
-        "y": 420,
+        "y": 440,
         "wires": [
             [
                 "76593a3e1045d9c3"
@@ -26666,7 +26666,7 @@
         "name": "trigger by loading https://127.0.0.1:1880/img-happybirthday?first=MyName",
         "info": "",
         "x": 320,
-        "y": 340,
+        "y": 360,
         "wires": []
     },
     {
@@ -26692,7 +26692,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 410,
-        "y": 460,
+        "y": 480,
         "wires": []
     },
     {
@@ -26835,7 +26835,7 @@
         "y": 700,
         "wires": [
             [
-                "41d1d6c0dad6ab14"
+                "0eceb1ecedada004"
             ]
         ]
     },
@@ -27044,9 +27044,9 @@
         "id": "77f2fa4cb9825acf",
         "type": "comment",
         "z": "1e489d085051a6b7",
-        "name": "both PDFs should be from record 1",
+        "name": "both images should be from record 1",
         "info": "",
-        "x": 1140,
+        "x": 1150,
         "y": 800,
         "wires": []
     },
@@ -27955,9 +27955,9 @@
         "id": "dad995d37589c982",
         "type": "comment",
         "z": "1e489d085051a6b7",
-        "name": "both PDFs should be from record 2, no errors",
+        "name": "both images should be from record 2, no errors",
         "info": "",
-        "x": 1110,
+        "x": 1120,
         "y": 1120,
         "wires": []
     },
@@ -28031,8 +28031,8 @@
         "targetType": "jsonata",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1020,
-        "y": 460,
+        "x": 1200,
+        "y": 480,
         "wires": []
     },
     {
@@ -28047,11 +28047,11 @@
         "pages": "1",
         "dpi": 96,
         "x": 620,
-        "y": 420,
+        "y": 440,
         "wires": [
             [
                 "3af8eedcd0907619",
-                "f6bf94e7f7aaae38"
+                "e38d3d3b8a53d647"
             ]
         ]
     },
@@ -28191,7 +28191,7 @@
         "createDir": false,
         "overwriteFile": "true",
         "encoding": "none",
-        "x": 700,
+        "x": 860,
         "y": 1520,
         "wires": [
             [
@@ -28254,7 +28254,7 @@
         "targetType": "jsonata",
         "statusVal": "",
         "statusType": "auto",
-        "x": 870,
+        "x": 1030,
         "y": 1520,
         "wires": []
     },
@@ -28269,11 +28269,11 @@
         "imagetype": "png",
         "pages": "*",
         "dpi": "",
-        "x": 500,
+        "x": 480,
         "y": 1520,
         "wires": [
             [
-                "4dec66655ebe27b4"
+                "895295ec65309eb2"
             ]
         ]
     },
@@ -28321,7 +28321,7 @@
         "createDir": false,
         "overwriteFile": "true",
         "encoding": "none",
-        "x": 700,
+        "x": 860,
         "y": 1580,
         "wires": [
             [
@@ -28342,7 +28342,7 @@
         "targetType": "jsonata",
         "statusVal": "",
         "statusType": "auto",
-        "x": 870,
+        "x": 1030,
         "y": 1580,
         "wires": []
     },
@@ -28357,11 +28357,11 @@
         "imagetype": "png",
         "pages": " 1,3,6-11",
         "dpi": 96,
-        "x": 500,
+        "x": 480,
         "y": 1580,
         "wires": [
             [
-                "9508b4210bd8110c"
+                "ea985d45ebe9bb72"
             ]
         ]
     },
@@ -28410,7 +28410,7 @@
         "imagetype": "png",
         "pages": "1",
         "dpi": 96,
-        "x": 500,
+        "x": 480,
         "y": 1640,
         "wires": [
             [
@@ -28428,7 +28428,7 @@
         "createDir": false,
         "overwriteFile": "true",
         "encoding": "none",
-        "x": 700,
+        "x": 860,
         "y": 1640,
         "wires": [
             [
@@ -28449,7 +28449,7 @@
         "targetType": "jsonata",
         "statusVal": "",
         "statusType": "auto",
-        "x": 870,
+        "x": 1030,
         "y": 1640,
         "wires": []
     },
@@ -28897,8 +28897,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 281,
-        "y": 2040,
+        "x": 280,
+        "y": 2080,
         "wires": [
             [
                 "496bb41ca403a845"
@@ -28923,8 +28923,8 @@
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "str",
-        "x": 112,
-        "y": 2040,
+        "x": 111,
+        "y": 2080,
         "wires": [
             [
                 "b25ceed2c4349b3e"
@@ -28943,8 +28943,8 @@
         "pages": "1",
         "dpi": "",
         "name": "",
-        "x": 482,
-        "y": 2040,
+        "x": 481,
+        "y": 2080,
         "wires": [
             [
                 "6b64b38e1d5f415e"
@@ -28961,8 +28961,8 @@
         "createDir": false,
         "overwriteFile": "true",
         "encoding": "none",
-        "x": 861,
-        "y": 2040,
+        "x": 860,
+        "y": 2080,
         "wires": [
             [
                 "9365a0e8f74a61b0"
@@ -28982,8 +28982,8 @@
         "targetType": "jsonata",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1031,
-        "y": 2040,
+        "x": 1030,
+        "y": 2080,
         "wires": []
     },
     {
@@ -29019,8 +29019,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 281,
-        "y": 2100,
+        "x": 280,
+        "y": 2140,
         "wires": [
             [
                 "6b119c9d0424e868"
@@ -29044,8 +29044,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 112,
-        "y": 2100,
+        "x": 111,
+        "y": 2140,
         "wires": [
             [
                 "853f4b0fe0aabbe3"
@@ -29063,8 +29063,8 @@
         "imagetype": "png",
         "pages": "1",
         "dpi": "",
-        "x": 482,
-        "y": 2100,
+        "x": 481,
+        "y": 2140,
         "wires": [
             [
                 "d55d218fd97f1d6b"
@@ -29081,8 +29081,8 @@
         "createDir": false,
         "overwriteFile": "true",
         "encoding": "none",
-        "x": 861,
-        "y": 2100,
+        "x": 860,
+        "y": 2140,
         "wires": [
             [
                 "a23c33ac38cfe563"
@@ -29102,8 +29102,8 @@
         "targetType": "jsonata",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1031,
-        "y": 2100,
+        "x": 1030,
+        "y": 2140,
         "wires": []
     },
     {
@@ -29162,7 +29162,7 @@
         "z": "1e489d085051a6b7",
         "name": "zip with 50 PNGs",
         "info": "",
-        "x": 1060,
+        "x": 1220,
         "y": 1520,
         "wires": []
     },
@@ -29172,7 +29172,7 @@
         "z": "1e489d085051a6b7",
         "name": "zip with 8 PNGs",
         "info": "",
-        "x": 1060,
+        "x": 1220,
         "y": 1580,
         "wires": []
     },
@@ -29182,7 +29182,7 @@
         "z": "1e489d085051a6b7",
         "name": "1 PNG",
         "info": "",
-        "x": 1030,
+        "x": 1190,
         "y": 1640,
         "wires": []
     },
@@ -29217,11 +29217,11 @@
         "imagetype": "png",
         "pages": "1",
         "dpi": 96,
-        "x": 500,
+        "x": 480,
         "y": 1740,
         "wires": [
             [
-                "15abdbcfe2ec25d9"
+                "23563ca7908db33a"
             ]
         ]
     },
@@ -29235,7 +29235,7 @@
         "createDir": false,
         "overwriteFile": "true",
         "encoding": "none",
-        "x": 700,
+        "x": 860,
         "y": 1740,
         "wires": [
             [
@@ -29256,7 +29256,7 @@
         "targetType": "jsonata",
         "statusVal": "",
         "statusType": "auto",
-        "x": 870,
+        "x": 1030,
         "y": 1740,
         "wires": []
     },
@@ -29266,7 +29266,7 @@
         "z": "1e489d085051a6b7",
         "name": "zip with 1 PNG",
         "info": "",
-        "x": 1050,
+        "x": 1210,
         "y": 1740,
         "wires": []
     },
@@ -29363,11 +29363,11 @@
         "imagetype": "png",
         "pages": "1",
         "dpi": 96,
-        "x": 500,
+        "x": 480,
         "y": 1800,
         "wires": [
             [
-                "87f19c81b78b9cc7"
+                "1d7e3c656f0ec0cd"
             ]
         ]
     },
@@ -29381,7 +29381,7 @@
         "createDir": false,
         "overwriteFile": "true",
         "encoding": "none",
-        "x": 700,
+        "x": 860,
         "y": 1800,
         "wires": [
             [
@@ -29402,7 +29402,7 @@
         "targetType": "jsonata",
         "statusVal": "",
         "statusType": "auto",
-        "x": 870,
+        "x": 1030,
         "y": 1800,
         "wires": []
     },
@@ -29412,7 +29412,7 @@
         "z": "1e489d085051a6b7",
         "name": "1 PNG",
         "info": "",
-        "x": 1030,
+        "x": 1190,
         "y": 1800,
         "wires": []
     },
@@ -29475,11 +29475,11 @@
         "imagetype": "png",
         "pages": "",
         "dpi": 96,
-        "x": 500,
+        "x": 480,
         "y": 1860,
         "wires": [
             [
-                "40e862f576f5317a"
+                "766cd579c1dc3036"
             ]
         ]
     },
@@ -29493,7 +29493,7 @@
         "createDir": false,
         "overwriteFile": "true",
         "encoding": "none",
-        "x": 700,
+        "x": 860,
         "y": 1860,
         "wires": [
             [
@@ -29514,7 +29514,7 @@
         "targetType": "jsonata",
         "statusVal": "",
         "statusType": "auto",
-        "x": 870,
+        "x": 1030,
         "y": 1860,
         "wires": []
     },
@@ -29524,7 +29524,7 @@
         "z": "1e489d085051a6b7",
         "name": "error expected",
         "info": "",
-        "x": 1060,
+        "x": 1220,
         "y": 1860,
         "wires": []
     },
@@ -29587,8 +29587,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 111,
-        "y": 2200,
+        "x": 110,
+        "y": 2020,
         "wires": [
             [
                 "b7eafa0b2baff8de"
@@ -29607,8 +29607,8 @@
         "pages": "",
         "dpi": "",
         "name": "",
-        "x": 481,
-        "y": 2200,
+        "x": 480,
+        "y": 2020,
         "wires": [
             [
                 "0cb0566386fbdfca"
@@ -29625,8 +29625,8 @@
         "createDir": false,
         "overwriteFile": "true",
         "encoding": "none",
-        "x": 860,
-        "y": 2200,
+        "x": 859,
+        "y": 2020,
         "wires": [
             [
                 "d2f2c35c85fe7f9b"
@@ -29646,8 +29646,8 @@
         "targetType": "jsonata",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1030,
-        "y": 2200,
+        "x": 1029,
+        "y": 2020,
         "wires": []
     },
     {
@@ -29690,8 +29690,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 280,
-        "y": 2200,
+        "x": 279,
+        "y": 2020,
         "wires": [
             [
                 "b1b3d52085af2171"
@@ -29709,8 +29709,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 670,
-        "y": 2200,
+        "x": 669,
+        "y": 2020,
         "wires": [
             [
                 "0a92beadef031c8b"
@@ -29728,8 +29728,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 670,
-        "y": 2100,
+        "x": 669,
+        "y": 2140,
         "wires": [
             [
                 "83b5efd8967dec8e"
@@ -29747,8 +29747,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 670,
-        "y": 2040,
+        "x": 669,
+        "y": 2080,
         "wires": [
             [
                 "0cd6d970a0117f23"
@@ -29771,6 +29771,166 @@
         "wires": [
             [
                 "d46d4076cdad173d"
+            ]
+        ]
+    },
+    {
+        "id": "aaacf2c24572d9c3",
+        "type": "comment",
+        "z": "1e489d085051a6b7",
+        "name": "msg and UI playground",
+        "info": "",
+        "x": 160,
+        "y": 1920,
+        "wires": []
+    },
+    {
+        "id": "0eceb1ecedada004",
+        "type": "function",
+        "z": "1e489d085051a6b7",
+        "name": "file extension",
+        "func": "let type = msg.headers[\"Content-Type\"];\nlet file = msg.filename;\nlet pos = file.lastIndexOf(\".\");\nif (type == \"application/zip\") {\n    msg.filename = file.substr(0, pos < 0 ? file.length : pos) + \".zip\";\n    } else if (type == \"image/jpeg\") {\n    msg.filename = file.substr(0, pos < 0 ? file.length : pos) + \".jpg\";\n    } else if (type == \"image/png\") {\n    msg.filename = file.substr(0, pos < 0 ? file.length : pos) + \".png\";\n    }\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1250,
+        "y": 700,
+        "wires": [
+            [
+                "41d1d6c0dad6ab14"
+            ]
+        ]
+    },
+    {
+        "id": "e38d3d3b8a53d647",
+        "type": "function",
+        "z": "1e489d085051a6b7",
+        "name": "file extension",
+        "func": "let type = msg.headers[\"Content-Type\"];\nlet file = msg.filename;\nlet pos = file.lastIndexOf(\".\");\nif (type == \"application/zip\") {\n    msg.filename = file.substr(0, pos < 0 ? file.length : pos) + \".zip\";\n    } else if (type == \"image/jpeg\") {\n    msg.filename = file.substr(0, pos < 0 ? file.length : pos) + \".jpg\";\n    } else if (type == \"image/png\") {\n    msg.filename = file.substr(0, pos < 0 ? file.length : pos) + \".png\";\n    }\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 480,
+        "wires": [
+            [
+                "f6bf94e7f7aaae38"
+            ]
+        ]
+    },
+    {
+        "id": "895295ec65309eb2",
+        "type": "function",
+        "z": "1e489d085051a6b7",
+        "name": "file extension",
+        "func": "let type = msg.headers[\"Content-Type\"];\nlet file = msg.filename;\nlet pos = file.lastIndexOf(\".\");\nif (type == \"application/zip\") {\n    msg.filename = file.substr(0, pos < 0 ? file.length : pos) + \".zip\";\n    } else if (type == \"image/jpeg\") {\n    msg.filename = file.substr(0, pos < 0 ? file.length : pos) + \".jpg\";\n    } else if (type == \"image/png\") {\n    msg.filename = file.substr(0, pos < 0 ? file.length : pos) + \".png\";\n    }\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 1520,
+        "wires": [
+            [
+                "4dec66655ebe27b4"
+            ]
+        ]
+    },
+    {
+        "id": "ea985d45ebe9bb72",
+        "type": "function",
+        "z": "1e489d085051a6b7",
+        "name": "file extension",
+        "func": "let type = msg.headers[\"Content-Type\"];\nlet file = msg.filename;\nlet pos = file.lastIndexOf(\".\");\nif (type == \"application/zip\") {\n    msg.filename = file.substr(0, pos < 0 ? file.length : pos) + \".zip\";\n    } else if (type == \"image/jpeg\") {\n    msg.filename = file.substr(0, pos < 0 ? file.length : pos) + \".jpg\";\n    } else if (type == \"image/png\") {\n    msg.filename = file.substr(0, pos < 0 ? file.length : pos) + \".png\";\n    }\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 1580,
+        "wires": [
+            [
+                "9508b4210bd8110c"
+            ]
+        ]
+    },
+    {
+        "id": "2a86702d7d1470b2",
+        "type": "function",
+        "z": "1e489d085051a6b7",
+        "name": "file extension",
+        "func": "let type = msg.headers[\"Content-Type\"];\nlet file = msg.filename;\nlet pos = file.lastIndexOf(\".\");\nif (type == \"application/zip\") {\n    msg.filename = file.substr(0, pos < 0 ? file.length : pos) + \".zip\";\n    } else if (type == \"image/jpeg\") {\n    msg.filename = file.substr(0, pos < 0 ? file.length : pos) + \".jpg\";\n    } else if (type == \"image/png\") {\n    msg.filename = file.substr(0, pos < 0 ? file.length : pos) + \".png\";\n    }\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 1640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "23563ca7908db33a",
+        "type": "function",
+        "z": "1e489d085051a6b7",
+        "name": "file extension",
+        "func": "let type = msg.headers[\"Content-Type\"];\nlet file = msg.filename;\nlet pos = file.lastIndexOf(\".\");\nif (type == \"application/zip\") {\n    msg.filename = file.substr(0, pos < 0 ? file.length : pos) + \".zip\";\n    } else if (type == \"image/jpeg\") {\n    msg.filename = file.substr(0, pos < 0 ? file.length : pos) + \".jpg\";\n    } else if (type == \"image/png\") {\n    msg.filename = file.substr(0, pos < 0 ? file.length : pos) + \".png\";\n    }\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 1740,
+        "wires": [
+            [
+                "15abdbcfe2ec25d9"
+            ]
+        ]
+    },
+    {
+        "id": "1d7e3c656f0ec0cd",
+        "type": "function",
+        "z": "1e489d085051a6b7",
+        "name": "file extension",
+        "func": "let type = msg.headers[\"Content-Type\"];\nlet file = msg.filename;\nlet pos = file.lastIndexOf(\".\");\nif (type == \"application/zip\") {\n    msg.filename = file.substr(0, pos < 0 ? file.length : pos) + \".zip\";\n    } else if (type == \"image/jpeg\") {\n    msg.filename = file.substr(0, pos < 0 ? file.length : pos) + \".jpg\";\n    } else if (type == \"image/png\") {\n    msg.filename = file.substr(0, pos < 0 ? file.length : pos) + \".png\";\n    }\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 1800,
+        "wires": [
+            [
+                "87f19c81b78b9cc7"
+            ]
+        ]
+    },
+    {
+        "id": "766cd579c1dc3036",
+        "type": "function",
+        "z": "1e489d085051a6b7",
+        "name": "file extension",
+        "func": "let type = msg.headers[\"Content-Type\"];\nlet file = msg.filename;\nlet pos = file.lastIndexOf(\".\");\nif (type == \"application/zip\") {\n    msg.filename = file.substr(0, pos < 0 ? file.length : pos) + \".zip\";\n    } else if (type == \"image/jpeg\") {\n    msg.filename = file.substr(0, pos < 0 ? file.length : pos) + \".jpg\";\n    } else if (type == \"image/png\") {\n    msg.filename = file.substr(0, pos < 0 ? file.length : pos) + \".png\";\n    }\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 1860,
+        "wires": [
+            [
+                "40e862f576f5317a"
             ]
         ]
     }
