@@ -1,5 +1,5 @@
-OLC-NR-TEST
-===========
+olc-nodered-RT
+==============
 
 Testing OL Connect nodes for Node-RED
 
